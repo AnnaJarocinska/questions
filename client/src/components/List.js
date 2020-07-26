@@ -7,17 +7,17 @@ const List = ({ questions, deleteQuestion }) => {
       {
         questions &&
           questions.length > 0 ?
-            (
-              questions.map(question => {
-                return (
-                  <li key={question._id} onClick={() => deleteQuestion(question._id)}>{question.action}</li>
-                )
-              })
-            )
-            :
-            (
-              <li>No questions left</li>
-            )
+          (
+            questions.map(question => {
+              return (
+                <li key={question._id} onClick={() => deleteQuestion(question._id)}>{question.action}</li>
+              )
+            })
+          )
+          :
+          (
+            <li>No questions left</li>
+          )
       }
     </ul>
   )
