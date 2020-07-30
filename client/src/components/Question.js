@@ -9,16 +9,17 @@ const Question = () => {
 
   const fetchData = async () => {
     const result = await axios.get('/api/question')
-      setData(result.data);
+    setData(result.data);
+    console.log(result.data, 'result.data')
   }
 
-  useEffect((data) => {
-        fetchData(data)
-  },[]);
+  useEffect(() => {
+    fetchData()
+  }, []);
 
   const deleteQuestion = async (id) => {
     await axios.delete(`/api/question/${id}`)
-      fetchData(data)
+    fetchData(data)
       .catch(err => console.log(err))
   }
 
@@ -26,7 +27,7 @@ const Question = () => {
     <div>
       <h1>My questions</h1>
       <Input getQuestions={fetchData} />
-      <List questions={data} deleteQuestion={deleteQuestion}/>
+      <List questions={data} deleteQuestion={deleteQuestion} />
     </div>
   );
 }

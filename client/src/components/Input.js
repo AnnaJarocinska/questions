@@ -29,13 +29,17 @@ const Input = (props) => (
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
-        const newQuestion = { action: values.newQuestion }
-        const continent = { action: values.continent }
-        const answerA = { action: values.a }
-        const answerB = { action: values.b }
-        const answerC = { action: values.c }
-        const answerD = { action: values.d }
-          axios.post('/api/question', newQuestion, continent, answerA, answerB, answerC, answerD)
+        const content = {
+          newQuestion: values.newQuestion,
+          continent: values.continent,
+          answerA: values.a,
+          answerB: values.b,
+          answerC: values.c,
+          answerD: values.d,
+          goodAnswer: values.goodAnswer
+        }
+    
+          axios.post('/api/question', content)
             .then(res => {
               if (res.data) {
                 props.getQuestions();
@@ -130,6 +134,17 @@ const Input = (props) => (
             >
             </input>
             {errors.d && touched.d && errors.d}
+            <label htmlFor="goodAnswer">good answer</label>
+            <input
+              name="goodAnswer"
+              id="goodAnswer"
+              type="text"
+              onChange={handleChange}
+              value={values.goodAnswer}
+              onBlur={handleBlur}
+            >
+            </input>
+            {errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}
             <button type="submit" disabled={isSubmitting}>add question</button>
           </form>
         )}
