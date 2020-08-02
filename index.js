@@ -1,20 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = require('./routes/api');
+
+const api = require('./routes/api');
+const users = require('./routes/users');
+const home = require('./routes/home');
+
 const path = require('path');
 require('dotenv').config();
 
 const app = express();
 
+app.use(bodyParser.json());
+
+const router = express.Router();
+
 const port = process.env.PORT || 5000;
 
-//connect to the database
 mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true  })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
-//since mongoose promise is depreciated, we overide it with node's promise
 mongoose.Promise = global.Promise;
 
 app.use((req, res, next) => {
@@ -23,9 +29,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(bodyParser.json());
-
-app.use('/api', routes);
+app.use('/', router);
+app.use('/api', api);
+app.use('/login', users);
 
 app.use((err, req, res, next) => {
   console.log(err);

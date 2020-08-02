@@ -18,6 +18,7 @@ const List = ({ questions, deleteQuestion }) => {
                {question.answerB}
                {question.answerC}
                 {question.answerD}
+                {question.goodAnswer}
                 {/* {question.created} */}
                 </li>
               )
