@@ -1,11 +1,11 @@
 import React from 'react';
-import InputUsers from '../components/InputUsers';
+import LoginForm from '../components/LoginForm';
 
 const Login = () => {
     return ( 
         <>
         <p>Login</p>
-        <InputUsers/>
+        <LoginForm/>
         </>
      );
 }

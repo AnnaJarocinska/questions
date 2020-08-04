@@ -10,12 +10,13 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
 
-    if (req.body.name === 'ania'){
-        console.log(req.body.name)
-        res.send(req.body.name)
+    if (req.body.name === 'ania'&& req.body.password === '123'){
+        res.send('verified')}
+    else {
+        res.send('rejection')
     }
 
-    console.log(req.body, 'req.body w post users')
+   
 
     // User.create(req.body)
     //     .then(data => res.json(data))

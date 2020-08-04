@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const api = require('./routes/api');
-const users = require('./routes/users');
+const login = require('./routes/login');
 const home = require('./routes/home');
 
 const path = require('path');
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 app.use('/', router);
 app.use('/api', api);
-app.use('/login', users);
+app.use('/login', login);
 
 app.use((err, req, res, next) => {
   console.log(err);
