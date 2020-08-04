@@ -2,21 +2,20 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
 
-router.get('/', (req, res, next) => {
-    // User.find({})
-    // .then(data => res.json(data))
-    // .catch(next)  
-});
-
 router.post('/', (req, res, next) => {
 
-    if (req.body.name === 'ania'&& req.body.password === '123'){
-        res.send('verified')}
-    else {
-        res.send('rejection')
-    }
-
-   
+        User.find({name: req.body.name, password: req.body.password} , function(err, arr) {
+          console.log(arr.length, 'arr')
+            if (arr.length > 0){
+                res.send('verified')
+            }
+            if (arr.length === 0) {
+                    res.send('rejection')
+            } 
+            })
+        .then(data => res.json(data))
+        .catch(next) 
+  
 
     // User.create(req.body)
     //     .then(data => res.json(data))
