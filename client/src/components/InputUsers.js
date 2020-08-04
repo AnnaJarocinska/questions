@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
+import { Redirect } from 'react-router';
 
-const Input = (props) => (
+const InputUsers = (props) => {
+
+  const [loggedIn, setloggedIn] = useState(false);
+
+  return (
   <div>
     <Formik
       initialValues={{ name:''}}
@@ -20,11 +25,15 @@ const Input = (props) => (
     
           axios.post('/login', content)
             .then(res => {
-              if (res.data) {
-                resetForm();
-                setSubmitting(false);
-              }
+              if(res.data === 'ania'){
+              setloggedIn(true)}
+              
+              // if (res.data) {
+              //   resetForm();
+              //   setSubmitting(false);
+              // }
             })
+            
             .catch(err => console.log(err))
         
       }}
@@ -52,8 +61,9 @@ const Input = (props) => (
           </form>
         )}
     </Formik>
+    {loggedIn ? <Redirect to='/addingQuestion'/> : <p>niezalogowany</p> }    
   </div>
-);
+)}
 
 
-export default Input;
+export default InputUsers;
