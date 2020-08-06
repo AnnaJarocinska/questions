@@ -5,6 +5,7 @@ import Home from './views/Home';
 import AddingQuestion from './views/AddingQuestion';
 import Login from './views/Login';
 import Quiz from './views/Quiz';
+import NewUser from './views/NewUser';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/addingQuestion" component={AddingQuestion} />
       <Route path="/login" component={Login} />
+      <Route path="/newUser" component={NewUser} />
       <Route path="/quiz" component={Quiz} />
     </div>
     </Router>
