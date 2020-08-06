@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
-// import { Redirect } from 'react-router';
+import { Redirect } from 'react-router';
 
-const LoginForm = (props) => {
+const NewUserForm = (props) => {
 
-//   const [loggedIn, setloggedIn] = useState(false);
-//   const [rejection, setRejection] = useState(false);
+  const [created, setCreated] = useState(false);
+  const [rejection, setRejection] = useState(false);
 
   return (
   <>
@@ -24,13 +24,20 @@ const LoginForm = (props) => {
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         const content = {
-          newName: values.newName,
-          newPassword: values.newPassword
+          name: values.newName,
+          password: values.newPassword
         }
     
           axios.post('/newUser', content)
             .then(res => {
             console.log(res)
+            if (res.data === 'rejection'){
+              setRejection(true);
+              resetForm();
+            }
+            if (res.data === 'created'){
+              setCreated(true);
+            }
             })
             
             .catch(err => console.log(err))
@@ -69,10 +76,10 @@ const LoginForm = (props) => {
           </form>
         )}
     </Formik>
-    {/* {loggedIn && <Redirect to='/addingQuestion'/>}
-    {rejection && <p>Incorrect login details</p>}     */}
+     {/* {created && <Redirect to='/userCreated'/>} */}
+    {rejection && <p>This username is already in use</p>}    
   </>
 )}
 
 
-export default LoginForm;
+export default NewUserForm;

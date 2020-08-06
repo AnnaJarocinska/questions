@@ -4,30 +4,26 @@ const User = require('../models/users');
 
 router.post('/', (req, res, next) => {
 
-        // User.find({name: req.body.name, password: req.body.password} , function(err, arr) {
-        //   console.log(arr.length, 'arr')
-        //     if (arr.length > 0){
-        //         res.send('verified')
-        //     }
-        //     if (arr.length === 0) {
-        //             res.send('rejection')
-        //     } 
-        //     })
-        // .then(data => res.json(data))
-        // .catch(next) 
+        User.find({name: req.body.name} , function(err, arr) {
+          console.log(arr.length, 'arr')
+            if (arr.length > 0){
+                res.send('rejection')
+            }
+            if (arr.length === 0) {
+              User.create(req.body)
+              res.send('created')
+        .then(data => res.json(data))
+        .catch(next)   
+            } 
+            })
+        .then(data => res.json(data))
+        .catch(next) 
   
+//   console.log( req.body, 'req.body w newuser')
+//     User.create(req.body)
+//         .then(data => res.json(data))
+//         .catch(next)
 
-    // User.create(req.body)
-    //     .then(data => res.json(data))
-    //     .catch(next)
-
-    const usersdata = new User({
-        name: 'kicia kocia',
-          email: 'name@name.com',
-          password: '123',
-    })
-            
-        usersdata.save()
           
 });
 
