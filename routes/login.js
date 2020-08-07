@@ -5,7 +5,6 @@ const User = require('../models/users');
 router.post('/', (req, res, next) => {
 
         User.find({name: req.body.name, password: req.body.password} , function(err, arr) {
-          console.log(arr.length, 'arr w login')
             if (arr.length > 0){
                 res.send('verified')
             }

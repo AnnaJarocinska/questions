@@ -9,8 +9,6 @@ router.get('/question', (req, res, next) => {
 });
 
 router.post('/question', (req, res, next) => {
-    
-    console.log(req.body, 'req.body w post')
 
     Question.create(req.body)
         .then(data => res.json(data))

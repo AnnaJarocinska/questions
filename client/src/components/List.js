@@ -2,7 +2,6 @@ import React from 'react';
 
 const List = ({ questions, deleteQuestion }) => {
 
-  console.log(questions, 'questions w list')
   return (
     <ul>
       {

@@ -10,7 +10,6 @@ const Question = () => {
   const fetchData = async () => {
     const result = await axios.get('/api/question')
     setData(result.data);
-    console.log(result.data, 'result.data')
   }
 
   useEffect(() => {

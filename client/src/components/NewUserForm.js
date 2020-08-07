@@ -30,7 +30,6 @@ const NewUserForm = (props) => {
     
           axios.post('/newUser', content)
             .then(res => {
-            // console.log(res)
             if (res.data === 'created'){
               setCreated(true);
             }

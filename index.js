@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const api = require('./routes/api');
 const login = require('./routes/login');
 const newUser = require('./routes/newUser');
+const users = require('./routes/users');
 const home = require('./routes/home');
 
 const path = require('path');
@@ -34,7 +35,7 @@ app.use('/', router);
 app.use('/api', api);
 app.use('/login', login);
 app.use('/newUser', newUser);
-
+app.use('/users', users);
 
 app.use((err, req, res, next) => {
   console.log(err);
