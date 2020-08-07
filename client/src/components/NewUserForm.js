@@ -30,14 +30,15 @@ const NewUserForm = (props) => {
     
           axios.post('/newUser', content)
             .then(res => {
-            console.log(res)
+            // console.log(res)
+            if (res.data === 'created'){
+              setCreated(true);
+            }
             if (res.data === 'rejection'){
               setRejection(true);
               resetForm();
             }
-            if (res.data === 'created'){
-              setCreated(true);
-            }
+            
             })
             
             .catch(err => console.log(err))
@@ -76,7 +77,7 @@ const NewUserForm = (props) => {
           </form>
         )}
     </Formik>
-     {/* {created && <Redirect to='/userCreated'/>} */}
+     {created && <Redirect to='/userCreated'/>}
     {rejection && <p>This username is already in use</p>}    
   </>
 )}

@@ -31,7 +31,7 @@ const LoginForm = (props) => {
           axios.post('/login', content)
             .then(res => {
               if (res.data === 'verified'){
-              setloggedIn(true)
+              setloggedIn(true);
               }
               if (res.data === 'rejection'){
                 setRejection(true);

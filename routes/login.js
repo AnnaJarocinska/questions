@@ -5,7 +5,7 @@ const User = require('../models/users');
 router.post('/', (req, res, next) => {
 
         User.find({name: req.body.name, password: req.body.password} , function(err, arr) {
-          console.log(arr.length, 'arr')
+          console.log(arr.length, 'arr w login')
             if (arr.length > 0){
                 res.send('verified')
             }
@@ -14,21 +14,7 @@ router.post('/', (req, res, next) => {
             } 
             })
         .then(data => res.json(data))
-        .catch(next) 
-  
-
-    // User.create(req.body)
-    //     .then(data => res.json(data))
-    //     .catch(next)
-
-    // const usersdata = new User({
-    //     name: 'Name',
-    //       email: 'name@name.com',
-    //       password: 'qwerty',
-    // })
-            
-    //     usersdata.save()
-          
+        .catch(next)        
 });
 
 module.exports = router;
