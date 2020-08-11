@@ -7,6 +7,7 @@ const LoginForm = (props) => {
 
   const [loggedIn, setloggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
+  const [admin, setAdmin] = useState(false);
 
   return (
   <>
@@ -30,6 +31,9 @@ const LoginForm = (props) => {
     
           axios.post('/login', content)
             .then(res => {
+              if (res.data === 'admin'){
+                setAdmin(true);
+                }
               if (res.data === 'verified'){
               setloggedIn(true);
               }
@@ -75,6 +79,7 @@ const LoginForm = (props) => {
           </form>
         )}
     </Formik>
+    {admin && <Redirect to='/adminDashbord'/>}
     {loggedIn && <Redirect to='/addingQuestion'/>}
     {rejection && <p>Incorrect login details</p>}    
   </>

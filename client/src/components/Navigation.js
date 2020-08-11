@@ -25,7 +25,10 @@ const Navigation = () => {
                 </li>   
                 <li>
                     <Link to="/quiz">Quiz</Link>
-                </li>        
+                </li>   
+                <li>
+                    <Link to="/adminDashboard">admin dashboard</Link>
+                </li>      
             </ul> 
         </nav>
      );

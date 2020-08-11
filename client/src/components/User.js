@@ -9,7 +9,6 @@ const User = () => {
     const fetchData = async () => {
         const result = await axios.get('/users')
         setData(result.data);
-        console.log(result.data, 'users w users.js')
     }
 
     useEffect(() => {

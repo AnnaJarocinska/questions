@@ -8,6 +8,7 @@ import Quiz from './views/Quiz';
 import NewUser from './views/NewUser';
 import UserCreated from './views/UserCreated';
 import Users from './views/Users';
+import AdminDashboard from './views/AdminDashoard';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path="/userCreated" component={UserCreated} />
       <Route path="/users" component={Users} />
       <Route path="/quiz" component={Quiz} />
+      <Route path="/adminDashboard" component={AdminDashboard} />
     </div>
     </Router>
   );
