@@ -79,7 +79,7 @@ const LoginForm = (props) => {
           </form>
         )}
     </Formik>
-    {admin && <Redirect to='/adminDashbord'/>}
+    {admin && <Redirect to='/adminDashboard'/>}
     {loggedIn && <Redirect to='/addingQuestion'/>}
     {rejection && <p>Incorrect login details</p>}    
   </>
