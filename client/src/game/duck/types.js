@@ -1,0 +1,8 @@
+const ADD_POINT = 'ADD_POINT';
+const RESET_POINTS = 'RESET_POINTS';
+
+
+export default {
+ADD_POINT,
+RESET_POINTS,
+}

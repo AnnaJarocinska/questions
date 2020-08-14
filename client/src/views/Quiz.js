@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import OneQuestion from '../components/OneQuestion'
+import OneQuestion from '../components/OneQuestion';
+import Points from '../game/components/Points';
 
 const Quiz = () => {
 
@@ -21,6 +22,7 @@ const Quiz = () => {
     return (  
         <>
         <p>Quiz</p>
+        <Points/>
         <button onClick={fetchData}>Start</button>
         <OneQuestion question={data}/>
         </>
