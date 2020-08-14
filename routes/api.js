@@ -8,6 +8,12 @@ router.get('/question', (req, res, next) => {
         .catch(next)
 });
 
+router.get('/question', (req, res, next) => {
+    Question.find({id: Math.floor(Math.random()*(3-0+1))})
+        .then(data => res.json(data))
+        .catch(next)
+});
+
 router.post('/question', (req, res, next) => {
 
     Question.create(req.body)

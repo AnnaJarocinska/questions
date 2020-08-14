@@ -2,6 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const QuestionSchema = new Schema({
+
+  id: {
+    type: Number,
+    default: 3
+  },
   newQuestion: {
     type: String,
     required: [true, 'The question field is required']
