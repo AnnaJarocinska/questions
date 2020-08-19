@@ -1,43 +1,43 @@
 import types from './types';
+import produce from 'immer';
 
 const INITIAL_STATE = {
 
   points: 0,
   questions:[],
-  // question: {
-  //   id: '',
-  //   continent:'',
-  //   question:'',
-  //   answerA: '',
-  //   answerB: '',
-  //   answerC: '',
-  //   answerD: '',
-  //   goodAswer:
-  // }
+  question:
+  {
+    id: '',
+    continent:'',
+    question:'',
+    answerA: '',
+    answerB: '',
+    answerC: '',
+    answerD: '',
+    goodAswer: '',
+  }
 }
 
-const gameReducer = (state = INITIAL_STATE, action) => {
-
+const gameReducer = (state = INITIAL_STATE, action) => 
+produce(state, draft => {
     switch (action.type) {
+
       case types.ADD_POINT:
-      return {
-        ...state, points: [...state.points +1]
-      }
-    case types.RESET_POINTS:
-      return {
-        ...state, points: 0
-      }
-      case types.FETCH_QUESTIONS:
-      return {
-        ...state, questions: [...state.questions, action.item ]
-      }
+        draft.points = draft.points + 1
+      break;
+
+      case types.RESET_POINTS:
+        draft.points = 0
+        break;
+
       case types.ADD_QUESTION:
-        return {
-          ...state, questions: [...state.questions, action.question, action.continent, action.answerA, action.answerB, action.answerC, action.answerD, action.id ]
-        }
+
+          draft.questions.push(action.payload) 
+          break;
+        
       default:
-        return state   
+        return draft  
     }
-  }
+  })
 
 export default gameReducer;

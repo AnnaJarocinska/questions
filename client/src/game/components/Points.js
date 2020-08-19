@@ -2,18 +2,26 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getQuestions } from '../duck/operations';
 
-
-const Points = ({points, questions, getQuestions}) => {
+const Points = ({points, questions, question, getQuestions}) => {
 
     useEffect(() => {getQuestions()}, [])
-    console.log(
-    questions, 'questions')
+
+const questionList = []
+
+ Object.entries(questions).map((element) => {
+    Object.values(element[1]).forEach( item => {
+        const oneQuestion = <p>{item}</p>
+        questionList.push(oneQuestion)
+    })
+    })
+
+    
 
     return ( 
         <>
             <div>    
                 <p>Points: {points}</p>
-                <p>Questions: {questions}</p>
+                <p>Questions: {questionList} </p>
             </div>
         </>
      );
@@ -26,9 +34,7 @@ const mapStateToProps = (state) => ({
 
   const mapDispatchToProps = dispatch => ({
       getQuestions: () => dispatch(getQuestions())
-
-      }
-  )
+    })
   
 
 export default connect(mapStateToProps, mapDispatchToProps)(Points);

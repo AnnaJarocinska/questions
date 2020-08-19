@@ -12,5 +12,6 @@ export const getQuestions = () =>
     const questions = await fetchQuestions()
 
     questions.map(question => dispatch(actions.addQuestion(
-        question.newQuestion, question.continent, question.answerA, question.answerB, question.answerC, question.answerD, question.id )))
+        question.newQuestion, question.continent,
+        question.answerA, question.answerB, question.answerC, question.answerD, question.id )))
   }
