@@ -13,5 +13,5 @@ export const getQuestions = () =>
 
     questions.map(question => dispatch(actions.addQuestion(
         question.newQuestion, question.continent,
-        question.answerA, question.answerB, question.answerC, question.answerD, question.id )))
+        question.answerA, question.answerB, question.answerC, question.answerD, question.id, question.goodAnswer )))
   }

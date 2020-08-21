@@ -9,9 +9,9 @@ const reset = (item) => ({
     type: types.RESET_POINTS, item
 })
 
-const addQuestion = (question, continent, answerA, answerB, answerC, answerD, id) => ({
+const addQuestion = (question, continent, answerA, answerB, answerC, answerD, id, goodAnswer) => ({
     type: types.ADD_QUESTION,
-    payload: {question, continent, answerA, answerB, answerC, answerD, id}
+    payload: {question, continent, answerA, answerB, answerC, answerD, id, goodAnswer}
 })
 
 const fetchQuestions = () => ({

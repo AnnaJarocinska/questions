@@ -9,11 +9,12 @@ const Points = ({points, questions, question, getQuestions}) => {
 const questionList = []
 
  Object.entries(questions).map((element) => {
+     console.log(element[1], 'element')
     Object.values(element[1]).forEach( item => {
         const oneQuestion = <p>{item}</p>
         questionList.push(oneQuestion)
     })
-    })
+})
 
     
 
@@ -21,7 +22,7 @@ const questionList = []
         <>
             <div>    
                 <p>Points: {points}</p>
-                <p>Questions: {questionList} </p>
+                <p>Questions: {questionList}</p>
             </div>
         </>
      );

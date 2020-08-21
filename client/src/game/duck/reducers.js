@@ -31,7 +31,6 @@ produce(state, draft => {
         break;
 
       case types.ADD_QUESTION:
-
           draft.questions.push(action.payload) 
           break;
         
