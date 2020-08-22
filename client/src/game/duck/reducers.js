@@ -6,17 +6,6 @@ const INITIAL_STATE = {
   points: 0,
   questions:[],
   randomQuestion:[],
-  question:
-  {
-    id: '',
-    continent:'',
-    question:'',
-    answerA: '',
-    answerB: '',
-    answerC: '',
-    answerD: '',
-    goodAswer: '',
-  }
 }
 
 const gameReducer = (state = INITIAL_STATE, action) => 
@@ -25,6 +14,10 @@ produce(state, draft => {
 
       case types.ADD_POINT:
         draft.points = draft.points + 1
+      break;
+
+      case types.SUBTRACT_POINT:
+        draft.points = draft.points - 1
       break;
 
       case types.RESET_POINTS:

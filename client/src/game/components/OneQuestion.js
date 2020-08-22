@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../duck/actions';
 
-const OneQuestion = ({randomQuestion, addPoint}) => {
+const OneQuestion = ({randomQuestion, addPoint, subtractPoint}) => {
 
     let goodAnswer = randomQuestion.goodAnswer;
 
@@ -12,7 +12,8 @@ const OneQuestion = ({randomQuestion, addPoint}) => {
         if (letter === goodAnswer) {
             addPoint();
         } else {
-            console.log('bad answer')
+            subtractPoint();
+            // resetPoints();
         }
     }
 
@@ -44,8 +45,10 @@ const mapStateToProps = (state) => ({
     randomQuestion: state.game.randomQuestion,
   })
 
-  const mapDispatchToProps = dispatch => ({
-    addPoint: () =>  dispatch(actions.addPoint())
+const mapDispatchToProps = (dispatch) => ({
+    addPoint: () =>  dispatch(actions.addPoint()),
+    subtractPoint: () =>  dispatch(actions.subtractPoint()),
+    // resetPoints: () =>  dispatch(actions.resetPoints()),
   })  
 
 export default connect(mapStateToProps, mapDispatchToProps)(OneQuestion);
