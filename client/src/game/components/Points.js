@@ -4,7 +4,7 @@ import { getQuestions } from '../duck/operations';
 import actions from '../duck/actions';
 import OneQuestion from './OneQuestion';
 
-const Points = ({points, questions, getQuestions, getRandomQuestion}) => {
+const Points = ({points, questions, getQuestions, getRandomQuestion, gameFinished}) => {
   
     useEffect(() => {getQuestions()}, [])
 
@@ -26,7 +26,7 @@ const handleClick = () => {
             <p>Questions: {questionList}</p>
             <p>Random question</p>
             <button onClick={handleClick}> get random question</button>
-            <OneQuestion/>
+            {!gameFinished && <OneQuestion/>}
         </>
      );
 }
@@ -35,6 +35,7 @@ const mapStateToProps = (state) => ({
     points: state.game.points, 
     questions: state.game.questions,
     randomQuestion: state.game.randomQuestion,
+    gameFinished: state.game.gameFinished,
   })
 
   const mapDispatchToProps = dispatch => ({
