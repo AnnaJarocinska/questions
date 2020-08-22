@@ -20,25 +20,13 @@ const questionList = []
 const handleClick = () => {
     getRandomQuestion()}
 
-
-// const randomQuestion = []
-// const randomNumber = Math.floor(Math.random()*(3-0));
-// const randomQuest = Object.values(questions)[randomNumber]; //obj
-
-// for (let prop in randomQuest) {
-//     const oneRandomQuestion =<p> {randomQuest[prop]}</p>
-//     randomQuestion.push(oneRandomQuestion);
-//  }
-
     return ( 
-        <>
-               
-                <p>Points: {points}</p>
-                <p>Questions: {questionList}</p>
-                <p>Random question</p>
-                <button onClick={handleClick}> get random question</button>
-                <OneQuestion/>
-           
+        <>   
+            <p>Points: {points}</p>
+            <p>Questions: {questionList}</p>
+            <p>Random question</p>
+            <button onClick={handleClick}> get random question</button>
+            <OneQuestion/>
         </>
      );
 }

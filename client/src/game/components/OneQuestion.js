@@ -1,34 +1,37 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import actions from '../duck/actions';
 
-const OneQuestion = ({randomQuestion}) => {
-
+const OneQuestion = ({randomQuestion, addPoint}) => {
 
     let goodAnswer = randomQuestion.goodAnswer;
 
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
         let letter = e.target.getAttribute('name').charAt(index).toLowerCase()
-if(letter === goodAnswer) {
-    console.log('good answer')
-}else{
-    console.log('bad answer')
-}
+        if (letter === goodAnswer) {
+            addPoint();
+        } else {
+            console.log('bad answer')
+        }
     }
 
     const currentQuestion = [];
     for (let [key, value] of Object.entries(randomQuestion)){
         if(key === 'question'|| key === 'answerA' || key === 'answerB' || key === 'answerC' || key === 'answerD'){
         currentQuestion.push(
+               key === 'question'?
+               <p
+               key={key} 
+               name= {key}>
+                   {value}</p> 
+                   :
                 <p
-                key={value} 
+                key={key} 
                 name= {key}
                 onClick={handleAnswerClick}>
                     {value}</p>)
     }}
-
-
-console.log(goodAnswer, 'goodAnswer')
 
     return ( 
         <>
@@ -37,9 +40,12 @@ console.log(goodAnswer, 'goodAnswer')
      );
 }
 
- 
 const mapStateToProps = (state) => ({
     randomQuestion: state.game.randomQuestion,
   })
 
-export default connect(mapStateToProps, null)(OneQuestion);
+  const mapDispatchToProps = dispatch => ({
+    addPoint: () =>  dispatch(actions.addPoint())
+  })  
+
+export default connect(mapStateToProps, mapDispatchToProps)(OneQuestion);

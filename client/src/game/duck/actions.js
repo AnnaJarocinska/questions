@@ -1,10 +1,10 @@
 import types from './types';
 
-const add = (item) => ({
+const addPoint = (item) => ({
     type: types.ADD_POINT, item
 })
 
-const reset = (item) => ({
+const resetPoints = (item) => ({
     type: types.RESET_POINTS, item
 })
 
@@ -23,8 +23,8 @@ const getRandomQuestion = (question, continent, answerA, answerB, answerC, answe
 })
 
 export default {
-    add,
-    reset,
+    addPoint,
+    resetPoints,
     fetchQuestions,
     addQuestion,
     getRandomQuestion,
