@@ -5,6 +5,7 @@ const INITIAL_STATE = {
 
   points: 0,
   questions:[],
+  randomQuestion:[],
   question:
   {
     id: '',
@@ -34,6 +35,10 @@ produce(state, draft => {
           draft.questions.push(action.payload) 
           break;
         
+      case types.GET_RANDOM_QUESTION:
+        const randomNumber = Math.floor(Math.random()*(3-0));
+            draft.randomQuestion = draft.questions[randomNumber]
+            break;    
       default:
         return draft  
     }

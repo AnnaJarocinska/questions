@@ -1,36 +1,44 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getQuestions } from '../duck/operations';
+import actions from '../duck/actions';
+import OneQuestion from './OneQuestion';
 
-const Points = ({points, questions, question, getQuestions}) => {
-
+const Points = ({points, questions, getQuestions, getRandomQuestion}) => {
+  
     useEffect(() => {getQuestions()}, [])
 
 const questionList = []
 
  Object.entries(questions).map((element) => {
     Object.entries(element[1]).forEach( item => {
-        const oneQuestion = <div><button>{item[1]}</button></div>
+        const oneQuestion = <button>{item[1]}</button>
         questionList.push(oneQuestion)
     })
 })
 
-const randomQuestion = []
-const randomNumber = Math.floor(Math.random()*(3-0));
-const randomQuest = Object.values(questions)[randomNumber]; //obj
+const handleClick = () => {
+    getRandomQuestion()}
 
-for (let prop in randomQuest) {
-    const oneRandomQuestion =<p> {randomQuest[prop]}</p>
-    randomQuestion.push(oneRandomQuestion);
- }
+
+// const randomQuestion = []
+// const randomNumber = Math.floor(Math.random()*(3-0));
+// const randomQuest = Object.values(questions)[randomNumber]; //obj
+
+// for (let prop in randomQuest) {
+//     const oneRandomQuestion =<p> {randomQuest[prop]}</p>
+//     randomQuestion.push(oneRandomQuestion);
+//  }
 
     return ( 
         <>
-            <div>    
+               
                 <p>Points: {points}</p>
                 <p>Questions: {questionList}</p>
-                <p>One question: {randomQuestion}</p>
-            </div>
+                <p>Random question</p>
+                <button onClick={handleClick}> get random question</button>
+                <OneQuestion/>
+           
         </>
      );
 }
@@ -38,11 +46,12 @@ for (let prop in randomQuest) {
 const mapStateToProps = (state) => ({
     points: state.game.points, 
     questions: state.game.questions,
-    // questions: getQuestions(state),
+    randomQuestion: state.game.randomQuestion,
   })
 
   const mapDispatchToProps = dispatch => ({
-    getQuestions: () => dispatch(getQuestions())
+    getQuestions: () => dispatch(getQuestions()),
+    getRandomQuestion: () => dispatch(actions.getRandomQuestion())
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Points);
