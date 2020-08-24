@@ -26,6 +26,11 @@ const getRandomQuestion = (question, continent, answerA, answerB, answerC, answe
     payload: {question, continent, answerA, answerB, answerC, answerD, id, goodAnswer}
 })
 
+const answerQuestion = (id, goodOrBad) => ({
+    type: types.ANSWER_QUESTION,
+    payload: {id, goodOrBad}
+})
+
 export default {
     addPoint,
     subtractPoint,
@@ -33,4 +38,5 @@ export default {
     fetchQuestions,
     addQuestion,
     getRandomQuestion,
+    answerQuestion
 }

@@ -1,18 +1,19 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import shortid from 'shortid';
 import { getQuestions } from '../duck/operations';
 import actions from '../duck/actions';
 import OneQuestion from './OneQuestion';
 
 const Points = ({points, questions, getQuestions, getRandomQuestion, gameFinished}) => {
   
-    useEffect(() => {getQuestions()}, [])
+    useEffect(() => {getQuestions()}, [getQuestions])
 
 const questionList = []
 
- Object.entries(questions).map((element) => {
-    Object.entries(element[1]).forEach( item => {
-        const oneQuestion = <button>{item[1]}</button>
+ Object.entries(questions).forEach((element) => {
+    Object.entries(element[1]).forEach( (item, index) => {
+        const oneQuestion = <button key={shortid.generate()}>{item[1]}</button>
         questionList.push(oneQuestion)
     })
 })
