@@ -1,5 +1,5 @@
 import types from './types';
-import produce, { current } from 'immer';
+import produce from 'immer';
 
 const INITIAL_STATE = {
 
@@ -72,7 +72,7 @@ const gameReducer = (state = INITIAL_STATE, action) =>
           const isEveryQuestionAnswered = (element, index, array) => {
            return (element.answered === true)
           }
-          
+
           if (draft.questionsToAsk.every(isEveryQuestionAnswered)){
            draft.gameFinished = true;
          }
