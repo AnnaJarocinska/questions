@@ -1,5 +1,5 @@
 import types from './types';
-import produce from 'immer';
+import produce, { current } from 'immer';
 
 const INITIAL_STATE = {
 
@@ -33,37 +33,47 @@ const gameReducer = (state = INITIAL_STATE, action) =>
 
       case types.GET_RANDOM_QUESTION:
 
-        const questionsLength = draft.questions.length
-        let randomNumber = Math.floor(Math.random() * questionsLength);
-        const nextQuestion = draft.questions[randomNumber]
-
         if(draft.questionsAsked.length === 0){
         draft.questionsToAsk = [...draft.questions];
         }
 
-        if (!nextQuestion.asked) {
-          draft.randomQuestion = nextQuestion;
+        let questionsToAskLength = draft.questionsToAsk.length
+        let randomNumberA = Math.floor(Math.random() * questionsToAskLength);
+        const nextQuestion = draft.questionsToAsk[randomNumberA]
+
+        draft.randomQuestion = nextQuestion;
        
-          if (!draft.questionsAsked.includes(draft.randomQuestion)){
-            draft.questionsAsked.push(draft.randomQuestion);
-            draft.questionsToAsk.pop(draft.randomQuestion)
+        if (!draft.questionsAsked.includes(nextQuestion)){
+
+            draft.questionsAsked.push(draft.randomQuestion)
+            const hasCurrentQuestion = item => {
+              return item.question === draft.randomQuestion.question
+            }
+
+            let QuestionToRemoveIndex = draft.questionsToAsk.findIndex(hasCurrentQuestion)
+             draft.questionsToAsk.splice(QuestionToRemoveIndex,1)
+
+              if(draft.randomQuestion){
             draft.randomQuestion.asked = true;
+              }
           } 
-        }
-       
-        if (draft.questionsToAsk.length === 0 ) {
-          console.log('nie ma juz pytan do zadania')
+  
+        if (draft.questionsToAsk.length === 0 && !draft.randomQuestion) {
+          draft.gameFinished = true;
           }         
         break;
 
         case types.ANSWER_QUESTION:
-        draft.questions[action.payload.id].answered = true;
-        
-        draft.questions.forEach(element => {
-         const isEveryQuestionAnswered = (element, index, array) => {
+         
+        // draft.questions[action.payload.id].answered = true;
+        // draft.questionsToAsk[action.payload.id].answered = true;
+
+          draft.questionsToAsk.forEach(element => {
+          const isEveryQuestionAnswered = (element, index, array) => {
            return (element.answered === true)
           }
-         if (draft.questions.every(isEveryQuestionAnswered)){
+          
+          if (draft.questionsToAsk.every(isEveryQuestionAnswered)){
            draft.gameFinished = true;
          }
        })   

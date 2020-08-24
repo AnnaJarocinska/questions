@@ -6,11 +6,7 @@ const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
     addPoint, subtractPoint, getRandomQuestion, answerQuestion}) => {
 
     let goodAnswer = randomQuestion.goodAnswer;
-
-    console.log(questionsAsked, 'questionsAsked')
-    console.log(questionsToAsk, 'questionsToAsk')
-    console.log(questions, 'questions')
-
+    
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
         let letter = e.target.getAttribute('name').charAt(index).toLowerCase()
@@ -22,8 +18,7 @@ const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
         } else {
             subtractPoint();
             getRandomQuestion();
-            answerQuestion(answerId, 'bad');
-            
+            answerQuestion(answerId, 'bad');            
         }
     }
 
