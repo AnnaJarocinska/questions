@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 const Button = styled.button`
 cursor:pointer;
 text-transform: uppercase;
+letter-spacing: 1px;
 color: white;
 &:hover{
     filter: brightness(90%);
@@ -10,7 +11,7 @@ color: white;
 
 ${({ login }) => login && css`
 background-color: ${props => props.theme.colors.blue.normal};
-border-radius: 5px;
+border-radius: 6px;
 border: none;
 padding: 5px 8px;
 
