@@ -14,8 +14,14 @@ background-color: ${props => props.theme.colors.blue.normal};
 border-radius: 6px;
 border: none;
 padding: 5px 8px;
+margin-right: 15px;
+font-size: 25px;
+`}
 
+${({ yellow }) => yellow && css`
+background-color: ${props => props.theme.colors.yellow.dark};
 
-`}`
+`}
+`
 
 export default Button;

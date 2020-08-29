@@ -12,6 +12,7 @@ import AdminDashboard from './views/AdminDashoard';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
 import Navbar from './components/NavBar';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/users" component={Users} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/adminDashboard" component={AdminDashboard} />
+          <Footer/>
         </div>
       </Router>
     </ThemeProvider>
