@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Home from './views/Home';
 import AddingQuestion from './views/AddingQuestion';
+import MoreInformations from './views/MoreInformations';
 import Login from './views/Login';
 import Quiz from './views/Quiz';
 import NewUser from './views/NewUser';
@@ -22,6 +23,7 @@ function App() {
         <div className="App">
           <Navbar/>
           <Route exact path="/" component={Home} />
+          <Route path="/moreInformations" component={MoreInformations} />
           <Route path="/addingQuestion" component={AddingQuestion} />
           <Route path="/login" component={Login} />
           <Route path="/newUser" component={NewUser} />

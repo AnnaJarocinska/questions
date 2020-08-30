@@ -5,6 +5,8 @@ export default {
         },
         grey: {
             light: 'rgb(210, 230, 250)',
+            normal: 'rgb(120, 120, 120)',
+            medium: 'rgb(190, 190, 190)',
             dark: 'rgb(32, 32, 32)'
         },
         white: {

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Redirect } from 'react-router';
+import Button from '../styles/Button';
+import Form from '../styles/Form';
+import Label from '../styles/Label';
+import Input from '../styles/Input';
 
 const NewUserForm = (props) => {
 
@@ -53,9 +57,9 @@ const NewUserForm = (props) => {
         handleSubmit,
         isSubmitting,
       }) => (
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="newName">User: </label>
-            <input
+          <Form onSubmit={handleSubmit}>
+            <Label htmlFor="newName">User: </Label>
+            <Input
               type="text"
               name="newName"
               id="newName"
@@ -63,8 +67,8 @@ const NewUserForm = (props) => {
               value={values.newName}
               onBlur={handleBlur} />
             {errors.newName && touched.newName && errors.newName}
-            <label htmlFor="newPassword">Password: </label>
-            <input
+            <Label htmlFor="newPassword">Password: </Label>
+            <Input
               type="newPassword"
               name="newPassword"
               id="newPassword"
@@ -72,8 +76,8 @@ const NewUserForm = (props) => {
               value={values.newPassword}
               onBlur={handleBlur} />
             {errors.newPassword && touched.newPassword && errors.newPassword}
-            <button type="submit" disabled={isSubmitting}>Add new user</button>
-          </form>
+            <Button login form type="submit" disabled={isSubmitting}>Add new user</Button>
+          </Form>
         )}
     </Formik>
      {created && <Redirect to='/userCreated'/>}

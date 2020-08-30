@@ -2,6 +2,10 @@ import React, { useState} from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Redirect } from 'react-router';
+import Button from '../styles/Button';
+import Form from '../styles/Form';
+import Label from '../styles/Label';
+import Input from '../styles/Input';
 
 const LoginForm = (props) => {
 
@@ -56,9 +60,9 @@ const LoginForm = (props) => {
         handleSubmit,
         isSubmitting,
       }) => (
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">User: </label>
-            <input
+          <Form onSubmit={handleSubmit}>
+            <Label htmlFor="name">User: </Label>
+            <Input
               type="text"
               name="name"
               id="name"
@@ -66,8 +70,8 @@ const LoginForm = (props) => {
               value={values.name}
               onBlur={handleBlur} />
             {errors.name && touched.name && errors.name}
-            <label htmlFor="password">Password: </label>
-            <input
+            <Label htmlFor="password">Password: </Label>
+            <Input
               type="password"
               name="password"
               id="password"
@@ -75,8 +79,8 @@ const LoginForm = (props) => {
               value={values.password}
               onBlur={handleBlur} />
             {errors.password && touched.password && errors.password}
-            <button type="submit" disabled={isSubmitting}>Log in</button>
-          </form>
+            <Button login form type="submit" disabled={isSubmitting}>Log in</Button>
+            </Form>
         )}
     </Formik>
     {admin && <Redirect to='/adminDashboard'/>}

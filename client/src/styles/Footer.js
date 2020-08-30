@@ -7,7 +7,11 @@ color: white;
 display: flex;
 justify-content: center;
 align-items: center;
-font-size: 14px;
-padding: 5px;
+font-size: 16px;
+padding: 10px;
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
 `
 export default Footer

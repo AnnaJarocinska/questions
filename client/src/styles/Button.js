@@ -18,6 +18,11 @@ margin-right: 15px;
 font-size: 25px;
 `}
 
+${({ form }) => form && css`
+margin: 15px auto 0 auto;
+width: 70%;
+`}
+
 ${({ yellow }) => yellow && css`
 background-color: ${props => props.theme.colors.yellow.dark};
 

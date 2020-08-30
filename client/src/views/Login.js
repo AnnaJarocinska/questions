@@ -1,11 +1,16 @@
 import React from 'react';
 import LoginForm from '../components/LoginForm';
+import Wrapper from '../styles/Wrapper';
+import Overlay from '../styles/Overlay';
 
 const Login = () => {
     return ( 
         <>
-        <p>Login</p>
-        <LoginForm/>
+        <Wrapper>
+            <Overlay>
+                <LoginForm/>
+            </Overlay>
+        </Wrapper>
         </>
      );
 }
