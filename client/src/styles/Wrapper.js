@@ -3,8 +3,8 @@ import paper from '../images/paper.jpg';
 
 const Wrapper = styled.div`
 max-width: 1000px;
-margin: auto;
+margin: 0 auto;
 background-image: url(${paper});
-background-repeat: no-repeat;
+min-height: 85vh;
 `
 export default Wrapper;

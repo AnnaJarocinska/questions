@@ -7,11 +7,12 @@ import Button from '../styles/Button';
 import Container from '../styles/Container';
 import Span from '../styles/Span';
 
-const Navbar = () => {
+const Navbar = (props) => {
+
     return ( 
         <Container nav>
             <Link to="/moreInforations"> <Span> <FontAwesomeIcon icon={faBinoculars} /> More informations </Span> </Link>
-            <Link to="/"> <Span> <FontAwesomeIcon icon={faCampground} /> Home </Span> </Link>
+            {!props.home && <Link to="/"> <Span> <FontAwesomeIcon icon={faCampground} /> Home </Span> </Link>}
             <Container buttons>
                 <Link to="/login"> <Button login> Login </Button> </Link>
                 <Link to="/newUser"> <Button login> Register </Button> </Link>

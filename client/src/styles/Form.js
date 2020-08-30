@@ -7,10 +7,7 @@ justify-content: center;
 align-items-center;
 margin: auto;
 width: 40%;
-height:85vh;
-
-
-
+height: 85vh;
 `   
 
 export default Form;

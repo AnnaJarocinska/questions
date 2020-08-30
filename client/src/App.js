@@ -12,7 +12,6 @@ import Users from './views/Users';
 import AdminDashboard from './views/AdminDashoard';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
-import Navbar from './components/NavBar';
 import Footer from './components/Footer';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
       <GlobalStyles/>
       <Router>
         <div className="App">
-          <Navbar/>
           <Route exact path="/" component={Home} />
           <Route path="/moreInformations" component={MoreInformations} />
           <Route path="/addingQuestion" component={AddingQuestion} />
