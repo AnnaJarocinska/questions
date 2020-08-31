@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Navigation = styled.div`
 display: flex;
@@ -7,11 +7,6 @@ align-items: center;
 background-color: ${props => props.theme.colors.grey.dark};
 padding: 10px;
 border-bottom:15px solid ${props => props.theme.colors.yellow.dark};
- width: 100vw;
-
- ${({ mobile }) => mobile && css`
- width: 100vw;
- background-color: green;
-`}
+width: 100vw;
 `
 export default Navigation;

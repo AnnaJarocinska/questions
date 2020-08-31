@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-import Navigation from '../styles/Navigation';
 import Nav from '../components/Nav';
+import NavMobile from '../components/NavMobile';
 
 const Navbar = (props) => {
 
@@ -12,13 +12,9 @@ const Navbar = (props) => {
       })
 
     return (
-    <>
-    
-
-         {isNotMobile ? <Navigation ><Nav home={home}/></Navigation>
-        : <Navigation mobile> <Nav home={home}/> </Navigation>}       
-        
-         </>
+        <>
+        {isNotMobile ? <Nav home={home}/> : <NavMobile home={home}/> }    
+        </>
      );
 }
  
