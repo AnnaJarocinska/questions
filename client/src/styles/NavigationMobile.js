@@ -8,5 +8,6 @@ flex-direction: column;
 padding: 10px; 
 height: 30vh;
 justify-content: space-around;
+max-width: 100%;
 `
 export default NavigationMobile;

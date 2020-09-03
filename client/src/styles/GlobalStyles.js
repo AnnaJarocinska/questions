@@ -12,6 +12,9 @@ body{
     font-family: 'Fredericka the Great', cursive;
     background-color: ${props => props.theme.colors.beige.light};
     font-size: 18px;
+    max-width: 100%;
+    overflow-x: hidden;
+
 }
 ul{
     list-style: none;
