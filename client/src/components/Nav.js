@@ -10,15 +10,13 @@ import Navigation from '../styles/Navigation';
 
 const Nav = ({home, mobile}) => {
    
-    console.log(mobile, 'is not mobbile w nav.js')
-
-
     return ( 
         <>
         <Navigation>
             <Link to="/moreInforations"> 
                 <Span> <FontAwesomeIcon icon={faBinoculars}/> </Span>
-                <Span> More informations </Span> 
+                {mobile &&
+                <Span> More informations </Span>}
             </Link>
             {!home && 
             <Link to="/"> <Span> <FontAwesomeIcon icon={faCampground} /> Home </Span> </Link>}

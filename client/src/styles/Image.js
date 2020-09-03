@@ -11,7 +11,7 @@ position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
   @media (min-width: 600px) {
-    top: 50%;
+    max-width: 70%;
   }
 `
 
