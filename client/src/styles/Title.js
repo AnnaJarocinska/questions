@@ -10,6 +10,9 @@ top: 25%;
 left: 50%;
 transform: translate(-50%, -50%);
 z-index: 2;
+@media (min-width: 600px) {
+top: 35%;
+}
 @media (min-width: 1000px) {
     font-size: 50px; 
     top: 50%;  

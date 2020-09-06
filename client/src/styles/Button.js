@@ -13,26 +13,31 @@ ${({ login }) => login && css`
 background-color: ${props => props.theme.colors.blue.normal};
 border-radius: 6px;
 border: none;
-font-size:15px;
+font-size: 20px;
+padding: 4px 6px;
 @media (min-width: 600px) {
-    font-size:17px;
-    margin-right: 8px;
+    font-size: 16px;
 }
 @media (min-width: 1000px) {
 font-size: 25px;
-margin-right: 15px;
 padding: 5px 8px;
 }
 `}
 
 ${({ form }) => form && css`
-margin: 15px auto 0 auto;
+margin: 0 auto;
+margin-top: 15px;
 width: 70%;
 `}
 
 ${({ yellow }) => yellow && css`
 background-color: ${props => props.theme.colors.yellow.dark};
 margin-right:0;
+`}
+
+${({ menu }) => menu && css`
+font-size:15px;
+padding: 2px 4px;
 `}
 `
 

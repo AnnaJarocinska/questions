@@ -26,9 +26,9 @@ const NavMobile = () => {
             <NavigationMobile>
                 <Link to="/"> <Span> <FontAwesomeIcon icon={faCampground} /> Home </Span> </Link>
                 <Link to="/moreInforations"> <Span> <FontAwesomeIcon icon={faBinoculars}/> </Span> <Span> More informations </Span>  </Link>
-                <Link to="/login"> <Button login> Login </Button> </Link>
-                <Link to="/newUser"> <Button login> Register </Button> </Link>
-                <Link to="/quiz"> <Button login yellow> Quick game </Button> </Link>
+                <Link to="/login"> <Button login menu> Login </Button> </Link>
+                <Link to="/newUser"> <Button login menu > Register </Button> </Link>
+                <Link to="/quiz"> <Button login yellow menu> Quick game </Button> </Link>
             </NavigationMobile>
             }
         </>
