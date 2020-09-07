@@ -5,16 +5,23 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 
-${({ buttons }) => buttons && css`
-
+${({ icons }) => icons && css`
+@media (min-width: 600px) {
+    width: 10%;
+}
 @media (min-width: 1000px) {
-width: 35%;
+    width: 25%;
 }
 `}
+
+${({ buttons }) => buttons && css`
+@media (min-width: 600px) {
+    width: 52%;
+}
+@media (min-width: 1000px) {
+    width: 35%;
+}
+`}
+
 `
-
 export default Container;
-
-// @media (min-width: 600px) {
-//     width: 52%;
-//     }

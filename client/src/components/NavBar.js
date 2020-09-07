@@ -10,10 +10,13 @@ const Navbar = (props) => {
     const isNotMobile = useMediaQuery({
         query: '(min-device-width: 600px)'
       })
+      const isDesktop = useMediaQuery({
+        query: '(min-device-width: 1000px)'
+      })
 
     return (
         <>
-        {isNotMobile ? <Nav home={home}/> : <NavMobile home={home}/> }    
+        {isNotMobile ? <Nav home={home} desktop={isDesktop}/> : <NavMobile home={home}/> }    
         </>
      );
 }
