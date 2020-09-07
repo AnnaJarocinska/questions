@@ -4,6 +4,9 @@ import shortid from 'shortid';
 import { getQuestions } from '../duck/operations';
 import actions from '../duck/actions';
 import OneQuestion from './OneQuestion';
+import PointsContainer from '../../styles/PointsContainer';
+import PointsBox from '../../styles/PointsBox';
+import Button from '../../styles/Button';
 
 const Points = ({points, questions, getQuestions, getRandomQuestion, gameFinished}) => {
   
@@ -21,14 +24,17 @@ const questionList = []
 const handleClick = () => {
     getRandomQuestion()}
 
-    return ( 
-        <>   
-            <p>Points: {points}</p>
-            <p>Questions: {questionList}</p>
-            <p>Random question</p>
-            <button onClick={handleClick}> get random question</button>
-            {!gameFinished && <OneQuestion/>}
-        </>
+    return (    
+        <>
+        <PointsContainer>
+            <p>Points : </p> 
+            <PointsBox> {points} </PointsBox>
+        </PointsContainer>  
+        {/* <p>Questions: {questionList}</p> */}
+       
+        <Button login red onClick={handleClick}> Start </Button>
+        {!gameFinished && <OneQuestion/>}
+        </>  
      );
 }
  

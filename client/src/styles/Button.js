@@ -39,6 +39,10 @@ ${({ menu }) => menu && css`
 font-size:15px;
 padding: 2px 4px;
 `}
+
+${({ red }) => red && css`
+background-color: ${props => props.theme.colors.red.normal};
+`}
 `
 
 export default Button;

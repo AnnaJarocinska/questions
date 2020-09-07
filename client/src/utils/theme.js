@@ -19,6 +19,12 @@ export default {
         yellow: {
             normal: 'rgb(243, 221, 78)',
             dark: 'rgb(244, 208, 63)'
+        },
+        black: {
+            normal: 'rgb(0, 0, 0)',  
+        },
+        red: {
+            normal: 'rgb(175, 25, 23)',  
         }
     }
 
