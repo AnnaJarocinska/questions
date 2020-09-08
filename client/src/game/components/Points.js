@@ -7,6 +7,7 @@ import OneQuestion from './OneQuestion';
 import PointsContainer from '../../styles/PointsContainer';
 import PointsBox from '../../styles/PointsBox';
 import Button from '../../styles/Button';
+import Container from '../../styles/Container';
 
 const Points = ({points, questions, getQuestions, getRandomQuestion, gameFinished}) => {
   
@@ -26,14 +27,18 @@ const handleClick = () => {
 
     return (    
         <>
+        <Container main>
         <PointsContainer>
             <p>Points : </p> 
             <PointsBox> {points} </PointsBox>
         </PointsContainer>  
         {/* <p>Questions: {questionList}</p> */}
        
+        
+        {!gameFinished && 
+        <OneQuestion/>}
         <Button login red onClick={handleClick}> Start </Button>
-        {!gameFinished && <OneQuestion/>}
+        </Container>
         </>  
      );
 }

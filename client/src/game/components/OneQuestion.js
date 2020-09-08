@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../duck/actions';
+import QuestionContainer from '../../styles/QuestionContainer';
+import QuestionParagraph from '../../styles/QuestionParagraph';
+import AnswerParagraph from '../../styles/AnswerParagraph';
 
 const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
     addPoint, subtractPoint, getRandomQuestion, answerQuestion}) => {
@@ -28,23 +31,25 @@ const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
            
         currentQuestion.push(
                key === 'question'?
-               <p
+               <QuestionParagraph
                key={key} 
                name= {key}
                >
-                   {value}</p> 
+                   {value} ? </QuestionParagraph> 
                    :
-                <p
+                <AnswerParagraph
                 key={key} 
                 name= {key}
                 id={randomQuestion.id}
                 onClick={handleAnswerClick}>
-                    {value}</p>)
+                    {value}</AnswerParagraph>)
     }}
 
     return ( 
         <>
+        <QuestionContainer>
            {currentQuestion}
+        </QuestionContainer>
         </>
      );
 }

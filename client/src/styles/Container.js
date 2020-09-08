@@ -22,6 +22,9 @@ ${({ buttons }) => buttons && css`
     width: 35%;
 }
 `}
-
+${({ main }) => main && css`
+flex-direction: column;
+height: 75vh;
+`}
 `
 export default Container;

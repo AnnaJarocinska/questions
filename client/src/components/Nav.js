@@ -9,7 +9,6 @@ import Span from '../styles/Span';
 import Navigation from '../styles/Navigation';
 
 const Nav = ({home, desktop}) => {
-   
     return ( 
         <>
         <Navigation>

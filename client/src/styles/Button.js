@@ -19,8 +19,7 @@ padding: 4px 6px;
     font-size: 16px;
 }
 @media (min-width: 1000px) {
-font-size: 25px;
-padding: 5px 8px;
+font-size: 22px;
 }
 `}
 
@@ -42,6 +41,8 @@ padding: 2px 4px;
 
 ${({ red }) => red && css`
 background-color: ${props => props.theme.colors.red.normal};
+margin: 0 auto;
+padding: 6px 30px;
 `}
 `
 
