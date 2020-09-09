@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Input from './Input';
+import NewQuestionForm from './NewQuestionForm';
 import List from './List';
+import Wrapper from '../styles/Wrapper';
+import Overlay from '../styles/Overlay';
+import Container from '../styles/Container';
 
 const Question = () => {
 
@@ -23,11 +26,14 @@ const Question = () => {
   }
 
   return (
-    <div>
-      <h1>My questions</h1>
-      <Input getQuestions={fetchData} />
-      <List questions={data} deleteQuestion={deleteQuestion} />
-    </div>
+    <Wrapper>
+      <Overlay>
+        <Container form>
+          <NewQuestionForm getQuestions={fetchData} />
+        </Container>
+          <List questions={data} deleteQuestion={deleteQuestion} />
+      </Overlay>
+    </Wrapper>
   );
 }
 

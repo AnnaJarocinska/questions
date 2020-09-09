@@ -1,9 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
+import Button from '../styles/Button';
+import Form from '../styles/Form';
+import Label from '../styles/Label';
+import Input from '../styles/Input';
 
-const Input = (props) => (
-  <div>
+const NewQuestionForm = (props) => (
+ 
     <Formik
       initialValues={{ newQuestion: '', continent: '-', a: '', b: '', c: '', d: '' }}
       validate={values => {
@@ -60,18 +64,18 @@ const Input = (props) => (
         handleSubmit,
         isSubmitting,
       }) => (
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="newQuestion">New question: </label>
-            <input
+          <Form onSubmit={handleSubmit}>
+            <Label htmlFor="newQuestion">New question: </Label>
+            <Input
               type="text"
               name="newQuestion"
               id="newQuestion"
               onChange={handleChange}
               value={values.newQuestion}
-              onBlur={handleBlur} />
+              onBlur={handleBlur}> 
+              </Input>
             {errors.newQuestion && touched.newQuestion && errors.newQuestion}
-            <br />
-            <label htmlFor="continent">Continent:</label>
+            <Label htmlFor="continent">Continent:</Label>
             <select
               id="continent"
               name="continent"
@@ -89,9 +93,8 @@ const Input = (props) => (
               <option value="americaS">South America</option>
             </select>
             {errors.continent && touched.continent && errors.continent}
-            <br />
-            <label htmlFor="a">a</label>
-            <input
+            <Label htmlFor="a">a</Label>
+            <Input
               name="a"
               id="a"
               type="text"
@@ -99,10 +102,10 @@ const Input = (props) => (
               value={values.a}
               onBlur={handleBlur}
             >
-            </input>
+            </Input>
             {errors.a && touched.a && errors.a}
-            <label htmlFor="b">b</label>
-            <input
+            <Label htmlFor="b">b</Label>
+            <Input
               name="b"
               id="b"
               type="text"
@@ -110,10 +113,10 @@ const Input = (props) => (
               value={values.b}
               onBlur={handleBlur}
             >
-            </input>
+            </Input>
             {errors.b && touched.b && errors.b}
-            <label htmlFor="c">c</label>
-            <input
+            <Label htmlFor="c">c</Label>
+            <Input
               name="c"
               id="c"
               type="text"
@@ -121,10 +124,10 @@ const Input = (props) => (
               value={values.c}
               onBlur={handleBlur}
             >
-            </input>
+            </Input>
             {errors.c && touched.c && errors.c}
-            <label htmlFor="d">d</label>
-            <input
+            <Label htmlFor="d">d</Label>
+            <Input
               name="d"
               id="d"
               type="text"
@@ -132,10 +135,10 @@ const Input = (props) => (
               value={values.d}
               onBlur={handleBlur}
             >
-            </input>
+            </Input>
             {errors.d && touched.d && errors.d}
-            <label htmlFor="goodAnswer">good answer</label>
-            <input
+            <Label htmlFor="goodAnswer">good answer</Label>
+            <Input
               name="goodAnswer"
               id="goodAnswer"
               type="text"
@@ -143,14 +146,14 @@ const Input = (props) => (
               value={values.goodAnswer}
               onBlur={handleBlur}
             >
-            </input>
+            </Input>
             {errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}
-            <button type="submit" disabled={isSubmitting}>add question</button>
-          </form>
+            <Button login form type="submit" disabled={isSubmitting}>add question</Button>
+          </Form>
         )}
     </Formik>
-  </div>
+ 
 );
 
 
-export default Input;
+export default NewQuestionForm;

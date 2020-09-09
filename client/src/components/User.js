@@ -22,10 +22,10 @@ const User = () => {
     }
 
     return (
-        <div>
-            <button onClick={fetchData}> Show users</button>
+        <>
+            {/* <button onClick={fetchData}> Show users</button> */}
             <UsersList users={data} deleteUser={deleteUser} />
-        </div>
+        </>
     );
 }
 

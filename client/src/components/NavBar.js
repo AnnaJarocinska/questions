@@ -5,7 +5,10 @@ import NavMobile from '../components/NavMobile';
 
 const Navbar = (props) => {
 
-    const home = props.home
+    const home = props.home;
+    const admin = props.admin;
+    const logged = props.logged;
+    const user = props.user;
 
     const isNotMobile = useMediaQuery({
         query: '(min-device-width: 600px)'
@@ -16,7 +19,9 @@ const Navbar = (props) => {
 
     return (
         <>
-        {isNotMobile ? <Nav home={home} desktop={isDesktop}/> : <NavMobile home={home}/> }    
+        {isNotMobile ? 
+        <Nav home={home} logged={logged} admin={admin} user={user} desktop={isDesktop}/> :
+        <NavMobile home={home} logged={logged}/> }    
         </>
      );
 }

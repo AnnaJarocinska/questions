@@ -29,5 +29,8 @@ flex-direction: column;
 height: 70vh;
 justify-content: space-around;
 `}
+${({ form }) => form && css`
+padding-top: 100px;
+`}
 `
 export default Container;

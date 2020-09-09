@@ -1,11 +1,16 @@
 import React from 'react';
 import Wrapper from '../styles/Wrapper';
+import Overlay from '../styles/Overlay';
 
 const MoreInformations = () => {
     return (
+        <>
         <Wrapper>
-       <p>Info</p>
+            <Overlay>
+                <p>Info</p>
+            </Overlay>
        </Wrapper>
+       </>
       );
 }
  

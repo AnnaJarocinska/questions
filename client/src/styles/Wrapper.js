@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import paper from '../images/paper.jpg';
 
 const Wrapper = styled.div`
-
 margin: 0 auto;
 background-image: url(${paper});
 max-width: 100%;

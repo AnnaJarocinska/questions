@@ -11,9 +11,6 @@ display:flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-${({ max }) => max && css`
-    height: 75%;
- `}
 @media (min-width: 600px) {
     width:80%;
     min-height: 55%;
@@ -24,6 +21,13 @@ ${({ max }) => max && css`
     height: 250px;
     }
 
+${({ max }) => max && css`
+    height: 75%;
+ `}  
+   
+${({ admin }) => admin && css`
+    border: 10px dotted ${props => props.theme.colors.red.normal};
+ `}
 `
 
 export default QuestionContainer;

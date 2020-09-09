@@ -10,8 +10,8 @@ const NewUser = () => {
         <NavBar/>
         <Wrapper>
             <Overlay>
-        <NewUserForm/>
-        </Overlay>
+                <NewUserForm/>
+            </Overlay>
         </Wrapper>
         </>
      );

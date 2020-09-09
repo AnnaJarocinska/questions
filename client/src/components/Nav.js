@@ -8,10 +8,12 @@ import Container from '../styles/Container';
 import Span from '../styles/Span';
 import Navigation from '../styles/Navigation';
 
-const Nav = ({home, desktop}) => {
+const Nav = ({home, desktop, logged, admin, user}) => {
     return ( 
         <>
-        <Navigation>
+        <Navigation 
+        admin={admin ? admin.toString() : undefined}
+        user={user ? user.toString() : undefined}>
             <Container icons>
                 <Link to="/moreInforations"> 
                     <Span> <Span icon><FontAwesomeIcon icon={faBinoculars}/> </Span>
@@ -26,7 +28,9 @@ const Nav = ({home, desktop}) => {
                 </Link>}
             </Container>
             <Container buttons>
-                <Link to="/login"> <Button login> Login </Button> </Link>
+                {!logged?
+                <Link to="/login"> <Button login> Login </Button> </Link>:
+                <Link to="/"> <Button login> Logout </Button> </Link>}
                 <Link to="/newUser"> <Button login> Register </Button> </Link>
                 <Link to="/quiz"> <Button login yellow> Quick game </Button> </Link>
             </Container> 

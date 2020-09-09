@@ -25,6 +25,12 @@ export default {
         },
         red: {
             normal: 'rgb(175, 25, 23)',  
+        },
+        green: {
+            normal: 'rgb(0, 128, 0)',  
+        },
+        orange: {
+            normal: 'rgb(207, 122, 20)',  
         }
     }
 
