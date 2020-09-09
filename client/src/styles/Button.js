@@ -14,12 +14,14 @@ background-color: ${props => props.theme.colors.blue.normal};
 border-radius: 6px;
 border: none;
 font-size: 20px;
+font-size: 15px;
 padding: 4px 6px;
+margin: 0 5px;
 @media (min-width: 600px) {
     font-size: 16px;
 }
 @media (min-width: 1000px) {
-font-size: 22px;
+font-size: 20px;
 }
 `}
 
@@ -32,6 +34,7 @@ width: 70%;
 ${({ yellow }) => yellow && css`
 background-color: ${props => props.theme.colors.yellow.dark};
 margin-right:0;
+white-space: nowrap;
 `}
 
 ${({ menu }) => menu && css`
@@ -43,6 +46,7 @@ ${({ red }) => red && css`
 background-color: ${props => props.theme.colors.red.normal};
 margin: 0 auto;
 padding: 6px 30px;
+font-size: 20px;
 `}
 `
 

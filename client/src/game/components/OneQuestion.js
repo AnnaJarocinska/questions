@@ -6,10 +6,11 @@ import QuestionParagraph from '../../styles/QuestionParagraph';
 import AnswerParagraph from '../../styles/AnswerParagraph';
 
 const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
-    addPoint, subtractPoint, getRandomQuestion, answerQuestion}) => {
+    addPoint, subtractPoint, getRandomQuestion, answerQuestion,
+    max}) => {
 
     let goodAnswer = randomQuestion.goodAnswer;
-    
+   
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
         let letter = e.target.getAttribute('name').charAt(index).toLowerCase()
@@ -47,7 +48,7 @@ const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
 
     return ( 
         <>
-        <QuestionContainer>
+        <QuestionContainer max={max ? max.toString() : undefined}>
            {currentQuestion}
         </QuestionContainer>
         </>

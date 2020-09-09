@@ -6,6 +6,12 @@ cursor: pointer;
 &:hover{
     filter: brightness(50%);
 }
+@media (min-width: 600px) {
+    font-size: 16px;
+    }
+@media (min-width: 1000px) {
+    font-size: 20px;
+    }
 `
 
 export default AnswerParagraph;

@@ -6,25 +6,28 @@ justify-content: space-between;
 align-items: center;
 
 ${({ icons }) => icons && css`
+white-space: nowrap;
 @media (min-width: 600px) {
-    width: 10%;
+    max-width: 20%;
 }
 @media (min-width: 1000px) {
-    width: 25%;
+    max-width: 25%;
 }
 `}
 
 ${({ buttons }) => buttons && css`
+margin-right: 10px;
 @media (min-width: 600px) {
-    width: 52%;
+    max-width: 52%;
 }
 @media (min-width: 1000px) {
-    width: 35%;
+    max-width: 40%;
 }
 `}
 ${({ main }) => main && css`
 flex-direction: column;
-height: 75vh;
+height: 70vh;
+justify-content: space-around;
 `}
 `
 export default Container;

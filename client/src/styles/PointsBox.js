@@ -6,7 +6,7 @@ width: 20px;
 height: 20px;
 color: black;
 margin-left: 8px;
-display:flex;
+display: flex;
 justify-content: center;
 align-items: center;
 `

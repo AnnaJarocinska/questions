@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import shortid from 'shortid';
 import { getQuestions } from '../duck/operations';
 import actions from '../duck/actions';
 import OneQuestion from './OneQuestion';
+import GameFinished from './GameFinished';
 import PointsContainer from '../../styles/PointsContainer';
 import PointsBox from '../../styles/PointsBox';
 import Button from '../../styles/Button';
@@ -13,7 +14,8 @@ const Points = ({points, questions, getQuestions, getRandomQuestion, gameFinishe
   
     useEffect(() => {getQuestions()}, [getQuestions])
 
-const questionList = []
+    const [buttonVisability, setButtonVisability] = useState(true);
+    const questionList = [];
 
  Object.entries(questions).forEach((element) => {
     Object.entries(element[1]).forEach( (item, index) => {
@@ -23,7 +25,9 @@ const questionList = []
 })
 
 const handleClick = () => {
-    getRandomQuestion()}
+    getRandomQuestion();
+    setButtonVisability(false);
+}
 
     return (    
         <>
@@ -36,8 +40,11 @@ const handleClick = () => {
        
         
         {!gameFinished && 
-        <OneQuestion/>}
-        <Button login red onClick={handleClick}> Start </Button>
+        <OneQuestion max ={!buttonVisability}/>}
+        {buttonVisability && 
+        <Button login red onClick={handleClick}> Start </Button>}
+        {gameFinished &&
+        <GameFinished/>}
         </Container>
         </>  
      );

@@ -14,12 +14,16 @@ const Nav = ({home, desktop}) => {
         <Navigation>
             <Container icons>
                 <Link to="/moreInforations"> 
-                    <Span> <FontAwesomeIcon icon={faBinoculars}/> </Span>
-                    {desktop &&
-                    <Span> More informations </Span>}
+                    <Span> <Span icon><FontAwesomeIcon icon={faBinoculars}/> </Span>
+                    {desktop && "More informations"}
+                    </Span>
                 </Link>
                 {!home && 
-                <Link to="/"> <Span> <FontAwesomeIcon icon={faCampground} /> {desktop && "Home"} </Span> </Link>}
+                <Link to="/">
+                     <Span> <Span icon> <FontAwesomeIcon icon={faCampground}/></Span>
+                      {desktop && "Home"}
+                      </Span>
+                </Link>}
             </Container>
             <Container buttons>
                 <Link to="/login"> <Button login> Login </Button> </Link>
