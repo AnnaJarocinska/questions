@@ -28,10 +28,14 @@ const Question = () => {
   return (
     <Wrapper>
       <Overlay>
+        <Container list>
         <Container form>
           <NewQuestionForm getQuestions={fetchData} />
-        </Container>
+          </Container>
+          <Container form>
           <List questions={data} deleteQuestion={deleteQuestion} />
+          </Container>
+          </Container>
       </Overlay>
     </Wrapper>
   );

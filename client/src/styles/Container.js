@@ -26,11 +26,18 @@ margin-right: 10px;
 `}
 ${({ main }) => main && css`
 flex-direction: column;
-height: 70vh;
 justify-content: space-around;
 `}
+
 ${({ form }) => form && css`
-padding-top: 100px;
+padding: 100px;
+width: 100%;
+align-items: center;
+justify-content: center;
+`}
+
+${({ list }) => list && css`
+flex-direction: column;
 `}
 `
 export default Container;
