@@ -1,17 +1,39 @@
+const cookieSession = require('cookie-session');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const config = require('./config');
 
 const api = require('./routes/api');
 const login = require('./routes/login');
 const newUser = require('./routes/newUser');
 const users = require('./routes/users');
 const home = require('./routes/home');
+const admin = require('./routes/admin');
 
 const path = require('path');
 require('dotenv').config();
 
 const app = express();
+
+// app.set('trust proxy', 1) // trust first proxy
+ 
+app.use(cookieSession({
+  name: 'session',
+  keys: config.keySession,
+  maxAge: config.maxAgeSession
+}))
+ 
+// This allows you to set req.session.maxAge to let certain sessions
+// have a different value than the default.
+// app.use(function (req, res, next) {
+//   req.sessionOptions.maxAge = req.session.maxAge || req.sessionOptions.maxAge
+// })
+
+app.use(function(req, res, next){
+  res.locals.path = req.path;
+  next();
+})
 
 app.use(bodyParser.json());
 
@@ -36,6 +58,7 @@ app.use('/api', api);
 app.use('/login', login);
 app.use('/newUser', newUser);
 app.use('/users', users);
+app.use('/admin', admin);
 
 app.use((err, req, res, next) => {
   console.log(err);

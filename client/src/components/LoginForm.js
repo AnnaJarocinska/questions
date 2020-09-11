@@ -35,6 +35,7 @@ const LoginForm = (props) => {
     
           axios.post('/login', content)
             .then(res => {
+              console.log(res, 'req.session.admin')
               if (res.data === 'admin'){
                 setAdmin(true);
                 }

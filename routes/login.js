@@ -6,7 +6,9 @@ router.post('/', (req, res, next) => {
 
         User.find({name: req.body.name, password: req.body.password} , function(err, arr) {
             if (arr.length > 0 && arr[0].admin){
-                res.send('admin')
+                res.send('admin');
+                req.session.admin = 1;   
+                // res.redirect('/admin');
             }
             if (arr.length > 0 && arr[0].admin === false){
                 res.send('verified')
