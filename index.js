@@ -3,12 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
+const cookieParser  = require ('cookie-parser');
 
 const api = require('./routes/api');
 const login = require('./routes/login');
 const newUser = require('./routes/newUser');
 const users = require('./routes/users');
-const home = require('./routes/home');
 const admin = require('./routes/admin');
 
 const path = require('path');
@@ -18,6 +18,7 @@ const app = express();
 
 // app.set('trust proxy', 1) // trust first proxy
  
+app.use(cookieParser())
 app.use(cookieSession({
   name: 'session',
   keys: config.keySession,
@@ -30,10 +31,10 @@ app.use(cookieSession({
 //   req.sessionOptions.maxAge = req.session.maxAge || req.sessionOptions.maxAge
 // })
 
-app.use(function(req, res, next){
-  res.locals.path = req.path;
-  next();
-})
+// app.use(function(req, res, next){
+//   res.locals.path = req.path;
+//   next();
+// })
 
 app.use(bodyParser.json());
 

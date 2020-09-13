@@ -35,7 +35,7 @@ const LoginForm = (props) => {
     
           axios.post('/login', content)
             .then(res => {
-              console.log(res, 'req.session.admin')
+              console.log(res.session, 'req.session.admin')
               if (res.data === 'admin'){
                 setAdmin(true);
                 }
@@ -84,7 +84,7 @@ const LoginForm = (props) => {
             </Form>
         )}
     </Formik>
-    {admin && <Redirect to='/adminDashboard'/>}
+    {admin && <Redirect to='/admin'/>}
     {loggedIn && <Redirect to='/addingQuestion'/>}
     {rejection && <p>Incorrect login details</p>}    
   </>

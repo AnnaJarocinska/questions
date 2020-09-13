@@ -28,7 +28,7 @@ function App() {
           <Route path="/userCreated" component={UserCreated} />
           <Route path="/users" component={Users} />
           <Route path="/quiz" component={Quiz} />
-          <Route path="/adminDashboard" component={AdminDashboard} />
+          <Route path="/admin" component={AdminDashboard} />
           <Footer/>
         </div>
       </Router>
