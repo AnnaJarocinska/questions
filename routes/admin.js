@@ -2,18 +2,27 @@ const express = require('express');
 const router = express.Router();
 
 router.all('*', (req, res, next) => {
-    if(req.session.admin){
-        console.log('adminnnnnnn')
+    // if(req.session.admin){
+        if(req.cookies.name === 'admin'){
+        console.log('adminnnnnnn');
+        // res.redirect('/users');
+        // res.redirect('http://google.com');
+        // res.write('hello admin')
+        // res.send('hello');
+        // console.log(req.cookies)
     }
-    if(!req.session.admin){
-        res.redirect('/login');
+    if(!req.cookies.name === 'admin'){
+        console.log('no admin');
+        res.location('/users');
+        res.sendStatus(302);
+        // res.redirect('/users');
         return;
     }
     next();
 })
 
 router.get('/', (req, res, next) => {
-   console.log(req.session.admin, 'req.session.admin w admin.js b')
+   console.log(req.cookies.name, 'req.cookies.name w admin.js')
  
 });
 
