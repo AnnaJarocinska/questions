@@ -10,6 +10,7 @@ const login = require('./routes/login');
 const newUser = require('./routes/newUser');
 const users = require('./routes/users');
 const admin = require('./routes/admin');
+const user = require('./routes/user');
 
 const path = require('path');
 require('dotenv').config();
@@ -24,6 +25,8 @@ app.use(cookieSession({
   keys: config.keySession,
   maxAge: config.maxAgeSession
 }))
+
+app.use(express.static(path.join(__dirname, 'client')))
  
 // This allows you to set req.session.maxAge to let certain sessions
 // have a different value than the default.
@@ -60,6 +63,7 @@ app.use('/login', login);
 app.use('/newUser', newUser);
 app.use('/users', users);
 app.use('/admin', admin);
+app.use('/users', users);
 
 app.use((err, req, res, next) => {
   console.log(err);

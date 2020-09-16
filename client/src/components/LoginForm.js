@@ -37,6 +37,7 @@ const LoginForm = (props) => {
             .then(res => {
               console.log(res.session, 'req.session.admin')
               if (res.data === 'admin'){
+               
                 setAdmin(true);
                 }
               if (res.data === 'verified'){
