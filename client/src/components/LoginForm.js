@@ -2,6 +2,7 @@ import React, { useState} from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Redirect } from 'react-router';
+import Cookies from 'js-cookie';
 import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
@@ -12,6 +13,8 @@ const LoginForm = (props) => {
   const [loggedIn, setloggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
   const [admin, setAdmin] = useState(false);
+
+  const cookieName = Cookies.get().name;
 
   return (
   <>
@@ -35,7 +38,8 @@ const LoginForm = (props) => {
     
           axios.post('/login', content)
             .then(res => {
-              console.log(res.session, 'req.session.admin')
+            //   console.log(res.session, 'req.session.admin')
+            //  console.log( Cookies.get(), 'cookies')
               if (res.data === 'admin'){
                
                 setAdmin(true);
@@ -47,6 +51,13 @@ const LoginForm = (props) => {
                 setRejection(true);
                 resetForm();
               }
+            })
+
+            axios.get('/admin', content)
+            .then(res => {
+              console.log(res.session, 'req.session.admin')
+             console.log( Cookies.get(), 'cookies')
+             
             })
             
             .catch(err => console.log(err))
