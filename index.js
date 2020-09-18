@@ -3,7 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
-const cookieParser  = require ('cookie-parser');
+const cookieParser = require('cookie-parser');
+// const cors = require('cors');
 
 const api = require('./routes/api');
 const login = require('./routes/login');
@@ -12,13 +13,14 @@ const users = require('./routes/users');
 const admin = require('./routes/admin');
 const user = require('./routes/user');
 
-const path = require('path');
+// const path = require('path');
 require('dotenv').config();
 
 const app = express();
 
 // app.set('trust proxy', 1) // trust first proxy
- 
+// 
+// app.use(cors());
 app.use(cookieParser())
 app.use(cookieSession({
   name: 'session',
@@ -26,8 +28,8 @@ app.use(cookieSession({
   maxAge: config.maxAgeSession
 }))
 
-app.use(express.static(path.join(__dirname, 'client')))
- 
+// app.use(express.static(path.join(__dirname, 'client')))
+
 // This allows you to set req.session.maxAge to let certain sessions
 // have a different value than the default.
 // app.use(function (req, res, next) {
@@ -45,16 +47,16 @@ const router = express.Router();
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true  })
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 
 mongoose.Promise = global.Promise;
 
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
 });
 
 app.use('/', router);

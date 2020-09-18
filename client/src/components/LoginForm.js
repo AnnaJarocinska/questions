@@ -10,7 +10,7 @@ import Input from '../styles/Input';
 
 const LoginForm = (props) => {
 
-  const [loggedIn, setloggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
   const [admin, setAdmin] = useState(false);
 
@@ -40,13 +40,13 @@ const LoginForm = (props) => {
             .then(res => {
             //   console.log(res.session, 'req.session.admin')
             //  console.log( Cookies.get(), 'cookies')
-              if (res.data === 'admin'){
+              // if (res.data === 'admin'){
                
-                setAdmin(true);
-                }
-              if (res.data === 'verified'){
-              setloggedIn(true);
-              }
+              //   setAdmin(true);
+              //   }
+              // if (res.data === 'verified'){
+              // setLoggedIn(true);
+              // }
               if (res.data === 'rejection'){
                 setRejection(true);
                 resetForm();
@@ -55,8 +55,19 @@ const LoginForm = (props) => {
 
             axios.get('/admin', content)
             .then(res => {
-              console.log(res.session, 'req.session.admin')
-             console.log( Cookies.get(), 'cookies')
+             if (cookieName === 'admin'){
+               
+              setAdmin(true);
+              }
+             
+            })
+
+            axios.get('/user', content)
+            .then(res => {
+             if (cookieName === 'user'){
+               
+              setLoggedIn(true);
+              }
              
             })
             

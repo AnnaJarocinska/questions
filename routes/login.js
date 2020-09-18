@@ -10,9 +10,10 @@ router.post('/', (req, res, next) => {
                 req.session.admin = 1;   
             res.cookie('name', 'admin');
             res.redirect('/admin');
-            res.send('admin');
+            // res.send('admin');
             }
             if (arr.length > 0 && arr[0].admin === false){
+                req.session.user = 2;
                 res.cookie('name', 'user')
                 res.redirect('/user');
             //     res.send('verified')
