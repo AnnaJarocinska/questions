@@ -16,8 +16,8 @@ router.all('*', (req, res, next) => {
 })
 
 router.get('/', (req, res, next) => {
-   console.log(req.cookies.name, 'req.cookies.name w admin.js')
- res.send(req.cookies.name)
+    console.log(req.cookies.name, 'req.cookies.name w admin.js')
+    res.send(req.cookies.name)
 });
 
 

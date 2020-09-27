@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 router.all('*', (req, res, next) => {
- console.log(req.cookies.name, 'req.cookies.name')
-        if(req.cookies.name === 'user'){
-        console.log('userrrrrrrr');
+    if(req.session.user){
+        // console.log(req.cookies.name, 'req.cookies.name')
+        // if(req.cookies.name === 'user'){
+        console.log('userrrrrrrr', req.session.user);
        
     }
-    if(!req.cookies.name === 'user'){
+    if(!req.session.user){
+    // if(!req.cookies.name === 'user'){
         console.log('no user');
         res.redirect('/login');
         return;

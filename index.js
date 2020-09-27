@@ -65,7 +65,7 @@ app.use('/login', login);
 app.use('/newUser', newUser);
 app.use('/users', users);
 app.use('/admin', admin);
-app.use('/users', users);
+app.use('/user', user);
 
 app.use((err, req, res, next) => {
   console.log(err);
