@@ -9,7 +9,8 @@ import Quiz from './views/Quiz';
 import NewUser from './views/NewUser';
 import UserCreated from './views/UserCreated';
 import Users from './views/admin/Users';
-import AdminDashboard from './views/admin/AdminDashoard';
+import AdminDashboard from './views/admin/AdminDashboard';
+import UserDashboard from './views/userLoggedIn/UserDashboard';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
 import Footer from './components/Footer';
@@ -17,7 +18,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyles/>
+      <GlobalStyles />
       <Router>
         <div className="App">
           <Route exact path="/" component={Home} />
@@ -29,7 +30,8 @@ function App() {
           <Route path="/users" component={Users} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/admin" component={AdminDashboard} />
-          <Footer/>
+          <Route path="/user" component={UserDashboard} />
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>
