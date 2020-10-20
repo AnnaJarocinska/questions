@@ -59,7 +59,7 @@ const mapStateToProps = (state) => ({
     randomQuestion: state.game.randomQuestion,
     questionsAsked: state.game.questionsAsked,
     questionsToAsk: state.game.questionsToAsk, 
-    questions: state.game.questions,
+    questions: state.game.questions
 })
 
 const mapDispatchToProps = (dispatch) => ({

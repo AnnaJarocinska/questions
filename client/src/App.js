@@ -14,6 +14,7 @@ import UserDashboard from './views/userLoggedIn/UserDashboard';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
 import Footer from './components/Footer';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <GlobalStyles />
       <Router>
         <div className="App">
+          <Navigation/>
           <Route exact path="/" component={Home} />
           <Route path="/moreInformations" component={MoreInformations} />
           <Route path="/addingQuestion" component={AddingQuestion} />
