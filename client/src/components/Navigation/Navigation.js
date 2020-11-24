@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import NavBar from '../NavBar';
-import actions from '../duck/actions';
+import actions from '../../view/duck/actions';
 
 const Navigation = () => {
     return ( 
