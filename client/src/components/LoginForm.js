@@ -3,12 +3,16 @@ import axios from 'axios';
 import { Formik } from 'formik';
 import { Redirect } from 'react-router';
 import Cookies from 'js-cookie';
+import { connect } from 'react-redux';
+import actions from '../view/duck/actions';
 import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = (props) => {
+const LoginForm = ({adminn, user, unnamed,
+ adminLoggedIn, adminLoggedOut, userLoggedIn, userLoggedOut 
+}) => {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
@@ -58,6 +62,7 @@ const LoginForm = (props) => {
              if (cookieName === 'admin'){
                
               setAdmin(true);
+              adminLoggedIn();
               }
              
             })
@@ -67,6 +72,8 @@ const LoginForm = (props) => {
              if (cookieName === 'user'){
                
               setLoggedIn(true);
+              userLoggedIn();
+              
               }
              
             })
@@ -113,5 +120,17 @@ const LoginForm = (props) => {
   </>
 )}
 
+const mapStateToProps = (state) => ({
+    adminn: state.view.admin,
+    user: state.view.user,
+    unnamed: state.view.unnamed,
+})
 
-export default LoginForm;
+const mapDispatchToProps = (dispatch) => ({
+    adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
+    adminLoggedOut: () =>  dispatch(actions.adminLoggedOut()),
+    userLoggedIn: () => dispatch(actions.userLoggedIn()),
+    userLoggedOut: () => dispatch(actions.userLoggedOut())
+  }) 
+
+export default connect(mapStateToProps, mapDispatchToProps) (LoginForm);
