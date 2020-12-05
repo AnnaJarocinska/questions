@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actions from '../view/duck/actions';
 import MainImage from '../components/MainImage';
 import NavBar from '../components/NavBar';
 
-const Home = () => {
+const Home = ({home, isHomepage}) => {
     return (
       <>
       <NavBar home/>
@@ -12,4 +14,12 @@ const Home = () => {
       );
 }
  
-export default Home;
+const mapStateToProps = (state) => ({
+  home: state.view.home
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  isHomepage: () =>  dispatch(actions.isHomepage())
+})  
+
+export default connect(mapStateToProps, mapDispatchToProps) (Home);

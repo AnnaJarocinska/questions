@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import NavBar from '../NavBar';
 import actions from '../../view/duck/actions';
 
-const Navigation = ({admin}) => {
+const Navigation = ({admin, user, unnamed, home}) => {
     return ( 
         <NavBar
-        admin= {admin}/>
+        admin= {admin}
+        user= {user}
+        unnamed= {unnamed}
+        home= {home}/>
      );
 }
 
