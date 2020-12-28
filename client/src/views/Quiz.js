@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 // import axios from 'axios';
 // import OneQuestion from '../components/OneQuestion';
 import Points from '../game/components/Points';
-import NavBar from '../components/NavBar';
 import Wrapper from '../styles/Wrapper';
 import Overlay from '../styles/Overlay.js';
 
@@ -24,7 +23,6 @@ const Quiz = () => {
 
     return (  
         <>
-        <NavBar/>
         <Wrapper>
           <Overlay>
             <Points/>

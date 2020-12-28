@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../view/duck/actions';
 import MainImage from '../components/MainImage';
-import NavBar from '../components/NavBar';
 
-const Home = ({home, isHomepage}) => {
+const Home = ({match, home, isHomepage}) => {
+  let trr = match.path
+  console.log(trr, 'trr')
     return (
       <>
-      <NavBar home/>
       <MainImage/>
       </>
         
