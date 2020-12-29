@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faBinoculars } from '@fortawesome/free-solid-svg-icons';
 import { faCampground } from '@fortawesome/free-solid-svg-icons';
-import Span from '../styles/Span';
-import NavigationMobile from '../styles/NavigationMobile';
-import Button from '../styles/Button';
-import Navigation from '../styles/Navigation';
+import Span from '../../styles/Span';
+import NavigationMobile from '../../styles/NavigationMobile';
+import Button from '../../styles/Button';
+import Navigation from '../../styles/Navigation';
 
 const NavMobile = () => { 
    

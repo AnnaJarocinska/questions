@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 // import { matchPath } from "react-router";
 import { useMediaQuery } from 'react-responsive';
 
-import Nav from '../Nav';
-import NavMobile from '../NavMobile';
+import Nav from './Nav';
+import NavMobile from './NavMobile';
 import actions from '../../view/duck/actions';
 
 const Navigation = ({props, match, admin, user, unnamed, home}) => {

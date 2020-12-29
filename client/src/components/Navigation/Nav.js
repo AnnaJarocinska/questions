@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBinoculars } from '@fortawesome/free-solid-svg-icons';
 import { faCampground } from '@fortawesome/free-solid-svg-icons';
-import Button from '../styles/Button';
-import Container from '../styles/Container';
-import Span from '../styles/Span';
-import Navigation from '../styles/Navigation';
+import Button from '../../styles/Button';
+import Container from '../../styles/Container';
+import Span from '../../styles/Span';
+import Navigation from '../../styles/Navigation';
 
 const Nav = ({home, desktop, logged, admin, user}) => {
     return ( 
