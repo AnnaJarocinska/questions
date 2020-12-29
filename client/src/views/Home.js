@@ -6,11 +6,9 @@ import MainImage from '../components/MainImage';
 const Home = ({match, home, isHomepage}) => {
   let trr = match.path
   console.log(trr, 'trr')
+  
     return (
-      <>
       <MainImage/>
-      </>
-        
       );
 }
  

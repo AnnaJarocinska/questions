@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 // import axios from 'axios';
 // import OneQuestion from '../components/OneQuestion';
 import Points from '../game/components/Points';
-import Wrapper from '../styles/Wrapper';
-import Overlay from '../styles/Overlay.js';
 
 const Quiz = () => {
 
@@ -23,13 +21,9 @@ const Quiz = () => {
 
     return (  
         <>
-        <Wrapper>
-          <Overlay>
             <Points/>
             {/* <button onClick={fetchData}>Start</button>
             <OneQuestion question={data}/> */}
-            </Overlay>
-        </Wrapper>
         </>
     );
 }

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import Home from './views/Home';
 import AddingQuestion from './views/admin/AddingQuestion';
-import MoreInformations from './views/MoreInformations';
+import MoreInformation from './views/MoreInformation';
 import Login from './views/Login';
 import Quiz from './views/Quiz';
 import NewUser from './views/NewUser';
@@ -13,6 +13,8 @@ import AdminDashboard from './views/admin/AdminDashboard';
 import UserDashboard from './views/userLoggedIn/UserDashboard';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
+import Wrapper from './styles/Wrapper';
+import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
 
@@ -23,16 +25,20 @@ function App() {
       <Router>
         <div className="App">
           <Navigation/>
-          <Route exact path="/" component={Home} />
-          <Route path="/moreInformations" component={MoreInformations} />
-          <Route path="/addingQuestion" component={AddingQuestion} />
-          <Route path="/login" component={Login} />
-          <Route path="/newUser" component={NewUser} />
-          <Route path="/userCreated" component={UserCreated} />
-          <Route path="/users" component={Users} />
-          <Route path="/quiz" component={Quiz} />
-          <Route path="/admin" component={AdminDashboard} />
-          <Route path="/user" component={UserDashboard} />
+          <Wrapper>
+            <Overlay>
+              <Route exact path="/" component={Home} />
+              <Route path="/moreInformation" component={MoreInformation} />
+              <Route path="/addingQuestion" component={AddingQuestion} />
+              <Route path="/login" component={Login} />
+              <Route path="/newUser" component={NewUser} />
+              <Route path="/userCreated" component={UserCreated} />
+              <Route path="/users" component={Users} />
+              <Route path="/quiz" component={Quiz} />
+              <Route path="/admin" component={AdminDashboard} />
+              <Route path="/user" component={UserDashboard} />
+            </Overlay>
+          </Wrapper>
           <Footer />
         </div>
       </Router>
