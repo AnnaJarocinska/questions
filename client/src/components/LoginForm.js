@@ -51,6 +51,8 @@ const LoginForm = ({adminn, user, unnamed,
               // if (res.data === 'verified'){
               // setLoggedIn(true);
               // }
+              if (res.data === 'admin123'){
+              }
               if (res.data === 'rejection'){
                 setRejection(true);
                 resetForm();

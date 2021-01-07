@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const config = require('./config');
 const cookieParser = require('cookie-parser');
+const session = require('express-session')
 // const cors = require('cors');
 
 const api = require('./routes/api');
@@ -21,6 +22,14 @@ const app = express();
 // app.set('trust proxy', 1) // trust first proxy
 // 
 // app.use(cors());
+// app.set('trust proxy', 1) // trust first proxy
+// app.use(session({
+//   secret: 'keyboard cat',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: true }
+// }))
+
 app.use(cookieParser())
 app.use(cookieSession({
   name: 'session',
@@ -71,6 +80,9 @@ app.use((err, req, res, next) => {
   console.log(err);
   next();
 });
+
+
+
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`)

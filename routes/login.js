@@ -7,9 +7,11 @@ router.post('/', (req, res, next) => {
         User.find({name: req.body.name, password: req.body.password} , function(err, arr) {
             if (arr.length > 0 && arr[0].admin){
                 req.session.admin = 1;   
+                req.sessionID = 'admin123'
                 res.cookie('name', 'admin');
+                res.send(req.sessionID);
                 res.redirect('/admin');
-            //  res.send('admin');
+             
             }
             if (arr.length > 0 && arr[0].admin === false){
                 req.session.user = 2;
