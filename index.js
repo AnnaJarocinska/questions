@@ -6,6 +6,7 @@ const config = require('./config');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
 // const cors = require('cors');
+const bcrypt = require('bcryptjs');
 
 const api = require('./routes/api');
 const login = require('./routes/login');
