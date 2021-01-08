@@ -4,17 +4,15 @@ const User = require('../models/users');
 const Keys = require('../models/keys');
 const bcrypt = require('bcryptjs');
 
-router.post('/', (req, res, next) => {
+router.post('/', async (req, res) => {
 
-        User.find({name: req.body.name} , function(err, arr) {
-            if (arr.length > 0){
+  const userNameNotAvailable = await User.findOne({name: req.body.name});
+            if (userNameNotAvailable){
                 res.send('rejection')
             }
-            if (arr.length === 0) {
-              // res.send('created')
-            (async () => {
+            if (!userNameNotAvailable) {
+              res.send('created')
               const salt = await bcrypt.genSalt(10);
-    
               let userid = 3
               let username = req.body.name
               let hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -24,13 +22,7 @@ router.post('/', (req, res, next) => {
                 password: hashedPassword,
               });
               newUser.save()
-            })()    
-            } 
-            })
-            
-        .then(data => res.json(data))
-        .catch(next)
-          
+            }
 });
 
 module.exports = router;
