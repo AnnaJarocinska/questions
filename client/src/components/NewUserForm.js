@@ -80,7 +80,7 @@ const NewUserForm = (props) => {
           </Form>
         )}
     </Formik>
-     {created && <Redirect to='/userCreated'/>}
+     {created && <Redirect to='/newUser/created'/>}
     {rejection && <p>This username is already in use</p>}    
   </>
 )}

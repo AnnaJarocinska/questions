@@ -31,8 +31,8 @@ function App() {
               <Route path="/moreInformation" component={MoreInformation} />
               <Route path="/addingQuestion" component={AddingQuestion} />
               <Route path="/login" component={Login} />
-              <Route path="/newUser" component={NewUser} />
-              <Route path="/userCreated" component={UserCreated} />
+              <Route exact path="/newUser" component={NewUser} />
+              <Route path="/newUser/created" component={UserCreated} />
               <Route path="/users" component={Users} />
               <Route path="/quiz" component={Quiz} />
               <Route path="/admin" component={AdminDashboard} />
