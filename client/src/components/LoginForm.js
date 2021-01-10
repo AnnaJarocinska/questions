@@ -42,22 +42,13 @@ const LoginForm = ({adminn, user, unnamed,
     
           axios.post('/login', content)
             .then(res => {
-            //   console.log(res.session, 'req.session.admin')
-            //  console.log( Cookies.get(), 'cookies')
-              // if (res.data === 'admin'){
-               
-              //   setAdmin(true);
-              //   }
-              // if (res.data === 'verified'){
-              // setLoggedIn(true);
-              // }
-              if (res.data === 'admin123'){
-              }
+           
               if (res.data === 'rejection'){
                 setRejection(true);
                 resetForm();
               }
             })
+            .catch(err => console.log(err))
 
             axios.get('/admin', content)
             .then(res => {
@@ -66,7 +57,6 @@ const LoginForm = ({adminn, user, unnamed,
               setAdmin(true);
               adminLoggedIn();
               }
-             
             })
 
             axios.get('/user', content)
@@ -75,11 +65,8 @@ const LoginForm = ({adminn, user, unnamed,
                
               setLoggedIn(true);
               userLoggedIn();
-              
               }
-             
             })
-            
             .catch(err => console.log(err))
         
       }}

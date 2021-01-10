@@ -24,19 +24,19 @@ const app = express();
 // 
 // app.use(cors());
 // app.set('trust proxy', 1) // trust first proxy
-// app.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { secure: true }
-// }))
-
-app.use(cookieParser())
-app.use(cookieSession({
-  name: 'session',
-  keys: config.keySession,
-  maxAge: config.maxAgeSession
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
 }))
+
+// app.use(cookieParser())
+// app.use(cookieSession({
+//   name: 'session',
+//   keys: config.keySession,
+//   maxAge: config.maxAgeSession
+// }))
 
 // app.use(express.static(path.join(__dirname, 'client')))
 

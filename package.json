@@ -23,7 +23,8 @@
     "http-proxy-middleware": "^1.0.5",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.25",
-    "styled-normalize": "^8.0.7"
+    "styled-normalize": "^8.0.7",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
