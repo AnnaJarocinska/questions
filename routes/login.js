@@ -42,21 +42,29 @@ try{
     console.log(err)
   }
 
-    // else if(user, passwordCorrect){
-    //     const key = uuidv4();
-    //     console.log(key, 'keyyyyyyyy')
-    //     const newKey = new User({
-    //         key: key,
-    //       });
-    //       newKey.save();
-    // }
+  try{
+     if(user, passwordCorrect){
+        const key = uuidv4();
+        console.log(key, 'keyyyyyyyy')
+        user.key = key;
+          user.save();
+    }
+}catch (err) {
+    // res.status(400).json({
+    //   err
+    // });
+    console.log(err)
+  }
 
     
 try{
      if (user.admin){
         console.log(req.sessionID, 'JJJJJJEEEEEEEEESSSSSSSSSSSSSSTTTTTTT', req.session.id)
+        
         req.session.admin = 1;   
-        req.sessionID = 'admin123'
+        // req.sessionID = 'admin123'
+        console.log(req.session.admin, 'req.session.admin')
+        console.log(req.sessionID, 'req.sess.id po przyp', req.session.id)
         res.cookie('name', 'admin');
         // res.send(req.sessionID);
         res.redirect('/admin');
