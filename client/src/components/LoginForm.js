@@ -48,7 +48,7 @@ const LoginForm = ({adminn, user, unnamed,
                 resetForm();
               }
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err, 'err post'))
 
             axios.get('/admin', content)
             .then(res => {
@@ -58,6 +58,7 @@ const LoginForm = ({adminn, user, unnamed,
               adminLoggedIn();
               }
             })
+            .catch(err => console.log(err, 'err admin'))
 
             axios.get('/user', content)
             .then(res => {
@@ -67,7 +68,7 @@ const LoginForm = ({adminn, user, unnamed,
               userLoggedIn();
               }
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err, 'err user'))
         
       }}
     >

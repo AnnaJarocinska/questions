@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const config = require('./config');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
-// const cors = require('cors');
+const cors = require('cors');
 const bcrypt = require('bcryptjs');
 
 const api = require('./routes/api');
@@ -22,8 +22,8 @@ const app = express();
 
 // app.set('trust proxy', 1) // trust first proxy
 // 
-// app.use(cors());
-// app.set('trust proxy', 1) // trust first proxy
+app.use(cors());
+app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
