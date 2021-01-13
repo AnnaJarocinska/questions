@@ -47,28 +47,30 @@ const LoginForm = ({adminn, user, unnamed,
                 setRejection(true);
                 resetForm();
               }
+              
             })
             .catch(err => console.log(err, 'err post'))
 
             axios.get('/admin', content)
             .then(res => {
-             if (cookieName === 'admin'){
+              console.log(res.data, 'res.data w admin')
+            //  if (cookieName === 'admin'){
                
-              setAdmin(true);
-              adminLoggedIn();
-              }
+            //   setAdmin(true);
+            //   adminLoggedIn();
+            //   }
             })
             .catch(err => console.log(err, 'err admin'))
 
-            axios.get('/user', content)
-            .then(res => {
-             if (cookieName === 'user'){
+            // axios.get('/user', content)
+            // .then(res => {
+            //  if (cookieName === 'user'){
                
-              setLoggedIn(true);
-              userLoggedIn();
-              }
-            })
-            .catch(err => console.log(err, 'err user'))
+            //   setLoggedIn(true);
+            //   userLoggedIn();
+            //   }
+            // })
+            // .catch(err => console.log(err, 'err user'))
         
       }}
     >
