@@ -42,7 +42,7 @@ const LoginForm = ({adminn, user, unnamed,
     
           axios.post('/login', content)
             .then(res => {
-           
+           console.log(res.data, 'res.data w loginform')
               if (res.data === 'rejection'){
                 setRejection(true);
                 resetForm();
@@ -51,9 +51,12 @@ const LoginForm = ({adminn, user, unnamed,
             })
             .catch(err => console.log(err, 'err post'))
 
-            axios.get('/admin', content)
+            console.log(cookieName, "cn")
+
+            axios.post('/admin', content)
             .then(res => {
               console.log(res.data, 'res.data w admin')
+              // console.log(content, 'content')
             //  if (cookieName === 'admin'){
                
             //   setAdmin(true);

@@ -44,12 +44,13 @@ try{
 
   try{
      if(user, passwordCorrect){
-        // const key = uuidv4();
-        // user.key = key;
-        //   user.save();
+        const key = uuidv4();
+        user.key = key;
+          user.save();
           // res.send(key)
           if(user.admin){
             res.redirect('/admin')
+            // res.cookie('name',key)
           }
           if(!user.admin){
             res.redirect('/user')
