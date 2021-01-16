@@ -18,7 +18,10 @@ const LoginForm = ({adminn, user, unnamed,
   const [rejection, setRejection] = useState(false);
   const [admin, setAdmin] = useState(false);
 
-  const cookieName = Cookies.get().name;
+  const instance = axios.create();
+
+  // const cookieKey = Cookies.get('key');
+  // console.log(cookieKey, 'cookieKey')
 
   return (
   <>
@@ -34,36 +37,44 @@ const LoginForm = ({adminn, user, unnamed,
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting, resetForm }) => {
+      onSubmit={async(values, { setSubmitting, resetForm }) => {
+        
         const content = {
           name: values.name,
           password: values.password
         }
     
-          axios.post('/login', content)
-            .then(res => {
-           console.log(res.data, 'res.data w loginform')
-              if (res.data === 'rejection'){
-                setRejection(true);
-                resetForm();
-              }
+         await axios.post('/login', content)
+        
+            // .then(res => { 
+            //   console.log(res.data, 'res.data w login form')
+            // //   if (res.data === 'rejection'){
+            // //     setRejection(true);
+            // //     resetForm();
+            // //   }
               
-            })
+            // }
+            // )
             .catch(err => console.log(err, 'err post'))
 
-            console.log(cookieName, "cn")
+        //  await axios.post('/admin', content)
+        //     .then(res => {
+        //       console.log(res.data, 'res.data w /admin post')
+        //       let key = res.data;
+        //       Cookies.set('key', key);     
+        //     //   setAdmin(true);
+        //     //   adminLoggedIn();
+        //     //   }
+        //     })
+        //     .catch(err => console.log(err, 'err admin'))
 
-            axios.post('/admin', content)
-            .then(res => {
-              console.log(res.data, 'res.data w admin')
-              // console.log(content, 'content')
-            //  if (cookieName === 'admin'){
+            // axios.post('/admin', cookieKey)
+            // .then(res => {
+              
+            //   console.log(res.data,'drugi res w login form post /admin')
                
-            //   setAdmin(true);
-            //   adminLoggedIn();
-            //   }
-            })
-            .catch(err => console.log(err, 'err admin'))
+            // })
+            // .catch(err => console.log(err, 'err admin'))
 
             // axios.get('/user', content)
             // .then(res => {
