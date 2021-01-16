@@ -33,12 +33,12 @@ try {
 
         if(user.admin){
           res
-          .cookie('keyy', key)
+          .cookie('key', key)
           .redirect('/admin')
           }
         if(!user.admin){
           res
-          .cookie('keyy', key)
+          .cookie('key', key)
           .redirect('/user')
           }
     }

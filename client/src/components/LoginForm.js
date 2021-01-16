@@ -20,8 +20,7 @@ const LoginForm = ({adminn, user, unnamed,
 
   const instance = axios.create();
 
-  // const cookieKey = Cookies.get('key');
-  // console.log(cookieKey, 'cookieKey')
+  
 
   return (
   <>
@@ -46,27 +45,35 @@ const LoginForm = ({adminn, user, unnamed,
     
          await axios.post('/login', content)
         
-            // .then(res => { 
-            //   console.log(res.data, 'res.data w login form')
+            .then(res => { 
+              console.log(res.data, 'res.data w login form')
             // //   if (res.data === 'rejection'){
             // //     setRejection(true);
             // //     resetForm();
             // //   }
               
-            // }
-            // )
+            }
+            )
             .catch(err => console.log(err, 'err post'))
 
-        //  await axios.post('/admin', content)
-        //     .then(res => {
-        //       console.log(res.data, 'res.data w /admin post')
-        //       let key = res.data;
-        //       Cookies.set('key', key);     
-        //     //   setAdmin(true);
-        //     //   adminLoggedIn();
-        //     //   }
-        //     })
-        //     .catch(err => console.log(err, 'err admin'))
+const cookieKey = Cookies.get('key');
+console.log(cookieKey, 'cookieKey')
+const cookieContent = {
+  key: cookieKey,
+}
+
+   await axios.post('/admin', cookieContent)
+  .then(res => {
+    console.log(res.data, 'res.data w /admin post')
+       
+  //   setAdmin(true);
+  //   adminLoggedIn();
+  //   }
+  })
+  .catch(err => console.log(err, 'err admin'))
+
+
+      
 
             // axios.post('/admin', cookieKey)
             // .then(res => {

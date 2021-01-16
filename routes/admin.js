@@ -8,8 +8,9 @@ router.all('*', async (req, res) => {
 
     try{
       console.log('redirect na admin udany')
-
-    // const user = await User.findOne({name: req.body.name});
+console.log(req.body.key,'req.body.key')
+    const isAdmin = await User.findOne({key: req.body.key});
+    console.log(isAdmin, 'isAdmin')
     // const key = uuidv4();
     // user.key = key;
     // user.save();
