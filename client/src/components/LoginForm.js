@@ -18,10 +18,6 @@ const LoginForm = ({adminn, user, unnamed,
   const [rejection, setRejection] = useState(false);
   const [admin, setAdmin] = useState(false);
 
-  const instance = axios.create();
-
-  
-
   return (
   <>
     <Formik
