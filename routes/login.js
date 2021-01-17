@@ -4,7 +4,6 @@ const User = require('../models/users');
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 
-
 router.post('/', async (req, res) => {
     
     const user = await User.findOne({name: req.body.name});
@@ -33,7 +32,7 @@ try {
 
         if(user.admin){
           res
-          .cookie('key', key)
+          .cookie('key', key, { path: '/admin'})
           .redirect('/admin')
           }
         if(!user.admin){
@@ -45,7 +44,6 @@ try {
 } catch (err) {
     console.log(err)
   }
-
 })
 
 module.exports = router;

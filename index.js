@@ -31,7 +31,7 @@ app.use(session({
   cookie: { secure: true }
 }))
 
-// app.use(cookieParser())
+app.use(cookieParser())
 // app.use(cookieSession({
 //   name: 'session',
 //   keys: config.keySession,

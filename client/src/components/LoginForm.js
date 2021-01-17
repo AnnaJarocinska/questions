@@ -44,44 +44,28 @@ const LoginForm = ({adminn, user, unnamed,
         }
     
          await axios.post('/login', content)
-        
-            .then(res => { 
-              console.log(res.data, 'res.data w login form')
-            // //   if (res.data === 'rejection'){
-            // //     setRejection(true);
-            // //     resetForm();
-            // //   }
-              
-            }
-            )
             .catch(err => console.log(err, 'err post'))
 
-const cookieKey = Cookies.get('key');
-console.log(cookieKey, 'cookieKey')
-const cookieContent = {
-  key: cookieKey,
-}
-
-   await axios.post('/admin', cookieContent)
-  .then(res => {
-    console.log(res.data, 'res.data w /admin post')
-       
-  //   setAdmin(true);
-  //   adminLoggedIn();
-  //   }
-  })
-  .catch(err => console.log(err, 'err admin'))
-
-
-      
-
-            // axios.post('/admin', cookieKey)
-            // .then(res => {
-              
-            //   console.log(res.data,'drugi res w login form post /admin')
-               
-            // })
-            // .catch(err => console.log(err, 'err admin'))
+            const cookieKey = Cookies.get('key');
+            console.log(cookieKey, 'cookieKey')
+            const cookieContent = {
+              key: cookieKey,
+            }
+            
+            await axios.post('/admin', cookieContent)
+              .then(res => {
+                console.log(res.data, 'res.data w /admin post');
+                
+                  if (res.data === "veryfied"){
+                setAdmin(true);
+                adminLoggedIn();
+                }
+                if (res.data === 'rejection'){
+                  setRejection(true);
+                  resetForm();
+                }
+              })
+              .catch(err => console.log(err, 'err admin'))
 
             // axios.get('/user', content)
             // .then(res => {
