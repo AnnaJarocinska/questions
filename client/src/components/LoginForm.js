@@ -52,7 +52,7 @@ const LoginForm = ({adminn, user, unnamed,
               .then(res => {
                 console.log(res.data, 'res.data w /admin post');
                 
-                  if (res.data === "veryfied"){
+                  if (res.data === "adminVeryfied"){
                 setAdmin(true);
                 adminLoggedIn();
                 }
@@ -63,15 +63,19 @@ const LoginForm = ({adminn, user, unnamed,
               })
               .catch(err => console.log(err, 'err admin'))
 
-            // axios.get('/user', content)
-            // .then(res => {
-            //  if (cookieName === 'user'){
-               
-            //   setLoggedIn(true);
-            //   userLoggedIn();
-            //   }
-            // })
-            // .catch(err => console.log(err, 'err user'))
+            axios.post('/user', cookieContent)
+            .then(res => {
+           
+              if (res.data === "userVeryfied"){
+              setLoggedIn(true);
+              userLoggedIn();
+              }
+            if (res.data === 'rejection'){
+              setRejection(true);
+              resetForm();
+            }
+            })
+            .catch(err => console.log(err, 'err user'))
         
       }}
     >
