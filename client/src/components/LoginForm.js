@@ -50,7 +50,6 @@ const LoginForm = ({adminn, user, unnamed,
             
             await axios.post('/admin', cookieContent)
               .then(res => {
-                console.log(res.data, 'res.data w /admin post');
                 
                   if (res.data === "adminVeryfied"){
                 setAdmin(true);
@@ -63,7 +62,7 @@ const LoginForm = ({adminn, user, unnamed,
               })
               .catch(err => console.log(err, 'err admin'))
 
-            axios.post('/user', cookieContent)
+            await axios.post('/user', cookieContent)
             .then(res => {
            
               if (res.data === "userVeryfied"){
