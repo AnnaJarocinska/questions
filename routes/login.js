@@ -7,7 +7,8 @@ const { v4: uuidv4 } = require('uuid');
 router.post('/', async (req, res) => {
     
     const user = await User.findOne({name: req.body.name});
-    const passwordCorrect = await bcrypt.compare(req.body.password, user.password);
+    const userPassword = user !== null ? user.password : ''; 
+    const passwordCorrect = await bcrypt.compare(req.body.password, userPassword);
 
 try {
     if (!user){
