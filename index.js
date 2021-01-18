@@ -1,12 +1,9 @@
-const cookieSession = require('cookie-session');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const config = require('./config');
 const cookieParser = require('cookie-parser');
 const session = require('express-session')
 const cors = require('cors');
-const bcrypt = require('bcryptjs');
 
 const api = require('./routes/api');
 const login = require('./routes/login');
@@ -20,31 +17,18 @@ require('dotenv').config();
 
 const app = express();
 
-// app.set('trust proxy', 1) // trust first proxy
-// 
 app.use(cors());
-app.set('trust proxy', 1) // trust first proxy
+app.set('trust proxy', 1) 
 app.use(session({
-  secret: 'keyboard cat',
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
   cookie: { secure: true }
 }))
 
 app.use(cookieParser())
-// app.use(cookieSession({
-//   name: 'session',
-//   keys: config.keySession,
-//   maxAge: config.maxAgeSession
-// }))
 
 // app.use(express.static(path.join(__dirname, 'client')))
-
-// This allows you to set req.session.maxAge to let certain sessions
-// have a different value than the default.
-// app.use(function (req, res, next) {
-//   req.sessionOptions.maxAge = req.session.maxAge || req.sessionOptions.maxAge
-// })
 
 // app.use(function(req, res, next){
 //   res.locals.path = req.path;
@@ -81,8 +65,6 @@ app.use((err, req, res, next) => {
   console.log(err);
   next();
 });
-
-
 
 
 app.listen(port, () => {
