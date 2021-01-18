@@ -30,15 +30,17 @@ try {
       const key = uuidv4();
       user.key = key;
       user.save();
-
+    
         if(user.admin){
           res
           .cookie('key', key, { path: '/admin'})
+          .cookie('apply', '0', { path: '/admin'})
           .redirect('/admin')
           }
         if(!user.admin){
           res
           .cookie('key', key)
+          .cookie('apply', '1')
           .redirect('/user')
           }
     }

@@ -41,14 +41,14 @@ const LoginForm = ({adminn, user, unnamed,
     
          await axios.post('/login', content)
             .catch(err => console.log(err, 'err post'))
-
+           
             const cookieKey = Cookies.get('key');
-            console.log(cookieKey, 'cookieKey')
             const cookieContent = {
               key: cookieKey,
             }
-            
-            await axios.post('/admin', cookieContent)
+            const applyCookie = Cookies.get('apply');
+
+            applyCookie === '0' && await axios.post('/admin', cookieContent)
               .then(res => {
                 
                   if (res.data === "adminVeryfied"){
@@ -62,7 +62,7 @@ const LoginForm = ({adminn, user, unnamed,
               })
               .catch(err => console.log(err, 'err admin'))
 
-            await axios.post('/user', cookieContent)
+              applyCookie === '1' && await axios.post('/user', cookieContent)
             .then(res => {
            
               if (res.data === "userVeryfied"){
