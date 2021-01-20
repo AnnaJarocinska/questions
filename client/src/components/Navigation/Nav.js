@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBinoculars } from '@fortawesome/free-solid-svg-icons';
 import { faCampground } from '@fortawesome/free-solid-svg-icons';
@@ -31,7 +32,9 @@ const Nav = ({home, desktop, unnamed, admin, user, adminLoggedOut, userLoggedOut
             <Container buttons>
                 {unnamed?
                 <Link to="/login"> <Button login> Login </Button> </Link>:
-               <Link to="/login"> <Button login onClick={logOut}> Logout </Button></Link>}
+                <Link to="/login"> <Button login 
+                    onClick={ () => {logOut(); Cookies.remove('key');  Cookies.remove('apply')}}>
+                    Logout </Button></Link>}
                 <Link to="/newUser"> <Button login> Register </Button> </Link>
                 <Link to="/quiz"> <Button login yellow> Quick game </Button> </Link>
             </Container> 
