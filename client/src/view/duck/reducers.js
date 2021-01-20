@@ -13,19 +13,15 @@ const viewReducer = (state = INITIAL_STATE, action) =>
     switch (action.type) {
 
       case types.ADMIN_LOGGEDIN:
-        console.log('zzzzzzzzaaaalogow')
         return {
           admin: !draft.admin,
           unnamed: !draft.unnamed,
         }
         
-        
-
       case types.ADMIN_LOGGEDOUT:
-        console.log('wwwwwyyyyyylogow')
         return {
-          admin: draft.admin,
-          unnamed: draft.unnamed,
+          admin: false,
+          unnamed: true,
         }
         // break;
 
@@ -38,10 +34,10 @@ const viewReducer = (state = INITIAL_STATE, action) =>
 
 
       case types.USER_LOGGEDOUT:
-        return (
-          draft.user,
-          draft.unnamed
-          )
+        return {
+          user:false,
+          unnamed: true,
+        }
         // break;
 
       case types.IS_HOMEPAGE:

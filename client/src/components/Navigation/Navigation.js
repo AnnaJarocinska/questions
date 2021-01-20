@@ -7,7 +7,7 @@ import Nav from './Nav';
 import NavMobile from './NavMobile';
 import actions from '../../view/duck/actions';
 
-const Navigation = ({props, match, admin, user, unnamed, home}) => {
+const Navigation = ({props, match, admin, user, unnamed, home, adminLoggedOut, userLoggedOut}) => {
     // let trr = match.path
   console.log(match, 'match.path in navigation')
 
@@ -28,7 +28,8 @@ const Navigation = ({props, match, admin, user, unnamed, home}) => {
         // home= {home}/>
         <>
         {isNotMobile ? 
-        <Nav home={home} unnamed={unnamed} admin={admin} user={user} desktop={isDesktop}/> :
+        <Nav home={home} unnamed={unnamed} admin={admin} user={user} desktop={isDesktop} 
+        adminLoggedOut={adminLoggedOut} userLoggedOut={userLoggedOut} /> :
         <NavMobile home={home} unnamed={unnamed}/> }    
         </>
      );
