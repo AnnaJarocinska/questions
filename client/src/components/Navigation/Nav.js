@@ -8,7 +8,7 @@ import Container from '../../styles/Container';
 import Span from '../../styles/Span';
 import Navigation from '../../styles/Navigation';
 
-const Nav = ({home, desktop, logged, admin, user}) => {
+const Nav = ({home, desktop, unnamed, admin, user}) => {
     return ( 
         <>
         <Navigation 
@@ -28,7 +28,7 @@ const Nav = ({home, desktop, logged, admin, user}) => {
                 </Link>}
             </Container>
             <Container buttons>
-                {!logged?
+                {unnamed?
                 <Link to="/login"> <Button login> Login </Button> </Link>:
                 <Link to="/"> <Button login> Logout </Button> </Link>}
                 <Link to="/newUser"> <Button login> Register </Button> </Link>
