@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute'
 import { ThemeProvider } from 'styled-components';
 import Home from './views/Home';
 import AddingQuestion from './views/admin/AddingQuestion';
@@ -35,7 +36,7 @@ function App() {
               <Route path="/newUser/created" component={UserCreated} />
               <Route path="/users" component={Users} />
               <Route path="/quiz" component={Quiz} />
-              <Route path="/admin" component={AdminDashboard} />
+              <ProtectedRoute path="/admin" component={AdminDashboard} />
               <Route path="/user" component={UserDashboard} />
             </Overlay>
           </Wrapper>
