@@ -37,7 +37,7 @@ function App() {
                 <Route path="/user" component={UserDashboard} />
                 <Route path="/quiz" component={Quiz} />
                 <Switch>
-                <ProtectedRoute path="/admin" component={AdminDashboard} />
+                <ProtectedRoute exact path="/admin" component={AdminDashboard} />
                 <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} />
                 <ProtectedRoute path="/admin/users" component={Users} />
                 <ProtectedRoute  component={AdminDashboard} />
