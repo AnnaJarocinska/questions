@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute'
 import { ThemeProvider } from 'styled-components';
 import Home from './views/Home';
@@ -28,16 +28,20 @@ function App() {
           <Navigation/>
           <Wrapper>
             <Overlay>
-              <Route exact path="/" component={Home} />
-              <Route path="/moreInformation" component={MoreInformation} />
-              <Route path="/addingQuestion" component={AddingQuestion} />
-              <Route path="/login" component={Login} />
-              <Route exact path="/newUser" component={NewUser} />
-              <Route path="/newUser/created" component={UserCreated} />
-              <Route path="/users" component={Users} />
-              <Route path="/quiz" component={Quiz} />
-              <ProtectedRoute path="/admin" component={AdminDashboard} />
-              <Route path="/user" component={UserDashboard} />
+              
+                <Route exact path="/" component={Home} />
+                <Route path="/moreInformation" component={MoreInformation} />
+                <Route path="/login" component={Login} />
+                <Route exact path="/newUser" component={NewUser} />
+                <Route path="/newUser/created" component={UserCreated} />
+                <Route path="/user" component={UserDashboard} />
+                <Route path="/quiz" component={Quiz} />
+                <Switch>
+                <ProtectedRoute path="/admin" component={AdminDashboard} />
+                <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} />
+                <ProtectedRoute path="/admin/users" component={Users} />
+                <ProtectedRoute  component={AdminDashboard} />
+              </Switch>
             </Overlay>
           </Wrapper>
           <Footer />

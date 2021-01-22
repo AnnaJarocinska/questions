@@ -15,12 +15,12 @@ const AdminDashboard = () => {
                         <ul>
                             <li>
                                 <AnswerParagraph>
-                                    <Link to="/addingQuestion">Adding question</Link>
+                                    <Link to="/admin/addingQuestion">Adding question</Link>
                                 </AnswerParagraph>    
                             </li> 
                             <li>
                                 <AnswerParagraph>
-                                    <Link to="/users">Users</Link>
+                                    <Link to="/admin/users">Users</Link>
                                 </AnswerParagraph>
                             </li>
                         </ul>

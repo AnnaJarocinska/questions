@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 const ProtectedRoute = ({component, admin}) => {
         const Component = component;
         const isAuthenticated = admin;
-       console.log(component, 'props')
         return (
             <>
             {isAuthenticated ? (
