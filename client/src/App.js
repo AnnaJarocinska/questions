@@ -19,7 +19,18 @@ import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
 
-function App() {
+// const Admin = () => {
+//   return(
+//               <Switch>
+//                 <ProtectedRoute exact path="/admin" component={AdminDashboard} />
+//                 <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} />
+//                 <ProtectedRoute path="/admin/users" component={Users} />
+//                 <ProtectedRoute  component={AdminDashboard} />
+//               </Switch>
+//   )
+// }
+
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
@@ -28,8 +39,6 @@ function App() {
           <Navigation/>
           <Wrapper>
             <Overlay>
-              
-                <Route exact path="/" component={Home} />
                 <Route path="/moreInformation" component={MoreInformation} />
                 <Route path="/login" component={Login} />
                 <Route exact path="/newUser" component={NewUser} />
@@ -38,10 +47,11 @@ function App() {
                 <Route path="/quiz" component={Quiz} />
                 <Switch>
                 <ProtectedRoute exact path="/admin" component={AdminDashboard} />
+                <Route exact path="/" component={Home} />
                 <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} />
                 <ProtectedRoute path="/admin/users" component={Users} />
                 <ProtectedRoute  component={AdminDashboard} />
-              </Switch>
+                </Switch>
             </Overlay>
           </Wrapper>
           <Footer />
