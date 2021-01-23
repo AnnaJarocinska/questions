@@ -43,14 +43,14 @@ const App = () => {
                 <Route path="/login" component={Login} />
                 <Route exact path="/newUser" component={NewUser} />
                 <Route path="/newUser/created" component={UserCreated} />
-                <Route path="/user" component={UserDashboard} />
+                <ProtectedRoute path="/user" component={UserDashboard} access="user"/>
                 <Route path="/quiz" component={Quiz} />
                 <Switch>
-                <ProtectedRoute exact path="/admin" component={AdminDashboard} />
+                <ProtectedRoute exact path="/admin" component={AdminDashboard} access="admin" />
                 <Route exact path="/" component={Home} />
-                <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} />
-                <ProtectedRoute path="/admin/users" component={Users} />
-                <ProtectedRoute  component={AdminDashboard} />
+                <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} access="admin" />
+                <ProtectedRoute path="/admin/users" component={Users} access="admin" />
+                <ProtectedRoute  component={AdminDashboard} access="admin"/>
                 </Switch>
             </Overlay>
           </Wrapper>
