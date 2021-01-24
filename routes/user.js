@@ -1,7 +1,8 @@
 const express = require('express');
+const verifyUser = require('../utils/verifyUser');
 const router = express.Router();
 
-router.all('*', async (req, res) => {
+router.all('*', verifyUser, async (req, res) => {
 
     try {
       const isUser = await User.findOne({key: req.cookies.key});

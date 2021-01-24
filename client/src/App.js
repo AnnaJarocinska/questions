@@ -39,6 +39,7 @@ const App = () => {
           <Navigation/>
           <Wrapper>
             <Overlay>
+             <Route exact path="/" component={Home} />
                 <Route path="/moreInformation" component={MoreInformation} />
                 <Route path="/login" component={Login} />
                 <Route exact path="/newUser" component={NewUser} />
@@ -48,8 +49,8 @@ const App = () => {
                 <Switch>
                 <ProtectedRoute exact path="/admin" component={AdminDashboard} access="admin" />
                 <Route exact path="/" component={Home} />
-                <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} access="admin" />
-                <ProtectedRoute path="/admin/users" component={Users} access="admin" />
+                <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
+                <ProtectedRoute path="/users" component={Users} access="admin" />
                 <ProtectedRoute  component={AdminDashboard} access="admin"/>
                 </Switch>
             </Overlay>

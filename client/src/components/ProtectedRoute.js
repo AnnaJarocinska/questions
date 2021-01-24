@@ -2,16 +2,16 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const ProtectedRoute = ({component, access, admin, user}) => {
+const ProtectedRoute = ({component, access, admin, user, home}) => {
         const Component = component;
         const isAuthenticated = access === "admin" ? admin : user;
-        return (
+        if(!home) return (
             <>
             {isAuthenticated ? (
             <Component />
         ) : (
-            <Redirect to={{ pathname: '/login' }} />
-        )}
+            <Redirect to='/login'/>
+         )} 
         </>
         )
     }
