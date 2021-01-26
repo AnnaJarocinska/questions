@@ -10,10 +10,9 @@ import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = ({adminn, user, unnamed,
+const LoginForm = ({ adminn, user, unnamed,
  adminLoggedIn, adminLoggedOut, userLoggedIn, userLoggedOut 
 }) => {
-
   const [loggedIn, setLoggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
   const [admin, setAdmin] = useState(false);

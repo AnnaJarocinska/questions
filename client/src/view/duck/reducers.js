@@ -41,7 +41,9 @@ const viewReducer = (state = INITIAL_STATE, action) =>
         // break;
 
       case types.IS_HOMEPAGE:
-        return !draft.home
+        return{
+          home: !draft.home,
+        }
         // break;
       default:
         return draft

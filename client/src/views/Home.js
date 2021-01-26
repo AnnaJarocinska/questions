@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import actions from '../view/duck/actions';
 import MainImage from '../components/MainImage';
 
-const Home = ({match, home, isHomepage}) => {
-  let trr = match.path
-  console.log(trr, 'trr')
-  
+const Home = ({match, home, isHomepage}) => {  
     return (
       <MainImage/>
       );
