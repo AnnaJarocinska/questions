@@ -1,16 +1,19 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Cookies from 'js-cookie';
 
-const ProtectedRoute = ({ component, access, admin, user, home}) => {
+const ProtectedRoute = ({ component, access, admin, user}) => {
         const Component = component;
+        const isApplying = Cookies.get('apply');
         const isAuthenticated = access === "admin" ? admin : user;
+        const isAuth = isApplying && isAuthenticated;
          return (
             <>
-            {isAuthenticated ? (
+            { isAuth ? (
             <Component />
         ) : (
-            <Redirect to='/login'/>
+           (isAuth && <Redirect to='/login'/>)
          )} 
         </>
         )
@@ -20,7 +23,6 @@ const mapStateToProps = (state) => ({
     admin: state.view.admin,
     user: state.view.user,
     unnamed: state.view.unnamed, 
-    home: state.view.home
 })
  
 export default connect(mapStateToProps, null)(ProtectedRoute);
