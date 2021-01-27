@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBinoculars } from '@fortawesome/free-solid-svg-icons';
 import { faCampground } from '@fortawesome/free-solid-svg-icons';
+import { faMap } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../styles/Button';
 import Container from '../../styles/Container';
 import Span from '../../styles/Span';
@@ -26,6 +27,12 @@ const Nav = ({home, desktop, unnamed, admin, user, adminLoggedOut, userLoggedOut
                 <Link to="/">
                      <Span> <Span icon> <FontAwesomeIcon icon={faCampground}/></Span>
                       {desktop && "Home"}
+                      </Span>
+                </Link>}
+                {(admin || user) && 
+                <Link to="/admin">
+                     <Span> <Span icon> <FontAwesomeIcon icon={faMap}/></Span>
+                      {desktop && "Dashboard"}
                       </Span>
                 </Link>}
             </Container>

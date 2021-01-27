@@ -16,7 +16,6 @@ const LoginForm = ({ adminn, user, unnamed,
   const [loggedIn, setLoggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
   const [admin, setAdmin] = useState(false);
-
   return (
   <>
     <Formik
