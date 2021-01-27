@@ -18,7 +18,8 @@ const Navigation = ({ admin, user, unnamed, home, adminLoggedOut, userLoggedOut}
         {isNotMobile ? 
         <Nav home={home} unnamed={unnamed} admin={admin} user={user} desktop={isDesktop} 
         adminLoggedOut={adminLoggedOut} userLoggedOut={userLoggedOut} /> :
-        <NavMobile home={home} unnamed={unnamed}/> }    
+        <NavMobile home={home} unnamed={unnamed} admin={admin} user={user} desktop={isDesktop}
+        adminLoggedOut={adminLoggedOut} userLoggedOut={userLoggedOut}/> }    
         </>
      );
 }

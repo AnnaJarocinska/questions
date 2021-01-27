@@ -29,8 +29,14 @@ const Nav = ({home, desktop, unnamed, admin, user, adminLoggedOut, userLoggedOut
                       {desktop && "Home"}
                       </Span>
                 </Link>}
-                {(admin || user) && 
+                {admin && 
                 <Link to="/admin">
+                     <Span> <Span icon> <FontAwesomeIcon icon={faMap}/></Span>
+                      {desktop && "Dashboard"}
+                      </Span>
+                </Link>}
+                {user && 
+                <Link to="/user">
                      <Span> <Span icon> <FontAwesomeIcon icon={faMap}/></Span>
                       {desktop && "Dashboard"}
                       </Span>
@@ -42,8 +48,8 @@ const Nav = ({home, desktop, unnamed, admin, user, adminLoggedOut, userLoggedOut
                 <Link to="/login"> <Button login 
                     onClick={ () => {logOut(); Cookies.remove('key');  Cookies.remove('apply')}}>
                     Logout </Button></Link>}
-                <Link to="/newUser"> <Button login> Register </Button> </Link>
-                <Link to="/quiz"> <Button login yellow> Quick game </Button> </Link>
+                {!admin && !user ? <Link to="/newUser"> <Button login> Register </Button> </Link> : null}
+                {!admin && !user ? <Link to="/quiz"> <Button login yellow> Quick game </Button> </Link> : null}
             </Container> 
         </Navigation>
         </>
