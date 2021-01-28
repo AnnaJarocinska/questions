@@ -17,12 +17,10 @@ border-bottom:15px solid ${props => props.theme.colors.green.normal};
 `}
 ${({ mobile }) => mobile && css`
 flex-direction: column;
-align-items: strech;
-height: 30vh;
+align-items: flex-start;
+min-height: 30vh;
 justify-content: space-around;
 border-bottom: none;
-
 `}
 `
-// height: 30vh;
 export default Navigation;
