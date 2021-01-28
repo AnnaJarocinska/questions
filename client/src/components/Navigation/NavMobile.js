@@ -7,7 +7,6 @@ import { faBinoculars } from '@fortawesome/free-solid-svg-icons';
 import { faCampground } from '@fortawesome/free-solid-svg-icons';
 import { faMap } from '@fortawesome/free-solid-svg-icons';
 import Span from '../../styles/Span';
-import NavigationMobile from '../../styles/NavigationMobile';
 import Button from '../../styles/Button';
 import Navigation from '../../styles/Navigation';
 
@@ -21,11 +20,11 @@ const NavMobile = ({admin, user, unnamed, desktop, adminLoggedOut, userLoggedOut
    
     return ( 
         <>
-            <Navigation mobile> 
+            <Navigation> 
                 <Span> <FontAwesomeIcon icon={faBars} onClick={toggleMenu}/> </Span>
             </Navigation>    
             {expand && 
-            <NavigationMobile>
+            <Navigation mobile>
                 <Link to="/"> <Span> <FontAwesomeIcon icon={faCampground} /> Home </Span> </Link>
                 <Link to="/moreInforations"> <Span> <FontAwesomeIcon icon={faBinoculars}/> </Span> <Span> More informations </Span></Link>
                 {admin && 
@@ -47,7 +46,7 @@ const NavMobile = ({admin, user, unnamed, desktop, adminLoggedOut, userLoggedOut
                     Logout </Button></Link>}
                 {!admin && !user ? <Link to="/newUser"> <Button login menu > Register </Button> </Link> : null}
                 {!admin && !user ? <Link to="/quiz"> <Button login yellow menu> Quick game </Button> </Link> : null}
-            </NavigationMobile>
+            </Navigation>
             }
         </>
      );
