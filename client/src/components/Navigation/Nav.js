@@ -20,7 +20,6 @@ const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedO
         setExpand(!expand)
     }
     const isExpanded = mobile? expand : true;
-
     return ( 
         <>
             {mobile ?
@@ -38,21 +37,21 @@ const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedO
                     <Container icons mobile={mobile ? mobile.toString() : undefined}>
                         <Link to="/moreInforations"> 
                             <Span> <Span icon><FontAwesomeIcon icon={faBinoculars}/> </Span>
-                            {desktop && "More informations"}</Span>
+                            {(desktop || mobile) && "More informations"}</Span>
                         </Link>
                         <Link to="/">
                             <Span> <Span icon> <FontAwesomeIcon icon={faCampground}/> </Span>
-                            {desktop && "Home"}</Span>
+                            {(desktop || mobile) && "Home"}</Span>
                         </Link>
                         {admin && 
                         <Link to="/admin">
                             <Span> <Span icon> <FontAwesomeIcon icon={faMap}/> </Span>
-                            {desktop && "Dashboard"}</Span>
+                            {(desktop || mobile) && "Dashboard"}</Span>
                         </Link>}
                         {user && 
                         <Link to="/user">
                             <Span> <Span icon> <FontAwesomeIcon icon={faMap}/> </Span>
-                            {desktop && "Dashboard"}</Span>
+                            {(desktop || mobile) && "Dashboard"}</Span>
                         </Link>}  
                     </Container>
                     <Container buttons mobile={mobile ? mobile.toString() : undefined}>
