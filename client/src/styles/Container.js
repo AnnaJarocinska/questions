@@ -39,5 +39,12 @@ justify-content: center;
 ${({ list }) => list && css`
 flex-direction: column;
 `}
+
+${({ mobile }) => mobile && css`
+flex-direction: column;
+justify-content: space-around;
+align-items: flex-start;
+flex-basis: 15vh;
+`}
 `
 export default Container;
