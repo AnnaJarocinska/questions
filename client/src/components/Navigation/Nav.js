@@ -10,6 +10,7 @@ import Button from '../../styles/Button';
 import Container from '../../styles/Container';
 import Span from '../../styles/Span';
 import Navigation from '../../styles/Navigation';
+import Who from './Who';
 
 const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedOut}) => {
 
@@ -53,6 +54,7 @@ const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedO
                         </Link>}  
                     </Container>
                     <Container buttons mobile={mobile ? mobile.toString() : undefined}>
+                    <Who unnamed={unnamed} admin={admin} user={user}/>
                         {unnamed?
                         <Link to="/login"> <Button login> Login </Button> </Link> :
                         <Link to="/login"> <Button login onClick={() => {logOut(); Cookies.remove('key'); Cookies.remove('apply')}}>
