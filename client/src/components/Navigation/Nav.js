@@ -24,8 +24,10 @@ const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedO
     return ( 
         <>
             {mobile ?
-            <Navigation> 
-                <Span> <FontAwesomeIcon icon={faBars} onClick={toggleMenu}/> </Span>
+            <Navigation
+                admin={admin ? admin.toString() : undefined}
+                user={user ? user.toString() : undefined}>
+                    <Span> <FontAwesomeIcon icon={faBars} onClick={toggleMenu}/> </Span>
             </Navigation> :
             null}
             {isExpanded &&
