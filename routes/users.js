@@ -12,6 +12,17 @@ router.delete('/:id', (req, res, next) => {
     Users.findOneAndDelete({ "_id": req.params.id })
         .then(data => res.json(data))
         .catch(next)
+});
+
+router.post('/', async (req, res) => {
+
+    try{
+    const user = await User.findOne({key: req.body.key});
+        console.log(user.name, 'user.name w post /users')
+        res.send(user.name)
+} catch (err) {
+    console.log(err)
+  }
 })
 
 module.exports = router;

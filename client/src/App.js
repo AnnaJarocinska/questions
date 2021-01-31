@@ -48,10 +48,10 @@ const App = () => {
                 <Route path="/quiz" component={Quiz} />
                 <Switch>
                 <ProtectedRoute exact path="/admin" component={AdminDashboard} access="admin" />
-                <Route exact path="/" component={Home} />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />
                 <ProtectedRoute  component={AdminDashboard} access="admin"/>
+                <Route exact path="/" component={Home} />
                 </Switch>
             </Overlay>
           </Wrapper>
