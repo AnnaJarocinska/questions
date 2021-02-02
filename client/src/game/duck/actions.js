@@ -17,10 +17,6 @@ const addQuestion = (question, continent, answerA, answerB, answerC, answerD, id
     payload: {question, continent, answerA, answerB, answerC, answerD, id, goodAnswer}
 })
 
-const fetchQuestions = () => ({
-    type: types.FETCH_QUESTIONS,
-})
-
 const getRandomQuestion = (question, continent, answerA, answerB, answerC, answerD, id, goodAnswer) => ({
     type: types.GET_RANDOM_QUESTION,
     payload: {question, continent, answerA, answerB, answerC, answerD, id, goodAnswer}
@@ -35,7 +31,6 @@ export default {
     addPoint,
     subtractPoint,
     resetPoints,
-    fetchQuestions,
     addQuestion,
     getRandomQuestion,
     answerQuestion
