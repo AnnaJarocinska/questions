@@ -11,12 +11,10 @@ import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = ({ adminn, user, unnamed,
- adminLoggedIn, adminLoggedOut, userLoggedIn, userLoggedOut , addUserName
+const LoginForm = ({ admin, user,
+ adminLoggedIn, userLoggedIn, addUserName
 }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
-  const [admin, setAdmin] = useState(false);
   return (
   <>
     <Formik
@@ -32,48 +30,45 @@ const LoginForm = ({ adminn, user, unnamed,
         return errors;
       }}
       onSubmit={async(values, { setSubmitting, resetForm }) => {
-        
         const content = {
           name: values.name,
           password: values.password
         }
     
-         await axios.post('/login', content)
-            .catch(err => console.log(err, 'err post'))
+        await axios.post('/login', content)
+          .catch(err => console.log(err, 'err post'))
            
-            const cookieKey = Cookies.get('key');
-            const cookieContent = {
-              key: cookieKey,
-            }
-            const applyCookie = Cookies.get('apply');
+          const cookieKey = Cookies.get('key');
+          const cookieContent = {
+            key: cookieKey,
+          }
+          const applyCookie = Cookies.get('apply');
 
-            applyCookie === '0' && await axios.post('/admin', cookieContent)
-              .then(res => {
+          applyCookie === '0' && await axios.post('/admin', cookieContent)
+            .then(res => {
                 
-                  if (res.data !== "rejection"){
+              if (res.data !== "rejection"){
                     addUserName(res.data);
-                    setAdmin(true);
                     adminLoggedIn();
-                }
-                if (res.data === 'rejection'){
+              }
+              if (res.data === 'rejection'){
                   setRejection(true);
                   resetForm();
-                }
+              }
               })
-              .catch(err => console.log(err, 'err admin'))
+            .catch(err => console.log(err, 'err admin'))
 
-              applyCookie === '1' && await axios.post('/user', cookieContent)
+          applyCookie === '1' && await axios.post('/user', cookieContent)
             .then(res => {
            
               if (res.data !== "rejection"){
               addUserName(res.data);
-              setLoggedIn(true);
               userLoggedIn();
               }
-            if (res.data === 'rejection'){
+              if (res.data === 'rejection'){
               setRejection(true);
               resetForm();
-            }
+              }
             })
             .catch(err => console.log(err, 'err user'))
         
@@ -112,22 +107,19 @@ const LoginForm = ({ adminn, user, unnamed,
         )}
     </Formik>
     {admin && <Redirect to='/admin'/>}
-    {loggedIn && <Redirect to='/user'/>}
+    {user && <Redirect to='/user'/>}
     {rejection && <p>Incorrect login details</p>}    
   </>
 )}
 
 const mapStateToProps = (state) => ({
-    adminn: state.view.admin,
+    admin: state.view.admin,
     user: state.view.user,
-    unnamed: state.view.unnamed,
 })
 
 const mapDispatchToProps = (dispatch) => ({
     adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
-    adminLoggedOut: () =>  dispatch(actions.adminLoggedOut()),
     userLoggedIn: () => dispatch(actions.userLoggedIn()),
-    userLoggedOut: () => dispatch(actions.userLoggedOut()),
     addUserName : (userName) => dispatch(actionss.addUserName(userName))
   }) 
 
