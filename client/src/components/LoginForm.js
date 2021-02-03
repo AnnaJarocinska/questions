@@ -50,9 +50,10 @@ const LoginForm = ({ adminn, user, unnamed,
             applyCookie === '0' && await axios.post('/admin', cookieContent)
               .then(res => {
                 
-                  if (res.data === "adminVeryfied"){
-                setAdmin(true);
-                adminLoggedIn();
+                  if (res.data !== "rejection"){
+                    addUserName(res.data);
+                    setAdmin(true);
+                    adminLoggedIn();
                 }
                 if (res.data === 'rejection'){
                   setRejection(true);

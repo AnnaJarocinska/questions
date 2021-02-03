@@ -8,7 +8,7 @@ router.all('*', verifyAdmin, async (req, res) => {
   try {
     const isAdmin = await User.findOne({key: req.cookies.key});
     if(isAdmin.admin){
-      res.send('adminVeryfied')
+      res.send(isAdmin.name)
     } else { res.send('rejection')
     }
   } catch (err) {
