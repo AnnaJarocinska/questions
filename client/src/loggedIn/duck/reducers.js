@@ -10,9 +10,7 @@ const loggedInReducer = (state = INITIAL_STATE, action) =>
   produce(state, draft => {
     switch (action.type) {
       case types.ADD_USER_NAME:
-        console.log(action.payload.userName, 'action.payload')
         draft.userName = action.payload.userName;
-        console.log('ADD-user')
         break;
 
       default:

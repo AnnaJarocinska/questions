@@ -18,7 +18,7 @@ router.post('/', async (req, res) => {
 
     try{
     const user = await User.findOne({
-        // key: req.body.key
+        key: req.body.key
     });
         console.log(user, 'user w post /users')
         res.send(user)

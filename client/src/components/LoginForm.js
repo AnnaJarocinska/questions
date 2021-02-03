@@ -5,13 +5,14 @@ import { Redirect } from 'react-router';
 import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import actions from '../view/duck/actions';
+import actionss from '../loggedIn/duck/actions';
 import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
 const LoginForm = ({ adminn, user, unnamed,
- adminLoggedIn, adminLoggedOut, userLoggedIn, userLoggedOut 
+ adminLoggedIn, adminLoggedOut, userLoggedIn, userLoggedOut , addUserName
 }) => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [rejection, setRejection] = useState(false);
@@ -63,7 +64,8 @@ const LoginForm = ({ adminn, user, unnamed,
               applyCookie === '1' && await axios.post('/user', cookieContent)
             .then(res => {
            
-              if (res.data === "userVeryfied"){
+              if (res.data !== "rejection"){
+              addUserName(res.data);
               setLoggedIn(true);
               userLoggedIn();
               }
@@ -124,7 +126,8 @@ const mapDispatchToProps = (dispatch) => ({
     adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
     adminLoggedOut: () =>  dispatch(actions.adminLoggedOut()),
     userLoggedIn: () => dispatch(actions.userLoggedIn()),
-    userLoggedOut: () => dispatch(actions.userLoggedOut())
+    userLoggedOut: () => dispatch(actions.userLoggedOut()),
+    addUserName : (userName) => dispatch(actionss.addUserName(userName))
   }) 
 
 export default connect(mapStateToProps, mapDispatchToProps) (LoginForm);
