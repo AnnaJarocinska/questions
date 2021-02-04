@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 const loggedInReducer = (state = INITIAL_STATE, action) =>
   produce(state, draft => {
     switch (action.type) {
+      
       case types.ADD_USER_NAME:
         draft.userName = action.payload.userName;
         break;

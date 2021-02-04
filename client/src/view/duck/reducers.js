@@ -13,38 +13,28 @@ const viewReducer = (state = INITIAL_STATE, action) =>
     switch (action.type) {
 
       case types.ADMIN_LOGGEDIN:
-        return {
-          admin: !draft.admin,
-          unnamed: !draft.unnamed,
-        }
-        
+          draft.admin = !draft.admin;
+          draft.unnamed = !draft.unnamed;
+          break;
+      
       case types.ADMIN_LOGGEDOUT:
-        return {
-          admin: false,
-          unnamed: true,
-        }
-        // break;
+          draft.admin = false;
+          draft.unnamed = true;
+          break;
 
       case types.USER_LOGGEDIN:
-      return {
-        user: !draft.user,
-        unnamed: !draft.unnamed,
-      }
-      // break;
-
+          draft.user = !draft.user;
+          draft.unnamed = !draft.unnamed;
+          break;
 
       case types.USER_LOGGEDOUT:
-        return {
-          user:false,
-          unnamed: true,
-        }
-        // break;
+          draft.user = false;
+          draft.unnamed = true;
+          break;
 
       case types.IS_HOMEPAGE:
-        return{
-          home: !draft.home,
-        }
-        // break;
+          draft.home = !draft.home;
+          break;
       default:
         return draft
     }

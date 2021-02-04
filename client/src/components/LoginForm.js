@@ -5,7 +5,7 @@ import { Redirect } from 'react-router';
 import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import actions from '../view/duck/actions';
-import actionss from '../loggedIn/duck/actions';
+import loggedInActions from '../loggedIn/duck/actions';
 import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
@@ -120,7 +120,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
     userLoggedIn: () => dispatch(actions.userLoggedIn()),
-    addUserName : (userName) => dispatch(actionss.addUserName(userName))
+    addUserName : (userName) => dispatch(loggedInActions.addUserName(userName))
   }) 
 
 export default connect(mapStateToProps, mapDispatchToProps) (LoginForm);

@@ -1,5 +1,5 @@
 import loggedInReducer from './reducers';
-export {default as gameTypes} from './types';
-export {default as gameActions} from './actions';
+export {default as loggedInTypes} from './types';
+export {default as loggedInActions} from './actions';
 
 export default loggedInReducer;
