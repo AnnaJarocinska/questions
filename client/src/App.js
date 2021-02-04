@@ -19,17 +19,6 @@ import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
 
-// const Admin = () => {
-//   return(
-//               <Switch>
-//                 <ProtectedRoute exact path="/admin" component={AdminDashboard} />
-//                 <ProtectedRoute path="/admin/addingQuestion" component={AddingQuestion} />
-//                 <ProtectedRoute path="/admin/users" component={Users} />
-//                 <ProtectedRoute  component={AdminDashboard} />
-//               </Switch>
-//   )
-// }
-
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
@@ -39,20 +28,19 @@ const App = () => {
           <Navigation/>
           <Wrapper>
             <Overlay>
-             <Route exact path="/" component={Home} />
-                <Route path="/moreInformation" component={MoreInformation} />
-                <Route path="/login" component={Login} />
-                <Route exact path="/newUser" component={NewUser} />
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route  path="/moreInformation" component={MoreInformation} />
+                <Route  path="/login" component={Login} />
+                <Route  path="/newUser" component={NewUser} />
                 <Route path="/newUser/created" component={UserCreated} />
                 <Route path="/quiz" component={Quiz} />
-                <Switch>
-                <Route exact path="/" component={Home} />
-                <ProtectedRoute exact path="/user" component={UserDashboard} access="user"/>
-                <ProtectedRoute exact path="/admin" component={AdminDashboard} access="admin" />
-                <ProtectedRoute exact path="/addingQuestion" component={AddingQuestion} access="admin" />
-                <ProtectedRoute exact path="/users" component={Users} access="admin" />
+                <ProtectedRoute path="/user" component={UserDashboard} access="user"/>
+                <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
+                <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
+                <ProtectedRoute path="/users" component={Users} access="admin" />
                 <Route path="/" component={Home} />
-                </Switch>
+              </Switch>
             </Overlay>
           </Wrapper>
           <Footer />
