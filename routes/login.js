@@ -34,13 +34,13 @@ try {
         if(user.admin){
           res
           .cookie('key', key)
-          .cookie('apply', '0')
+          .cookie('apply', '1')
           .redirect('/admin')
           }
         if(!user.admin){
           res
           .cookie('key', key)
-          .cookie('apply', '1')
+          .cookie('apply', '2')
           .redirect('/user')
           }
     }
