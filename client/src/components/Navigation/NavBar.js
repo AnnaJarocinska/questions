@@ -12,7 +12,7 @@ import Span from '../../styles/Span';
 import Navigation from '../../styles/Navigation';
 import Who from './Who';
 
-const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedOut}) => {
+const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLoggedOut}) => {
 
     const [expand, setExpand] = useState(false)
     const logOut = admin ? adminLoggedOut : userLoggedOut;
@@ -69,4 +69,4 @@ const Nav = ({mobile, desktop, unnamed, admin, user, adminLoggedOut, userLoggedO
      );
 }
  
-export default Nav;
+export default NavBar;

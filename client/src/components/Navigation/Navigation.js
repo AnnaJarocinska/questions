@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import Nav from './Nav';
+import NavBar from './NavBar';
 import actions from '../../view/duck/actions';
 
 const Navigation = ({ admin, user, unnamed, adminLoggedOut, userLoggedOut}) => {
@@ -12,10 +12,9 @@ const Navigation = ({ admin, user, unnamed, adminLoggedOut, userLoggedOut}) => {
     const desktop = useMediaQuery({
       query: '(min-device-width: 1000px)'
     })
-
     return ( 
         <>
-          <Nav mobile={mobile} desktop={desktop} unnamed={unnamed} admin={admin} user={user}
+          <NavBar mobile={mobile} desktop={desktop} admin={admin} user={user} unnamed={unnamed}
           adminLoggedOut={adminLoggedOut} userLoggedOut={userLoggedOut} />
         </>
      );
@@ -28,9 +27,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
     adminLoggedOut: () =>  dispatch(actions.adminLoggedOut()),
-    userLoggedIn: () => dispatch(actions.userLoggedIn()),
     userLoggedOut: () => dispatch(actions.userLoggedOut())
   }) 
  

@@ -11,9 +11,8 @@ import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = ({ admin, user,
- adminLoggedIn, userLoggedIn, addUserName
-}) => {
+const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName}) => {
+  
   const [rejection, setRejection] = useState(false);
   return (
   <>
@@ -29,7 +28,8 @@ const LoginForm = ({ admin, user,
         }
         return errors;
       }}
-      onSubmit={async(values, { setSubmitting, resetForm }) => {
+      onSubmit = { async (values, { resetForm }) => {
+        
         const content = {
           name: values.name,
           password: values.password
