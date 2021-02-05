@@ -12,18 +12,22 @@ router.post('/', async (req, res) => {
 
 try {
     if (!user) {
-      return res.send('Invalid user name')
+      return res.status(400).send('Invalid user name')
     }
 } catch (err) {
-    console.log(err)
+    res.status(400).json({
+      err
+    });
   }
 
 try {
     if (!passwordCorrect) {
-      return res.send('Invalid password')    
+      return res.status(400).send('Invalid password')    
       } 
 } catch (err) {
-    console.log(err)
+    res.status(400).json({
+      err
+  });
       }
 
 try {
@@ -46,7 +50,9 @@ try {
           }
     }
 } catch (err) {
-    console.log(err)
+    res.status(400).json({
+      err
+  });
   }
 })
 

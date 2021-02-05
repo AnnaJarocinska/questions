@@ -7,8 +7,8 @@ router.post('/', async (req, res) => {
 
   const userNameNotAvailable = await User.findOne({name: req.body.name});
             if (userNameNotAvailable){
-                res.send('rejection')
-            }
+                return res.status(400).send('rejection')
+            }            
             if (!userNameNotAvailable) {
               const salt = await bcrypt.genSalt(10);
               let username = req.body.name
