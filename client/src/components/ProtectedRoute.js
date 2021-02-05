@@ -8,9 +8,6 @@ const ProtectedRoute = ({ component, access, admin, user}) => {
         const isApplying = Cookies.get('apply');
         const isAuthenticated = access === "admin" ? admin : user;
         const isAuth = (isApplying && isAuthenticated)? true: false;
-        console.log(isAuth, 'isAuth')
-        console.log(isAuthenticated, 'isAuthentiicated')
-        console.log(isApplying, 'isApplying')
          return (
             <>
             { isAuth ? (

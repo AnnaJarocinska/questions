@@ -11,33 +11,34 @@ router.post('/', async (req, res) => {
     const passwordCorrect = await bcrypt.compare(req.body.password, userPassword);
 
 try {
-    if (!user){
-      return console.log('user not exist')
-      }
+    if (!user) {
+      return res.send('Invalid user name')
+    }
 } catch (err) {
     console.log(err)
   }
 
 try {
-    if (!passwordCorrect){
-      return console.log('invalid password')    
+    if (!passwordCorrect) {
+      return res.send('Invalid password')    
       } 
 } catch (err) {
     console.log(err)
       }
+
 try {
-    if(user, passwordCorrect){
+    if (user, passwordCorrect) {
       const key = uuidv4();
       user.key = key;
       user.save();
 
-        if(user.admin){
+        if (user.admin){
           res
           .cookie('key', key)
           .cookie('apply', '1')
           .redirect('/admin')
           }
-        if(!user.admin){
+        if (!user.admin){
           res
           .cookie('key', key)
           .cookie('apply', '2')

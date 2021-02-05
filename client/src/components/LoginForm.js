@@ -11,9 +11,10 @@ import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName}) => {
+const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName }) => {
   
   const [rejection, setRejection] = useState(false);
+  const [message, setMessage] = useState('');
   return (
   <>
     <Formik
@@ -36,12 +37,19 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName}) => 
         }
     
         await axios.post('/login', content)
+        .then(res => {
+          if (res.data) {
+                setRejection(true);
+                setMessage(res.data);
+          }
+        })
           .catch(err => console.log(err, 'err post'))
            
           const cookieKey = Cookies.get('key');
           const cookieContent = {
             key: cookieKey,
           }
+
           const applyCookie = Cookies.get('apply');
 
           applyCookie === '1' && await axios.post('/admin', cookieContent)
@@ -53,6 +61,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName}) => 
               }
               if (res.data === 'rejection'){
                   setRejection(true);
+                  setMessage('Incorrect login details');
                   resetForm();
               }
               })
@@ -67,6 +76,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName}) => 
               }
               if (res.data === 'rejection'){
               setRejection(true);
+              setMessage('Incorrect login details');
               resetForm();
               }
             })
@@ -108,7 +118,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName}) => 
     </Formik>
     {admin && <Redirect to='/admin'/>}
     {user && <Redirect to='/user'/>}
-    {rejection && <p>Incorrect login details</p>}    
+    {rejection && <p>{message}</p>}    
   </>
 )}
 
