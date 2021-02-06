@@ -1,19 +1,25 @@
 import React from 'react';
 import Container from '../../styles/Container';
-import Badge from '../../styles/Badge';
 import Button from '../../styles/Button';
+import Badge from '../../styles/Badge';
 
 const RealGameMenu = () => {
+    
+    const continents = ['Africa','Asia', 'Australia', 'North America', 'South America' ]
+    
     return ( 
         <>
         <Container main>
-            <Badge>Africa</Badge>
-            <Badge>Asia</Badge>
-            <Badge>Australia</Badge>
-            <Badge>North America</Badge>
-            <Badge>South America</Badge>
-            <Badge>All</Badge>
-            <Badge>Random 10</Badge>
+            {continents.map((continent) => 
+                <Badge
+                key={continent}
+                name={continent}
+                onClick={(e)=>{
+                console.log(e.target.getAttribute('name'), 'e.target.value')}}>
+                {continent} 
+            </Badge>)}
+            <input type="radio" value="all" name="gameType"/>All
+            <input type="radio" value="random10"name="gameType"/>Random 10
             <Button login red>Start</Button>
         </Container>
         </>  

@@ -2,7 +2,7 @@ import types from './types';
 import produce from 'immer';
 
 const INITIAL_STATE = {
-
+  
   category: '',
   points: 0,
   goodAnswers:'',
