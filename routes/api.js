@@ -9,7 +9,7 @@ router.get('/question', (req, res, next) => {
 });
 
 router.get('/question', (req, res, next) => {
-    Question.find({id: Math.floor(Math.random()*(3-0+1))})
+    Question.find({id: Math.floor(Math.random()*(5-0+1))})
         .then(data => res.json(data))
         .catch(next)
 });

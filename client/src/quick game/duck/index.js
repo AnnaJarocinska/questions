@@ -1,5 +1,5 @@
-import gameReducer from './reducers';
+import quickGameReducer from './reducers';
 export {default as gameTypes} from './types';
 export {default as gameActions} from './actions';
 
-export default gameReducer;
+export default quickGameReducer;

@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import gameReducer from './game/duck';
+import quickGameReducer from './quick game/duck';
+import realGameReducer from './real game/duck';
 import loggedInReducer from './loggedIn/duck';
 import viewReducer from './view/duck';
 
 const rootReducer = combineReducers({
-    game: gameReducer,
+    quickGame: quickGameReducer,
+    realGame: realGameReducer,
     view: viewReducer,
     loggedIn: loggedInReducer
 

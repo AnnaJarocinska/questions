@@ -18,6 +18,7 @@ import Wrapper from './styles/Wrapper';
 import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
+import RealGameMenu from './views/userLoggedIn/RealGameMenu';
 
 const App = () => {
   return (
@@ -36,6 +37,8 @@ const App = () => {
                 <Route path="/newUser/created" component={UserCreated} />
                 <Route path="/quiz" component={Quiz} />
                 <ProtectedRoute path="/user" component={UserDashboard} access="user"/>
+                <Route path="/game" component={RealGameMenu} access="user"/>
+                {/* <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/> */}
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 // import axios from 'axios';
 // import OneQuestion from '../components/OneQuestion';
-import Points from '../game/components/Points';
+import Points from '../quick game/components/Points';
 
 const Quiz = () => {
 

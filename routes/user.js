@@ -1,6 +1,7 @@
 const express = require('express');
 const verifyUser = require('../utils/verifyUser');
 const router = express.Router();
+const Question = require('../models/question');
 
 router.all('*', verifyUser, async (req, res) => {
 
@@ -16,6 +17,18 @@ router.all('*', verifyUser, async (req, res) => {
       });
       }
   })
+
+  router.get('/game', verifyUser, async (req, res, next) => {
+   try{
+     const allQuestions = await Question.find({});
+     res.send(allQuestions)
+   }catch (err) {
+    res.status(401).json({
+      err
+  });
+  }
+  });
+
 
 
 

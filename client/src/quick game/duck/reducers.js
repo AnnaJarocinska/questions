@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   gameFinished: false,
 }
 
-const gameReducer = (state = INITIAL_STATE, action) =>
+const quickGameReducer = (state = INITIAL_STATE, action) =>
   produce(state, draft => {
     switch (action.type) {
 
@@ -84,4 +84,4 @@ const gameReducer = (state = INITIAL_STATE, action) =>
     }
   })
 
-export default gameReducer;
+export default quickGameReducer;
