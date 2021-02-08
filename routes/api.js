@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
 
+router.get('/questions', async (req, res, next) => {
+    await console.log(req.body.categories, 'req.body w router get')
+    // Question.find({})
+    //     .then(data => res.json(data))
+    //     .catch(next)
+});
+
 router.get('/question', (req, res, next) => {
     Question.find({})
         .then(data => res.json(data))
@@ -15,7 +22,6 @@ router.get('/question', (req, res, next) => {
 });
 
 router.post('/question', (req, res, next) => {
-
     Question.create(req.body)
         .then(data => res.json(data))
         .catch(next)
