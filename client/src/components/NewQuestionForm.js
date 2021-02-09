@@ -84,13 +84,12 @@ const NewQuestionForm = (props) => (
               onBlur={handleBlur}
             >
               <option value="">-</option>
-              <option value="africa">Africa</option>
-              <option value="antarctica">Antarctica</option>
-              <option value="asia">Asia</option>
-              <option value="australia">Australia</option>
-              <option value="europe">Europe</option>
-              <option value="americaN">North America</option>
-              <option value="americaS">South America</option>
+              <option value="Africa">Africa</option>
+              <option value="Asia">Asia</option>
+              <option value="Australia">Australia</option>
+              <option value="Europe">Europe</option>
+              <option value="North America">North America</option>
+              <option value="South America">South America</option>
             </select>
             {errors.continent && touched.continent && errors.continent}
             <Label htmlFor="a">a</Label>

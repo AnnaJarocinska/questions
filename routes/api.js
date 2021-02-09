@@ -4,8 +4,7 @@ const Question = require('../models/question');
 
 router.post('/questions', async (req, res, next) => {
    
-    const continent = req.body.categories.toLowerCase()
-    const requestedQuestions = await Question.find({continent: continent})
+    const requestedQuestions = await Question.find({continent: req.body.categories})
 
     try{
         if(requestedQuestions){
@@ -18,7 +17,6 @@ router.post('/questions', async (req, res, next) => {
 });
 
 router.get('/question', async (req, res, next) => {
-    await console.log(req.body.categories, 'req.body w router get')
     Question.find({})
         .then(data => res.json(data))
         .catch(next)
