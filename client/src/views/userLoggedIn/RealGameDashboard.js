@@ -5,17 +5,12 @@ import  Button from '../../styles/Button';
 const RealGameDashboard = ({categories, mode}) => {
 
     const content = {
-        categories,
-        mode   
+        categories: categories,
+        mode: mode   
     }
-console.log(content, 'content')
-    const getQuestions = async (categories, mode) => {
-        const content = {
-            categories: 'categories',
-            mode: 'mode'   
-        }
-console.log(categories, 'categories w onclick')
-        await axios.get('api/questions', content) 
+
+    const getQuestions = async () => {  
+        await axios.post('api/questions', content) 
     }
 
     return (
