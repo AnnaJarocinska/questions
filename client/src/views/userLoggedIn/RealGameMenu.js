@@ -10,7 +10,7 @@ const RealGameMenu = () => {
     const [mode, setMode] = useState('');
     const [send, setSend] = useState(false);
 
-    const continents = ['Africa','Asia', 'Australia', 'North America', 'South America']
+    const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America']
     const selectCategory = (e) => {
         const selectedCategory = e.target.getAttribute('name')
         setCategories([...categories, selectedCategory])

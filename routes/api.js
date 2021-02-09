@@ -3,7 +3,18 @@ const router = express.Router();
 const Question = require('../models/question');
 
 router.post('/questions', async (req, res, next) => {
-    await console.log(req.body, 'req.body w router get')
+   
+    const continent = req.body.categories.toLowerCase()
+    const requestedQuestions = await Question.find({continent: continent})
+
+    try{
+        if(requestedQuestions){
+            console.log(requestedQuestions, 'requestedQuestions')
+        }
+    } catch (err){
+        console.log(err)
+    }
+     
 });
 
 router.get('/question', async (req, res, next) => {

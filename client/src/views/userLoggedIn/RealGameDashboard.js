@@ -1,11 +1,19 @@
 import React from 'react';
 import axios from 'axios';
-import  Button from '../../styles/Button';
+import Button from '../../styles/Button';
 
 const RealGameDashboard = ({categories, mode}) => {
+    
+    const categoriesWithoutDuplicates = []
+    for (let i = 0; i<categories.length; i++) {
+        if(!categoriesWithoutDuplicates.includes(categories[i])) {
+        categoriesWithoutDuplicates.push(categories[i])
+        }
+    }
+    const selectedCategories = categoriesWithoutDuplicates.join(", ");
 
     const content = {
-        categories: categories,
+        categories: selectedCategories,
         mode: mode   
     }
 
