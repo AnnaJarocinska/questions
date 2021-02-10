@@ -9,9 +9,12 @@ router.post('/questions', async (req, res, next) => {
     try{
         if(requestedQuestions){
             console.log(requestedQuestions, 'requestedQuestions')
+            res.send(requestedQuestions);
         }
     } catch (err){
-        console.log(err)
+        res.status(400).json({
+            err
+        })
     }
      
 });

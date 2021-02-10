@@ -1,8 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import Button from '../../styles/Button';
+import realGameActions from '../../real game/duck/actions';
 
-const RealGameDashboard = ({categories, mode}) => {
+const RealGameDashboard = ({categories, mode, addQuestions}) => {
     
     const categoriesWithoutDuplicates = []
     for (let i = 0; i<categories.length; i++) {
@@ -19,6 +21,14 @@ const RealGameDashboard = ({categories, mode}) => {
 
     const getQuestions = async () => {  
         await axios.post('api/questions', content) 
+        .then(res => {
+            if(res.data){
+                console.log(res.data)
+                addQuestions(res.data)
+          }})
+        .catch(
+            err => console.log(err)
+        )
     }
 
     return (
@@ -28,4 +38,8 @@ const RealGameDashboard = ({categories, mode}) => {
       );
 }
  
-export default RealGameDashboard;
+const mapDispatchToProps = (dispatch) => ({
+    addQuestions : (questions) => dispatch(realGameActions.addQuestions(questions))
+  }) 
+
+export default connect(null, mapDispatchToProps) (RealGameDashboard);
