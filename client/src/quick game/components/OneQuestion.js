@@ -56,10 +56,10 @@ const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
 }
 
 const mapStateToProps = (state) => ({
-    randomQuestion: state.game.randomQuestion,
-    questionsAsked: state.game.questionsAsked,
-    questionsToAsk: state.game.questionsToAsk, 
-    questions: state.game.questions
+    randomQuestion: state.quickGame.randomQuestion,
+    questionsAsked: state.quickGame.questionsAsked,
+    questionsToAsk: state.quickGame.questionsToAsk, 
+    questions: state.quickGame.questions
 })
 
 const mapDispatchToProps = (dispatch) => ({

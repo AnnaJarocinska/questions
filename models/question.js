@@ -7,7 +7,7 @@ const QuestionSchema = new Schema({
     type: Number,
     default: 3
   },
-  newQuestion: {
+  question: {
     type: String,
     required: [true, 'The question field is required']
   },

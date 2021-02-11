@@ -3,8 +3,9 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import Button from '../../styles/Button';
 import realGameActions from '../../real game/duck/actions';
+import RealGame from './RealGame';
 
-const RealGameDashboard = ({categories, mode, addQuestions}) => {
+const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
     
     const categoriesWithoutDuplicates = []
     for (let i = 0; i<categories.length; i++) {
@@ -24,7 +25,8 @@ const RealGameDashboard = ({categories, mode, addQuestions}) => {
         .then(res => {
             if(res.data){
                 console.log(res.data)
-                addQuestions(res.data)
+                addQuestions(res.data);
+                drawQuestion(0);
           }})
         .catch(
             err => console.log(err)
@@ -34,12 +36,14 @@ const RealGameDashboard = ({categories, mode, addQuestions}) => {
     return (
         <>
         <Button login red onClick={getQuestions}> Start game </Button>
+        <RealGame/>
         </>
       );
 }
  
 const mapDispatchToProps = (dispatch) => ({
-    addQuestions : (questions) => dispatch(realGameActions.addQuestions(questions))
+    addQuestions : (currentQuestions) => dispatch(realGameActions.addQuestions(currentQuestions)),
+    drawQuestion : (randomNumber) => dispatch(realGameActions.drawQuestion(randomNumber))
   }) 
 
 export default connect(null, mapDispatchToProps) (RealGameDashboard);

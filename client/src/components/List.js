@@ -16,14 +16,13 @@ const List = ({ questions, deleteQuestion }) => {
               return (
                 <UsersContainer>
                 <li key={question._id} onClick={() => deleteQuestion(question._id)}>
-                <p>{question.newQuestion}</p>
+                <p>{question.question}</p>
                 <Badge>{question.continent}</Badge>
                <p>{question.answerA}</p>
                <p>{question.answerB}</p>
                <p>{question.answerC}</p>
                <p>{question.answerD}</p>
                <p> {question.goodAnswer}</p>
-                {/* {question.created} */}
                 </li>
                 </UsersContainer>
               )

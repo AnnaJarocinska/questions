@@ -9,11 +9,11 @@ import Input from '../styles/Input';
 const NewQuestionForm = (props) => (
  
     <Formik
-      initialValues={{ newQuestion: '', continent: '-', a: '', b: '', c: '', d: '' }}
+      initialValues={{ question: '', continent: '-', a: '', b: '', c: '', d: '' }}
       validate={values => {
         const errors = {};
-        if (!values.newQuestion) {
-          errors.newQuestion = 'This field is required';
+        if (!values.question) {
+          errors.question = 'This field is required';
         }
         if (values.continent === "-") {
           errors.continent = 'This field is required';
@@ -34,7 +34,7 @@ const NewQuestionForm = (props) => (
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         const content = {
-          newQuestion: values.newQuestion,
+          question: values.question,
           continent: values.continent,
           answerA: values.a,
           answerB: values.b,
@@ -65,16 +65,16 @@ const NewQuestionForm = (props) => (
         isSubmitting,
       }) => (
           <Form onSubmit={handleSubmit}>
-            <Label htmlFor="newQuestion">New question: </Label>
+            <Label htmlFor="question">New question: </Label>
             <Input
               type="text"
-              name="newQuestion"
-              id="newQuestion"
+              name="question"
+              id="question"
               onChange={handleChange}
-              value={values.newQuestion}
+              value={values.question}
               onBlur={handleBlur}> 
               </Input>
-            {errors.newQuestion && touched.newQuestion && errors.newQuestion}
+            {errors.question && touched.question && errors.question}
             <Label htmlFor="continent">Continent:</Label>
             <select
               id="continent"

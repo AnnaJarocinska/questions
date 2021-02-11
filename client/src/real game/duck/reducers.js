@@ -8,7 +8,8 @@ const INITIAL_STATE = {
   goodAnswers:'',
   badAnswers:'',
   currentQuestions: [],
-  randomQuestion: [],
+  currentQuestion:[],
+  // randomQuestion: [],
   questionsAsked: [],
   questionsToAsk: [],
   gameFinished: false,
@@ -31,7 +32,15 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         break;
 
       case types.ADD_QUESTIONS:
-        draft.currentQuestions.push(action.payload)
+        draft.currentQuestions = action.payload.currentQuestions;
+        draft.questionsToAsk = action.payload.currentQuestions;
+      
+        break;
+
+      case types.DRAW_QUESTION:
+        draft.currentQuestion = draft.questionsToAsk[action.payload.randomNumber];
+        draft.questionsToAsk.splice(action.payload.randomNumber, 1);
+        draft.questionsAsked.push(draft.currentQuestion);
         break;
 
       case types.GET_RANDOM_QUESTION:

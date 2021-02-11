@@ -12,9 +12,14 @@ const resetPoints = () => ({
     type: types.RESET_POINTS
 })
 
-const addQuestions = (question, continent, answerA, answerB, answerC, answerD, id, goodAnswer) => ({
+const addQuestions = (currentQuestions) => ({
     type: types.ADD_QUESTIONS,
-    payload: {question, continent, answerA, answerB, answerC, answerD, id, goodAnswer}
+    payload: {currentQuestions}
+})
+
+const drawQuestion = (randomNumber) => ({
+    type: types.DRAW_QUESTION,
+    payload: {randomNumber}
 })
 
 const getRandomQuestion = (question, continent, answerA, answerB, answerC, answerD, id, goodAnswer) => ({
@@ -32,6 +37,7 @@ export default {
     subtractPoint,
     resetPoints,
     addQuestions,
+    drawQuestion,
     getRandomQuestion,
     answerQuestion
 }
