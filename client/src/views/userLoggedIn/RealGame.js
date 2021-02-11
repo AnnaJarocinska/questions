@@ -1,15 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import realGameActions from '../../real game/duck/actions';
 import AnswerParagraph from '../../styles/AnswerParagraph';
 import QuestionParagraph from '../../styles/QuestionParagraph';
 import QuestionContainer from '../../styles/QuestionContainer';
-import { connect } from 'react-redux';
+
 
 const RealGame = ({currentQuestion}) => {
 
+    const handleAnswer = (e) => {
+        let index = e.target.getAttribute('name').length -1
+        let letter = e.target.getAttribute('name').charAt(index).toLowerCase()
+        const content = {
+            userAnswer: letter,
+            questionId: currentQuestion._id,
+        }
+        const checkAnswer = async () => {  
+            await axios.post('api/checkAnswer', content) 
+            .then(res => {
+                if(res.data === "goodAnswer") {
+                    console.log('addpoint')
+                } 
+                if(res.data === "wrongAnswer") {
+                    console.log('subtractpoint')
+                }
+            })
+            .catch (
+                err => console.log(err)
+            )
+        }
+        checkAnswer()
+    }
     const current = [];
     for (let [key, value] of Object.entries(currentQuestion)){
         if(key === 'question'|| key === 'answerA' || key === 'answerB' ||
-         key === 'answerC' || key === 'answerD'){
+         key === 'answerC' || key === 'answerD') {
         current.push(
                key === 'question'?
                <QuestionParagraph
@@ -21,11 +47,10 @@ const RealGame = ({currentQuestion}) => {
                 <AnswerParagraph
                 key={key} 
                 name= {key}
-                id={current.id}
-                // onClick={handleAnswerClick}
-                >
+                onClick={handleAnswer}>
                     {value}</AnswerParagraph>)
-    }}
+    } 
+}
     return ( 
     <QuestionContainer>
        {current}
@@ -36,4 +61,10 @@ const RealGame = ({currentQuestion}) => {
 const mapStateToProps = (state) => ({
     currentQuestion: state.realGame.currentQuestion,
 })
-export default connect(mapStateToProps, null) (RealGame);
+
+const mapDispatchToProps = (dispatch) => ({
+    addPoint: () =>  dispatch(realGameActions.addPoint()),
+    subtractPoint: () =>  dispatch(realGameActions.subtractPoint()),
+  })
+
+export default connect(mapStateToProps, mapDispatchToProps) (RealGame);

@@ -8,8 +8,24 @@ router.post('/questions', async (req, res, next) => {
 
     try{
         if(requestedQuestions){
-            console.log(requestedQuestions, 'requestedQuestions')
             res.send(requestedQuestions);
+        }
+    } catch (err){
+        res.status(400).json({
+            err
+        })
+    }    
+});
+
+router.post('/checkAnswer', async (req, res, next) => {
+
+    const requestedQuestion = await Question.find({_id: req.body.questionId})
+
+    try{
+        if(requestedQuestion[0].goodAnswer === req.body.userAnswer){
+            res.send('goodAnswer')
+        } else {
+            res.send('wrongAnswer')
         }
     } catch (err){
         res.status(400).json({
