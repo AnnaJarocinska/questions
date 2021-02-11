@@ -23,10 +23,6 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         draft.points = draft.points + 1
         break;
 
-      case types.SUBTRACT_POINT:
-        draft.points = draft.points - 1
-        break;
-
       case types.RESET_POINTS:
         draft.points = 0
         break;

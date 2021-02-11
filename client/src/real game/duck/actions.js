@@ -4,10 +4,6 @@ const addPoint = () => ({
     type: types.ADD_POINT
 })
 
-const subtractPoint = () => ({
-    type: types.SUBTRACT_POINT
-})
-
 const resetPoints = () => ({
     type: types.RESET_POINTS
 })
@@ -34,7 +30,6 @@ const answerQuestion = (id, goodOrBad) => ({
 
 export default {
     addPoint,
-    subtractPoint,
     resetPoints,
     addQuestions,
     drawQuestion,

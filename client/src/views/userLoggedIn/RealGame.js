@@ -7,7 +7,7 @@ import QuestionParagraph from '../../styles/QuestionParagraph';
 import QuestionContainer from '../../styles/QuestionContainer';
 
 
-const RealGame = ({currentQuestion}) => {
+const RealGame = ({currentQuestion, addPoint}) => {
 
     const handleAnswer = (e) => {
         let index = e.target.getAttribute('name').length -1
@@ -20,10 +20,10 @@ const RealGame = ({currentQuestion}) => {
             await axios.post('api/checkAnswer', content) 
             .then(res => {
                 if(res.data === "goodAnswer") {
-                    console.log('addpoint')
+                    addPoint();
                 } 
                 if(res.data === "wrongAnswer") {
-                    console.log('subtractpoint')
+                    console.log('wrong answer')
                 }
             })
             .catch (
@@ -63,8 +63,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addPoint: () =>  dispatch(realGameActions.addPoint()),
-    subtractPoint: () =>  dispatch(realGameActions.subtractPoint()),
+    addPoint: () =>  dispatch(realGameActions.addPoint())
   })
 
 export default connect(mapStateToProps, mapDispatchToProps) (RealGame);
