@@ -5,9 +5,12 @@ import realGameActions from '../../real game/duck/actions';
 import AnswerParagraph from '../../styles/AnswerParagraph';
 import QuestionParagraph from '../../styles/QuestionParagraph';
 import QuestionContainer from '../../styles/QuestionContainer';
+import PointsContainer from '../../styles/PointsContainer';
+import PointsBox from '../../styles/PointsBox';
+import RealGameFinished from '../userLoggedIn/RealGameFinished';
 
-
-const RealGame = ({currentQuestion, addPoint}) => {
+const RealGame = ({currentQuestion, points, gameFinished,
+     addPoint, drawQuestion }) => {
 
     const handleAnswer = (e) => {
         let index = e.target.getAttribute('name').length -1
@@ -30,9 +33,11 @@ const RealGame = ({currentQuestion, addPoint}) => {
                 err => console.log(err)
             )
         }
-        checkAnswer()
+        checkAnswer();
+        drawQuestion();
     }
     const current = [];
+     if (currentQuestion) {
     for (let [key, value] of Object.entries(currentQuestion)){
         if(key === 'question'|| key === 'answerA' || key === 'answerB' ||
          key === 'answerC' || key === 'answerD') {
@@ -50,20 +55,34 @@ const RealGame = ({currentQuestion, addPoint}) => {
                 onClick={handleAnswer}>
                     {value}</AnswerParagraph>)
     } 
-}
+}}
     return ( 
+        <>
+        {!gameFinished &&
+        <>
+        <PointsContainer>
+            <p>Points : </p> 
+            <PointsBox> {points} </PointsBox>
+        </PointsContainer> 
     <QuestionContainer>
        {current}
     </QuestionContainer>
+    </>}
+    {gameFinished &&
+    <RealGameFinished/>}
+    </>
    );
 }
 
 const mapStateToProps = (state) => ({
     currentQuestion: state.realGame.currentQuestion,
+    points: state.realGame.points,
+    gameFinished: state.realGame.gameFinished,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addPoint: () =>  dispatch(realGameActions.addPoint())
+    addPoint: () =>  dispatch(realGameActions.addPoint()),
+    drawQuestion: () =>  dispatch(realGameActions.drawQuestion())
   })
 
 export default connect(mapStateToProps, mapDispatchToProps) (RealGame);

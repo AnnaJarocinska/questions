@@ -34,58 +34,17 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         break;
 
       case types.DRAW_QUESTION:
-        draft.currentQuestion = draft.questionsToAsk[action.payload.randomNumber];
-        draft.questionsToAsk.splice(action.payload.randomNumber, 1);
+        
+        let randomNumber = Math.floor(Math.random() * draft.questionsToAsk.length);
+
+        draft.currentQuestion = draft.questionsToAsk[randomNumber];
+        draft.questionsToAsk.splice(randomNumber, 1);
         draft.questionsAsked.push(draft.currentQuestion);
-        break;
 
-      case types.GET_RANDOM_QUESTION:
-
-        if(draft.questionsAsked.length === 0){
-        draft.questionsToAsk = [...draft.questions];
-        }
-
-        let questionsToAskLength = draft.questionsToAsk.length
-        let randomNumberA = Math.floor(Math.random() * questionsToAskLength);
-        const nextQuestion = draft.questionsToAsk[randomNumberA]
-
-        draft.randomQuestion = nextQuestion;
-       
-        if (!draft.questionsAsked.includes(nextQuestion)){
-
-            draft.questionsAsked.push(draft.randomQuestion)
-            const hasCurrentQuestion = item => {
-              return item.question === draft.randomQuestion.question
-            }
-
-            let QuestionToRemoveIndex = draft.questionsToAsk.findIndex(hasCurrentQuestion)
-             draft.questionsToAsk.splice(QuestionToRemoveIndex,1)
-
-              if(draft.randomQuestion){
-            draft.randomQuestion.asked = true;
-              }
-          } 
-  
-        if (draft.questionsToAsk.length === 0 && !draft.randomQuestion) {
+        if (draft.questionsToAsk.length === 0 && !draft.currentQuestion) {
           draft.gameFinished = true;
-          }         
-        break;
-
-        case types.ANSWER_QUESTION:
-         
-        // draft.questions[action.payload.id].answered = true;
-        // draft.questionsToAsk[action.payload.id].answered = true;
-
-          draft.questionsToAsk.forEach(element => {
-          const isEveryQuestionAnswered = (element, index, array) => {
-           return (element.answered === true)
           }
-
-          if (draft.questionsToAsk.every(isEveryQuestionAnswered)){
-           draft.gameFinished = true;
-         }
-       })   
-       break;
+        break;
 
       default:
         return draft

@@ -26,7 +26,7 @@ const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
             if(res.data){
                 console.log(res.data)
                 addQuestions(res.data);
-                drawQuestion(0);
+                drawQuestion();
           }})
         .catch(
             err => console.log(err)
@@ -43,7 +43,7 @@ const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
  
 const mapDispatchToProps = (dispatch) => ({
     addQuestions : (currentQuestions) => dispatch(realGameActions.addQuestions(currentQuestions)),
-    drawQuestion : (randomNumber) => dispatch(realGameActions.drawQuestion(randomNumber))
+    drawQuestion : () => dispatch(realGameActions.drawQuestion())
   }) 
 
 export default connect(null, mapDispatchToProps) (RealGameDashboard);

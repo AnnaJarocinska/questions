@@ -5,7 +5,7 @@ import QuestionContainer from '../../styles/QuestionContainer';
 import QuestionParagraph from '../../styles/QuestionParagraph';
 import AnswerParagraph from '../../styles/AnswerParagraph';
 
-const OneQuestion = ({randomQuestion, questionsAsked, questionsToAsk, questions,
+const OneQuestion = ({randomQuestion,
     addPoint, subtractPoint, getRandomQuestion, answerQuestion,
     max}) => {
 
