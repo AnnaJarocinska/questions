@@ -3,9 +3,7 @@ const router = express.Router();
 const Question = require('../models/question');
 
 router.post('/questions', async (req, res, next) => {
-   
     const requestedQuestions = await Question.find({continent: req.body.categories})
-
     try{
         if(requestedQuestions){
             res.send(requestedQuestions);

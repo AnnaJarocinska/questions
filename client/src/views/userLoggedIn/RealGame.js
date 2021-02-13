@@ -20,7 +20,7 @@ const RealGame = ({currentQuestion, points, gameFinished,
             questionId: currentQuestion._id,
         }
         const checkAnswer = async () => {  
-            await axios.post('api/checkAnswer', content) 
+            await axios.post('/api/checkAnswer', content) 
             .then(res => {
                 if(res.data === "goodAnswer") {
                     addPoint();

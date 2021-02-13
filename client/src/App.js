@@ -36,9 +36,9 @@ const App = () => {
                 <Route  path="/newUser" component={NewUser} />
                 <Route path="/newUser/created" component={UserCreated} />
                 <Route path="/quiz" component={Quiz} />
-                <ProtectedRoute path="/user" component={UserDashboard} access="user"/>
-                <Route path="/game" component={RealGameMenu} access="user"/>
-                {/* <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/> */}
+                <ProtectedRoute exact path="/user" component={UserDashboard} access="user"/>
+                {/* <Route path="/game" component={RealGameMenu} access="user"/> */}
+                <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/>
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />

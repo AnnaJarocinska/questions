@@ -20,11 +20,10 @@ const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
         mode: mode   
     }
 
-    const getQuestions = async () => {  
-        await axios.post('api/questions', content) 
+    const getQuestions = async () => {   
+        await axios.post('/api/questions', content) 
         .then(res => {
             if(res.data){
-                console.log(res.data)
                 addQuestions(res.data);
                 drawQuestion();
           }})

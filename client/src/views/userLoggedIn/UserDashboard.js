@@ -15,7 +15,7 @@ const UserDashboard = () => {
                         <ul>
                             <li>
                                 <AnswerParagraph>
-                                    <Link to="/addingQuestion">Adding question</Link>
+                                    <Link to="/user/game">Play</Link>
                                 </AnswerParagraph>    
                             </li> 
                         </ul>
