@@ -38,7 +38,7 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         let randomNumber = Math.floor(Math.random() * draft.questionsToAsk.length);
 
         draft.currentQuestion = draft.questionsToAsk[randomNumber];
-        // draft.questionsToAsk.splice(randomNumber, 1);
+        draft.questionsToAsk.splice(randomNumber, 1);
         draft.questionsAsked.push(draft.currentQuestion);
 
         if (draft.questionsToAsk.length === 0 && !draft.currentQuestion) {

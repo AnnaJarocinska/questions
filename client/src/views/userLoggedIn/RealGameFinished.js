@@ -8,14 +8,17 @@ import Button from '../../styles/Button';
 
 const RealGameFinished = ({points, gameFinished}) => {
 
-    useEffect(() => {
+    useEffect(() =>{
+        async function fetchData() {
             const content = {
             points: points,
             // categories: categories,
         }
-        axios.post('/user/saveGame', content)
+       await axios.post('/user/saveGame', content)
         console.log(content, 'content w rgf')
-    })
+    }
+    fetchData();
+    }, [points])
     
     const handleClick = () => {
         window.location.reload(); 

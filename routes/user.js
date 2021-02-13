@@ -30,7 +30,7 @@ router.all('/', verifyUser, async (req, res) => {
   // }
   // });
 
-  router.get('/saveGame', async (req, res, next) => {
+  router.post('/saveGame', async (req, res, next) => {
     try{
       // const allQuestions = await Question.find({});
       // res.send(allQuestions)
