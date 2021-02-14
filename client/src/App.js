@@ -18,7 +18,7 @@ import Wrapper from './styles/Wrapper';
 import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
-import RealGameMenu from './views/userLoggedIn/RealGameMenu';
+import RealGameMenu from './real game/components/RealGameMenu';
 
 const App = () => {
   return (

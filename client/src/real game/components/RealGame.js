@@ -7,7 +7,7 @@ import QuestionParagraph from '../../styles/QuestionParagraph';
 import QuestionContainer from '../../styles/QuestionContainer';
 import PointsContainer from '../../styles/PointsContainer';
 import PointsBox from '../../styles/PointsBox';
-import RealGameFinished from '../userLoggedIn/RealGameFinished';
+import RealGameFinished from './RealGameFinished';
 
 const RealGame = ({currentQuestion, points, gameFinished,
       handleAnswer, drawQuestion }) => {

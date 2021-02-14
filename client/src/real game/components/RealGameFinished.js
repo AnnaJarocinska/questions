@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import realGameActions from '../../real game/duck/actions';
+import realGameActions from '../duck/actions';
 import QuestionContainer from '../../styles/QuestionContainer';
 import QuestionParagraph from '../../styles/QuestionParagraph';
 import Button from '../../styles/Button';

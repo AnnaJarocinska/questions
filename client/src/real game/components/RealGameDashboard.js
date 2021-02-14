@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import Button from '../../styles/Button';
-import realGameActions from '../../real game/duck/actions';
+import realGameActions from '../duck/actions';
 import RealGame from './RealGame';
 
 const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
