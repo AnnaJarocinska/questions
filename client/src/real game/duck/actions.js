@@ -14,8 +14,14 @@ const drawQuestion = () => ({
     type: types.DRAW_QUESTION,
 })
 
+const setCategory = (category) => ({
+    type: types.SET_CATEGORY,
+    payload: {category}
+})
+
 export default {
     handleAnswer,
     addQuestions,
-    drawQuestion
+    drawQuestion,
+    setCategory
 }

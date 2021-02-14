@@ -5,7 +5,8 @@ import Button from '../../styles/Button';
 import realGameActions from '../duck/actions';
 import RealGame from './RealGame';
 
-const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
+const RealGameDashboard = ({categories, mode,
+    addQuestions, drawQuestion, setCategory}) => {
     
     const categoriesWithoutDuplicates = []
     for (let i = 0; i<categories.length; i++) {
@@ -14,12 +15,12 @@ const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
         }
     }
     const selectedCategories = categoriesWithoutDuplicates.join(", ");
-
+    setCategory(selectedCategories);
+    
     const content = {
         categories: selectedCategories,
         mode: mode   
     }
-
     const getQuestions = async () => {   
         await axios.post('/api/questions', content) 
         .then(res => {
@@ -42,7 +43,8 @@ const RealGameDashboard = ({categories, mode, addQuestions, drawQuestion}) => {
  
 const mapDispatchToProps = (dispatch) => ({
     addQuestions : (currentQuestions) => dispatch(realGameActions.addQuestions(currentQuestions)),
-    drawQuestion : () => dispatch(realGameActions.drawQuestion())
+    drawQuestion : () => dispatch(realGameActions.drawQuestion()),
+    setCategory: (category) => dispatch(realGameActions.setCategory(category))
   }) 
 
 export default connect(null, mapDispatchToProps) (RealGameDashboard);

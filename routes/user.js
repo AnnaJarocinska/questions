@@ -34,7 +34,9 @@ router.all('/', verifyUser, async (req, res) => {
     try{
       // const allQuestions = await Question.find({});
       // res.send(allQuestions)
-      console.log(req.body, 'req.body w user/savegame')
+      // console.log(req.body, 'req.body w user/savegame')
+      // console.log(req.body.points, 'req.body w user/savegame')
+      // console.log(req.body.category, 'req.body w user/savegame')
     }catch (err) {
      res.status(401).json({
        err
