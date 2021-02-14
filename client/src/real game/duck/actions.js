@@ -1,11 +1,8 @@
 import types from './types';
 
-const handleCorrectAnswer = () => ({
-    type: types.HANDLE_CORRECT_ANSWER
-})
-
-const handleWrongAnswer = () => ({
-    type: types.HANDLE_WRONG_ANSWER
+const handleAnswer = (result) => ({
+    type: types.HANDLE_ANSWER,
+    payload: {result}
 })
 
 const addQuestions = (currentQuestions) => ({
@@ -18,8 +15,7 @@ const drawQuestion = () => ({
 })
 
 export default {
-    handleCorrectAnswer,
-    handleWrongAnswer,
+    handleAnswer,
     addQuestions,
     drawQuestion
 }

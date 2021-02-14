@@ -10,9 +10,9 @@ import PointsBox from '../../styles/PointsBox';
 import RealGameFinished from '../userLoggedIn/RealGameFinished';
 
 const RealGame = ({currentQuestion, points, gameFinished,
-     handleCorrectAnswer, handleWrongAnswer, drawQuestion }) => {
+      handleAnswer, drawQuestion }) => {
 
-    const handleAnswer = (e) => {
+    const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
         let letter = e.target.getAttribute('name').charAt(index).toLowerCase()
         const content = {
@@ -22,12 +22,7 @@ const RealGame = ({currentQuestion, points, gameFinished,
         const checkAnswer = async () => {  
             await axios.post('/api/checkAnswer', content) 
             .then(res => {
-                if(res.data === "correctAnswer") {
-                    handleCorrectAnswer();
-                } 
-                if(res.data === "wrongAnswer") {
-                    handleWrongAnswer();
-                }
+                handleAnswer(res.data);
                 drawQuestion();
             })
             .catch (
@@ -52,7 +47,7 @@ const RealGame = ({currentQuestion, points, gameFinished,
                 <AnswerParagraph
                 key={key} 
                 name= {key}
-                onClick={handleAnswer}>
+                onClick={handleAnswerClick}>
                     {value}</AnswerParagraph>)
     } 
 }}
@@ -81,8 +76,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    handleCorrectAnswer: () =>  dispatch(realGameActions.handleCorrectAnswer()),
-    handleWrongAnswer: () =>  dispatch(realGameActions.handleWrongAnswer()),
+    handleAnswer: (result) =>  dispatch(realGameActions.handleAnswer(result)),
     drawQuestion: () =>  dispatch(realGameActions.drawQuestion())
   })
 

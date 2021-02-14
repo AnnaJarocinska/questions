@@ -27,6 +27,17 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         draft.wrongAnswers++;
         break;
 
+      case types.HANDLE_ANSWER:
+        if(action.payload.result === "correctAnswer") {
+          draft.points++;
+          draft.correctAnswers++; 
+        }
+        if(action.payload.result === "wrongAnswer") {
+          draft.points--;
+          draft.wrongAnswers++;
+        }
+          break;  
+
       case types.ADD_QUESTIONS:
         draft.currentQuestions = action.payload.currentQuestions;
         draft.questionsToAsk = action.payload.currentQuestions;
