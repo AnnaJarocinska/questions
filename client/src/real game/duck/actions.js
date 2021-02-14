@@ -1,11 +1,11 @@
 import types from './types';
 
-const addPoint = () => ({
-    type: types.ADD_POINT
+const handleCorrectAnswer = () => ({
+    type: types.HANDLE_CORRECT_ANSWER
 })
 
-const resetPoints = () => ({
-    type: types.RESET_POINTS
+const handleWrongAnswer = () => ({
+    type: types.HANDLE_WRONG_ANSWER
 })
 
 const addQuestions = (currentQuestions) => ({
@@ -13,26 +13,13 @@ const addQuestions = (currentQuestions) => ({
     payload: {currentQuestions}
 })
 
-const drawQuestion = (randomNumber) => ({
+const drawQuestion = () => ({
     type: types.DRAW_QUESTION,
-    payload: {randomNumber}
-})
-
-const getRandomQuestion = (question, continent, answerA, answerB, answerC, answerD, id, goodAnswer) => ({
-    type: types.GET_RANDOM_QUESTION,
-    payload: {question, continent, answerA, answerB, answerC, answerD, id, goodAnswer}
-})
-
-const answerQuestion = (id, goodOrBad) => ({
-    type: types.ANSWER_QUESTION,
-    payload: {id, goodOrBad}
 })
 
 export default {
-    addPoint,
-    resetPoints,
+    handleCorrectAnswer,
+    handleWrongAnswer,
     addQuestions,
-    drawQuestion,
-    getRandomQuestion,
-    answerQuestion
+    drawQuestion
 }

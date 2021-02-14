@@ -21,7 +21,7 @@ router.post('/checkAnswer', async (req, res, next) => {
 
     try{
         if(requestedQuestion[0].goodAnswer === req.body.userAnswer){
-            res.send('goodAnswer')
+            res.send('correctAnswer')
         } else {
             res.send('wrongAnswer')
         }
