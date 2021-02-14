@@ -17,23 +17,13 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
   produce(state, draft => {
     switch (action.type) {
 
-      case types.HANDLE_CORRECT_ANSWER:
-        draft.points++;
-        draft.correctAnswers++;
-        break;
-
-      case types.HANDLE_WRONG_ANSWER:
-        draft.points--;
-        draft.wrongAnswers++;
-        break;
-
       case types.HANDLE_ANSWER:
         if(action.payload.result === "correctAnswer") {
           draft.points++;
           draft.correctAnswers++; 
         }
         if(action.payload.result === "wrongAnswer") {
-          draft.points--;
+          draft.points > 0 ? draft.points-- : draft.points = 0;
           draft.wrongAnswers++;
         }
           break;  
