@@ -22,4 +22,6 @@ const UserSchema = new Schema({
     type: String,
     default: ''
   },
-});module.exports = User = mongoose.model("users", UserSchema);
+  games: [],
+});
+module.exports = User = mongoose.model("users", UserSchema);
