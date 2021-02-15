@@ -31,16 +31,15 @@ router.all('/', verifyUser, async (req, res) => {
 
   router.post('/saveGame', async (req, res, next) => {
     try{
-      
-      const filter = { key: req.cookies.key };
-      const update = { games: [{
-        points: req.body.points,
-        category: req.body.category,
-        date: Date.now(),
-      }] };
-let trr = await User.findOneAndUpdate(filter, update);
-trr = await User.findOne(filter);
-
+      const user = await User.findOne({key: req.cookies.key});
+      console.log(user)
+      let obj = {
+                points: req.body.points,
+                category: req.body.category,
+                date: Date.now(),
+              }
+      user.games.push(obj)
+      user.save()
     } catch (err) {
      res.status(401).json({
        err
