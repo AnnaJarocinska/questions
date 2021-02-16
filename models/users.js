@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: {
     type: String,
-    // required: true
+    required: true
   }, 
   password: {
     type: String,
-    // required: true
+    required: true
   },
   created: {
     type: Date,
@@ -22,6 +22,25 @@ const UserSchema = new Schema({
     type: String,
     default: ''
   },
-  games: [],
+  games: [
+    {
+      points: {
+        type: Number
+      },
+      category: {
+        type: String
+      },
+      correctAnswers: {
+        type: Number
+      },
+      wrongAnswers: {
+        type: Number
+      },
+        date: {
+          type: Date
+        }
+      }
+    
+  ],
 });
 module.exports = User = mongoose.model("users", UserSchema);

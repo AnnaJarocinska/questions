@@ -32,10 +32,11 @@ router.all('/', verifyUser, async (req, res) => {
   router.post('/saveGame', async (req, res, next) => {
     try{
       const user = await User.findOne({key: req.cookies.key});
-      console.log(user)
       let obj = {
                 points: req.body.points,
                 category: req.body.category,
+                correctAnswers: req.body.correctAnswers,
+                wrongAnswers: req.body.wrongAnswers,
                 date: Date.now(),
               }
       user.games.push(obj)

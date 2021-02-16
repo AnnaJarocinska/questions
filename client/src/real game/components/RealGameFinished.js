@@ -6,19 +6,21 @@ import QuestionContainer from '../../styles/QuestionContainer';
 import QuestionParagraph from '../../styles/QuestionParagraph';
 import Button from '../../styles/Button';
 
-const RealGameFinished = ({points, category}) => {
+const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
 
     useEffect(() => {
         async function fetchData() {
             const content = {
             points: points,
             category: category,
+            correctAnswers: correctAnswers,
+            wrongAnswers: wrongAnswers,
+            date: Date.now,
         }
        await axios.post('/user/saveGame', content)
-        console.log(content, 'content w rgf')
     }
     fetchData();
-    }, [points, category])
+    }, [points, category, correctAnswers, wrongAnswers])
     
     const handleClick = () => {
         window.location.reload(); 
@@ -36,6 +38,8 @@ const RealGameFinished = ({points, category}) => {
 const mapStateToProps = (state) => ({
     points: state.realGame.points,
     category: state.realGame.category,
+    correctAnswers: state.realGame.correctAnswers,
+    wrongAnswers: state.realGame.wrongAnswers,
 })
 
 const mapDispatchToProps = (dispatch) => ({
