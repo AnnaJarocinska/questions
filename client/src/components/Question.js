@@ -5,10 +5,12 @@ import List from './List';
 import Wrapper from '../styles/Wrapper';
 import Overlay from '../styles/Overlay';
 import Container from '../styles/Container';
+import Button from '../styles/Button';
 
 const Question = () => {
 
   const [data, setData] = useState({ questions: [] });
+  const [show, setShow] = useState(false);
 
   const fetchData = async () => {
     const result = await axios.get('/api/question')
@@ -18,6 +20,10 @@ const Question = () => {
   useEffect(() => {
     fetchData()
   }, []);
+
+  const handleShowClick = () => {
+    setShow(true);
+  }
 
   const deleteQuestion = async (id) => {
     await axios.delete(`/api/question/${id}`)
@@ -31,9 +37,10 @@ const Question = () => {
         <Container list>
         <Container form>
           <NewQuestionForm getQuestions={fetchData} />
-          </Container>
-          <Container form>
-          <List questions={data} deleteQuestion={deleteQuestion} />
+          {/* </Container> */}
+           {/* <Container> */}
+           <Button login red onClick={handleShowClick}> Show all questions </Button>
+           {show && <List questions={data} deleteQuestion={deleteQuestion} />}
           </Container>
           </Container>
       </Overlay>

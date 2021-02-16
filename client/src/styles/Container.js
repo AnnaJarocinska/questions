@@ -34,6 +34,7 @@ padding: 100px;
 width: 100%;
 align-items: center;
 justify-content: center;
+flex-direction: column;
 `}
 
 ${({ list }) => list && css`

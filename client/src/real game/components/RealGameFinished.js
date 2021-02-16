@@ -9,7 +9,7 @@ import Button from '../../styles/Button';
 const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
 
     useEffect(() => {
-        async function fetchData() {
+        async function sendData() {
             const content = {
             points: points,
             category: category,
@@ -19,7 +19,7 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
         }
        await axios.post('/user/saveGame', content)
     }
-    fetchData();
+    sendData();
     }, [points, category, correctAnswers, wrongAnswers])
     
     const handleClick = () => {
