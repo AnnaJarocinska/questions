@@ -48,6 +48,10 @@ margin: 0 auto;
 padding: 6px 30px;
 font-size: 20px;
 `}
+
+${({ space }) => space && css`
+margin-top: 100px;
+`}
 `
 
 export default Button;

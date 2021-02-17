@@ -37,9 +37,7 @@ const Question = () => {
         <Container list>
         <Container form>
           <NewQuestionForm getQuestions={fetchData} />
-          {/* </Container> */}
-           {/* <Container> */}
-           <Button login red onClick={handleShowClick}> Show all questions </Button>
+           <Button login red space onClick={handleShowClick}> Show all questions </Button>
            {show && <List questions={data} deleteQuestion={deleteQuestion} />}
           </Container>
           </Container>
