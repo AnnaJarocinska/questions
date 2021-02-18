@@ -25,8 +25,10 @@ const RealGameMenu = () => {
     return ( 
         <>
         <Container main>
+            <p>Select categories:</p>
             {continents.map((continent) => 
-                <Badge
+                <Badge 
+                continent = {continent}
                 key={continent}
                 name={continent}
                 onClick={selectCategory}>
@@ -40,6 +42,7 @@ const RealGameMenu = () => {
             {send && <RealGameDashboard categories={categories} mode={mode}/>}
         </Container>
         </>  
+            
      );
 }
 

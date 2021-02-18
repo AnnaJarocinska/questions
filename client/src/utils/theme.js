@@ -23,6 +23,9 @@ export default {
         black: {
             normal: 'rgb(0, 0, 0)',  
         },
+        purple: {
+            normal: 'rgb(75, 0, 130)',  
+        },
         red: {
             normal: 'rgb(175, 25, 23)',  
         },
