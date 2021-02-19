@@ -11,11 +11,13 @@ const RealGameMenu = () => {
     const [categories, setCategories] = useState([]);
     const [mode, setMode] = useState('');
     const [send, setSend] = useState(false);
+    const [clicked, setClicked] = useState(false);
 
-    const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America']
+    const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
     const selectCategory = (e) => {
         const selectedCategory = e.target.getAttribute('name');
         setCategories([...categories, selectedCategory]);
+        setClicked(true);
     }
     const selectMode = (e) => {
         const selectedMode = e.target.value
@@ -30,11 +32,12 @@ const RealGameMenu = () => {
             <Label> Select categories: </Label>
             {continents.map((continent) => 
                 <Badge 
-                continent = {continent}
+                continent={continent}
+                clicked={clicked}
                 key={continent}
                 name={continent}
                 onClick={selectCategory}>
-                {continent} 
+               {continent} 
             </Badge>)}
             {categories}
             <div onChange={selectMode}>
