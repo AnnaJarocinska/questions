@@ -13,8 +13,6 @@ ${({ login }) => login && css`
 background-color: ${props => props.theme.colors.blue.normal};
 border-radius: 6px;
 border: none;
-font-size: 20px;
-font-size: 15px;
 padding: 4px 6px;
 margin: 0 5px;
 @media (min-width: 600px) {
@@ -38,7 +36,7 @@ white-space: nowrap;
 `}
 
 ${({ menu }) => menu && css`
-font-size:15px;
+font-size: 15px;
 padding: 2px 4px;
 `}
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Container from '../../styles/Container';
 import Button from '../../styles/Button';
 import Badge from '../../styles/Badge';
+import Label from '../../styles/Label';
+import Input from '../../styles/Input';
 import RealGameDashboard from './RealGameDashboard';
 
 const RealGameMenu = () => {
@@ -12,8 +14,8 @@ const RealGameMenu = () => {
 
     const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America']
     const selectCategory = (e) => {
-        const selectedCategory = e.target.getAttribute('name')
-        setCategories([...categories, selectedCategory])
+        const selectedCategory = e.target.getAttribute('name');
+        setCategories([...categories, selectedCategory]);
     }
     const selectMode = (e) => {
         const selectedMode = e.target.value
@@ -25,7 +27,7 @@ const RealGameMenu = () => {
     return ( 
         <>
         <Container main>
-            <p>Select categories:</p>
+            <Label> Select categories: </Label>
             {continents.map((continent) => 
                 <Badge 
                 continent = {continent}
@@ -34,9 +36,10 @@ const RealGameMenu = () => {
                 onClick={selectCategory}>
                 {continent} 
             </Badge>)}
+            {categories}
             <div onChange={selectMode}>
-           <label> <input type="radio" value="all" name="gameType"/>All</label>
-           <label><input type="radio" value="random10"name="gameType"/>Random 10</label>
+           <Label> <Input radio type="radio" value="all" name="gameType"/>All</Label>
+           <Label><Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
            </div>
             <Button login red onClick={sendSelection}>Start</Button>
             {send && <RealGameDashboard categories={categories} mode={mode}/>}

@@ -7,8 +7,14 @@ color: white;
 font-size: 15px;
 letter-spacing: 1px;
 margin: 5px;
+&:hover{
+    filter: brightness(120%);
+}
+${props => props.clicked && css`
+ border: 2px solid black;
+`};
  ${props => props.continent === 'Africa' && css`
- background-color: ${props => props.theme.colors.yellow.dark};;
+ background-color: ${props => props.theme.colors.yellow.dark};
 `};
 ${props => props.continent === 'Asia' && css`
  background-color: ${props => props.theme.colors.purple.normal};
