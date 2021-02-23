@@ -18,7 +18,9 @@ const RealGameDashboard = ({categories, mode,
     setCategory(selectedCategories);
     
     const content = {
-        categories: selectedCategories,
+        categories: 
+        categoriesWithoutDuplicates,
+        // selectedCategories,
         mode: mode   
     }
     const getQuestions = async () => {   
