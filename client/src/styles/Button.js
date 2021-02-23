@@ -23,7 +23,7 @@ font-size: 20px;
 }
 `}
 
-${({ form }) => form && css`
+${({ submit }) => submit && css`
 margin: 0 auto;
 margin-top: 15px;
 width: 70%;

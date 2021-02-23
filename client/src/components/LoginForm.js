@@ -111,7 +111,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName }) =>
               value={values.password}
               onBlur={handleBlur} />
             {errors.password && touched.password && errors.password}
-            <Button login form="true" type="submit" disabled={isSubmitting}>Log in</Button>
+            <Button login submit type="submit" disabled={isSubmitting}>Log in</Button>
             </Form>
         )}
     </Formik>
