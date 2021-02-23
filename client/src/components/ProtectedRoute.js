@@ -22,7 +22,7 @@ const ProtectedRoute = ({ component, access, admin, user}) => {
 const mapStateToProps = (state) => ({
     admin: state.view.admin,
     user: state.view.user,
-    unnamed: state.view.unnamed, 
+    unnamed: state.view.unnamed
 })
  
 export default connect(mapStateToProps, null)(ProtectedRoute);
