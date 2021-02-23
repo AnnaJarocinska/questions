@@ -12,28 +12,18 @@ const RealGameMenu = () => {
     const [categories, setCategories] = useState([]);
     const [mode, setMode] = useState('');
     const [send, setSend] = useState(false);
-    const [clicked, setClicked] = useState(false);
-    const [clickedName, setClickedName] = useState('');
-    const [clickedId, setClickedId] = useState(null);
-    const [selectedNow, setSelectedNow] = useState('');
     const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
    
     const removeCategory = (index) => {
         setContinents(update(continents, {$splice: [[index, 1]]})
           )
       }
-
     const selectCategory = (e) => {
         const selectedCategory = e.target.getAttribute('name');
         const selectedId = e.target.getAttribute('id');
 
         setCategories([...categories, selectedCategory]);
-        if(selectedCategory === clickedName){  
-            removeCategory(selectedId)
-          }
-        setClicked(true);
-        setClickedName(selectedCategory);
-        setClickedId(selectedId)
+        removeCategory(selectedId)
     }
     const selectMode = (e) => {
         const selectedMode = e.target.value
@@ -43,18 +33,12 @@ const RealGameMenu = () => {
         setSend(true);
     }
     
-
     return ( 
-        <>
         <Container main>
             <Label> Select categories: </Label>
             {continents.map((continent, index) => 
                 <Badge 
-                className='klasa'
                 continent={continent}
-                clicked={clicked}
-                clickedName={clickedName}
-                // selectedNow={continent === clickedName? true : false}
                 key={continent}
                 id= {index}
                 name={continent}
@@ -69,8 +53,6 @@ const RealGameMenu = () => {
             <Button login red onClick={sendSelection}>Start</Button>
             {send && <RealGameDashboard categories={categories} mode={mode}/>}
         </Container>
-        </>  
-            
      );
 }
 
