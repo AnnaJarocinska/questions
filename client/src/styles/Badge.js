@@ -10,6 +10,9 @@ margin: 5px;
 &:hover{
     filter: brightness(120%);
 }
+.klasa{
+    border: 5px solid red;
+}
 
  ${props => props.continent === 'Africa' && css`
  background-color: ${props => props.theme.colors.yellow.dark};
@@ -33,14 +36,19 @@ ${props => props.continent === 'South America' && css`
 ${props => ( console.log(props.continent, props.clickedName, props.clicked, props.id))
  };
 
- ${props => ( props.continent === props.clickedName) && css`
+ 
+
+ ${props => props.selectedNow && css`
  background-color: pink;
  `};
-
 
 `
 export default Badge;
 
+
+// ${props => ( props.continent === props.clickedName) && css`
+//  background-color: pink;
+//  `};
 
 
 // ${props => (props.continent === props.clicked ) && css`

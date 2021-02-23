@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import update from 'immutability-helper'
 import Container from '../../styles/Container';
 import Button from '../../styles/Button';
 import Badge from '../../styles/Badge';
@@ -13,15 +14,40 @@ const RealGameMenu = () => {
     const [send, setSend] = useState(false);
     const [clicked, setClicked] = useState(false);
     const [clickedName, setClickedName] = useState('');
+    const [clickedId, setClickedId] = useState(null);
+    const [selectedNow, setSelectedNow] = useState('');
+    const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
 
-    const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
+    // const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
+   
+    const removeCategory = (index) => {
+
+        setContinents(update(continents, {$splice: [[index, 1]]})
+          )
+        // categories.filter(( id ) => id !== index)
+        // const continentss = continents;
+        // setContinents([...continentss.slice(0,index), ...continentss.slice(index+1)]
+        // );
+        
+        //   setContinents( { continents: [...continents.slice(0,index), ...continents.slice(index+1)]
+        //   })
+      }
+
     const selectCategory = (e) => {
         const selectedCategory = e.target.getAttribute('name');
         const selectedId = e.target.getAttribute('id');
+
         setCategories([...categories, selectedCategory]);
+        if(selectedCategory === clickedName){  
+            removeCategory(selectedId)
+          }
         setClicked(true);
         setClickedName(selectedCategory);
-        // console.log(selectedId, 'selectedId', selectedCategory, 'selectedCategory')
+        setClickedId(selectedId)
+        console.log(selectedId, 'selectedId', selectedCategory, 'selectedCategory');
+        // const continentss = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
+        
+        // console.log(continents, 'continentss')
     }
     const selectMode = (e) => {
         const selectedMode = e.target.value
@@ -30,15 +56,19 @@ const RealGameMenu = () => {
     const sendSelection = () => {
         setSend(true);
     }
+    
+
     return ( 
         <>
         <Container main>
             <Label> Select categories: </Label>
             {continents.map((continent, index) => 
                 <Badge 
+                className='klasa'
                 continent={continent}
                 clicked={clicked}
                 clickedName={clickedName}
+                // selectedNow={continent === clickedName? true : false}
                 key={continent}
                 id= {index}
                 name={continent}
