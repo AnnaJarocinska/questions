@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import realGameActions from '../duck/actions';
 import QuestionContainer from '../../styles/QuestionContainer';
-import QuestionParagraph from '../../styles/QuestionParagraph';
+import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
 const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
@@ -27,9 +27,9 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
     }
     return (  
         <QuestionContainer>
-            <QuestionParagraph>
+            <CapitalLetterParagraph>
                 Game finished
-            </QuestionParagraph>
+            </CapitalLetterParagraph>
              <Button login red onClick={handleClick}> Start again </Button> 
         </QuestionContainer>
     );

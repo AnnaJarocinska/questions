@@ -1,6 +1,6 @@
 import React from 'react';
 import QuestionContainer from '../../styles/QuestionContainer';
-import QuestionParagraph from '../../styles/QuestionParagraph';
+import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
 const GameFinished = () => {
@@ -10,9 +10,9 @@ const GameFinished = () => {
     }
     return (  
         <QuestionContainer>
-            <QuestionParagraph>
+            <CapitalLetterParagraph>
                 Game finished
-            </QuestionParagraph>
+            </CapitalLetterParagraph>
              <Button login red onClick={handleClick}> Start again </Button> 
         </QuestionContainer>
     );

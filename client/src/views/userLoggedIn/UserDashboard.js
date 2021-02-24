@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import QuestionParagraph from '../../styles/QuestionParagraph';
-import AnswerParagraph from '../../styles/AnswerParagraph';
+import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
+import Paragraph from '../../styles/Paragraph';
 import Container from '../../styles/Container';
 import QuestionContainer from '../../styles/QuestionContainer';
 
@@ -10,13 +10,13 @@ const UserDashboard = () => {
         <>
           <Container main>
             <QuestionContainer user>
-                <QuestionParagraph> Welcome to user </QuestionParagraph>
+                <CapitalLetterParagraph> Welcome to user </CapitalLetterParagraph>
                     <nav>
                         <ul>
                             <li>
-                                <AnswerParagraph>
+                                <Paragraph>
                                     <Link to="/user/game">Play</Link>
-                                </AnswerParagraph>    
+                                </Paragraph>    
                             </li> 
                         </ul>
                     </nav>

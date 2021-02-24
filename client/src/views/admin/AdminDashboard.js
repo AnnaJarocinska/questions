@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import QuestionParagraph from '../../styles/QuestionParagraph';
-import AnswerParagraph from '../../styles/AnswerParagraph';
+import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
+import Paragraph from '../../styles/Paragraph';
 import Container from '../../styles/Container';
 import QuestionContainer from '../../styles/QuestionContainer';
 
@@ -10,18 +10,18 @@ const AdminDashboard = () => {
         <>
             <Container main>
                 <QuestionContainer admin>
-                    <QuestionParagraph> Welcome to admin </QuestionParagraph>
+                    <CapitalLetterParagraph> Welcome to admin </CapitalLetterParagraph>
                     <nav>
                         <ul>
                             <li>
-                                <AnswerParagraph>
+                                <Paragraph>
                                     <Link to="/addingQuestion">Adding question</Link>
-                                </AnswerParagraph>    
+                                </Paragraph>    
                             </li> 
                             <li>
-                                <AnswerParagraph>
+                                <Paragraph>
                                     <Link to="/users">Users</Link>
-                                </AnswerParagraph>
+                                </Paragraph>
                             </li>
                         </ul>
                     </nav>

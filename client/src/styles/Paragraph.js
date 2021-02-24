@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AnswerParagraph = styled.p`
+const Paragraph = styled.p`
 font-size: 20px;
 cursor: pointer;
 &:hover{
@@ -14,4 +14,4 @@ cursor: pointer;
     }
 `
 
-export default AnswerParagraph;
+export default Paragraph;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const QuestionParagraph = styled.p`
+const CapitalLetterParagraph = styled.p`
 font-size: 20px;
 text-transform: uppercase;
 margin: 15px;
@@ -13,4 +13,4 @@ text-align: center;
     }
 `
 
-export default QuestionParagraph;
+export default CapitalLetterParagraph;

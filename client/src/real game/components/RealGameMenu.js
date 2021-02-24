@@ -3,9 +3,10 @@ import update from 'immutability-helper'
 import Container from '../../styles/Container';
 import Button from '../../styles/Button';
 import Badge from '../../styles/Badge';
-import Label from '../../styles/Label';
 import Input from '../../styles/Input';
+import Pargraph from '../../styles/Paragraph';
 import RealGameDashboard from './RealGameDashboard';
+import RealGameDetails from './RealGameDetails';
 
 const RealGameMenu = () => {
     
@@ -35,7 +36,7 @@ const RealGameMenu = () => {
     
     return ( 
         <Container main>
-            <Label> Select categories: </Label>
+            <Pargraph> Select categories: </Pargraph>
             {continents.map((continent, index) => 
                 <Badge 
                 continent={continent}
@@ -45,12 +46,12 @@ const RealGameMenu = () => {
                 onClick={selectCategory}>
                {continent} 
             </Badge>)}
-            {categories}
+            <RealGameDetails categories={categories} mode={mode}></RealGameDetails>
             <div onChange={selectMode}>
-           <Label> <Input radio type="radio" value="all" name="gameType"/>All</Label>
-           <Label><Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
+           <Pargraph> <Input radio type="radio" value="all" name="gameType"/>All</Pargraph>
+           <Pargraph><Input radio type="radio" value="random10"name="gameType"/>Random 10</Pargraph>
            </div>
-            <Button login red onClick={sendSelection}>Start</Button>
+            <Button login red onClick={sendSelection}>Submit</Button>
             {send && <RealGameDashboard categories={categories} mode={mode}/>}
         </Container>
      );

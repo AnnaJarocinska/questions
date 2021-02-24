@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import realGameActions from '../../real game/duck/actions';
-import AnswerParagraph from '../../styles/AnswerParagraph';
-import QuestionParagraph from '../../styles/QuestionParagraph';
+import Paragraph from '../../styles/Paragraph';
+import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import QuestionContainer from '../../styles/QuestionContainer';
 import PointsContainer from '../../styles/PointsContainer';
 import PointsBox from '../../styles/PointsBox';
@@ -38,17 +38,17 @@ const RealGame = ({currentQuestion, points, gameFinished,
          key === 'answerC' || key === 'answerD') {
         current.push(
                key === 'question'?
-               <QuestionParagraph
+               <CapitalLetterParagraph
                key={key} 
                name= {key}
                >
-                   {value} ? </QuestionParagraph> 
+                   {value} ? </CapitalLetterParagraph> 
                    :
-                <AnswerParagraph
+                <Paragraph
                 key={key} 
                 name= {key}
                 onClick={handleAnswerClick}>
-                    {value}</AnswerParagraph>)
+                    {value}</Paragraph>)
     } 
 }}
     return ( 

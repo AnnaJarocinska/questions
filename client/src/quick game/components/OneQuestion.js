@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../duck/actions';
 import QuestionContainer from '../../styles/QuestionContainer';
-import QuestionParagraph from '../../styles/QuestionParagraph';
-import AnswerParagraph from '../../styles/AnswerParagraph';
+import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
+import Paragraph from '../../styles/Paragraph';
 
 const OneQuestion = ({randomQuestion,
     addPoint, subtractPoint, getRandomQuestion, answerQuestion,
@@ -32,18 +32,18 @@ const OneQuestion = ({randomQuestion,
            
         currentQuestion.push(
                key === 'question'?
-               <QuestionParagraph
+               <CapitalLetterParagraph
                key={key} 
                name= {key}
                >
-                   {value} ? </QuestionParagraph> 
+                   {value} ? </CapitalLetterParagraph> 
                    :
-                <AnswerParagraph
+                <Paragraph
                 key={key} 
                 name= {key}
                 id={randomQuestion.id}
                 onClick={handleAnswerClick}>
-                    {value}</AnswerParagraph>)
+                    {value}</Paragraph>)
     }}
 
     return ( 
