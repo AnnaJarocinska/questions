@@ -1,6 +1,5 @@
 import React from 'react';
 import Container from '../styles/Container';
-import UsersContainer from '../styles/UsersContainer';
 import Badge from '../styles/Badge';
 
 const List = ({ questions, deleteQuestion }) => {
@@ -14,7 +13,7 @@ const List = ({ questions, deleteQuestion }) => {
           (
             questions.map(question => {
               return (
-                <UsersContainer>
+                <Container list>
                 <li key={question._id} onClick={() => deleteQuestion(question._id)}>
                 <p>{question.question}</p>
                 <Badge>{question.continent}</Badge>
@@ -24,7 +23,7 @@ const List = ({ questions, deleteQuestion }) => {
                <p>{question.answerD}</p>
                <p> {question.goodAnswer}</p>
                 </li>
-                </UsersContainer>
+                </Container>
               )
             })
           )

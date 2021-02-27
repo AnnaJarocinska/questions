@@ -4,8 +4,7 @@ import axios from 'axios';
 import realGameActions from '../../real game/duck/actions';
 import Paragraph from '../../styles/Paragraph';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
-import QuestionContainer from '../../styles/QuestionContainer';
-import PointsContainer from '../../styles/PointsContainer';
+import Container from '../../styles/Container';
 import PointsBox from '../../styles/PointsBox';
 import RealGameFinished from './RealGameFinished';
 
@@ -55,13 +54,13 @@ const RealGame = ({currentQuestion, points, gameFinished,
         <>
         {!gameFinished &&
         <>
-        <PointsContainer>
+        <Container points>
             <p>Points : </p> 
             <PointsBox> {points} </PointsBox>
-        </PointsContainer> 
-    <QuestionContainer>
+        </Container> 
+    <Container separate>
        {current}
-    </QuestionContainer>
+    </Container>
     </>}
     {gameFinished &&
     <RealGameFinished/>}

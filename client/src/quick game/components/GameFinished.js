@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionContainer from '../../styles/QuestionContainer';
+import Container from '../../styles/Container';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
@@ -9,12 +9,12 @@ const GameFinished = () => {
         window.location.reload(); 
     }
     return (  
-        <QuestionContainer>
+        <Container separate>
             <CapitalLetterParagraph>
                 Game finished
             </CapitalLetterParagraph>
              <Button login red onClick={handleClick}> Start again </Button> 
-        </QuestionContainer>
+        </Container>
     );
 }
  

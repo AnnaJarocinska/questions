@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import realGameActions from '../duck/actions';
-import QuestionContainer from '../../styles/QuestionContainer';
+import Container from '../../styles/Container';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
@@ -26,12 +26,12 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
         window.location.reload(); 
     }
     return (  
-        <QuestionContainer>
+        <Container separate>
             <CapitalLetterParagraph>
                 Game finished
             </CapitalLetterParagraph>
              <Button login red onClick={handleClick}> Start again </Button> 
-        </QuestionContainer>
+        </Container>
     );
 }
  

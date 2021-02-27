@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Paragraph = styled.p`
+padding: 5px;
 font-size: 20px;
 cursor: pointer;
 &:hover{

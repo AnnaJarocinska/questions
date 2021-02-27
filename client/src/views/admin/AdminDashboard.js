@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Paragraph from '../../styles/Paragraph';
 import Container from '../../styles/Container';
-import QuestionContainer from '../../styles/QuestionContainer';
 
 const AdminDashboard = () => {
     return (
         <>
             <Container main>
-                <QuestionContainer admin>
+                <Container separate admin>
                     <CapitalLetterParagraph> Welcome to admin </CapitalLetterParagraph>
                     <nav>
                         <ul>
@@ -25,7 +24,7 @@ const AdminDashboard = () => {
                             </li>
                         </ul>
                     </nav>
-                </QuestionContainer>
+                </Container>
             </Container>
         </>
       );

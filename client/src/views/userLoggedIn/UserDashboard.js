@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Paragraph from '../../styles/Paragraph';
 import Container from '../../styles/Container';
-import QuestionContainer from '../../styles/QuestionContainer';
 
 const UserDashboard = () => {
     return (
         <>
           <Container main>
-            <QuestionContainer user>
+            <Container separate user>
                 <CapitalLetterParagraph> Welcome to user </CapitalLetterParagraph>
                     <nav>
                         <ul>
@@ -30,7 +29,7 @@ const UserDashboard = () => {
                             </li> 
                         </ul>
                     </nav>
-                </QuestionContainer>
+                </Container>
             </Container>
         </>
       );

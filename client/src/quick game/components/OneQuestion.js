@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../duck/actions';
-import QuestionContainer from '../../styles/QuestionContainer';
+import Container from '../../styles/Container';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Paragraph from '../../styles/Paragraph';
 
@@ -48,9 +48,9 @@ const OneQuestion = ({randomQuestion,
 
     return ( 
         <>
-        <QuestionContainer max={max ? max.toString() : undefined}>
+        <Container max={max ? max.toString() : undefined}>
            {currentQuestion}
-        </QuestionContainer>
+        </Container>
         </>
      );
 }

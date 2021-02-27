@@ -50,11 +50,12 @@ const RealGameMenu = () => {
                {continent} 
             </Badge>)}
            
-            <div onChange={selectMode}>
-                <Pargraph> Select mode: </Pargraph>
-                <Pargraph><Label> <Input radio type="radio" value="all" name="gameType"/>All</Label></Pargraph>
-                <Pargraph><Label><Input radio type="radio" value="random10"name="gameType"/>Random 10</Label></Pargraph>
-           </div>
+            <Container onChange={selectMode}>
+                <Pargraph> Select mode:
+                    <Label> All</Label><Input radio type="radio" value="all" name="gameType"/>
+                    <Label> Random 10</Label><Input radio type="radio" value="random10"name="gameType"/>
+                </Pargraph>
+           </Container>
            {selected && <RealGameDetails categories={categories} mode={mode} sendSelection={sendSelection}></RealGameDetails>}
             {send && <RealGameDashboard categories={categories} mode={mode}/>}
         </Container>

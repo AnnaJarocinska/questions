@@ -5,7 +5,6 @@ import { getQuestions } from '../duck/operations';
 import actions from '../duck/actions';
 import OneQuestion from './OneQuestion';
 import GameFinished from './GameFinished';
-import PointsContainer from '../../styles/PointsContainer';
 import PointsBox from '../../styles/PointsBox';
 import Button from '../../styles/Button';
 import Container from '../../styles/Container';
@@ -32,10 +31,10 @@ const handleClick = () => {
     return (    
         <>
         <Container main>
-        <PointsContainer>
+        <Container points>
             <p>Points : </p> 
             <PointsBox> {points} </PointsBox>
-        </PointsContainer>  
+        </Container>  
         {/* <p>Questions: {questionList}</p> */}
        
         

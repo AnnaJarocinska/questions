@@ -1,5 +1,5 @@
 import React from 'react';
-import UsersContainer from '../styles/UsersContainer';
+import Container from '../styles/Container';
 import Subtitle from '../styles/Subtitle';
 
 const UsersList = ({ users, deleteUser }) => {
@@ -14,21 +14,21 @@ const UsersList = ({ users, deleteUser }) => {
             (
               users.map(user => {
                 return (
-                  <UsersContainer>
+                  <Container users>
                     <li key={user._id} onClick={() => deleteUser(user._id)}>
                       <p>Login: {user.name}</p>
                       <p>Password: {user.password}</p>
                       <p>Created: {user.created}</p>
                     </li>
-                  </UsersContainer>
+                  </Container>
                 )
               })
             )
             :
             (
-              <UsersContainer>
+              <Container users>
               <li>No users</li>
-              </UsersContainer>
+              </Container>
             )
         }
       </ul>
