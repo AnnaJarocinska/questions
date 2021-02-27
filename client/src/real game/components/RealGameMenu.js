@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import update from 'immutability-helper'
 import Container from '../../styles/Container';
-import Button from '../../styles/Button';
 import Badge from '../../styles/Badge';
 import Input from '../../styles/Input';
+import Label from '../../styles/Label';
 import Pargraph from '../../styles/Paragraph';
 import RealGameDashboard from './RealGameDashboard';
 import RealGameDetails from './RealGameDetails';
@@ -13,6 +13,7 @@ const RealGameMenu = () => {
     const [categories, setCategories] = useState([]);
     const [mode, setMode] = useState('');
     const [send, setSend] = useState(false);
+    const [selected, setSelected] = useState(false);
     const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
    
     const removeCategory = (index) => {
@@ -24,11 +25,13 @@ const RealGameMenu = () => {
         const selectedId = e.target.getAttribute('id');
 
         setCategories([...categories, selectedCategory]);
-        removeCategory(selectedId)
+        removeCategory(selectedId);
+        setSelected(true);
     }
     const selectMode = (e) => {
         const selectedMode = e.target.value
-        setMode(selectedMode);
+        setMode(selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1));
+        setSelected(true);
     }
     const sendSelection = () => {
         setSend(true);
@@ -46,12 +49,13 @@ const RealGameMenu = () => {
                 onClick={selectCategory}>
                {continent} 
             </Badge>)}
-            <RealGameDetails categories={categories} mode={mode}></RealGameDetails>
+           
             <div onChange={selectMode}>
-           <Pargraph> <Input radio type="radio" value="all" name="gameType"/>All</Pargraph>
-           <Pargraph><Input radio type="radio" value="random10"name="gameType"/>Random 10</Pargraph>
+                <Pargraph> Select mode: </Pargraph>
+                <Pargraph><Label> <Input radio type="radio" value="all" name="gameType"/>All</Label></Pargraph>
+                <Pargraph><Label><Input radio type="radio" value="random10"name="gameType"/>Random 10</Label></Pargraph>
            </div>
-            <Button login red onClick={sendSelection}>Submit</Button>
+           {selected && <RealGameDetails categories={categories} mode={mode} sendSelection={sendSelection}></RealGameDetails>}
             {send && <RealGameDashboard categories={categories} mode={mode}/>}
         </Container>
      );

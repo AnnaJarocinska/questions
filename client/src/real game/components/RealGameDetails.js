@@ -1,12 +1,17 @@
 import React from 'react';
 import Container from '../../styles/Container';
-import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
+import QuestionContainer from '../../styles/QuestionContainer';
+import Paragraph from '../../styles/Paragraph';
+import Button from '../../styles/Button';
 
-const RealGameDetails = ({categories, mode}) => {
+const RealGameDetails = ({categories, mode, sendSelection}) => {
     return (  
         <Container main>
-            <CapitalLetterParagraph> Selected categories: {categories}</CapitalLetterParagraph>
-            <CapitalLetterParagraph> Selected mode: {mode}</CapitalLetterParagraph>
+            <QuestionContainer>
+                <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>
+                <Paragraph> Selected mode: {mode}</Paragraph>
+                {(categories && mode) && <Button login red onClick={sendSelection}>Submit</Button>}
+            </QuestionContainer>
         </Container>
     );
 }
