@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import realGameActions from '../../real game/duck/actions';
+import realGameActions from '../duck/actions';
 import Paragraph from '../../styles/Paragraph';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Container from '../../styles/Container';
+import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
 import RealGameFinished from './RealGameFinished';
 
-const RealGame = ({currentQuestion, points, gameFinished,
+const RealGameWindow = ({currentQuestion, points, gameFinished, startGame,
       handleAnswer, drawQuestion }) => {
 
     const handleAnswerClick = (e) => {
@@ -61,6 +62,7 @@ const RealGame = ({currentQuestion, points, gameFinished,
     <Container separate>
        {current}
     </Container>
+    <Button login red onClick={startGame}> Start game </Button>
     </>}
     {gameFinished &&
     <RealGameFinished/>}
@@ -79,4 +81,4 @@ const mapDispatchToProps = (dispatch) => ({
     drawQuestion: () =>  dispatch(realGameActions.drawQuestion())
   })
 
-export default connect(mapStateToProps, mapDispatchToProps) (RealGame);
+export default connect(mapStateToProps, mapDispatchToProps) (RealGameWindow);

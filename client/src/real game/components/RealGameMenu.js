@@ -12,9 +12,8 @@ const RealGameMenu = () => {
     
     const [categories, setCategories] = useState([]);
     const [mode, setMode] = useState('');
-    const [send, setSend] = useState(false);
+    const [sent, setSent] = useState(false);
     const [selected, setSelected] = useState(false);
-    const [checked, setChecked] = useState(false);
     const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
    
     const removeCategory = (index) => {
@@ -36,11 +35,12 @@ const RealGameMenu = () => {
         setSelected(true);
     }
     const sendSelection = () => {
-        setSend(true);
+        setSent(true);
     }
     
     return ( 
         <Container main>
+        
             <Pargraph> Select categories: </Pargraph>
             {continents.map((continent, index) => 
                 <Badge 
@@ -53,11 +53,12 @@ const RealGameMenu = () => {
             </Badge>)}
         
             <Pargraph onChange={selectMode}> Select mode:
-                <Label htmlFor="gameType"> <Input radio type="radio" value="all" name="gameType" checked={checked}/>All</Label>
-                <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType" checked={checked}/>Random 10</Label>
+                <Label htmlFor="gameType"> <Input radio type="radio" value="all" name="gameType" />All</Label>
+                <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
             </Pargraph>
-           {selected && <RealGameDetails categories={categories} mode={mode} sendSelection={sendSelection}></RealGameDetails>}
-            {send && <RealGameDashboard categories={categories} mode={mode}/>}
+            
+           {selected && <RealGameDetails categories={categories} mode={mode} sendSelection={sendSelection} sent={sent}/>}
+            {/* {sent && <RealGameDashboard categories={categories} mode={mode}/>} */}
         </Container>
      );
 }

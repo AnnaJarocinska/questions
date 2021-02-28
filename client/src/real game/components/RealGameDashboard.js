@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import Button from '../../styles/Button';
+// import Button from '../../styles/Button';
 import realGameActions from '../duck/actions';
-import RealGame from './RealGame';
+import RealGameWindow from './RealGameWindow';
 
 const RealGameDashboard = ({categories, mode,
     addQuestions, drawQuestion, setCategory}) => {
@@ -35,8 +35,8 @@ const RealGameDashboard = ({categories, mode,
 
     return (
         <>
-        <Button login red onClick={getQuestions}> Start game </Button>
-        <RealGame/>
+        {/* <Button login red onClick={getQuestions}> Start game </Button> */}
+        <RealGameWindow startGame={getQuestions}/>
         </>
       );
 }
