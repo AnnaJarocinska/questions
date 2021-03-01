@@ -19,9 +19,15 @@ const setCategory = (category) => ({
     payload: {category}
 })
 
+const setMode = (mode) => ({
+    type: types.SET_MODE,
+    payload: {mode}
+})
+
 export default {
     handleAnswer,
     addQuestions,
     drawQuestion,
-    setCategory
+    setCategory,
+    setMode
 }

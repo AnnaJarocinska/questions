@@ -1,23 +1,42 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import Container from '../../styles/Container';
 import Paragraph from '../../styles/Paragraph';
 import Button from '../../styles/Button';
-import RealGameDashboard from './RealGameDashboard';
+import RealGameFetchQuestions from './RealGameFetchQuestions';
+import realGameActions from '../duck/actions';
 
-const RealGameDetails = ({categories, mode, sendSelection, }) => {
+const RealGameDetails = ({categories, mode, setCategory, setMode }) => {
    
-    
+    const sendSelectedDetails = () => {
+        const categoriesWithoutDuplicates = []
+        for (let i = 0; i<categories.length; i++) {
+            if(!categoriesWithoutDuplicates.includes(categories[i])) {
+            categoriesWithoutDuplicates.push(categories[i])
+            }
+        }
+        const selectedCategories = categoriesWithoutDuplicates.join(", ");
+        setCategory(selectedCategories);
+        setMode(mode);
+        
+    }
+
     return (  
         <>
         <Container separate half>
             {categories && <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>}
             {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
-            <Button login red onClick={sendSelection}>Submit</Button>
+            <Button login red onClick={sendSelectedDetails}>Submit</Button>
             
         </Container>
-        <RealGameDashboard categories={categories} mode={mode}/>
+        <RealGameFetchQuestions categories={categories} mode={mode}/>
         </>
     );
 }
  
-export default RealGameDetails;
+const mapDispatchToProps = (dispatch) => ({
+    setCategory: (category) => dispatch(realGameActions.setCategory(category)),
+    setMode: (mode) => dispatch(realGameActions.setMode(mode))
+  }) 
+
+export default connect (null, mapDispatchToProps)(RealGameDetails);

@@ -27,10 +27,8 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
     }
     return (  
         <Container separate>
-            <CapitalLetterParagraph>
-                Game finished
-            </CapitalLetterParagraph>
-             <Button login red onClick={handleClick}> Start again </Button> 
+            <CapitalLetterParagraph> Game finished </CapitalLetterParagraph>
+            <Button login red onClick={handleClick}> Start again </Button> 
         </Container>
     );
 }

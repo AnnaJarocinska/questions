@@ -3,6 +3,7 @@ import produce from 'immer';
 
 const INITIAL_STATE = { 
   category: '',
+  mode: '',
   points: 0,
   correctAnswers: 0,
   wrongAnswers: 0,
@@ -47,6 +48,9 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         draft.category = action.payload.category;
         break;
 
+      case types.SET_MODE:
+        draft.mode = action.payload.mode;
+        break;
 
       default:
         return draft

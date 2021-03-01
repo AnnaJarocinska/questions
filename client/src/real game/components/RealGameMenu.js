@@ -5,14 +5,13 @@ import Badge from '../../styles/Badge';
 import Input from '../../styles/Input';
 import Label from '../../styles/Label';
 import Pargraph from '../../styles/Paragraph';
-import RealGameDashboard from './RealGameDashboard';
+
 import RealGameDetails from './RealGameDetails';
 
 const RealGameMenu = () => {
     
     const [categories, setCategories] = useState([]);
     const [mode, setMode] = useState('');
-    const [sent, setSent] = useState(false);
     const [selected, setSelected] = useState(false);
     const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
    
@@ -34,9 +33,7 @@ const RealGameMenu = () => {
         setMode(selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1));
         setSelected(true);
     }
-    const sendSelection = () => {
-        setSent(true);
-    }
+
     
     return ( 
         <Container main>
@@ -57,8 +54,7 @@ const RealGameMenu = () => {
                 <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
             </Pargraph>
             
-           {selected && <RealGameDetails categories={categories} mode={mode} sendSelection={sendSelection} sent={sent}/>}
-            {/* {sent && <RealGameDashboard categories={categories} mode={mode}/>} */}
+           {selected && <RealGameDetails categories={categories} mode={mode}/>}
         </Container>
      );
 }
