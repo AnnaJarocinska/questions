@@ -15,21 +15,18 @@ const RealGameDetails = ({categories, mode, setCategory, setMode }) => {
             categoriesWithoutDuplicates.push(categories[i])
             }
         }
-        const selectedCategories = categoriesWithoutDuplicates.join(", ");
-        setCategory(selectedCategories);
-        setMode(mode);
-        
+        setCategory(categoriesWithoutDuplicates);
+        setMode(mode);  
     }
 
     return (  
         <>
-        <Container separate half>
-            {categories && <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>}
-            {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
-            <Button login red onClick={sendSelectedDetails}>Submit</Button>
-            
-        </Container>
-        <RealGameFetchQuestions categories={categories} mode={mode}/>
+            <Container separate half>
+                {categories && <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>}
+                {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
+                <Button login red onClick={sendSelectedDetails}>Submit</Button>
+            </Container>
+            <RealGameFetchQuestions/>
         </>
     );
 }

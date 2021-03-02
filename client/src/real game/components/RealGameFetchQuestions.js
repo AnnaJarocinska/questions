@@ -1,26 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-// import Button from '../../styles/Button';
 import realGameActions from '../duck/actions';
 import RealGameWindow from './RealGameWindow';
 
-const RealGameFetchQuestions = ({category, mode,
-    addQuestions, drawQuestion}) => {
+const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion}) => {
     
-    // const categoriesWithoutDuplicates = []
-    // for (let i = 0; i<categories.length; i++) {
-    //     if(!categoriesWithoutDuplicates.includes(categories[i])) {
-    //     categoriesWithoutDuplicates.push(categories[i])
-    //     }
-    // }
-    // const selectedCategories = categoriesWithoutDuplicates.join(", ");
-    // setCategory(selectedCategories);
-    console.log(typeof category, 'category w fetchqustions z redux');
-    const categories = category.split("")
     const content = {
-        categories: categories,
-        //  categoriesWithoutDuplicates,
+        categories: category,
         mode: mode   
     }
     const getQuestions = async () => {   
@@ -36,10 +23,7 @@ const RealGameFetchQuestions = ({category, mode,
     }
 
     return (
-        <>
-        {/* <Button login red onClick={getQuestions}> Start game </Button> */}
-        <RealGameWindow startGame={getQuestions}/>
-        </>
+            <RealGameWindow startGame={getQuestions}/>
       );
 }
  
@@ -51,7 +35,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     addQuestions : (currentQuestions) => dispatch(realGameActions.addQuestions(currentQuestions)),
     drawQuestion : () => dispatch(realGameActions.drawQuestion()),
-    // setCategory: (category) => dispatch(realGameActions.setCategory(category))
   }) 
 
 export default connect(mapStateToProps, mapDispatchToProps) (RealGameFetchQuestions);
