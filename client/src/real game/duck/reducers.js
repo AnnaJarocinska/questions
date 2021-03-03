@@ -11,6 +11,7 @@ const INITIAL_STATE = {
   currentQuestion:[],
   questionsAsked: [],
   questionsToAsk: [],
+  gameOn: false,
   gameFinished: false,
 }
 
@@ -27,21 +28,24 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
           draft.points > 0 ? draft.points-- : draft.points = 0;
           draft.wrongAnswers++; 
         }
+        if (draft.correctAnswers + draft.wrongAnswers === draft.currentQuestions.length) {
+          draft.gameFinished = Date.now();
+          }
           break;  
 
       case types.ADD_QUESTIONS:
         draft.currentQuestions = action.payload.currentQuestions;
         draft.questionsToAsk = action.payload.currentQuestions;
+        draft.gameOn = Date.now();
         break;
 
       case types.DRAW_QUESTION:
         let randomNumber = Math.floor(Math.random() * draft.questionsToAsk.length);
         draft.currentQuestion = draft.questionsToAsk[randomNumber];
         draft.questionsToAsk.splice(randomNumber, 1);
+        if(draft.currentQuestion !== undefined){
         draft.questionsAsked.push(draft.currentQuestion);
-        if (draft.correctAnswers + draft.wrongAnswers === draft.currentQuestions.length) {
-          draft.gameFinished = true;
-          }
+        }
         break;
 
       case types.SET_CATEGORY:

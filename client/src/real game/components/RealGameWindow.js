@@ -9,7 +9,7 @@ import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
 import RealGameFinished from './RealGameFinished';
 
-const RealGameWindow = ({currentQuestion, points, gameFinished, handleAnswer, drawQuestion, startGame }) => {
+const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, handleAnswer, drawQuestion, startGame }) => {
 
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
@@ -46,14 +46,14 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, handleAnswer, dr
 }}
     return ( 
         <>
-            <Container points>
+            <Container points="true">
                 <p>Points : </p> 
                 <PointsBox> {points} </PointsBox>
             </Container> 
             <Container separate>
                 {!gameFinished ? current : <RealGameFinished/>}
             </Container>
-            <Button login red onClick={startGame}> Start game </Button>
+            {!gameOn && <Button login red onClick={startGame}> Start game </Button>}
         </>
    );
 }
@@ -61,7 +61,8 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, handleAnswer, dr
 const mapStateToProps = (state) => ({
     currentQuestion: state.realGame.currentQuestion,
     points: state.realGame.points,
-    gameFinished: state.realGame.gameFinished
+    gameFinished: state.realGame.gameFinished,
+    gameOn: state.realGame.gameOn
 })
 
 const mapDispatchToProps = (dispatch) => ({
