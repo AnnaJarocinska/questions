@@ -7,7 +7,7 @@ import RealGameWindow from './RealGameWindow';
 const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion}) => {
     
     const content = {
-        categories: category,
+        categories: category, 
         mode: mode   
     }
     const getQuestions = async () => {   

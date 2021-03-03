@@ -28,7 +28,7 @@ const UserSchema = new Schema({
         type: Number
       },
       category: {
-        type: String
+        type: Object
       },
       correctAnswers: {
         type: Number

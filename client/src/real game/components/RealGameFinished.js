@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import realGameActions from '../duck/actions';
 import Container from '../../styles/Container';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
-const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
+const RealGameFinished = ({points, category, correctAnswers, currentQuestions}) => {
+
+    const wrongAnswers =  currentQuestions.length - correctAnswers;
 
     useEffect(() => {
         async function sendData() {
@@ -20,7 +21,7 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
        await axios.post('/user/saveGame', content)
     }
     sendData();
-    }, [points, category, correctAnswers, wrongAnswers])
+    }, [points, category, correctAnswers, currentQuestions, wrongAnswers])
     
     const handleClick = () => {
         window.location.reload(); 
@@ -37,12 +38,7 @@ const mapStateToProps = (state) => ({
     points: state.realGame.points,
     category: state.realGame.category,
     correctAnswers: state.realGame.correctAnswers,
-    wrongAnswers: state.realGame.wrongAnswers,
+    currentQuestions: state.realGame.currentQuestions
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    addPoint: () =>  dispatch(realGameActions.addPoint()),
-    drawQuestion: () =>  dispatch(realGameActions.drawQuestion())
-  })
-
-export default connect(mapStateToProps, mapDispatchToProps)(RealGameFinished);
+export default connect(mapStateToProps, null)(RealGameFinished);

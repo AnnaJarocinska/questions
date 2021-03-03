@@ -6,9 +6,9 @@ import Button from '../../styles/Button';
 import RealGameFetchQuestions from './RealGameFetchQuestions';
 import realGameActions from '../duck/actions';
 
-const RealGameDetails = ({categories, mode, setCategory, setMode }) => {
-   
-    const sendSelectedDetails = () => {
+const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, setMenuVisible }) => {
+
+    const saveSelectedDetails = () => {
         const categoriesWithoutDuplicates = []
         for (let i = 0; i<categories.length; i++) {
             if(!categoriesWithoutDuplicates.includes(categories[i])) {
@@ -17,16 +17,17 @@ const RealGameDetails = ({categories, mode, setCategory, setMode }) => {
         }
         setCategory(categoriesWithoutDuplicates);
         setMode(mode);  
+        setMenuVisible(false);
     }
 
     return (  
         <>
             <Container separate half>
-                {categories && <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>}
+                {(categories.length !== 0) && <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>}
                 {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
-                <Button login red onClick={sendSelectedDetails}>Submit</Button>
+                {menuVisible && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
-            <RealGameFetchQuestions/>
+            {!menuVisible && <RealGameFetchQuestions/>}
         </>
     );
 }

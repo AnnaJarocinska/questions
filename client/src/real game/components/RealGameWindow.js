@@ -7,10 +7,8 @@ import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Container from '../../styles/Container';
 import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
-import RealGameFinished from './RealGameFinished';
 
-const RealGameWindow = ({currentQuestion, points, gameFinished, startGame,
-      handleAnswer, drawQuestion }) => {
+const RealGameWindow = ({currentQuestion, points, handleAnswer, drawQuestion, startGame }) => {
 
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
@@ -37,43 +35,31 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, startGame,
         if(key === 'question'|| key === 'answerA' || key === 'answerB' ||
          key === 'answerC' || key === 'answerD') {
         current.push(
-               key === 'question'?
-               <CapitalLetterParagraph
-               key={key} 
-               name= {key}
-               >
-                   {value} ? </CapitalLetterParagraph> 
-                   :
-                <Paragraph
-                key={key} 
-                name= {key}
-                onClick={handleAnswerClick}>
-                    {value}</Paragraph>)
-    } 
+               key === 'question'
+                ?
+               <CapitalLetterParagraph key={key} name= {key}> {value} ? </CapitalLetterParagraph> 
+                :
+                <Paragraph key={key} name= {key} onClick={handleAnswerClick}> {value} </Paragraph>
+                )
+            } 
 }}
     return ( 
         <>
-        {!gameFinished &&
-        <>
-        <Container points>
-            <p>Points : </p> 
-            <PointsBox> {points} </PointsBox>
-        </Container> 
-    <Container separate>
-       {current}
-    </Container>
-    <Button login red onClick={startGame}> Start game </Button>
-    </>}
-    {gameFinished &&
-    <RealGameFinished/>}
-    </>
+            <Container points>
+                <p>Points : </p> 
+                <PointsBox> {points} </PointsBox>
+            </Container> 
+            <Container separate>
+            {current}
+            </Container>
+            <Button login red onClick={startGame}> Start game </Button>
+        </>
    );
 }
 
 const mapStateToProps = (state) => ({
     currentQuestion: state.realGame.currentQuestion,
-    points: state.realGame.points,
-    gameFinished: state.realGame.gameFinished
+    points: state.realGame.points
 })
 
 const mapDispatchToProps = (dispatch) => ({
