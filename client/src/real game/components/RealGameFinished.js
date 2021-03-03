@@ -4,9 +4,7 @@ import { connect } from 'react-redux';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
-const RealGameFinished = ({points, category, correctAnswers, currentQuestions}) => {
-
-    const wrongAnswers =  currentQuestions.length - correctAnswers;
+const RealGameFinished = ({points, category, correctAnswers, wrongAnswers}) => {
 
     useEffect(() => {
         async function sendData() {
@@ -20,7 +18,7 @@ const RealGameFinished = ({points, category, correctAnswers, currentQuestions}) 
        await axios.post('/user/saveGame', content)
     }
     sendData();
-    }, [points, category, correctAnswers, currentQuestions, wrongAnswers])
+    }, [points, category, correctAnswers, wrongAnswers])
     
     const handleClick = () => {
         window.location.reload(); 
@@ -37,7 +35,7 @@ const mapStateToProps = (state) => ({
     points: state.realGame.points,
     category: state.realGame.category,
     correctAnswers: state.realGame.correctAnswers,
-    currentQuestions: state.realGame.currentQuestions
+    wrongAnswers: state.realGame.wrongAnswers
 })
 
 export default connect(mapStateToProps, null)(RealGameFinished);
