@@ -6,7 +6,7 @@ import Button from '../../styles/Button';
 import RealGameFetchQuestions from './RealGameFetchQuestions';
 import realGameActions from '../duck/actions';
 
-const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, setMenuVisible }) => {
+const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, setMenuVisability}) => {
 
     const saveSelectedDetails = () => {
         const categoriesWithoutDuplicates = []
@@ -17,7 +17,7 @@ const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, s
         }
         setCategory(categoriesWithoutDuplicates);
         setMode(mode);  
-        setMenuVisible(false);
+        
     }
 
     return (  

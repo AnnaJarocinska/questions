@@ -7,8 +7,9 @@ import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Container from '../../styles/Container';
 import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
+import RealGameFinished from './RealGameFinished';
 
-const RealGameWindow = ({currentQuestion, points, handleAnswer, drawQuestion, startGame }) => {
+const RealGameWindow = ({currentQuestion, points, gameFinished, handleAnswer, drawQuestion, startGame }) => {
 
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
@@ -50,7 +51,7 @@ const RealGameWindow = ({currentQuestion, points, handleAnswer, drawQuestion, st
                 <PointsBox> {points} </PointsBox>
             </Container> 
             <Container separate>
-            {current}
+                {!gameFinished ? {current} : <RealGameFinished/>}
             </Container>
             <Button login red onClick={startGame}> Start game </Button>
         </>
@@ -59,7 +60,8 @@ const RealGameWindow = ({currentQuestion, points, handleAnswer, drawQuestion, st
 
 const mapStateToProps = (state) => ({
     currentQuestion: state.realGame.currentQuestion,
-    points: state.realGame.points
+    points: state.realGame.points,
+    gameFinished: state.realGame.gameFinished
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,7 +6,6 @@ const INITIAL_STATE = {
   mode: '',
   points: 0,
   correctAnswers: 0,
-  wrongAnswers: 0,
   currentQuestions: [],
   currentQuestion:[],
   questionsAsked: [],
@@ -25,7 +24,6 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         }
         if(action.payload.result === "wrongAnswer") {
           draft.points > 0 ? draft.points-- : draft.points = 0;
-          draft.wrongAnswers++;
         }
           break;  
 

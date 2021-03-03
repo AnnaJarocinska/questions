@@ -18,7 +18,7 @@ import Wrapper from './styles/Wrapper';
 import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
-import RealGame from './real game/components/RealGame';
+import RealGameMenu from './real game/components/RealGameMenu';
 
 const App = () => {
   return (
@@ -38,7 +38,7 @@ const App = () => {
                 <Route path="/quiz" component={Quiz} />
                 <ProtectedRoute exact path="/user" component={UserDashboard} access="user"/>
                 {/* <Route path="/game" component={RealGameMenu} access="user"/> */}
-                <ProtectedRoute path="/user/game" component={RealGame} access="user"/>
+                <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/>
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />

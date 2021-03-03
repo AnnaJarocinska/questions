@@ -31,31 +31,33 @@ const RealGameMenu = () => {
         setMode(selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1));
         setSelected(true);
     }
-    const menu =   <>
-    <Paragraph> Select categories: </Paragraph>
-        {continents.map((continent, index) => 
-            <Badge 
-            continent={continent}
-            key={continent}
-            id= {index}
-            name={continent}
-            onClick={selectCategory}>
-           {continent} 
-        </Badge>)}
-    
+    const menu = <>
+        <Paragraph> Select categories: </Paragraph>
+            {continents.map((continent, index) => 
+                <Badge 
+                continent={continent}
+                key={continent}
+                id= {index}
+                name={continent}
+                onClick={selectCategory}>
+            {continent} 
+            </Badge>)}
+        
         <Paragraph onChange={selectMode}> Select mode:
             <Label htmlFor="gameType"> <Input radio type="radio" value="all" name="gameType" />All</Label>
             <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
         </Paragraph>
-        </>
+    </>
+
+    const setMenuVisability = () => {
+        setMenuVisible(false);
+    }
     
     return ( 
         <Container main>
-        
            {menuVisible && menu}
-            
-           {selected && <RealGameDetails categories={categories} mode={mode} menuVisible={menuVisible}
-           setMenuVisible={setMenuVisible} />}
+           {selected && <RealGameDetails categories={categories} mode={mode}
+            menuVisible={menuVisible} setMenuVisability={setMenuVisability}/>}
         </Container>
      );
 }
