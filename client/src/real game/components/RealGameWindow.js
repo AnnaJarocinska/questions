@@ -51,7 +51,7 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, handleAnswer, dr
                 <PointsBox> {points} </PointsBox>
             </Container> 
             <Container separate>
-                {!gameFinished ? {current} : <RealGameFinished/>}
+                {!gameFinished ? current : <RealGameFinished/>}
             </Container>
             <Button login red onClick={startGame}> Start game </Button>
         </>

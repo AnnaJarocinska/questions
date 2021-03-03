@@ -16,7 +16,8 @@ const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, s
             }
         }
         setCategory(categoriesWithoutDuplicates);
-        setMode(mode);  
+        setMode(mode); 
+        setMenuVisability(); 
         
     }
 
