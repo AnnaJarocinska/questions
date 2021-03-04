@@ -53,6 +53,20 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         draft.mode = action.payload.mode;
         break;
 
+      case types.CLEAR_STATE:
+        draft.category = '';
+        draft.mode = '';
+        draft.points = 0;
+        draft.correctAnswers = 0;
+        draft.wrongAnswers = 0;
+        draft.currentQuestions = [];
+        draft.currentQuestion = [];
+        draft.questionsAsked = [];
+        draft.questionsToAsk = [];
+        draft.gameOn = false;
+        draft.gameFinished = false; 
+        break;
+
       default:
         return draft
     }

@@ -19,9 +19,14 @@ const setGameDetails = (category, mode) => ({
     payload: {category, mode}
 })
 
+const clearState = () => ({
+    type: types.CLEAR_STATE
+})
+
 export default {
     handleAnswer,
     addQuestions,
     drawQuestion,
-    setGameDetails
+    setGameDetails,
+    clearState
 }
