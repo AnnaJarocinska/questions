@@ -9,10 +9,10 @@ import Badges from '../components/Badges';
 
 const RealGameMenu = () => {
     
+    const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
     const [categories, setCategories] = useState([]);
     const [mode, setMode] = useState('');
     const [selected, setSelected] = useState(false);
-    const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
     const [menuVisible, setMenuVisible] = useState(true);
 
     const removeCategoryFromContinents = (index) => {
@@ -31,8 +31,15 @@ const RealGameMenu = () => {
         setMode(selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1));
         setSelected(true);
     }
-    const deleteCategory = () => {
-        
+    const removeCategoryFromCategories = (index) => {
+        setCategories(update(categories, {$splice: [[index, 1]]})
+          )
+      }
+    const deleteCategory = (e) => {
+        const deletedId = e.target.getAttribute('id'); 
+        const deletedCategory = e.target.getAttribute('name'); 
+        removeCategoryFromCategories(deletedId); 
+        setContinents([...continents, deletedCategory].sort()); 
     }
     const menu = <>
         <Paragraph> Select categories: </Paragraph>
@@ -42,15 +49,14 @@ const RealGameMenu = () => {
             <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
         </Paragraph>
     </>
-
     const setMenuVisability = () => {
         setMenuVisible(false);
     }
-    
     return ( 
         <Container main>
            {menuVisible && menu}
-           {selected && <RealGameDetails categories={categories} mode={mode} deleteCategory={deleteCategory}
+           {selected && <RealGameDetails categories={categories} mode={mode}
+            deleteCategory={deleteCategory}
             menuVisible={menuVisible} setMenuVisability={setMenuVisability}/>}
         </Container>
      );

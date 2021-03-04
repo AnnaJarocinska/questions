@@ -5,15 +5,16 @@ const Badges = ({list, onClick}) => {
     return ( 
         <>
 {list.map((listItem, index) => 
-                <Badge 
+            <Badge 
                 continent={listItem}
                 key={listItem}
                 id= {index}
                 name={listItem}
-                onClick={onClick}>
-            {listItem} 
+                onClick={onClick}
+            >
+                {listItem} 
             </Badge>)}
-</>
+        </>
      );
 }
  
