@@ -23,9 +23,8 @@ const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenu
         <>
             <Container separate half>
                 {(categories.length !== 0) && 
-                <Paragraph> Selected categories: 
-                    <Badges list={categories} onClick={deleteCategory}/>
-                </Paragraph>}
+                <Paragraph> Selected categories: </Paragraph>}
+                <Badges list={categories} onClick={deleteCategory}/>
                 {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
                 {menuVisible && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
