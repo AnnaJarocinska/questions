@@ -6,7 +6,7 @@ import Button from '../../styles/Button';
 import RealGameFetchQuestions from './RealGameFetchQuestions';
 import realGameActions from '../duck/actions';
 
-const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, setMenuVisability}) => {
+const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenuVisability}) => {
 
     const saveSelectedDetails = () => {
         const categoriesWithoutDuplicates = []
@@ -15,8 +15,7 @@ const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, s
             categoriesWithoutDuplicates.push(categories[i])
             }
         }
-        setCategory(categoriesWithoutDuplicates);
-        setMode(mode); 
+        setGameDetails(categoriesWithoutDuplicates, mode);
         setMenuVisability(); 
         
     }
@@ -34,8 +33,7 @@ const RealGameDetails = ({categories, mode, setCategory, setMode, menuVisible, s
 }
  
 const mapDispatchToProps = (dispatch) => ({
-    setCategory: (category) => dispatch(realGameActions.setCategory(category)),
-    setMode: (mode) => dispatch(realGameActions.setMode(mode))
+    setGameDetails: (category, mode) => dispatch(realGameActions.setGameDetails(category, mode)),
   }) 
 
 export default connect (null, mapDispatchToProps)(RealGameDetails);

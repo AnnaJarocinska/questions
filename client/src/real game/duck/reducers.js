@@ -48,11 +48,8 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
         }
         break;
 
-      case types.SET_CATEGORY:
+      case types.SET_GAME_DETAILS:
         draft.category = action.payload.category;
-        break;
-
-      case types.SET_MODE:
         draft.mode = action.payload.mode;
         break;
 

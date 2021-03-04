@@ -14,20 +14,14 @@ const drawQuestion = () => ({
     type: types.DRAW_QUESTION,
 })
 
-const setCategory = (category) => ({
-    type: types.SET_CATEGORY,
-    payload: {category}
-})
-
-const setMode = (mode) => ({
-    type: types.SET_MODE,
-    payload: {mode}
+const setGameDetails = (category, mode) => ({
+    type: types.SET_GAME_DETAILS,
+    payload: {category, mode}
 })
 
 export default {
     handleAnswer,
     addQuestions,
     drawQuestion,
-    setCategory,
-    setMode
+    setGameDetails
 }
