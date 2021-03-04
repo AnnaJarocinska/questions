@@ -5,8 +5,9 @@ import Paragraph from '../../styles/Paragraph';
 import Button from '../../styles/Button';
 import RealGameFetchQuestions from './RealGameFetchQuestions';
 import realGameActions from '../duck/actions';
+import Badges from '../components/Badges';
 
-const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenuVisability}) => {
+const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenuVisability, deleteCategory}) => {
 
     const saveSelectedDetails = () => {
         const categoriesWithoutDuplicates = []
@@ -16,14 +17,15 @@ const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenu
             }
         }
         setGameDetails(categoriesWithoutDuplicates, mode);
-        setMenuVisability(); 
-        
+        setMenuVisability();     
     }
-
     return (  
         <>
             <Container separate half>
-                {(categories.length !== 0) && <Paragraph> Selected categories: {categories.join(", ")}</Paragraph>}
+                {(categories.length !== 0) && 
+                <Paragraph> Selected categories: 
+                    <Badges list={categories} onClick={deleteCategory}/>
+                </Paragraph>}
                 {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
                 {menuVisible && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>

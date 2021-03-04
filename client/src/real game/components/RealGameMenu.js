@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import update from 'immutability-helper';
 import Container from '../../styles/Container';
-import Badge from '../../styles/Badge';
 import Input from '../../styles/Input';
 import Label from '../../styles/Label';
 import Paragraph from '../../styles/Paragraph';
 import RealGameDetails from './RealGameDetails';
+import Badges from '../components/Badges';
 
 const RealGameMenu = () => {
     
@@ -31,18 +31,12 @@ const RealGameMenu = () => {
         setMode(selectedMode.charAt(0).toUpperCase() + selectedMode.slice(1));
         setSelected(true);
     }
+    const deleteCategory = () => {
+        
+    }
     const menu = <>
         <Paragraph> Select categories: </Paragraph>
-            {continents.map((continent, index) => 
-                <Badge 
-                continent={continent}
-                key={continent}
-                id= {index}
-                name={continent}
-                onClick={selectCategory}>
-            {continent} 
-            </Badge>)}
-        
+        <Badges list={continents} onClick={selectCategory}/>
         <Paragraph onChange={selectMode}> Select mode:
             <Label htmlFor="gameType"> <Input radio type="radio" value="all" name="gameType" />All</Label>
             <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
@@ -56,7 +50,7 @@ const RealGameMenu = () => {
     return ( 
         <Container main>
            {menuVisible && menu}
-           {selected && <RealGameDetails categories={categories} mode={mode}
+           {selected && <RealGameDetails categories={categories} mode={mode} deleteCategory={deleteCategory}
             menuVisible={menuVisible} setMenuVisability={setMenuVisability}/>}
         </Container>
      );
