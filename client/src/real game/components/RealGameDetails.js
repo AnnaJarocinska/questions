@@ -19,15 +19,22 @@ const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenu
         setGameDetails(categoriesWithoutDuplicates, mode);
         setMenuVisability();     
     }
+    if(categories === "") {
+        setMenuVisability(true);
+    }
     return (  
         <>
+        {(categories.length !== 0 || mode) &&
             <Container separate half>
-                {(categories.length !== 0) && 
-                <Paragraph> Selected categories: </Paragraph>}
-                <Badges list={categories} onClick={deleteCategory}/>
+                {(categories.length !== 0) &&
+                <>
+                    <Paragraph> Selected categories: </Paragraph>
+                    <Badges list={categories} onClick={deleteCategory}/>
+                </>}
                 {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
                 {menuVisible && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
+        }
             {!menuVisible && <RealGameFetchQuestions/>}
         </>
     );
