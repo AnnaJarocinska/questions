@@ -30,7 +30,7 @@ const RealGameDetails = ({categories, mode, menuVisible,
                     <Badges list={categories} onClick={deleteCategory}/>
                 </>}
                 {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
-                {menuVisible && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
+                {((categories.length !== 0 && mode) && menuVisible) && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
         }
             {!menuVisible && <RealGameFetchQuestions clearGameDetails={clearGameDetails}/>}

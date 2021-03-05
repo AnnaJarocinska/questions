@@ -41,14 +41,6 @@ const RealGameMenu = () => {
         removeCategoryFromCategories(deletedId); 
         setContinents([...continents, deletedCategory].sort()); 
     }
-    const menu = <>
-        <Paragraph> Select categories: </Paragraph>
-        <Badges list={continents} onClick={selectCategory}/>
-        <Paragraph onChange={selectMode}> Select mode:
-            <Label htmlFor="gameType"> <Input radio type="radio" value="all" name="gameType" />All</Label>
-            <Label htmlFor="gameType"> <Input radio type="radio" value="random10"name="gameType"/>Random 10</Label>
-        </Paragraph>
-    </>
     const setMenuVisability = () => {
         setMenuVisible(false);
     }
@@ -56,6 +48,18 @@ const RealGameMenu = () => {
         setCategories([]);
         setMode('');
     }
+    const menu = <>
+        <Paragraph> Select categories: </Paragraph>
+        <Badges list={continents} onClick={selectCategory}/>
+        <Paragraph> Select mode:
+            <Label> <Input radio checked={mode === 'All' ? true : false}
+            onChange={selectMode}
+            type="radio" value="all" name="gameType" label="all" />All</Label>
+            <Label> <Input radio checked={mode === 'Random10' ? true : false}
+             onChange={selectMode}
+            type="radio" value="random10"name="gameType" label="random10"/>Random 10</Label>
+        </Paragraph>
+    </>
     return ( 
         <Container main>
            {menuVisible && menu}

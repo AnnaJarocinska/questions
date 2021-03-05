@@ -27,6 +27,11 @@ const UserDashboard = () => {
                                     <Link to="/user/game">User details</Link>
                                 </Paragraph>    
                             </li> 
+                            <li>
+                                <Paragraph>
+                                    <Link to="/user/game">Capitals list</Link>
+                                </Paragraph>    
+                            </li> 
                         </ul>
                     </nav>
                 </Container>
