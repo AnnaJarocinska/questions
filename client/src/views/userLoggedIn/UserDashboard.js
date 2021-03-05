@@ -24,7 +24,7 @@ const UserDashboard = () => {
                             </li> 
                             <li>
                                 <Paragraph>
-                                    <Link to="/user/game">User details</Link>
+                                    <Link to="/user/details">User details</Link>
                                 </Paragraph>    
                             </li> 
                             <li>

@@ -12,6 +12,7 @@ import UserCreated from './views/UserCreated';
 import Users from './views/admin/Users';
 import AdminDashboard from './views/admin/AdminDashboard';
 import UserDashboard from './views/userLoggedIn/UserDashboard';
+import UserDetails from './views/userLoggedIn/UserDetails';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
 import Wrapper from './styles/Wrapper';
@@ -39,6 +40,7 @@ const App = () => {
                 <ProtectedRoute exact path="/user" component={UserDashboard} access="user"/>
                 {/* <Route path="/game" component={RealGameMenu} access="user"/> */}
                 <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/>
+                <ProtectedRoute path="/user/details" component={UserDetails} access="user"/>
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />
