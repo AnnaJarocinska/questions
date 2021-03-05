@@ -52,12 +52,12 @@ const RealGameMenu = () => {
         <Paragraph> Select categories: </Paragraph>
         <Badges list={continents} onClick={selectCategory}/>
         <Paragraph> Select mode:
-            <Label> <Input radio checked={mode === 'All' ? true : false}
+             <Input radio checked={mode === 'All' ? true : false}
             onChange={selectMode}
-            type="radio" value="all" name="gameType" label="all" />All</Label>
-            <Label> <Input radio checked={mode === 'Random10' ? true : false}
+            type="radio" value="all" id="all" name="gameType" /> <Label radio htmlFor="all"> All</Label>
+             <Input radio checked={mode === 'Random10' ? true : false}
              onChange={selectMode}
-            type="radio" value="random10"name="gameType" label="random10"/>Random 10</Label>
+            type="radio" value="random10" id="random10" name="gameType"/> <Label radio htmlFor="random10">Random 10</Label>
         </Paragraph>
     </>
     return ( 

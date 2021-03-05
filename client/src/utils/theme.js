@@ -16,6 +16,7 @@ export default {
             light: 'rgb(210, 230, 250)',
             normal: 'rgb(120, 120, 120)',
             medium: 'rgb(190, 190, 190)',
+            medium_dark: 'rgba(100, 100, 100, 0.7)',
             dark: 'rgb(32, 32, 32)'
         },
         orange: {
