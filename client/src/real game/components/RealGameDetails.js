@@ -7,7 +7,8 @@ import RealGameFetchQuestions from './RealGameFetchQuestions';
 import realGameActions from '../duck/actions';
 import Badges from '../components/Badges';
 
-const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenuVisability, deleteCategory}) => {
+const RealGameDetails = ({categories, mode, menuVisible,
+    setGameDetails, setMenuVisability, deleteCategory, clearGameDetails}) => {
 
     const saveSelectedDetails = () => {
         const categoriesWithoutDuplicates = []
@@ -18,9 +19,6 @@ const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenu
         }
         setGameDetails(categoriesWithoutDuplicates, mode);
         setMenuVisability();     
-    }
-    if(categories === "") {
-        setMenuVisability(true);
     }
     return (  
         <>
@@ -35,7 +33,7 @@ const RealGameDetails = ({categories, mode, setGameDetails, menuVisible, setMenu
                 {menuVisible && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
         }
-            {!menuVisible && <RealGameFetchQuestions/>}
+            {!menuVisible && <RealGameFetchQuestions clearGameDetails={clearGameDetails}/>}
         </>
     );
 }

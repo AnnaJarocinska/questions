@@ -5,7 +5,7 @@ import realGameActions from '../duck/actions';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
-const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clearState}) => {
+const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clearState, clearGameDetails}) => {
 
     useEffect(() => {
         async function sendData() {
@@ -23,6 +23,7 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clear
     
     const handleClick = () => {
         clearState();
+        clearGameDetails();
         window.location.reload(); 
     }
     return (  

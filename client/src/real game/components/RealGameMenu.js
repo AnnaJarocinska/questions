@@ -52,11 +52,15 @@ const RealGameMenu = () => {
     const setMenuVisability = () => {
         setMenuVisible(false);
     }
+    const clearGameDetails = () => {
+        setCategories([]);
+        setMode('');
+    }
     return ( 
         <Container main>
            {menuVisible && menu}
            {selected && <RealGameDetails categories={categories} mode={mode}
-            deleteCategory={deleteCategory}
+            deleteCategory={deleteCategory} clearGameDetails={clearGameDetails}
             menuVisible={menuVisible} setMenuVisability={setMenuVisability}/>}
         </Container>
      );

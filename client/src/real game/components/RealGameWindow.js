@@ -9,7 +9,8 @@ import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
 import RealGameFinished from './RealGameFinished';
 
-const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, handleAnswer, drawQuestion, startGame }) => {
+const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn,
+     handleAnswer, drawQuestion, startGame, clearGameDetails}) => {
 
     const handleAnswerClick = (e) => {
         let index = e.target.getAttribute('name').length -1
@@ -51,7 +52,7 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, handleAn
                 <PointsBox> {points} </PointsBox>
             </Container> 
             <Container separate>
-                {!gameFinished ? current : <RealGameFinished/>}
+                {!gameFinished ? current : <RealGameFinished clearGameDetails={clearGameDetails}/>}
             </Container>
             {!gameOn && <Button login red onClick={startGame}> Start game </Button>}
         </>
