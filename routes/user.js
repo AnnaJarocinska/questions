@@ -48,6 +48,17 @@ router.all('/', verifyUser, async (req, res) => {
    }
    });
 
+   router.post('/history', async (req, res, next) => {
+    try{
+      const user = await User.find({key: req.cookies.key});
+      res.send(user[0].games)
+    } catch (err) {
+     res.status(401).json({
+       err
+   });
+   }
+   });
+
 
 
 module.exports = router;
