@@ -13,6 +13,7 @@ import Users from './views/admin/Users';
 import AdminDashboard from './views/admin/AdminDashboard';
 import UserDashboard from './views/userLoggedIn/UserDashboard';
 import GameHistory from './views/userLoggedIn/GameHistory';
+import Learning from './views/userLoggedIn/Learning';
 import UserDetails from './views/userLoggedIn/UserDetails';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
@@ -43,6 +44,7 @@ const App = () => {
                 <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/>
                 <ProtectedRoute path="/user/history" component={GameHistory} access="user"/>
                 <ProtectedRoute path="/user/details" component={UserDetails} access="user"/>
+                <ProtectedRoute path="/user/learning" component={Learning} access="user"/>
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />
