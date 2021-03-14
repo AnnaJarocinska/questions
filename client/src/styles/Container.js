@@ -39,6 +39,10 @@ ${({ half }) => half && css`
 justify-content: space-around;
 `}
 
+${({ left }) => left && css`
+align-items: stretch;
+`}
+
 ${({ points }) => points && css`
 background-color: ${props => props.theme.colors.grey.dark};
 padding: 30px;

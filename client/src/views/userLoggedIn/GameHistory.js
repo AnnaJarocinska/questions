@@ -3,6 +3,7 @@ import axios from 'axios';
 import Container from '../../styles/Container';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Paragraph from '../../styles/Paragraph';
+import Section from '../../styles/Section';
 
 const GameHistory = () => {
 
@@ -16,26 +17,24 @@ const GameHistory = () => {
     useEffect(() => {
         fetchData()
     }, []);
-
+    const gamesNumber = data.length
     let list = [];
      if (data[0] !== undefined) {
-        for (let i=0; i< data.length; i++){
+        for (let i=0; i< gamesNumber; i++){
+            let item = [];
             for (const key in data[i]){
-                console.log(key, data[i][key])
-                list.push(
-                <>
-                <p>{key} : {data[i][key]}</p>
-                </>
+                item.push(
+                    <li> <Paragraph>{key} : {data[i][key]}</Paragraph> </li>
                 )
                 ;
             }
+            list.push(<Section><ul>{i+1}{item}</ul></Section>)
         }}
-    const gamesNumber = data.length
     return (  
-        <Container separate users> 
+        <Container separate left> 
             <CapitalLetterParagraph> Game history</CapitalLetterParagraph>
             <Paragraph>Games number: {gamesNumber}</Paragraph>
-            {list}
+           {list}
         </Container>
     );
 }
