@@ -14,6 +14,9 @@ cursor: pointer;
 &:hover{
     filter: brightness(50%);
 }`}
+${({ center }) => center && css`
+text-align: center;
+`}
 `
 
 export default Paragraph;
