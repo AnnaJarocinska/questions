@@ -24,13 +24,18 @@ const Learning = () => {
         let letter = data[i].goodAnswer.toUpperCase();
         let answer = `answer${letter}`;
         let capitalCity = data[i][answer];
-        list.push(
+        let continent = data[i].continent;
+        let continentSection = [];
+        
+        if(continent === "Europe"){ 
+        continentSection.push(
           <Section>
             <Paragraph center> {country} </Paragraph>
             <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
           </Section>)
-  }
-   
+  
+  list.push(continentSection)
+        }}
     return (
         <Container separate>
           <Paragraph>Capitals list</Paragraph>
