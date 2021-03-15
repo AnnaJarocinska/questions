@@ -16,6 +16,19 @@ router.post('/questions', async (req, res, next) => {
     }    
 });
 
+router.post('/capitalsList', async (req, res, next) => {
+    const capitalsList = await Question.find({}) 
+    try{
+        if(capitalsList){
+            res.send(capitalsList);
+        }
+    } catch (err){
+        res.status(400).json({
+            err
+        })
+    }    
+});
+
 router.post('/checkAnswer', async (req, res, next) => {
 
     const requestedQuestion = await Question.find({_id: req.body.questionId})
