@@ -27,12 +27,14 @@ const Learning = () => {
     //   scope['continent' + i] =[<Badge continent = {continents[i]}>{continents[i]}</Badge>] 
     
     let list = [];
-    let africa = [<Badge continent = 'Africa'>{'Africa'}</Badge>];
-    let australia = [<Badge continent = 'Australia'>{'Australia'}</Badge>];
-    let asia = [<Badge continent = 'Asia'>{'Asia'}</Badge>];
-    let europe = [<Badge continent = 'Europe'>{'Europe'}</Badge>];
-    let northAmerica = [<Badge continent = 'North America'>{'North America'}</Badge>];
-    let southAmerica = [<Badge continent = 'South America'>{'South America'}</Badge>];
+    let continentss = {
+    africa : [<Badge continent = 'Africa'>{'Africa'}</Badge>],
+    australia : [<Badge continent = 'Australia'>{'Australia'}</Badge>],
+    asia : [<Badge continent = 'Asia'>{'Asia'}</Badge>],
+    europe : [<Badge continent = 'Europe'>{'Europe'}</Badge>],
+    northAmerica : [<Badge continent = 'North America'>{'North America'}</Badge>],
+    southAmerica : [<Badge continent = 'South America'>{'South America'}</Badge>]
+    }
     // let scope = {};
     
       
@@ -48,80 +50,93 @@ const Learning = () => {
         let capitalCity = data[i][answer];
         let continent = data[i].continent;
         
-        if(continent === "Africa"){ 
-          africa.push(
-            // scope.continent0.push(
-          <>
-            <Paragraph center> {country} </Paragraph>
-            <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-          </>
-          )}
 
-        if(continent === "Asia"){ 
-          asia.push(
-            // cont.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-            )}
+        console.log(continentss.europe, 'continentss[0]' )
+        if(continent === continents[i]){ 
+          let con = continents[i].toLowerCase()
+          console.log(continentss.europe[0], 'con')
+          // con.push(
+          // <>
+          //   <Paragraph center> {country} </Paragraph>
+          //   <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+          // </>
+          // )
+        }
 
-        if(continent === "Australia"){ 
-          australia.push(
-            // scope.continent2.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-              )}
+        // if(continent === "Africa"){ 
+        //   africa.push(
+        //     // scope.continent0.push(
+        //   <>
+        //     <Paragraph center> {country} </Paragraph>
+        //     <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //   </>
+        //   )}
 
-        if(continent === "Europe"){ 
-            europe.push(
-              // scope.continent3.push(// cont.push(
-              <>
-                <Paragraph center> {country} </Paragraph>
-                <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-              </>
-              )}
+        // if(continent === "Asia"){ 
+        //   asia.push(
+        //     // cont.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //     )}
+
+        // if(continent === "Australia"){ 
+        //   australia.push(
+        //     // scope.continent2.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //       )}
+
+        // if(continent === "Europe"){ 
+        //     europe.push(
+        //       // scope.continent3.push(// cont.push(
+        //       <>
+        //         <Paragraph center> {country} </Paragraph>
+        //         <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //       </>
+        //       )}
               
-        if(continent === "North America"){ 
-          northAmerica.push(
-            // scope.continent4.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-              )}
+        // if(continent === "North America"){ 
+        //   northAmerica.push(
+        //     // scope.continent4.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //       )}
 
-        if(continent === "South America"){ 
-          southAmerica.push(
-            // scope.continent5.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-              )}
+        // if(continent === "South America"){ 
+        //   southAmerica.push(
+        //     // scope.continent5.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //       )}
         }
   
   list.push(
     <Section>
-      {africa}
+      {continentss.africa}
     </Section>,
 
     <Section>
-      {asia}
+      {continentss.asia}
     </Section>,
 
     <Section>
-      {australia}
+      {continentss.australia}
     </Section>,
 
     <Section>
-      {europe}
+      {continentss.europe}
     </Section>,
        
     <Section>
-      {northAmerica}
+      {continentss.northAmerica}
     </Section>,
           
     // <Section>
@@ -129,7 +144,7 @@ const Learning = () => {
     // </Section>,
          
     <Section>
-      {southAmerica}
+      {continentss.southAmerica}
     </Section>
     )
     return (
