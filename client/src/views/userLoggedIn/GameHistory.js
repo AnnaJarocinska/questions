@@ -33,7 +33,7 @@ const GameHistory = () => {
             list.push(<Section><ul>{i+1}{item}</ul></Section>)
         }}
     return (  
-        <Container separate left> 
+        <Container separate left user> 
             <CapitalLetterParagraph> Game history</CapitalLetterParagraph>
             <Paragraph center>Games number: {gamesNumber}</Paragraph>
             {list}

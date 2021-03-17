@@ -13,22 +13,22 @@ const UserDashboard = () => {
                     <nav>
                         <ul>
                             <li>
-                                <Paragraph>
+                                <Paragraph clickable>
                                     <Link to="/user/game">Play</Link>
                                 </Paragraph>    
                             </li> 
                             <li>
-                                <Paragraph>
+                                <Paragraph clickable>
                                     <Link to="/user/history">Game history</Link>
                                 </Paragraph>    
                             </li> 
                             <li>
-                                <Paragraph>
+                                <Paragraph clickable>
                                     <Link to="/user/details">User details</Link>
                                 </Paragraph>    
                             </li> 
                             <li>
-                                <Paragraph>
+                                <Paragraph clickable>
                                     <Link to="/user/learning">Capitals list</Link>
                                 </Paragraph>    
                             </li> 
