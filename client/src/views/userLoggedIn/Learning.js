@@ -20,14 +20,8 @@ const Learning = () => {
       fetchData()
     }, []);
 
-    // let list = [];
-    // let scope = {};
-    // for (let i=0; i<continents.length; i++){
-  
-    //   scope['continent' + i] =[<Badge continent = {continents[i]}>{continents[i]}</Badge>] 
-    
     let list = [];
-    let continentss = {
+    let continentsList = {
     africa : [<Badge continent = 'Africa'>{'Africa'}</Badge>],
     australia : [<Badge continent = 'Australia'>{'Australia'}</Badge>],
     asia : [<Badge continent = 'Asia'>{'Asia'}</Badge>],
@@ -45,39 +39,20 @@ const Learning = () => {
           let firstLetter = continentName.charAt(0);
           let continent = continentName.replace(" ", "").replace(firstLetter, firstLetter.toLowerCase());
          
-          continentss[continent].push(
+          continentsList[continent].push(
               <>
                 <Paragraph center> {country} </Paragraph>
                 <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
               </>
               )
         }
+        for (const value of Object.values(continentsList)) {
+          list.push(
+            <Section>
+              {value}
+            </Section>)
+      }
   
-  list.push(
-    <Section>
-      {continentss.africa}
-    </Section>,
-
-    <Section>
-      {continentss.asia}
-    </Section>,
-
-    <Section>
-      {continentss.australia}
-    </Section>,
-
-    <Section>
-      {continentss.europe}
-    </Section>,
-       
-    <Section>
-      {continentss.northAmerica}
-    </Section>,
-    
-    <Section>
-      {continentss.southAmerica}
-    </Section>
-    )
     return (
         <Container separate user>
           <Paragraph>Capitals list</Paragraph>
