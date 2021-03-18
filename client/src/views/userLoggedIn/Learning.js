@@ -48,68 +48,64 @@ const Learning = () => {
         let letter = data[i].goodAnswer.toUpperCase();
         let answer = `answer${letter}`;
         let capitalCity = data[i][answer];
-        let continent = data[i].continent;
-        
-
-     
-        if(continent === continents[i]){ 
-          let con = continents[i];
-          console.log(con, 'con', continent, 'continent')
-          // con.push(
-          // <>
-          //   <Paragraph center> {country} </Paragraph>
-          //   <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-          // </>
-          // )
-        }
-
-        if(continent === "Africa"){ 
-          continentss.africa.push(
+        let continent = data[i].continent.toLowerCase();
+      
+      if(continentss[continent] !== undefined){
+     continentss[continent]
+    .push(
           <>
             <Paragraph center> {country} </Paragraph>
             <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
           </>
           )}
 
-        if(continent === "Asia"){ 
-          continentss.asia.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-            )}
+        // if((continent && continents[i]) === "Africa"){ 
+        //   continentss.africa.push(
+        //   <>
+        //     <Paragraph center> {country} </Paragraph>
+        //     <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //   </>
+        //   )}
 
-        if(continent === "Australia"){ 
-          continentss.australia.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-              )}
+        // if(continent === "Asia"){ 
+        //   continentss.asia.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //     )}
 
-        if(continent === "Europe"){ 
-            continentss.europe.push(
-              <>
-                <Paragraph center> {country} </Paragraph>
-                <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-              </>
-              )}
+        // if(continent === "Australia"){ 
+        //   continentss.australia.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //       )}
+
+        // if(continent === "Europe"){ 
+        //     continentss.europe.push(
+        //       <>
+        //         <Paragraph center> {country} </Paragraph>
+        //         <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //       </>
+        //       )}
               
-        if(continent === "North America"){ 
-          continentss.northAmerica.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-              )}
+        // if(continent === "North America"){ 
+        //   continentss.northAmerica.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //       )}
 
-        if(continent === "South America"){ 
-          continentss.southAmerica.push(
-            <>
-              <Paragraph center> {country} </Paragraph>
-              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
-              )}
+        // if(continent === "South America"){ 
+        //   continentss.southAmerica.push(
+        //     <>
+        //       <Paragraph center> {country} </Paragraph>
+        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+        //     </>
+        //       )}
         }
   
   list.push(
@@ -132,11 +128,7 @@ const Learning = () => {
     <Section>
       {continentss.northAmerica}
     </Section>,
-          
-    // <Section>
-    //   {scope.continent5}
-    // </Section>,
-         
+    
     <Section>
       {continentss.southAmerica}
     </Section>
