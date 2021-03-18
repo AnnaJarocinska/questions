@@ -51,10 +51,10 @@ const Learning = () => {
         let continent = data[i].continent;
         
 
-        console.log(continentss.europe, 'continentss[0]' )
+     
         if(continent === continents[i]){ 
-          let con = continents[i].toLowerCase()
-          console.log(continentss.europe[0], 'con')
+          let con = continents[i];
+          console.log(con, 'con', continent, 'continent')
           // con.push(
           // <>
           //   <Paragraph center> {country} </Paragraph>
@@ -63,59 +63,53 @@ const Learning = () => {
           // )
         }
 
-        // if(continent === "Africa"){ 
-        //   africa.push(
-        //     // scope.continent0.push(
-        //   <>
-        //     <Paragraph center> {country} </Paragraph>
-        //     <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-        //   </>
-        //   )}
+        if(continent === "Africa"){ 
+          continentss.africa.push(
+          <>
+            <Paragraph center> {country} </Paragraph>
+            <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+          </>
+          )}
 
-        // if(continent === "Asia"){ 
-        //   asia.push(
-        //     // cont.push(
-        //     <>
-        //       <Paragraph center> {country} </Paragraph>
-        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-        //     </>
-        //     )}
+        if(continent === "Asia"){ 
+          continentss.asia.push(
+            <>
+              <Paragraph center> {country} </Paragraph>
+              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+            </>
+            )}
 
-        // if(continent === "Australia"){ 
-        //   australia.push(
-        //     // scope.continent2.push(
-        //     <>
-        //       <Paragraph center> {country} </Paragraph>
-        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-        //     </>
-        //       )}
+        if(continent === "Australia"){ 
+          continentss.australia.push(
+            <>
+              <Paragraph center> {country} </Paragraph>
+              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+            </>
+              )}
 
-        // if(continent === "Europe"){ 
-        //     europe.push(
-        //       // scope.continent3.push(// cont.push(
-        //       <>
-        //         <Paragraph center> {country} </Paragraph>
-        //         <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-        //       </>
-        //       )}
+        if(continent === "Europe"){ 
+            continentss.europe.push(
+              <>
+                <Paragraph center> {country} </Paragraph>
+                <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+              </>
+              )}
               
-        // if(continent === "North America"){ 
-        //   northAmerica.push(
-        //     // scope.continent4.push(
-        //     <>
-        //       <Paragraph center> {country} </Paragraph>
-        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-        //     </>
-        //       )}
+        if(continent === "North America"){ 
+          continentss.northAmerica.push(
+            <>
+              <Paragraph center> {country} </Paragraph>
+              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+            </>
+              )}
 
-        // if(continent === "South America"){ 
-        //   southAmerica.push(
-        //     // scope.continent5.push(
-        //     <>
-        //       <Paragraph center> {country} </Paragraph>
-        //       <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-        //     </>
-        //       )}
+        if(continent === "South America"){ 
+          continentss.southAmerica.push(
+            <>
+              <Paragraph center> {country} </Paragraph>
+              <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
+            </>
+              )}
         }
   
   list.push(
