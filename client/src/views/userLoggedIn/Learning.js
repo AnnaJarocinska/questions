@@ -5,15 +5,16 @@ import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Container from '../../styles/Container';
 import Section from '../../styles/Section';
 import Badge from '../../styles/Badge';
+import { v4 as uuidv4 } from 'uuid';
 
 const Learning = () => {
 
   const [data, setData] = useState({ capitals: [] });
   const continents = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
   const fetchData = async () => {
-      const result = await axios.post('/api/capitalsList')
-      setData(result.data);
-    }
+  const result = await axios.post('/api/capitalsList')
+    setData(result.data);
+  }
 
   useEffect(() => {
       fetchData()
@@ -22,9 +23,8 @@ const Learning = () => {
   let list = [];
     
   for (let i=0; i<continents.length; i++) { 
-    let cont = continents[i];
-    let rr = cont.replace(" ", "").replace(cont.charAt(0), cont.charAt(0).toLowerCase());
-    let continentsList = {[`${rr}`] : [<Badge continent = {cont}>{cont}</Badge>]}; 
+    let continentsKey = continents[i].replace(" ", "").replace(continents[i].charAt(0), continents[i].charAt(0).toLowerCase());
+    let continentsList = {[`${continentsKey}`] : [<Badge continent={continents[i]} key={continents[i]}>{continents[i]}</Badge>]}; 
     
       for (let i=0; i<data.length; i++) { 
         let country = data[i].question.slice(28);
@@ -37,16 +37,16 @@ const Learning = () => {
          
         if(continentsList[continent]!==undefined){
           continentsList[continent].push(
-            <>
+            <div key ={uuidv4()}>
               <Paragraph center> {country} </Paragraph>
               <CapitalLetterParagraph> {capitalCity} </CapitalLetterParagraph>
-            </>
+            </div>
           )
         }
       }  
       for (const value of Object.values(continentsList)) {
         list.push(
-          <Section>
+          <Section key ={uuidv4()}>
             {value}
           </Section>)
       }
