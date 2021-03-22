@@ -7,6 +7,9 @@ color: white;
 font-size: 15px;
 letter-spacing: 1px;
 margin: 5px;
+${({ unvisible }) => unvisible && css`
+display: none;
+`}
 &:hover{
     filter: brightness(120%);
 }

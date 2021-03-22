@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import Container from '../../styles/Container';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Paragraph from '../../styles/Paragraph';
 import Section from '../../styles/Section';
-import { v4 as uuidv4 } from 'uuid';
+
 
 const GameHistory = () => {
 
