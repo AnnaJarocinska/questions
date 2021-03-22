@@ -6,12 +6,13 @@ import Paragraph from '../../styles/Paragraph';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Container from '../../styles/Container';
 import Section from '../../styles/Section';
-import Badge from '../../styles/Badge';
+import Badges from '../../real game/components/Badges';
 
 
 const Learning = () => {
 
   const [data, setData] = useState({ capitals: [] });
+  const continentsNames = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
   const [continents, setContinents] = useState(
     ['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
   // const [unvisible, setUnvisible] = useState(false);
@@ -23,7 +24,12 @@ const Learning = () => {
   const handleBadgeClick = (e, i) => {
     let continentClicked = e.target.getAttribute('name');
     let index  = continents.indexOf(continentClicked);
-    setContinents(update(continents, {$splice: [[index, 1]]}))
+    if(index !== -1) {
+    setContinents(update(continents, {$splice: [[index, 1]]}))}
+    else {
+      let continentsInCorrectOrder = [...continents, continentClicked].sort();
+      setContinents(continentsInCorrectOrder);
+    }
   }
 
   useEffect(() => {
@@ -35,7 +41,8 @@ const Learning = () => {
   for (let i=0; i<continents.length; i++) { 
     let continentsKey = continents[i].replace(" ", "").replace(continents[i].charAt(0), continents[i].charAt(0).toLowerCase());
     let continentsList = {[`${continentsKey}`] : 
-    [<Badge continent={continents[i]} key={continents[i]} name={continents[i]} onClick={handleBadgeClick}>{continents[i]}</Badge>]}; 
+    [<CapitalLetterParagraph continent={continents[i]} key={continents[i]} name={continents[i]}>
+    {continents[i]}</CapitalLetterParagraph>]}; 
   
       for (let i=0; i<data.length; i++) { 
         let country = data[i].question.slice(28);
@@ -65,6 +72,7 @@ const Learning = () => {
     return (
         <Container separate user>
           <Paragraph>Capitals list</Paragraph>
+          <Badges list={continentsNames} onClick={handleBadgeClick}/>
           {list}
         </Container>
       );
