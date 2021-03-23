@@ -10,20 +10,20 @@ margin: 5px;
 ${props => {
     if (props.toggle) {
       return `
-        background-color: blue;
+        color: blue;
       `
     } 
       
     
   }}
 ${({ unvisible }) => unvisible && css`
-background-color: red;
+color: red;
 `}
 &:hover{
     filter: brightness(120%);
 }
 &.active{
-    background-color: pink;
+    color: red;
 }
 
  ${props => props.continent === 'Africa' && css`

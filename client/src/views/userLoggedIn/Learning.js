@@ -34,6 +34,7 @@ const Learning = () => {
     if (activeIndexes.includes(index)){
       e.target.setAttribute('unvisible', true);
       e.target.setAttribute('toggle', true);
+      
     }
   }
 
@@ -77,7 +78,7 @@ const Learning = () => {
     return (
         <Container separate user>
           <Paragraph>Capitals list</Paragraph>
-          <Badges list={continentsNames} onClick={handleBadgeClick}/>
+          <Badges className="active" list={continentsNames} onClick={handleBadgeClick}/>
           {list}
         </Container>
       );
