@@ -16,12 +16,13 @@ const Learning = () => {
   const [continents, setContinents] = useState(
     ['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
   // const [unvisible, setUnvisible] = useState(false);
+  const activeIndexes = [0,1,2,3,4,5];
   
   const fetchData = async () => {
   const result = await axios.post('/api/capitalsList')
     setData(result.data);
   }
-  const handleBadgeClick = (e, i) => {
+  const handleBadgeClick = (e) => {
     let continentClicked = e.target.getAttribute('name');
     let index  = continents.indexOf(continentClicked);
     if(index !== -1) {
@@ -29,6 +30,10 @@ const Learning = () => {
     else {
       let continentsInCorrectOrder = [...continents, continentClicked].sort();
       setContinents(continentsInCorrectOrder);
+    }
+    if (activeIndexes.includes(index)){
+      e.target.setAttribute('unvisible', true);
+      e.target.setAttribute('toggle', true);
     }
   }
 

@@ -7,11 +7,23 @@ color: white;
 font-size: 15px;
 letter-spacing: 1px;
 margin: 5px;
+${props => {
+    if (props.toggle) {
+      return `
+        background-color: blue;
+      `
+    } 
+      
+    
+  }}
 ${({ unvisible }) => unvisible && css`
-display: none;
+background-color: red;
 `}
 &:hover{
     filter: brightness(120%);
+}
+&.active{
+    background-color: pink;
 }
 
  ${props => props.continent === 'Africa' && css`
