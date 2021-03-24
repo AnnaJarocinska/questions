@@ -17,7 +17,12 @@ const Learning = () => {
     ['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
   // const [unvisible, setUnvisible] = useState(false);
   const activeIndexes = [0,1,2,3,4,5];
-  
+  // let className = null;
+  // let className='active';
+  const [toggle, setToggle] = useState(false);
+  const [cond, setCond] = useState('cos');
+  const [className, setClassName] = useState('');
+
   const fetchData = async () => {
   const result = await axios.post('/api/capitalsList')
     setData(result.data);
@@ -32,9 +37,13 @@ const Learning = () => {
       setContinents(continentsInCorrectOrder);
     }
     if (activeIndexes.includes(index)){
-      e.target.setAttribute('unvisible', true);
-      e.target.setAttribute('toggle', true);
-      
+      setToggle(true);
+      let previousClass = e.target.getAttribute('class');
+      console.log(previousClass, 'class');
+      let newClass = `${previousClass} active`
+      e.target.setAttribute('class', newClass )
+      // e.target.style.backgroundColor = "red"; 
+      setCond(null);
     }
   }
 
@@ -78,7 +87,11 @@ const Learning = () => {
     return (
         <Container separate user>
           <Paragraph>Capitals list</Paragraph>
-          <Badges className="active" list={continentsNames} onClick={handleBadgeClick}/>
+          <Badges 
+          styles={cond} 
+          //  styles={{ backgroundColor: 'pink', color: 'white' }}
+          className={className}
+          list={continentsNames} onClick={handleBadgeClick}/>
           {list}
         </Container>
       );

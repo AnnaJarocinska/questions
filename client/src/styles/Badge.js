@@ -13,18 +13,11 @@ ${props => {
         color: blue;
       `
     } 
-      
-    
   }}
-${({ unvisible }) => unvisible && css`
-color: red;
-`}
 &:hover{
     filter: brightness(120%);
 }
-&.active{
-    color: red;
-}
+
 
  ${props => props.continent === 'Africa' && css`
  background-color: ${props => props.theme.colors.yellow.dark};
@@ -44,5 +37,9 @@ ${props => props.continent === 'North America' && css`
 ${props => props.continent === 'South America' && css`
  background-color: ${props => props.theme.colors.orange.normal};
 `};
+&.active{
+background-color: pink;
+}
+
 `
 export default Badge;
