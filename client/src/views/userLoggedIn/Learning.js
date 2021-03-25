@@ -40,10 +40,17 @@ const Learning = () => {
       setToggle(true);
       let previousClass = e.target.getAttribute('class');
       console.log(previousClass, 'class');
+      console.log(previousClass.indexOf("active"))
+      let activeIndex = previousClass.indexOf("active")
+      if(activeIndex ===-1) {
       let newClass = `${previousClass} active`
       e.target.setAttribute('class', newClass )
       // e.target.style.backgroundColor = "red"; 
       setCond(null);
+      } else {
+        let newClass = previousClass.substr(0, 16);
+        e.target.setAttribute('class', newClass)
+      }
     }
   }
 
