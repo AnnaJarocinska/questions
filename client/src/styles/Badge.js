@@ -7,18 +7,9 @@ color: white;
 font-size: 15px;
 letter-spacing: 1px;
 margin: 5px;
-${props => {
-    if (props.toggle) {
-      return `
-        color: blue;
-      `
-    } 
-  }}
 &:hover{
     filter: brightness(120%);
 }
-
-
  ${props => props.continent === 'Africa' && css`
  background-color: ${props => props.theme.colors.yellow.dark};
 `};
@@ -38,7 +29,7 @@ ${props => props.continent === 'South America' && css`
  background-color: ${props => props.theme.colors.orange.normal};
 `};
 &.active{
-background-color: pink;
+  background-color: ${props => props.theme.colors.grey.inactive};
 }
 
 `

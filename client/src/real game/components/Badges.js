@@ -1,7 +1,7 @@
 import React from 'react';
 import Badge from '../../styles/Badge';
 
-const Badges = ({list, onClick, styles, className}) => {
+const Badges = ({list, onClick}) => {
     return ( 
         <>
 {list.map((listItem, index) => 
@@ -12,10 +12,6 @@ const Badges = ({list, onClick, styles, className}) => {
                 id= {index}
                 name={listItem}
                 onClick={onClick}
-                className={className}
-                // style={styles}
-                // style={styles === null ? { backgroundColor: 'pink', color: 'white' }: { backgroundColor: 'black', color: 'white' } }
-                // toggle={true}
             >
                 {listItem} 
             </Badge>)}
