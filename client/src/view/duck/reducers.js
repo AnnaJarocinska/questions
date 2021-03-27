@@ -5,7 +5,10 @@ const INITIAL_STATE = {
   admin: false,
   user: false,
   unnamed: true,
-  home: false
+  home: false,
+  userName: '', 
+  created: '',
+  adminn:''
 }
 
 const viewReducer = (state = INITIAL_STATE, action) =>
@@ -25,6 +28,9 @@ const viewReducer = (state = INITIAL_STATE, action) =>
       case types.USER_LOGGEDIN:
           draft.user = !draft.user;
           draft.unnamed = !draft.unnamed;
+          draft.userName = action.payload.userName;
+          draft.created = action.payload.created;
+          draft.adminn = action.payload.admin;
           break;
 
       case types.USER_LOGGEDOUT:

@@ -4,6 +4,8 @@ import produce from 'immer';
 const INITIAL_STATE = {
   
   userName: '', 
+  created: 'jjj',
+  adminn: ''
 }
 
 const loggedInReducer = (state = INITIAL_STATE, action) =>
@@ -12,6 +14,8 @@ const loggedInReducer = (state = INITIAL_STATE, action) =>
       
       case types.ADD_USER_NAME:
         draft.userName = action.payload.userName;
+        draft.created = action.payload.created;
+        draft.adminn = action.payload.admin;
         break;
 
       default:

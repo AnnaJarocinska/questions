@@ -8,8 +8,9 @@ router.all('/', verifyUser, async (req, res) => {
     try {
       const isUser = await User.findOne({key: req.cookies.key});
       if(isUser && !isUser.admin){
-        res.send(isUser.name)
-      } else { return res.status(401).send('rejection')
+        console.log(isUser.created, 'isUser.created')
+        res.send({userName: isUser.name, created: isUser.created, admin: isUser.admin})
+      } else { return res.status(401).send({message: 'rejection'})
       }
     } catch (err) {
         res.status(401).json({

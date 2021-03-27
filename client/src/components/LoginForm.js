@@ -11,7 +11,7 @@ import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName }) => {
+const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName, adminn, created }) => {
   
   const [rejection, setRejection] = useState(false);
   const [message, setMessage] = useState('');
@@ -40,7 +40,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName }) =>
         .then(res => {
           if (res.data) {
                 setRejection(true);
-                setMessage(res.data);
+                setMessage(res.data.message);
           }
         })
           .catch(err => console.log(err, 'err post'))
@@ -70,8 +70,9 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName }) =>
             .then(res => {
            
               if (res.data !== "rejection"){
-              addUserName(res.data);
-              userLoggedIn();
+                console.log(res.data, 'res.data LoginForm')
+              addUserName(res.data.userName, res.data.created, res.data.admin);
+              userLoggedIn(res.data.userName, res.data.created, res.data.admin);
               }
               if (res.data === 'rejection'){
               setRejection(true);
@@ -128,8 +129,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
-    userLoggedIn: () => dispatch(actions.userLoggedIn()),
-    addUserName : (userName) => dispatch(loggedInActions.addUserName(userName))
+    userLoggedIn: (userName, created, adminn) => dispatch(actions.userLoggedIn(userName, created, adminn)),
+    addUserName : (userName, created, adminn) => dispatch(loggedInActions.addUserName(userName, created, adminn))
   }) 
 
 export default connect(mapStateToProps, mapDispatchToProps) (LoginForm);
