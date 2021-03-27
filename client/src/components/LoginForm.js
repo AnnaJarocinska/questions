@@ -5,13 +5,12 @@ import { Redirect } from 'react-router';
 import Cookies from 'js-cookie';
 import { connect } from 'react-redux';
 import actions from '../view/duck/actions';
-import loggedInActions from '../loggedIn/duck/actions';
 import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName, adminn, created }) => {
+const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
   
   const [rejection, setRejection] = useState(false);
   const [message, setMessage] = useState('');
@@ -55,8 +54,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName, admi
           applyCookie === '1' && await axios.post('/admin', cookieContent)
             .then(res => {  
               if (res.data !== "rejection"){
-                    addUserName(res.data);
-                    adminLoggedIn();
+                adminLoggedIn();
               }
               if (res.data === 'rejection'){
                   setRejection(true);
@@ -70,8 +68,6 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn, addUserName, admi
             .then(res => {
            
               if (res.data !== "rejection"){
-                console.log(res.data, 'res.data LoginForm')
-              addUserName(res.data.userName, res.data.created, res.data.admin);
               userLoggedIn(res.data.userName, res.data.created, res.data.admin);
               }
               if (res.data === 'rejection'){
@@ -129,8 +125,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
-    userLoggedIn: (userName, created, adminn) => dispatch(actions.userLoggedIn(userName, created, adminn)),
-    addUserName : (userName, created, adminn) => dispatch(loggedInActions.addUserName(userName, created, adminn))
+    userLoggedIn: (userName, created, adminn) => dispatch(actions.userLoggedIn(userName, created, adminn))
   }) 
 
 export default connect(mapStateToProps, mapDispatchToProps) (LoginForm);
