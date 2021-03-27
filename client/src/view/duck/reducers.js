@@ -5,7 +5,6 @@ const INITIAL_STATE = {
   admin: false,
   user: false,
   unnamed: true,
-  home: false,
   userName: '', 
   created: '',
   adminn:''
@@ -37,10 +36,7 @@ const viewReducer = (state = INITIAL_STATE, action) =>
           draft.user = false;
           draft.unnamed = true;
           break;
-
-      case types.IS_HOMEPAGE:
-          draft.home = !draft.home;
-          break;
+          
       default:
         return draft
     }
