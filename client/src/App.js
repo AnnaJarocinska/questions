@@ -14,6 +14,7 @@ import AdminDashboard from './views/admin/AdminDashboard';
 import UserDashboard from './views/userLoggedIn/UserDashboard';
 import GameHistory from './views/userLoggedIn/GameHistory';
 import Learning from './views/userLoggedIn/Learning';
+import ChangePassword from './views/userLoggedIn/ChangePassword';
 import UserDetails from './views/userLoggedIn/UserDetails';
 import theme from './utils/theme';
 import GlobalStyles from './styles/GlobalStyles';
@@ -45,6 +46,7 @@ const App = () => {
                 <ProtectedRoute path="/user/history" component={GameHistory} access="user"/>
                 <ProtectedRoute path="/user/details" component={UserDetails} access="user"/>
                 <ProtectedRoute path="/user/learning" component={Learning} access="user"/>
+                <ProtectedRoute path="/changePassword" component={ChangePassword} access="user"/>
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Container from '../../styles/Container';
 import Paragraph from '../../styles/Paragraph';
 
@@ -12,9 +13,11 @@ const UserDetails = ({userName, created}) => {
             <Paragraph>
                 Registered: {created}
             </Paragraph>
-            <Paragraph>
-                Change password
-            </Paragraph>
+            <Link to="/changePassword">
+                <Paragraph>
+                    Change password
+                </Paragraph>
+            </Link>
             <Paragraph>
                 Add photo
             </Paragraph>

@@ -8,7 +8,6 @@ router.all('/', verifyUser, async (req, res) => {
     try {
       const isUser = await User.findOne({key: req.cookies.key});
       if(isUser && !isUser.admin){
-        console.log(isUser.created, 'isUser.created')
         res.send({userName: isUser.name, created: isUser.created, admin: isUser.admin})
       } else { return res.status(401).send({message: 'rejection'})
       }
@@ -53,6 +52,18 @@ router.all('/', verifyUser, async (req, res) => {
     try{
       const user = await User.find({key: req.cookies.key});
       res.send(user[0].games)
+    } catch (err) {
+     res.status(401).json({
+       err
+   });
+   }
+   });
+
+   router.post('/changePassword', async (req, res, next) => {
+    try{
+      const user = await User.find({key: req.cookies.key});
+      console.log('chP')
+      res.send(user[0].password)
     } catch (err) {
      res.status(401).json({
        err
