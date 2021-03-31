@@ -13,7 +13,7 @@ const UserDetails = ({userName, created}) => {
             <Paragraph>
                 Registered: {created}
             </Paragraph>
-            <Link to="/changePassword">
+            <Link to="/user/details/changePassword">
                 <Paragraph>
                     Change password
                 </Paragraph>

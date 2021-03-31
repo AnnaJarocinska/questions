@@ -44,9 +44,9 @@ const App = () => {
                 {/* <Route path="/game" component={RealGameMenu} access="user"/> */}
                 <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/>
                 <ProtectedRoute path="/user/history" component={GameHistory} access="user"/>
-                <ProtectedRoute path="/user/details" component={UserDetails} access="user"/>
+                <ProtectedRoute exact path="/user/details" component={UserDetails} access="user"/>
                 <ProtectedRoute path="/user/learning" component={Learning} access="user"/>
-                <ProtectedRoute path="/changePassword" component={ChangePassword} access="user"/>
+                <ProtectedRoute path="/user/details/changePassword" component={ChangePassword} access="user"/>
                 <ProtectedRoute path="/admin" component={AdminDashboard} access="admin" />
                 <ProtectedRoute path="/addingQuestion" component={AddingQuestion} access="admin" />
                 <ProtectedRoute path="/users" component={Users} access="admin" />
