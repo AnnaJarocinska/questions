@@ -59,7 +59,7 @@ router.all('/', verifyUser, async (req, res) => {
    }
    });
 
-   router.post('/changePassword', async (req, res, next) => {
+   router.post('/details/changePassword', async (req, res, next) => {
     try{
       const user = await User.find({key: req.cookies.key});
       console.log('chP')
