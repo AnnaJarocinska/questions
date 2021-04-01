@@ -14,11 +14,11 @@ const UserDetails = ({userName, created}) => {
                 Registered: {created}
             </Paragraph>
             <Link to="/user/details/changePassword">
-                <Paragraph>
+                <Paragraph clickable>
                     Change password
                 </Paragraph>
             </Link>
-            <Paragraph>
+            <Paragraph clickable>
                 Add photo
             </Paragraph>
         </Container>

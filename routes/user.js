@@ -63,7 +63,9 @@ router.all('/', verifyUser, async (req, res) => {
     try{
       const user = await User.find({key: req.cookies.key});
       console.log('chP')
-      res.send(user[0].password)
+      console.log(req.body, 'reqbody')
+      console.log(user[0].password)
+      res.send('userpassword')
     } catch (err) {
      res.status(401).json({
        err
