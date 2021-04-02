@@ -1,6 +1,7 @@
 const express = require('express');
 const verifyUser = require('../utils/verifyUser');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const User = require('../models/users');
 
 router.all('/', verifyUser, async (req, res) => {
@@ -62,8 +63,10 @@ router.all('/', verifyUser, async (req, res) => {
    router.post('/details/changePassword', async (req, res, next) => {
     try{
       const user = await User.find({key: req.cookies.key});
-      console.log('chP')
-      console.log(req.body, 'reqbody')
+      console.log(req.body.password, 'req.body.password');
+      const salt = await bcrypt.genSalt(10);
+      let newPassword = await bcrypt.hash(req.body.password, salt);
+      await console.log(newPassword, 'newPassword')
       console.log(user[0].password)
       res.send('userpassword')
     } catch (err) {
