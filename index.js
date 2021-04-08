@@ -41,7 +41,7 @@ const router = express.Router();
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => console.log(`Database connected successfully`))
   .catch(err => console.log(err));
 

@@ -35,7 +35,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
           password: values.password
         }
     
-        await axios.post('/login', content)
+        await axios.post('login', content)
         .then(res => {
           if (res.data) {
                 setRejection(true);
@@ -51,7 +51,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
 
           const applyCookie = Cookies.get('apply');
           
-          applyCookie === '1' && await axios.post('/admin', cookieContent)
+          applyCookie === '1' && await axios.post('admin', cookieContent)
             .then(res => {  
               if (res.data !== "rejection"){
                 adminLoggedIn();
@@ -64,7 +64,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               })
             .catch(err => console.log(err, 'err admin'))
 
-          applyCookie === '2' && await axios.post('/user', cookieContent)
+          applyCookie === '2' && await axios.post('user', cookieContent)
             .then(res => {
            
               if (res.data !== "rejection"){

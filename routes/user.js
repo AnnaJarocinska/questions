@@ -62,12 +62,20 @@ router.all('/', verifyUser, async (req, res) => {
 
    router.post('/details/changePassword', async (req, res, next) => {
     try{
-      const user = await User.find({key: req.cookies.key});
+      const user = await User.find({key: req.cookies.key}, function(err, doc){
+        const salt = bcrypt.genSalt(10);
+        let newPassword = bcrypt.hash(req.body.password, salt);
+        user.password = newPassword;
+        user.save();
+      });
+      const query = {key: req.cookies.key} 
       console.log(req.body.password, 'req.body.password');
-      const salt = await bcrypt.genSalt(10);
-      let newPassword = await bcrypt.hash(req.body.password, salt);
-      await console.log(newPassword, 'newPassword')
-      console.log(user[0].password)
+      // const salt = await bcrypt.genSalt(10);
+      console.log(user[0].password, 'user[0].password PRZED')
+      // let newPassword = await bcrypt.hash(req.body.password, salt);
+      // user.password = newPassword;
+      // user.save();
+     console.log(user[0].password, 'user[0].password PO')
       res.send('userpassword')
     } catch (err) {
      res.status(401).json({

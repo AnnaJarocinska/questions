@@ -7,7 +7,7 @@ import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
 
-const NewUserForm = (props) => {
+const NewUserForm = () => {
 
   const [created, setCreated] = useState(false);
   const [rejection, setRejection] = useState(false);
