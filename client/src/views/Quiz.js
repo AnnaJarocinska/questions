@@ -1,13 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import RealGameFetchQuestions from '../real game/components/RealGameFetchQuestions';
-const Quiz = () => {
+import realGameActions from '../real game/duck/actions';
 
+const Quiz = ({setGameDetails}) => {
+    const category = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
+    const mode = "Random10";
+    setGameDetails(category, mode)
     return (  
         <>
             <p>quick game</p>
-            <RealGameFetchQuestions/>
+            <RealGameFetchQuestions category={category} mode={mode}/>
         </>
     );
 }
- 
-export default Quiz;
+const mapDispatchToProps = (dispatch) => ({
+    setGameDetails: (category, mode) => dispatch(realGameActions.setGameDetails(category, mode)),
+  }) 
+
+export default connect (null, mapDispatchToProps)(Quiz);
