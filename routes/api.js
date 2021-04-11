@@ -3,8 +3,10 @@ const router = express.Router();
 const Question = require('../models/question');
 
 router.post('/questions', async (req, res) => {
-    const requestedQuestions = await Question.find({continent: {$in: req.body.categories }}) 
-    try{
+    const requestedQuestions = req.body.mode === 'Random10' ?
+    await Question.find({continent: {$in: req.body.categories }}).limit(2) :
+    await Question.find({continent: {$in: req.body.categories }});
+ try{
         if(requestedQuestions){
             res.send(requestedQuestions);
         }
