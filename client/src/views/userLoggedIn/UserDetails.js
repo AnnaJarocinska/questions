@@ -5,13 +5,14 @@ import Container from '../../styles/Container';
 import Paragraph from '../../styles/Paragraph';
 
 const UserDetails = ({userName, created}) => {
+    const formattedDate = created.substr(0,10).replaceAll("-", ".");
     return (
         <Container separate user> 
             <Paragraph>
                 You are logged in as {userName}
             </Paragraph>
             <Paragraph>
-                Registered: {created}
+                Registered: {formattedDate}
             </Paragraph>
             <Link to="/user/details/changePassword">
                 <Paragraph clickable>
