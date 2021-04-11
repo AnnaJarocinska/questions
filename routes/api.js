@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Question = require('../models/question');
 
-router.post('/questions', async (req, res, next) => {
-    const requestedQuestions = await Question.find({continent: {$in: [req.body.categories[0], req.body.categories[1]] }}) 
-    console.log(requestedQuestions)
+router.post('/questions', async (req, res) => {
+    const requestedQuestions = await Question.find({continent: {$in: req.body.categories }}) 
     try{
         if(requestedQuestions){
             res.send(requestedQuestions);
@@ -13,7 +12,7 @@ router.post('/questions', async (req, res, next) => {
         res.status(400).json({
             err
         })
-    }    
+    }  
 });
 
 router.post('/capitalsList', async (req, res, next) => {
