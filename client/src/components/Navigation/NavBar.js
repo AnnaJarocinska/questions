@@ -35,9 +35,9 @@ const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLogg
                 admin={admin ? admin.toString() : undefined}
                 user={user ? user.toString() : undefined}>
                     <Container icons mobile={mobile ? mobile.toString() : undefined}>
-                        <Link to="/moreInforations"> 
+                        <Link to="/moreInforation"> 
                             <Span> <Span icon><FontAwesomeIcon icon={faBinoculars}/> </Span>
-                            {(desktop || mobile) && "More informations"}</Span>
+                            {(desktop || mobile) && "More information"}</Span>
                         </Link>
                         <Link to="/">
                             <Span> <Span icon> <FontAwesomeIcon icon={faCampground}/> </Span>
