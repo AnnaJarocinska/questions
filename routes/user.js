@@ -17,7 +17,7 @@ router.all('/', verifyUser, async (req, res) => {
       }
   });
 
-router.post('/saveGame', async (req, res, next) => {
+router.post('/saveGame', async (req, res) => {
   try {
     const user = await User.findOne({key: req.cookies.key});
     let obj = {
@@ -34,7 +34,7 @@ router.post('/saveGame', async (req, res, next) => {
    }
   });
 
-router.post('/history', async (req, res, next) => {
+router.post('/history', async (req, res) => {
   try {
     const user = await User.find({key: req.cookies.key});
     res.send(user[0].games)
@@ -43,11 +43,10 @@ router.post('/history', async (req, res, next) => {
    }
 });
 
-router.post('/details/changePassword', async (req, res, next) => {
+router.post('/details/changePassword', async (req, res) => {
   try{
-    const salt = await bcrypt.genSalt(10);
-        // let newPassword = await bcrypt.hash(req.body.password, salt);
-    let newPassword = req.body.password;
+    let salt = await bcrypt.genSalt(10);
+    let newPassword = await bcrypt.hash(req.body.password, salt);
     const filter = { key: req.cookies.key };
     const update = { password: newPassword };
     let change = await User.findOneAndUpdate(filter, update);
