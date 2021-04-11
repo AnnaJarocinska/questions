@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import realGameActions from '../duck/actions';
 import RealGameWindow from './RealGameWindow';
 
-const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion
-    // , clearGameDetails
+const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion, clearGameDetails, toSave
 }) => {
     
     const content = {
@@ -26,7 +25,8 @@ const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion
 
     return (
             <RealGameWindow startGame={getQuestions} 
-            // clearGameDetails={clearGameDetails}
+            clearGameDetails={clearGameDetails}
+            toSave={toSave}
             />
       );
 }

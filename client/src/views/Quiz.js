@@ -5,12 +5,13 @@ import realGameActions from '../real game/duck/actions';
 
 const Quiz = ({setGameDetails}) => {
     const category = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];
-    const mode = "Random10";
+    const mode = 'Random10';
+    const toSave = 'no';
     setGameDetails(category, mode)
     return (  
         <>
             <p>quick game</p>
-            <RealGameFetchQuestions category={category} mode={mode}/>
+            <RealGameFetchQuestions category={category} mode={mode} toSave={toSave}/>
         </>
     );
 }

@@ -9,7 +9,7 @@ import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
 import RealGameFinished from './RealGameFinished';
 
-const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn,
+const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
      handleAnswer, drawQuestion, startGame, clearGameDetails}) => {
 
     const handleAnswerClick = (e) => {
@@ -52,7 +52,7 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn,
                 <PointsBox> {points} </PointsBox>
             </Container> 
             <Container separate>
-                {!gameFinished ? current : <RealGameFinished clearGameDetails={clearGameDetails}/>}
+                {!gameFinished ? current : <RealGameFinished clearGameDetails={clearGameDetails} toSave={toSave}/>}
             </Container>
             {!gameOn && <Button login red onClick={startGame}> Start game </Button>}
         </>

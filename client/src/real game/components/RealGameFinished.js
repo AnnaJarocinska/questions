@@ -5,9 +5,9 @@ import realGameActions from '../duck/actions';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
-const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clearState, clearGameDetails}) => {
-
+const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clearState, clearGameDetails, toSave}) => {
     useEffect(() => {
+        
         async function sendData() {
             const content = {
             points: points,
@@ -18,8 +18,8 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clear
         }
        await axios.post('/user/saveGame', content)
     }
-    sendData();
-    }, [points, category, correctAnswers, wrongAnswers])
+    toSave !== 'no' && sendData();
+    }, [points, category, correctAnswers, wrongAnswers, toSave])
     
     const handleClick = () => {
         clearState();
