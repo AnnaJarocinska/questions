@@ -14,14 +14,24 @@ const UserDetails = ({userName, created}) => {
             <Paragraph>
                 Registered: {formattedDate}
             </Paragraph>
-            <Link to="/user/details/changePassword">
-                <Paragraph clickable>
-                    Change password
-                </Paragraph>
-            </Link>
-            <Paragraph clickable>
-                Add photo
-            </Paragraph>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/user/details/changePassword">
+                            <Paragraph clickable>
+                                Change password
+                            </Paragraph>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/user/details/changePassword">
+                            <Paragraph clickable>
+                                Add photo
+                            </Paragraph>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
         </Container>
      );
 }
