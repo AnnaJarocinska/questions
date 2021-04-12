@@ -23,7 +23,7 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clear
     
     const handleClick = () => {
         clearState();
-        clearGameDetails();
+       toSave !== "no" && clearGameDetails();
         window.location.reload(); 
     }
     return (  
