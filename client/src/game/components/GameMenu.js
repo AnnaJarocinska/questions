@@ -4,10 +4,10 @@ import Container from '../../styles/Container';
 import Input from '../../styles/Input';
 import Label from '../../styles/Label';
 import Paragraph from '../../styles/Paragraph';
-import RealGameDetails from './RealGameDetails';
-import Badges from '../components/Badges';
+import GameDetails from './GameDetails';
+import Badges from './Badges';
 
-const RealGameMenu = () => {
+const GameMenu = () => {
     
     const [continents, setContinents] = useState(['Africa','Asia', 'Australia','Europe', 'North America', 'South America']);
     const [categories, setCategories] = useState([]);
@@ -63,11 +63,11 @@ const RealGameMenu = () => {
     return ( 
         <Container main>
            {menuVisible && menu}
-           {selected && <RealGameDetails categories={categories} mode={mode}
+           {selected && <GameDetails categories={categories} mode={mode}
             deleteCategory={deleteCategory} clearGameDetails={clearGameDetails}
             menuVisible={menuVisible} setMenuVisability={setMenuVisability}/>}
         </Container>
      );
 }
 
-export default RealGameMenu;
+export default GameMenu;

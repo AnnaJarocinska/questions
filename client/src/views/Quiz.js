@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import RealGameFetchQuestions from '../real game/components/RealGameFetchQuestions';
-import realGameActions from '../real game/duck/actions';
+import GameFetchQuestions from '../game/components/GameFetchQuestions';
+import actions from '../game/duck/actions';
 import Container from '../styles/Container';
 
 const Quiz = ({setGameDetails}) => {
@@ -11,12 +11,12 @@ const Quiz = ({setGameDetails}) => {
     setGameDetails(category, mode)
     return (  
         <Container main>
-            <RealGameFetchQuestions category={category} mode={mode} toSave={toSave}/>
+            <GameFetchQuestions category={category} mode={mode} toSave={toSave}/>
         </Container>
     );
 }
 const mapDispatchToProps = (dispatch) => ({
-    setGameDetails: (category, mode) => dispatch(realGameActions.setGameDetails(category, mode)),
+    setGameDetails: (category, mode) => dispatch(actions.setGameDetails(category, mode)),
   }) 
 
 export default connect (null, mapDispatchToProps)(Quiz);

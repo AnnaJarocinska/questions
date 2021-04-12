@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import realGameActions from '../duck/actions';
+import actions from '../duck/actions';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Button from '../../styles/Button';
 
-const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clearState, clearGameDetails, toSave}) => {
+const GameFinished = ({points, category, correctAnswers, wrongAnswers, clearState, clearGameDetails, toSave}) => {
     useEffect(() => {
         
         async function sendData() {
@@ -35,15 +35,15 @@ const RealGameFinished = ({points, category, correctAnswers, wrongAnswers, clear
 }
  
 const mapStateToProps = (state) => ({
-    points: state.realGame.points,
-    category: state.realGame.category,
-    correctAnswers: state.realGame.correctAnswers,
-    wrongAnswers: state.realGame.wrongAnswers
+    points: state.game.points,
+    category: state.game.category,
+    correctAnswers: state.game.correctAnswers,
+    wrongAnswers: state.game.wrongAnswers
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    clearState: () =>  dispatch(realGameActions.clearState())
+    clearState: () =>  dispatch(actions.clearState())
   })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(RealGameFinished);
+export default connect(mapStateToProps, mapDispatchToProps)(GameFinished);

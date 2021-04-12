@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import realGameActions from '../duck/actions';
+import actions from '../duck/actions';
 import Paragraph from '../../styles/Paragraph';
 import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
 import Container from '../../styles/Container';
 import Button from '../../styles/Button';
 import PointsBox from '../../styles/PointsBox';
-import RealGameFinished from './RealGameFinished';
+import GameFinished from './GameFinished';
 
-const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
+const GameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
      handleAnswer, drawQuestion, startGame, clearGameDetails}) => {
 
     const handleAnswerClick = (e) => {
@@ -52,7 +52,7 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
                 <PointsBox> {points} </PointsBox>
             </Container> 
             <Container separate>
-                {!gameFinished ? current : <RealGameFinished clearGameDetails={clearGameDetails} toSave={toSave}/>}
+                {!gameFinished ? current : <GameFinished clearGameDetails={clearGameDetails} toSave={toSave}/>}
             </Container>
             {!gameOn && <Button login red onClick={startGame}> Start game </Button>}
         </>
@@ -60,15 +60,15 @@ const RealGameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
 }
 
 const mapStateToProps = (state) => ({
-    currentQuestion: state.realGame.currentQuestion,
-    points: state.realGame.points,
-    gameFinished: state.realGame.gameFinished,
-    gameOn: state.realGame.gameOn
+    currentQuestion: state.game.currentQuestion,
+    points: state.game.points,
+    gameFinished: state.game.gameFinished,
+    gameOn: state.game.gameOn
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    handleAnswer: (result) =>  dispatch(realGameActions.handleAnswer(result)),
-    drawQuestion: () =>  dispatch(realGameActions.drawQuestion())
+    handleAnswer: (result) =>  dispatch(actions.handleAnswer(result)),
+    drawQuestion: () =>  dispatch(actions.drawQuestion())
   })
 
-export default connect(mapStateToProps, mapDispatchToProps) (RealGameWindow);
+export default connect(mapStateToProps, mapDispatchToProps) (GameWindow);

@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import realGameActions from '../duck/actions';
-import RealGameWindow from './RealGameWindow';
+import actions from '../duck/actions';
+import GameWindow from './GameWindow';
 
-const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion, clearGameDetails, toSave
+const GameFetchQuestions = ({category, mode, addQuestions, drawQuestion, clearGameDetails, toSave
 }) => {
     
     const content = {
@@ -24,7 +24,7 @@ const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion, cle
     }
 
     return (
-            <RealGameWindow startGame={getQuestions} 
+            <GameWindow startGame={getQuestions} 
             clearGameDetails={clearGameDetails}
             toSave={toSave}
             />
@@ -32,13 +32,13 @@ const RealGameFetchQuestions = ({category, mode, addQuestions, drawQuestion, cle
 }
  
 const mapStateToProps = (state) => ({
-    category: state.realGame.category,
-    mode: state.realGame.mode,
+    category: state.game.category,
+    mode: state.game.mode,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addQuestions : (currentQuestions) => dispatch(realGameActions.addQuestions(currentQuestions)),
-    drawQuestion : () => dispatch(realGameActions.drawQuestion()),
+    addQuestions : (currentQuestions) => dispatch(actions.addQuestions(currentQuestions)),
+    drawQuestion : () => dispatch(actions.drawQuestion()),
   }) 
 
-export default connect(mapStateToProps, mapDispatchToProps) (RealGameFetchQuestions);
+export default connect(mapStateToProps, mapDispatchToProps) (GameFetchQuestions);

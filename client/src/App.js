@@ -22,7 +22,7 @@ import Wrapper from './styles/Wrapper';
 import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
-import RealGameMenu from './real game/components/RealGameMenu';
+import GameMenu from './game/components/GameMenu';
 
 const App = () => {
   return (
@@ -42,7 +42,7 @@ const App = () => {
                 <Route path="/quiz" component={Quiz} />
                 <ProtectedRoute exact path="/user" component={UserDashboard} access="user"/>
                 {/* <Route path="/game" component={RealGameMenu} access="user"/> */}
-                <ProtectedRoute path="/user/game" component={RealGameMenu} access="user"/>
+                <ProtectedRoute path="/user/game" component={GameMenu} access="user"/>
                 <ProtectedRoute path="/user/history" component={GameHistory} access="user"/>
                 <ProtectedRoute exact path="/user/details" component={UserDetails} access="user"/>
                 <ProtectedRoute path="/user/learning" component={Learning} access="user"/>

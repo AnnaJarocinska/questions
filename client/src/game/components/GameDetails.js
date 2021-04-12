@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import Container from '../../styles/Container';
 import Paragraph from '../../styles/Paragraph';
 import Button from '../../styles/Button';
-import RealGameFetchQuestions from './RealGameFetchQuestions';
-import realGameActions from '../duck/actions';
-import Badges from '../components/Badges';
+import GameFetchQuestions from './GameFetchQuestions';
+import actions from '../duck/actions';
+import Badges from './Badges';
 
-const RealGameDetails = ({categories, mode, menuVisible,
+const GameDetails = ({categories, mode, menuVisible,
     setGameDetails, setMenuVisability, deleteCategory, clearGameDetails}) => {
 
     const saveSelectedDetails = () => {
@@ -33,13 +33,13 @@ const RealGameDetails = ({categories, mode, menuVisible,
                 {((categories.length !== 0 && mode) && menuVisible) && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
         }
-            {!menuVisible && <RealGameFetchQuestions clearGameDetails={clearGameDetails}/>}
+            {!menuVisible && <GameFetchQuestions clearGameDetails={clearGameDetails}/>}
         </>
     );
 }
  
 const mapDispatchToProps = (dispatch) => ({
-    setGameDetails: (category, mode) => dispatch(realGameActions.setGameDetails(category, mode)),
+    setGameDetails: (category, mode) => dispatch(actions.setGameDetails(category, mode)),
   }) 
 
-export default connect (null, mapDispatchToProps)(RealGameDetails);
+export default connect (null, mapDispatchToProps)(GameDetails);

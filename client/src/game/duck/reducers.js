@@ -15,7 +15,7 @@ const INITIAL_STATE = {
   gameFinished: false,
 }
 
-const realGameReducer = (state = INITIAL_STATE, action) =>
+const gameReducer = (state = INITIAL_STATE, action) =>
   produce(state, draft => {
     switch (action.type) {
 
@@ -72,4 +72,4 @@ const realGameReducer = (state = INITIAL_STATE, action) =>
     }
   })
 
-export default realGameReducer;
+export default gameReducer;
