@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 import update from 'immutability-helper';
-import Badges from '../../components/Badges';
-import Paragraph from '../../styles/Paragraph';
-import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
-import Container from '../../styles/Container';
-import Section from '../../styles/Section';
+import Badges from '../../../components/Badges';
+import Paragraph from '../../../styles/Paragraph';
+import CapitalLetterParagraph from '../../../styles/CapitalLetterParagraph';
+import Container from '../../../styles/Container';
+import Section from '../../../styles/Section';
 
 const Learning = () => {
 

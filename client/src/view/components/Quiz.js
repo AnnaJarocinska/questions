@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GameFetchQuestions from '../game/components/GameFetchQuestions';
-import actions from '../game/duck/actions';
-import Container from '../styles/Container';
+import GameFetchQuestions from '../../game/components/GameFetchQuestions';
+import actions from '../../game/duck/actions';
+import Container from '../../styles/Container';
 
 const Quiz = ({setGameDetails}) => {
     const category = ['Africa','Asia', 'Australia','Europe', 'North America', 'South America'];

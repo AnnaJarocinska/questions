@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CapitalLetterParagraph from '../../styles/CapitalLetterParagraph';
-import Paragraph from '../../styles/Paragraph';
-import Container from '../../styles/Container';
+import CapitalLetterParagraph from '../../../styles/CapitalLetterParagraph';
+import Paragraph from '../../../styles/Paragraph';
+import Container from '../../../styles/Container';
 
 const UserDashboard = () => {
     return (

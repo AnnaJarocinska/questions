@@ -1,10 +1,10 @@
 import React from 'react';
 import { Formik } from 'formik';
 import axios from 'axios';
-import Input from '../../styles/Input';
-import Label from '../../styles/Label';
-import Button from '../../styles/Button';
-import Form from '../../styles/Form';
+import Input from '../../../styles/Input';
+import Label from '../../../styles/Label';
+import Button from '../../../styles/Button';
+import Form from '../../../styles/Form';
 
 const ChangePassword = () => {
 
