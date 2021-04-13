@@ -45,5 +45,4 @@ const mapDispatchToProps = (dispatch) => ({
     clearState: () =>  dispatch(actions.clearState())
   })
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(GameFinished);
