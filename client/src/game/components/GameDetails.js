@@ -5,7 +5,7 @@ import Paragraph from '../../styles/Paragraph';
 import Button from '../../styles/Button';
 import GameFetchQuestions from './GameFetchQuestions';
 import actions from '../duck/actions';
-import Badges from './Badges';
+import Badges from '../../components/Badges';
 
 const GameDetails = ({categories, mode, menuVisible,
     setGameDetails, setMenuVisability, deleteCategory, clearGameDetails}) => {

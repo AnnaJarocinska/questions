@@ -5,7 +5,7 @@ import Input from '../../styles/Input';
 import Label from '../../styles/Label';
 import Paragraph from '../../styles/Paragraph';
 import GameDetails from './GameDetails';
-import Badges from './Badges';
+import Badges from '../../components/Badges';
 
 const GameMenu = () => {
     

@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge from '../../styles/Badge';
+import Badge from '../styles/Badge';
 
 const Badges = ({list, onClick}) => {
     return ( 
