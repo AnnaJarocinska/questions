@@ -15,23 +15,13 @@ const ChangePassword = () => {
         validate={values => {
 
             const errors = {};
-   
-            // if (!values.password1 !== values.password2) {
-   
-            //   errors.password2 = 'Passwords are not the same';
-   
-            // } else if (
-   
-            //   values.password1.length <3
-   
-            // ) {
-   
-            //   errors.password1 = 'Password is too short';
-   
-            // }
-   
+          if (values.password1.length <3) {
+            errors.password1 = 'Password is too short';
+          }
+           else if (!values.password1 !== values.password2) {
+              errors.password2 = 'Passwords are not the same';
+           }
             return errors;
-   
           }}
    
           onSubmit={ async (values, { setSubmitting }) => {
@@ -52,22 +42,15 @@ const ChangePassword = () => {
         >
             {({
         values,
-
         errors,
-
         touched,
-
         handleChange,
-
         handleBlur,
-
         handleSubmit,
-
         isSubmitting,
       }) => (
             <Form
             onSubmit={handleSubmit}>
-        <p>change password</p>
         <Label>New password</Label>
         <Input
         type="password"
