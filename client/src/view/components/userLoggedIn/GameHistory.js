@@ -27,6 +27,7 @@ const GameHistory = () => {
             for (const key in data[i]){
                 if (key !== "_id"){
                     let valueName = key !== "date" ? data[i][key] : data[i][key].substr(0,10);
+                    key === "category"? valueName = data[i][key].join(", "): valueName = data[i][key];
                     let keyName = key.indexOf("Answers") !== -1 ? key.replace("Answers", " answers") : key; 
                     item.push(
                         <li key={uuidv4()}> <Paragraph>{keyName}: {valueName}</Paragraph> </li>
