@@ -24,8 +24,8 @@ const NewUserForm = () => {
         if (!values.newPassword) {
           errors.newPassword = 'This field is required';
         }
-        const reg = /^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[#?!@$%^&*\\-_]).{8,}$/;
-        if (!reg.test(values.newPassword)) {
+        const reg = /(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}/
+                if (!reg.test(values.newPassword)) {
           errors.newPassword = 'Password does not meet the requirements';
         }
         return errors;
