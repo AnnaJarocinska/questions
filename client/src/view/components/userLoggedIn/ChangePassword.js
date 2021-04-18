@@ -7,25 +7,29 @@ import Button from '../../../styles/Button';
 import Form from '../../../styles/Form';
 
 const ChangePassword = () => {
-
     return ( 
         <>
         <Formik
         initialValues={{ password1:'', password2:''}}
         validate={values => {
-
             const errors = {};
-          if (values.password1.length <3) {
-            errors.password1 = 'Password is too short';
-          }
-           else if (!values.password1 !== values.password2) {
+            if (!values.pssword1) {
+              errors.password1 = 'This field is required';
+            }
+            if (!values.password2) {
+              errors.password2 = 'This field is required';
+            }
+            const reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/
+            if (!reg.test(values.password1)) {
+              errors.password1 = 'Password does not meet the requirements';
+            }
+           else if (values.password1 !== values.password2) {
               errors.password2 = 'Passwords are not the same';
-           }
+            }
             return errors;
           }}
    
           onSubmit={ async (values, { setSubmitting }) => {
-
             const content = {
                 password: values.password1
               }
