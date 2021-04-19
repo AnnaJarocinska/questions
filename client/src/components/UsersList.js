@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Container from '../styles/Container';
 import Subtitle from '../styles/Subtitle';
 
@@ -14,7 +15,7 @@ const UsersList = ({ users, deleteUser }) => {
             (
               users.map(user => {
                 return (
-                  <Container users>
+                  <Container users key={uuidv4()}>
                     <li key={user._id} onClick={() => deleteUser(user._id)}>
                       <p key={user.name}>Login: {user.name}</p>
                       <p key={user.password}>Password: {user.password}</p>
