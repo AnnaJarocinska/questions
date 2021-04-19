@@ -34,9 +34,7 @@ router.post('/capitalsList', async (req, res, next) => {
 });
 
 router.post('/checkAnswer', async (req, res, next) => {
-
     const requestedQuestion = await Question.find({_id: req.body.questionId})
-
     try{
         if(requestedQuestion[0].goodAnswer === req.body.userAnswer){
             res.send('correctAnswer')
@@ -47,18 +45,11 @@ router.post('/checkAnswer', async (req, res, next) => {
         res.status(400).json({
             err
         })
-    }
-     
+    }  
 });
 
 router.get('/question', async (req, res, next) => {
     Question.find({})
-        .then(data => res.json(data))
-        .catch(next)
-});
-
-router.get('/question', (req, res, next) => {
-    Question.find({id: Math.floor(Math.random()*(5-0+1))})
         .then(data => res.json(data))
         .catch(next)
 });

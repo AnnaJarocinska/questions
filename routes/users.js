@@ -15,12 +15,10 @@ router.delete('/:id', (req, res, next) => {
 });
 
 router.post('/', async (req, res) => {
-
     try{
     const user = await User.findOne({
         key: req.body.key
     });
-        console.log(user, 'user w post /users')
         res.send(user)
 } catch (err) {
     console.log(err,'err')

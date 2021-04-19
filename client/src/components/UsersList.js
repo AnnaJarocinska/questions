@@ -16,9 +16,9 @@ const UsersList = ({ users, deleteUser }) => {
                 return (
                   <Container users>
                     <li key={user._id} onClick={() => deleteUser(user._id)}>
-                      <p>Login: {user.name}</p>
-                      <p>Password: {user.password}</p>
-                      <p>Created: {user.created}</p>
+                      <p key={user.name}>Login: {user.name}</p>
+                      <p key={user.password}>Password: {user.password}</p>
+                      <p key={user.created}>Created: {user.created}</p>
                     </li>
                   </Container>
                 )

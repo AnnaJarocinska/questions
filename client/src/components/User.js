@@ -23,7 +23,6 @@ const User = () => {
 
     return (
         <>
-            {/* <button onClick={fetchData}> Show users</button> */}
             <UsersList users={data} deleteUser={deleteUser} />
         </>
     );
