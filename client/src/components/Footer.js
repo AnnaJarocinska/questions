@@ -1,10 +1,11 @@
 import React from 'react';
+import Paragraph from '../styles/Paragraph';
 import Foooter from '../styles/Footer';
 
 const Footer = () => {
     return ( 
         <Foooter>
-        <p>Copyright &#169; 2020 AJ</p>
+        <Paragraph>Copyright &#169; 2021 AJ</Paragraph>
         </Foooter>
      );
 }

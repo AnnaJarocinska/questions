@@ -80,7 +80,7 @@ const NewUserForm = () => {
               value={values.newPassword}
               onBlur={handleBlur} />
             {errors.newPassword && touched.newPassword && errors.newPassword}
-            <Button login form type="submit" disabled={isSubmitting}>Add new user</Button>
+            <Button login form="true" type="submit" disabled={isSubmitting}>Add new user</Button>
           </Form>
         )}
     </Formik>
