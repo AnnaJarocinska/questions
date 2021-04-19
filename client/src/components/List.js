@@ -1,4 +1,5 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import Container from '../styles/Container';
 import Badge from '../styles/Badge';
 
@@ -13,7 +14,7 @@ const List = ({ questions, deleteQuestion }) => {
           (
             questions.map(question => {
               return (
-                <Container list>
+                <Container list="true" key={uuidv4()}>
                 <li key={question._id} onClick={() => deleteQuestion(question._id)}>
                 <p>{question.question}</p>
                 <Badge>{question.continent}</Badge>
