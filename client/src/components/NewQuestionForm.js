@@ -147,7 +147,7 @@ const NewQuestionForm = (props) => (
             >
             </Input>
             {errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}
-            <Button login form type="submit" disabled={isSubmitting}>add question</Button>
+            <Button login form="true" type="submit" disabled={isSubmitting}>add question</Button>
           </Form>
         )}
     </Formik>

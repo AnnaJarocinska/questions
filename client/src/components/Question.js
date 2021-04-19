@@ -34,8 +34,8 @@ const Question = () => {
   return (
     <Wrapper>
       <Overlay>
-        <Container list>
-        <Container form>
+        <Container list="true">
+        <Container form="true">
           <NewQuestionForm getQuestions={fetchData} />
            <Button login red space onClick={handleShowClick}> Show all questions </Button>
            {show && <List questions={data} deleteQuestion={deleteQuestion} />}
