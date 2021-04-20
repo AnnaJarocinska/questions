@@ -13,7 +13,7 @@ const ChangePassword = () => {
         initialValues={{ password1:'', password2:''}}
         validate={values => {
             const errors = {};
-            if (!values.pssword1) {
+            if (!values.password1) {
               errors.password1 = 'This field is required';
             }
             if (!values.password2) {
@@ -33,11 +33,11 @@ const ChangePassword = () => {
             const content = {
                 password: values.password1
               }
-            
+            console.log(content, 'contentwchp')
             await axios.post('/user/details/changePassword', content)
             .then(res => {
                 if (res.data) {
-                      console.log(res.data, 'res.data w change pasword');
+                      console.log(res.data, 'res.data w change password');
                 }
               })
                 .catch(err => console.log(err, 'err post'))
