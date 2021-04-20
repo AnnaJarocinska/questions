@@ -6,21 +6,21 @@ const User = require('../models/users');
 
 router.all('/', verifyUser, async (req, res) => {
   try {
-      const isUser = await User.findOne({key: req.cookies.key});
-      if (isUser && !isUser.admin) {
-        res.send({userName: isUser.name, created: isUser.created, admin: isUser.admin})
-      } else { 
+    const user = await User.findOne({key: req.cookies.key});
+    if (user && !user.admin) {
+      res.status(200).send({userName: user.name, created: user.created, admin: user.admin})
+    } else { 
         return res.status(401).send({message: 'rejection'})
       }
   } catch (err) {
       res.status(401).json({err});
-      }
+    }
   });
 
-router.post('/saveGame', async (req, res) => {
+router.post('/saveGame', verifyUser, async (req, res) => {
   try {
     const user = await User.findOne({key: req.cookies.key});
-    let obj = {
+    const obj = {
                 points: req.body.points,
                 category: req.body.category,
                 correctAnswers: req.body.correctAnswers,
@@ -34,31 +34,31 @@ router.post('/saveGame', async (req, res) => {
    }
   });
 
-router.post('/history', async (req, res) => {
+router.post('/history', verifyUser, async (req, res) => {
   try {
-    const user = await User.find({key: req.cookies.key});
-    res.send(user[0].games)
+    const user = await User.findOne({key: req.cookies.key});
+    res.status(200).send(user.games)
   } catch (err) {
     res.status(401).json({err});
    }
 });
 
-router.post('/details/changePassword', async (req, res) => {
+router.post('/details/changePassword', verifyUser, async (req, res) => {
   try{
-    let salt = await bcrypt.genSalt(10);
-    let newPassword = await bcrypt.hash(req.body.password, salt);
+    const salt = await bcrypt.genSalt(10);
+    const newPassword = await bcrypt.hash(req.body.password, salt);
     const filter = { key: req.cookies.key };
     const update = { password: newPassword };
-    let change = await User.findOneAndUpdate(filter, update);
+    const change = await User.findOneAndUpdate(filter, update);
     change();
     if (err) {
-      console.log('ERROR');
+      res.status(401).json({err});
     } else {
-      console.log('success');
+      res.status(200).json({message: 'success'});
         }
     } 
   catch (err) {
-     res.status(401).json({err})
+     res.status(401).json({err});
    }
 });
 

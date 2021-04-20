@@ -6,9 +6,9 @@ const verifyAdmin = require('../utils/verifyAdmin');
 router.all('*', verifyAdmin, async (req, res) => {
 
   try {
-    const isAdmin = await User.findOne({key: req.cookies.key});
-    if(isAdmin.admin){
-      res.send(isAdmin.name)
+    const admin = await User.findOne({key: req.cookies.key});
+    if(admin.admin){
+      res.send(admin.name)
     } else {return res.status(401).send('rejection')
     }
   } catch (err) {
