@@ -54,11 +54,15 @@ router.post('/details/changePassword', verifyUser, async (req, res) => {
     const change = await User.findOneAndUpdate(filter, update)
     res.send('yes!');
     change();
-  
-    } 
+    if (err) {
+      console.log('error');
+    } else {
+      console.log('success');
+        }
+    }  
   catch (err) {
      res.status(401).json({err});
-   }
-});
+   }}
+);
 
 module.exports = router;
