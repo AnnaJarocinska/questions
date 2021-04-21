@@ -44,9 +44,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
                 setMessage(res.data);
           }
         })
-          .catch(err => console.log(err, 'err post'),
-          setRejection(true),
-                setMessage('failed')
+          .catch(err => console.log(err, 'err post')
           )
           const cookieKey = Cookies.get('key');
           const cookieContent = {
@@ -112,15 +110,13 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               value={values.password}
               onBlur={handleBlur} />
             {errors.password && touched.password && errors.password}
-            {/* <Paragraph>Login failed</Paragraph> */}
-            {/* {rejection && <p>{message}</p>}     */}
+            {rejection && <Paragraph>{message}</Paragraph>}  
             <Button login submit type="submit" disabled={isSubmitting}>Log in</Button>
             </Form>
         )}
     </Formik>
     {admin && <Redirect to='/admin'/>}
     {user && <Redirect to='/user'/>}
-    {rejection && <p>{message}</p>}    
   </>
 )}
 

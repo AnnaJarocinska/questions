@@ -12,7 +12,6 @@ router.post('/', async (req, res) => {
 
   try {
       if (!user) {
-        // return res.status(400).send('Invalid user name')
          return res.send('Invalid user name')
       }
   } catch (err) {
@@ -23,7 +22,7 @@ router.post('/', async (req, res) => {
 
   try {
       if (!passwordCorrect) {
-        return res.status(400).send('Invalid password')    
+        return res.send('Invalid password')    
         } 
   } catch (err) {
       res.status(400).json({
