@@ -39,13 +39,12 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
         await axios.post('login', content)
         .then(res => {
           if (res.data) {
-            console.log(res.data, 'res.data w loginform login post')
                 setRejection(true);
                 setMessage(res.data);
           }
         })
-          .catch(err => console.log(err, 'err post')
-          )
+          .catch(err => console.log(err, 'err post'))
+
           const cookieKey = Cookies.get('key');
           const cookieContent = {
             key: cookieKey,

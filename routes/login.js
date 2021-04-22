@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
     
   const user = await User.findOne({name: req.body.name});
   const userPassword = user !== null ? user.password : ''; 
-  const passwordCorrect = await bcrypt.compare(req.body.password, userPassword);
+  const correctPassword = await bcrypt.compare(req.body.password, userPassword);
 
   try {
       if (!user) {
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     }
 
   try {
-      if (!passwordCorrect) {
+      if (!correctPassword) {
         return res.send('Invalid password')    
         } 
   } catch (err) {
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
         }
 
   try {
-      if (user, passwordCorrect) {
+      if (user, correctPassword) {
         const key = uuidv4();
         user.key = key;
         user.save();
