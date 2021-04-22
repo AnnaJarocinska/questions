@@ -21,11 +21,15 @@ const NewUserForm = () => {
         if (!values.newName) {
           errors.newName = 'This field is required';
         }
+        const userReg = /^([a-zA-Z0-9]){3,20}$/
+        if (!userReg.test(values.newName)) {
+          errors.newName = 'User name does not meet the requirements';
+        }
         if (!values.newPassword) {
           errors.newPassword = 'This field is required';
         }
-        const reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/
-                if (!reg.test(values.newPassword)) {
+        const passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/
+                if (!passwordReg.test(values.newPassword)) {
           errors.newPassword = 'Password does not meet the requirements';
         }
         return errors;
