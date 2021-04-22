@@ -6,6 +6,7 @@ import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
+import ErrorMessage from '../styles/ErrorMessage';
 
 const NewUserForm = () => {
 
@@ -74,7 +75,7 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newName}
               onBlur={handleBlur} />
-            {errors.newName && touched.newName && errors.newName}
+            <ErrorMessage> {errors.newName && touched.newName && errors.newName} </ErrorMessage>
             <Label htmlFor="newPassword">Password: </Label>
             <Input
               type="newPassword"
@@ -83,7 +84,7 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newPassword}
               onBlur={handleBlur} />
-            {errors.newPassword && touched.newPassword && errors.newPassword}
+            <ErrorMessage> {errors.newPassword && touched.newPassword && errors.newPassword} </ErrorMessage>
             <Button login form="true" type="submit" disabled={isSubmitting}>Add new user</Button>
           </Form>
         )}

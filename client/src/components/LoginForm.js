@@ -9,7 +9,7 @@ import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
-import Paragraph from '../styles/Paragraph';
+import ErrorMessage from '../styles/ErrorMessage';
 
 const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
   
@@ -99,7 +99,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               onChange={handleChange}
               value={values.name}
               onBlur={handleBlur} />
-            {errors.name && touched.name && errors.name}
+            <ErrorMessage> {errors.name && touched.name && errors.name} </ErrorMessage>
             <Label htmlFor="password">Password: </Label>
             <Input
               type="password"
@@ -108,8 +108,8 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               onChange={handleChange}
               value={values.password}
               onBlur={handleBlur} />
-            {errors.password && touched.password && errors.password}
-            {rejection && <Paragraph>{message}</Paragraph>}  
+            <ErrorMessage> {errors.password && touched.password && errors.password} </ErrorMessage>
+            {rejection && <ErrorMessage>{message}</ErrorMessage>}  
             <Button login submit type="submit" disabled={isSubmitting}>Log in</Button>
             </Form>
         )}
