@@ -77,7 +77,7 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newName}
               onBlur={handleBlur} />
-            {/* <ErrorMessage> {errors.newName ? (errors.newName && touched.newName && errors.newName): ''} </ErrorMessage>  */}
+            <ErrorMessage> {errors.newName ? (errors.newName && touched.newName && errors.newName): ''} </ErrorMessage> 
             <Label htmlFor="newPassword">Password: </Label>
             <Input
               type="newPassword"
@@ -86,7 +86,7 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newPassword}
               onBlur={handleBlur} />
-            {/* <ErrorMessage> {errors.newPassword ? (errors.newPassword && touched.newPassword && errors.newPassword) : ''} </ErrorMessage> */}
+            <ErrorMessage> {errors.newPassword ? (errors.newPassword && touched.newPassword && errors.newPassword) : ''} </ErrorMessage>
             <Button login form="true" type="submit" disabled={isSubmitting}>Add new user</Button>
           </Form>
         )}

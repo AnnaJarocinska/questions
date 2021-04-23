@@ -23,12 +23,6 @@ font-size: 20px;
 }
 `}
 
-${({ submit }) => submit && css`
-margin: 0 auto;
-margin-top: 15px;
-width: 70%;
-`}
-
 ${({ yellow }) => yellow && css`
 background-color: ${props => props.theme.colors.yellow.dark};
 margin-right:0;
@@ -53,3 +47,9 @@ margin-top: 100px;
 `
 
 export default Button;
+
+// ${({ submit }) => submit && css`
+// margin: 0 auto;
+// margin-top: 15px;
+// width: 70%;
+// `}
