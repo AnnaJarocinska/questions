@@ -1,10 +1,11 @@
 import React from 'react';
 import Container from '../../styles/Container';
+import Paragraph from '../../styles/Paragraph';
 
 const MoreInformation = () => {
     return (
         <Container>
-            <p>Info</p>
+            <Paragraph>Info</Paragraph>
         </Container>
       );
 }

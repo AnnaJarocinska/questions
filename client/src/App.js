@@ -35,7 +35,7 @@ const App = () => {
             <Overlay>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route  path="/moreInformation" component={MoreInformation} />
+                <Route path="/moreInformation" component={MoreInformation} />
                 <Route  path="/login" component={Login} />
                 <Route  path="/newUser" component={NewUser} />
                 <Route path="/newUser/created" component={UserCreated} />
