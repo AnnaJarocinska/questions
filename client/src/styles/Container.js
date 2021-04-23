@@ -91,7 +91,9 @@ margin-right: 10px;
 `}
 ${({ main }) => main && css`
 flex-direction: column;
-justify-content: space-around;
+justify-content: center;
+height: 80vh;
+flex-wrap: wrap;
 `}
 
 ${({ form }) => form && css`
