@@ -4,7 +4,7 @@ import Paragraph from '../../styles/Paragraph';
 
 const MoreInformation = () => {
     return (
-        <Container>
+        <Container main>
             <Paragraph>Info</Paragraph>
         </Container>
       );
