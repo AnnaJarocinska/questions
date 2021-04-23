@@ -34,12 +34,14 @@ const NewUserForm = () => {
           errors.newPassword = 'Password does not meet the requirements';
         }
         return errors;
+        
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
         const content = {
           name: values.newName,
           password: values.newPassword
         }
+        console.log(content, 'content')
     
           axios.post('/newUser', content)
             .then(res => {
@@ -75,7 +77,7 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newName}
               onBlur={handleBlur} />
-            <ErrorMessage> {errors.newName && touched.newName && errors.newName} </ErrorMessage>
+            {/* <ErrorMessage> {errors.newName ? (errors.newName && touched.newName && errors.newName): ''} </ErrorMessage>  */}
             <Label htmlFor="newPassword">Password: </Label>
             <Input
               type="newPassword"
@@ -84,13 +86,13 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newPassword}
               onBlur={handleBlur} />
-            <ErrorMessage> {errors.newPassword && touched.newPassword && errors.newPassword} </ErrorMessage>
+            {/* <ErrorMessage> {errors.newPassword ? (errors.newPassword && touched.newPassword && errors.newPassword) : ''} </ErrorMessage> */}
             <Button login form="true" type="submit" disabled={isSubmitting}>Add new user</Button>
           </Form>
         )}
     </Formik>
      {created && <Redirect to='/newUser/created'/>}
-    {rejection && <p>This username is already in use</p>}    
+    {rejection && <ErrorMessage>This username is already in use</ErrorMessage>}    
   </>
 )}
 
