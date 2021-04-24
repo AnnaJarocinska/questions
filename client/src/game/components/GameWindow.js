@@ -47,6 +47,7 @@ const GameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
 }}
     return ( 
         <>
+        <Container main>
             <Container points="true">
                 <p>Points : </p> 
                 <PointsBox> {points} </PointsBox>
@@ -55,6 +56,7 @@ const GameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
                 {!gameFinished ? current : <GameFinished clearGameDetails={clearGameDetails} toSave={toSave}/>}
             </Container>
             {!gameOn && <Button login red onClick={startGame}> Start game </Button>}
+        </Container>
         </>
    );
 }
