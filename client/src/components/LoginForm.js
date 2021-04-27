@@ -39,7 +39,10 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
         await axios.post('login', content)
         .then(res => {
           if (res.data) {
+            console.log(res.data, 'res.data w loginform')
                 setRejection(true);
+                setMessage(res.data);
+                
           }
         })
           .catch(err => console.log(err, 'err post'))
@@ -106,7 +109,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
               onBlur={handleBlur} />
             <ErrorMessage> {errors.password && touched.password && errors.password} </ErrorMessage>
             {rejection && <ErrorMessage>{message}</ErrorMessage>}  
-            <Button login type="submit" disabled={isSubmitting}> Log in</Button>
+            <Button login type="submit" disabled={isSubmitting}> Log in </Button>
             </Form>
         )}
     </Formik>

@@ -44,15 +44,12 @@ router.post('/history', verifyUser, async (req, res) => {
 });
 
 router.post('/details/changePassword', verifyUser, async (req, res) => {
-  console.log(req.body.password, 'rbpassPRZED')
   try{
-    console.log(req.body.password, 'rbpass')
     const salt = await bcrypt.genSalt(10);
     const newPassword = await bcrypt.hash(req.body.password, salt);
     const filter = { key: req.cookies.key };
     const update = { password: newPassword };
     const change = await User.findOneAndUpdate(filter, update)
-    res.send('yes!');
     change();
     if (err) {
       console.log('error');
