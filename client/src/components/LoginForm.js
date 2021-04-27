@@ -99,6 +99,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
               value={values.name}
               onBlur={handleBlur}/>
             <ErrorMessage> {errors.name && touched.name && errors.name} </ErrorMessage>
+            {rejection && (message.indexOf("user") !== -1)? <ErrorMessage>{message}</ErrorMessage>: null}  
             <Label htmlFor="password"> Password: </Label>
             <Input
               type="password"
@@ -108,7 +109,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
               value={values.password}
               onBlur={handleBlur} />
             <ErrorMessage> {errors.password && touched.password && errors.password} </ErrorMessage>
-            {rejection && <ErrorMessage>{message}</ErrorMessage>}  
+            {rejection && (message.indexOf("password") !== -1)? <ErrorMessage>{message}</ErrorMessage>: null}  
             <Button login type="submit" disabled={isSubmitting}> Log in </Button>
             </Form>
         )}
