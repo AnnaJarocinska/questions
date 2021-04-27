@@ -6,9 +6,8 @@ const bcrypt = require('bcryptjs');
 router.post('/', async (req, res) => {
 
   const userNameTaken = await User.findOne({name: req.body.name});
-  console.log(userNameTaken, 'userNameTaken')
     if (userNameTaken){
-      return res.status(400).send('rejection')
+      return res.send('rejection')
     }            
     if (!userNameTaken) {
       const salt = await bcrypt.genSalt(10);

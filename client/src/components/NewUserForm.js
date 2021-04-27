@@ -24,14 +24,14 @@ const NewUserForm = () => {
         }
         const userReg = /^([a-zA-Z0-9]){3,20}$/
         if (!userReg.test(values.newName)) {
-          errors.newName = 'User name does not meet the requirements';
+          errors.newName = 'Incorrect user name';
         }
         if (!values.newPassword) {
           errors.newPassword = 'This field is required';
         }
         const passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/
           if (!passwordReg.test(values.newPassword)) {
-            errors.newPassword = 'Password does not meet the requirements';
+            errors.newPassword = 'Incorrect password';
         }
         return errors;
         
@@ -74,6 +74,7 @@ const NewUserForm = () => {
               value={values.newName}
               onBlur={handleBlur} />
             <ErrorMessage> {errors.newName ? (errors.newName && touched.newName && errors.newName): ''} </ErrorMessage> 
+            {rejection && <ErrorMessage>This username is already in use</ErrorMessage>}   
             <Label htmlFor="newPassword">Password: </Label>
             <Input
               type="newPassword"
@@ -87,8 +88,7 @@ const NewUserForm = () => {
           </Form>
         )}
     </Formik>
-     {created && <Redirect to='/newUser/created'/>}
-    {rejection && <ErrorMessage>This username is already in use</ErrorMessage>}    
+     {created && <Redirect to='/newUser/created'/>} 
   </>
 )}
 
