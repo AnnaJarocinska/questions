@@ -30,8 +30,8 @@ const NewUserForm = () => {
           errors.newPassword = 'This field is required';
         }
         const passwordReg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,20}$/
-                if (!passwordReg.test(values.newPassword)) {
-          errors.newPassword = 'Password does not meet the requirements';
+          if (!passwordReg.test(values.newPassword)) {
+            errors.newPassword = 'Password does not meet the requirements';
         }
         return errors;
         
@@ -41,7 +41,6 @@ const NewUserForm = () => {
           name: values.newName,
           password: values.newPassword
         }
-        console.log(content, 'content')
     
           axios.post('/newUser', content)
             .then(res => {
@@ -50,13 +49,10 @@ const NewUserForm = () => {
             }
             if (res.data === 'rejection'){
               setRejection(true);
-              resetForm();
-            }
-            
-            })
-            
+            }})
             .catch(err => console.log(err))
-        
+            resetForm();
+            setSubmitting(false);
       }}
     >
       {({
@@ -87,7 +83,7 @@ const NewUserForm = () => {
               value={values.newPassword}
               onBlur={handleBlur} />
             <ErrorMessage> {errors.newPassword ? (errors.newPassword && touched.newPassword && errors.newPassword) : ''} </ErrorMessage>
-            <Button login form="true" type="submit" disabled={isSubmitting}>Add new user</Button>
+            <Button login type="submit" disabled={isSubmitting}>Add new user</Button>
           </Form>
         )}
     </Formik>
@@ -95,6 +91,5 @@ const NewUserForm = () => {
     {rejection && <ErrorMessage>This username is already in use</ErrorMessage>}    
   </>
 )}
-
 
 export default NewUserForm;

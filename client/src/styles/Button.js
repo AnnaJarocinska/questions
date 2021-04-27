@@ -47,9 +47,3 @@ margin-top: 100px;
 `
 
 export default Button;
-
-// ${({ submit }) => submit && css`
-// margin: 0 auto;
-// margin-top: 15px;
-// width: 70%;
-// `}
