@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../../styles/Container';
-import Paragraph from '../../styles/Paragraph';
+import Subtitle from '../../styles/Subtitle';
 
 const UserCreated = () => {
     return (
-        <Container main>
-          <Paragraph>Your account has been created</Paragraph>
+        <Container form="true">
+          <Subtitle>Your account has been created</Subtitle>
           <Link to="/login">Log in</Link>
         </Container>
       );
