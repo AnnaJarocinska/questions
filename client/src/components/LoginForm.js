@@ -40,7 +40,6 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
         .then(res => {
           if (res.data) {
                 setRejection(true);
-                setMessage(res.data);
           }
         })
           .catch(err => console.log(err, 'err post'))
@@ -110,7 +109,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               onBlur={handleBlur} />
             <ErrorMessage> {errors.password && touched.password && errors.password} </ErrorMessage>
             {rejection && <ErrorMessage>{message}</ErrorMessage>}  
-            <Button login form="true" type="submit" disabled={isSubmitting}>Log in</Button>
+            <Button login type="submit" disabled={isSubmitting}>Log in</Button>
             </Form>
         )}
     </Formik>
