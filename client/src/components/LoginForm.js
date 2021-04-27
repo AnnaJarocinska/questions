@@ -11,7 +11,7 @@ import Label from '../styles/Label';
 import Input from '../styles/Input';
 import ErrorMessage from '../styles/ErrorMessage';
 
-const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
+const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
   
   const [rejection, setRejection] = useState(false);
   const [message, setMessage] = useState('');
@@ -29,7 +29,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
         }
         return errors;
       }}
-      onSubmit = { async (values, { resetForm }) => {
+      onSubmit = { async (values, { setSubmitting, resetForm }) => {
         
         const content = {
           name: values.name,
@@ -43,14 +43,13 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
           }
         })
           .catch(err => console.log(err, 'err post'))
-
+          setSubmitting(false);
           const cookieKey = Cookies.get('key');
           const cookieContent = {
             key: cookieKey,
           }
 
           const applyCookie = Cookies.get('apply');
-          
           applyCookie === '1' && await axios.post('admin', cookieContent)
             .then(res => {  
               if (res.data !== "rejection"){
@@ -66,7 +65,6 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
 
           applyCookie === '2' && await axios.post('user', cookieContent)
             .then(res => {
-           
               if (res.data !== "rejection"){
               userLoggedIn(res.data.userName, res.data.created, res.data.admin);
               }
@@ -77,7 +75,6 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               }
             })
             .catch(err => console.log(err, 'err user'))
-        
       }}
     >
       {({
@@ -90,16 +87,16 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
         isSubmitting,
       }) => (
           <Form onSubmit={handleSubmit} >
-            <Label htmlFor="name">User: </Label>
+            <Label htmlFor="name"> User: </Label>
             <Input
               type="text"
               name="name"
               id="name"
               onChange={handleChange}
               value={values.name}
-              onBlur={handleBlur} />
+              onBlur={handleBlur}/>
             <ErrorMessage> {errors.name && touched.name && errors.name} </ErrorMessage>
-            <Label htmlFor="password">Password: </Label>
+            <Label htmlFor="password"> Password: </Label>
             <Input
               type="password"
               name="password"
@@ -109,7 +106,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn}) => {
               onBlur={handleBlur} />
             <ErrorMessage> {errors.password && touched.password && errors.password} </ErrorMessage>
             {rejection && <ErrorMessage>{message}</ErrorMessage>}  
-            <Button login type="submit" disabled={isSubmitting}>Log in</Button>
+            <Button login type="submit" disabled={isSubmitting}> Log in</Button>
             </Form>
         )}
     </Formik>
