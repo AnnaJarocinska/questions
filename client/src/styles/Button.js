@@ -42,7 +42,7 @@ font-size: 20px;
 `}
 
 ${({ space }) => space && css`
-margin-top: 100px;
+margin-top: 10px;
 `}
 `
 

@@ -15,4 +15,5 @@ letter-spacing: 1px;
     filter: brightness(120%);
 }`
 }`
+
 export default Label;
