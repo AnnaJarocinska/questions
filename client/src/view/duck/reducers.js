@@ -3,8 +3,9 @@ import produce from 'immer';
 import { REHYDRATE } from 'redux-persist';
 
 const INITIAL_STATE = {
-  admin: false,
+ 
   user: false,
+  admin: false,
   unnamed: true,
   userName: '', 
   created: '',
@@ -16,11 +17,7 @@ const viewReducer = (state = INITIAL_STATE, action) =>
     switch (action.type) {
 
       case REHYDRATE:
-      return {
-        ...state,
-        userName: action.payload.userName
-      };
-
+          break;
       case types.ADMIN_LOGGEDIN:
           draft.admin = !draft.admin;
           draft.unnamed = !draft.unnamed;
