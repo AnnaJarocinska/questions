@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Redirect } from 'react-router';
@@ -15,6 +15,16 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
   
   const [rejection, setRejection] = useState(false);
   const [message, setMessage] = useState('');
+
+  // useEffect(() => {
+  //   const parsedCount = Number(localStorage.getItem("loggedIn") || 0)
+  //   userLoggedIn(parsedCount)
+  // }, [])
+
+  // useEffect(() => {
+  //   localStorage.setItem("loggedIn", user )
+  // }, [user])
+
   return (
   <>
     <Formik

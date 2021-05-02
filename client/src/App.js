@@ -24,6 +24,7 @@ import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
 import GameMenu from './game/components/GameMenu';
 
+
 const App = () => {
   return (
     <ThemeProvider theme={theme}>

@@ -1,5 +1,6 @@
 import types from './types';
 import produce from 'immer';
+import { REHYDRATE } from 'redux-persist';
 
 const INITIAL_STATE = {
   admin: false,
@@ -13,6 +14,12 @@ const INITIAL_STATE = {
 const viewReducer = (state = INITIAL_STATE, action) =>
   produce(state, draft => {
     switch (action.type) {
+
+      case REHYDRATE:
+      return {
+        ...state,
+        userName: action.payload.userName
+      };
 
       case types.ADMIN_LOGGEDIN:
           draft.admin = !draft.admin;
