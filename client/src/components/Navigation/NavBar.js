@@ -35,11 +35,11 @@ const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLogg
                 admin={admin ? admin.toString() : undefined}
                 user={user ? user.toString() : undefined}>
                     <Container icons mobile={mobile ? mobile.toString() : undefined}>
-                        <Link to="/moreInformation"> 
+                        <Link to="/moreInformation" onClick={toggleMenu}> 
                             <Span> <Span icon><FontAwesomeIcon icon={faBinoculars}/> </Span>
                             {(desktop || mobile) && "More information"}</Span>
                         </Link>
-                        <Link to="/">
+                        <Link to="/" onClick={toggleMenu}>
                             <Span> <Span icon> <FontAwesomeIcon icon={faCampground}/> </Span>
                             {(desktop || mobile) && "Home"}</Span>
                         </Link>
@@ -57,11 +57,11 @@ const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLogg
                     <Container buttons mobile={mobile ? mobile.toString() : undefined}>
                     <Who unnamed={unnamed} admin={admin} user={user}/>
                         {unnamed?
-                        <Link to="/login"> <Button login> Login </Button> </Link> :
-                        <Link to="/login"> <Button login onClick={() => {logOut(); Cookies.remove('key'); Cookies.remove('apply')}}>
+                        <Link to="/login" onClick={toggleMenu}> <Button login> Login </Button> </Link> :
+                        <Link to="/login" onClick={toggleMenu}> <Button login onClick={() => {logOut(); Cookies.remove('key'); Cookies.remove('apply')}}>
                             Logout </Button></Link>}
-                        {!admin && !user ? <Link to="/newUser"> <Button login> Register </Button> </Link> : null}
-                        {!admin && !user ? <Link to="/quiz"> <Button login yellow> Quick game </Button> </Link> : null}
+                        {!admin && !user ? <Link to="/newUser" onClick={toggleMenu}> <Button login> Register </Button> </Link> : null}
+                        {!admin && !user ? <Link to="/quiz" onClick={toggleMenu}> <Button login yellow> Quick game </Button> </Link> : null}
                     </Container>
             </Navigation>
             }
