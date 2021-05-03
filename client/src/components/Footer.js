@@ -5,7 +5,7 @@ import Foooter from '../styles/Footer';
 const Footer = () => {
     return ( 
         <Foooter>
-        <Paragraph>Copyright &#169; 2021 AJ</Paragraph>
+            <Paragraph small>Copyright &#169; 2021 AJ</Paragraph>
         </Foooter>
      );
 }

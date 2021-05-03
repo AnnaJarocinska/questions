@@ -17,6 +17,15 @@ cursor: pointer;
 ${({ center }) => center && css`
 text-align: center;
 `}
+${({ small }) => small && css`
+font-size: 15px;
+@media (min-width: 600px) {
+    font-size: 10px;
+    }
+@media (min-width: 1000px) {
+    font-size: 15px;
+    }
+`}
 `
 
 export default Paragraph;
