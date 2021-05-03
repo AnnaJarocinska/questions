@@ -3,13 +3,11 @@ import produce from 'immer';
 import { REHYDRATE } from 'redux-persist';
 
 const INITIAL_STATE = {
- 
   user: false,
   admin: false,
   unnamed: true,
   userName: '', 
-  created: '',
-  adminn: false
+  created: ''
 }
 
 const viewReducer = (state = INITIAL_STATE, action) =>
@@ -33,7 +31,7 @@ const viewReducer = (state = INITIAL_STATE, action) =>
           draft.unnamed = !draft.unnamed;
           draft.userName = action.payload.userName;
           draft.created = action.payload.created;
-          draft.adminn = action.payload.admin;
+          draft.admin = action.payload.admin;
           break;
 
       case types.USER_LOGGEDOUT:
@@ -41,7 +39,7 @@ const viewReducer = (state = INITIAL_STATE, action) =>
           draft.unnamed = true;
           draft.userName = "";
           draft.created = "";
-          draft.adminn = false;
+          draft.admin = false;
           break;
 
       default:

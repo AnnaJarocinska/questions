@@ -127,7 +127,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     adminLoggedIn: () =>  dispatch(actions.adminLoggedIn()),
-    userLoggedIn: (userName, created, adminn) => dispatch(actions.userLoggedIn(userName, created, adminn))
+    userLoggedIn: (userName, created, admin) => dispatch(actions.userLoggedIn(userName, created, admin))
   }) 
 
 export default connect(mapStateToProps, mapDispatchToProps) (LoginForm);

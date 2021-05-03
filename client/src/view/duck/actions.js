@@ -8,9 +8,9 @@ const adminLoggedOut = () => ({
     type: types.ADMIN_LOGGEDOUT
 })
 
-const userLoggedIn = (userName, created, adminn) => ({
+const userLoggedIn = (userName, created, admin) => ({
     type: types.USER_LOGGEDIN,
-    payload: {userName, created, adminn}
+    payload: {userName, created, admin}
 })
 
 const userLoggedOut = () => ({
