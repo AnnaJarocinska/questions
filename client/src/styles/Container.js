@@ -7,8 +7,8 @@ align-items: center;
 
 ${({ separate }) => separate && css`
 background-color: ${props => props.theme.colors.grey.dark};
-min-width: 400px;
-min-height: 55%;
+min-width: 300px;
+min-height: 35vh;
 margin: 0 auto;
 color: white;
 border: 10px dotted ${props => props.theme.colors.yellow.dark};
@@ -17,6 +17,7 @@ justify-content: center;
 @media (min-width: 600px) {
     width: ${props => props.half? '50%' : '100%'};
     padding: 20px;
+    min-width: 400px;
     }
 @media (min-width: 1000px) {
     width: 600px;
@@ -92,7 +93,7 @@ margin-right: 10px;
 ${({ main }) => main && css`
 flex-direction: column;
 justify-content: space-around;
-height: 80vh;
+min-height: 70vh;
 flex-wrap: wrap;
 `}
 
