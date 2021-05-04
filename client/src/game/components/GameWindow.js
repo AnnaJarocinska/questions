@@ -41,7 +41,7 @@ const GameWindow = ({currentQuestion, points, gameFinished, gameOn, toSave,
                 ?
                <CapitalLetterParagraph key={key} name= {key}> {value} ? </CapitalLetterParagraph> 
                 :
-                <Paragraph key={key} name= {key} onClick={handleAnswerClick}> {value} </Paragraph>
+                <Paragraph clickable key={key} name= {key} onClick={handleAnswerClick}> {value} </Paragraph>
                 )
             } 
 }}
