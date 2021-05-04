@@ -21,7 +21,7 @@ justify-content: center;
     }
 @media (min-width: 1000px) {
     width: 600px;
-    min-height: 30%;
+    min-height: 40vh;
     }
     ${({ max }) => max && css`
     height: 75%;
@@ -92,8 +92,9 @@ margin-right: 10px;
 `}
 ${({ main }) => main && css`
 flex-direction: column;
+align-items:center;
 justify-content: space-around;
-min-height: 70vh;
+min-height: 75vh;
 flex-wrap: wrap;
 `}
 
