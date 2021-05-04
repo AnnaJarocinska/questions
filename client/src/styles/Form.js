@@ -7,7 +7,7 @@ justify-content: center;
 align-items-center;
 margin: auto;
 width: 75%;
-height: 85vh;
+height: 80vh;
 @media (min-width: 600px) {
     width: 40%;   
     height: 70vh;

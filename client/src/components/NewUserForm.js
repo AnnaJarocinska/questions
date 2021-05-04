@@ -73,8 +73,8 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newName}
               onBlur={handleBlur} />
-            <ErrorMessage> {errors.newName ? (errors.newName && touched.newName && errors.newName): ''} </ErrorMessage> 
-            {rejection && <ErrorMessage> This username is already in use</ErrorMessage>}   
+            {rejection ? <ErrorMessage> This username is already in use</ErrorMessage> :
+             <ErrorMessage> {errors.newName ? (errors.newName && touched.newName && errors.newName): ''} </ErrorMessage> }   
             <Label htmlFor="newPassword"> Password: </Label>
             <Input
               type="newPassword"
@@ -83,8 +83,8 @@ const NewUserForm = () => {
               onChange={handleChange}
               value={values.newPassword}
               onBlur={handleBlur} />
-            <ErrorMessage> {errors.newPassword ? (errors.newPassword && touched.newPassword && errors.newPassword) : ''} </ErrorMessage>
-            <Button login type="submit" disabled={isSubmitting}> Add new user</Button>
+             <ErrorMessage> {errors.newPassword ? (errors.newPassword && touched.newPassword && errors.newPassword) : ''} </ErrorMessage>
+            <Button login space type="submit" disabled={isSubmitting}> Add new user</Button>
           </Form>
         )}
     </Formik>
