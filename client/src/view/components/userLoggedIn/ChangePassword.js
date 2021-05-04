@@ -71,7 +71,7 @@ const ChangePassword = () => {
         onBlur={handleBlur}
         value={values.password2}/>
         {errors.password2 && touched.password2 && errors.password2}
-        <Button login type="submit" disabled={isSubmitting}>
+        <Button login space type="submit" disabled={isSubmitting}>
             Submit
         </Button>
         </Form>)}

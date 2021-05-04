@@ -26,10 +26,10 @@ const GameDetails = ({categories, mode, menuVisible,
             <Container separate half>
                 {(categories.length !== 0) &&
                 <>
-                    <Paragraph> Selected categories: </Paragraph>
+                    <Paragraph medium> Selected categories: </Paragraph>
                     <Badges list={categories} onClick={deleteCategory}/>
                 </>}
-                {mode && <Paragraph> Selected mode: {mode}</Paragraph>}
+                {mode && <Paragraph medium> Selected mode: {mode}</Paragraph>}
                 {((categories.length !== 0 && mode) && menuVisible) && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
         }

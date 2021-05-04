@@ -17,6 +17,9 @@ cursor: pointer;
 ${({ center }) => center && css`
 text-align: center;
 `}
+${({ medium }) => medium && css`
+font-size: 15px;
+`}
 ${({ small }) => small && css`
 font-size: 15px;
 @media (min-width: 600px) {
