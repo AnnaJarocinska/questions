@@ -94,7 +94,7 @@ ${({ main }) => main && css`
 flex-direction: column;
 align-items:center;
 justify-content: space-around;
-min-height: 75vh;
+min-height: 70vh;
 flex-wrap: wrap;
 `}
 
