@@ -5,6 +5,12 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 
+${({ strap }) => strap && css`
+flex-wrap: wrap;
+flex-direction: column;
+align-items: stretch;
+`}
+
 ${({ separate }) => separate && css`
 background-color: ${props => props.theme.colors.grey.dark};
 min-width: 300px;

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Container from '../../styles/Container';
 import Paragraph from '../../styles/Paragraph';
 import Button from '../../styles/Button';
+import Label from '../../styles/Label';
 import GameFetchQuestions from './GameFetchQuestions';
 import actions from '../duck/actions';
 import Badges from '../../components/Badges';
@@ -23,14 +24,15 @@ const GameDetails = ({categories, mode, menuVisible,
     return (  
         <>
         {(categories.length !== 0 || mode) &&
-            <Container separate half>
+            <Container strap>
                 {(categories.length !== 0) &&
-                <>
+                <Container>
                     <Paragraph medium> Selected categories: </Paragraph>
                     <Badges list={categories} onClick={deleteCategory}/>
-                </>}
-                {mode && <Paragraph medium> Selected mode: {mode}</Paragraph>}
-                {((categories.length !== 0 && mode) && menuVisible) && <Button login red onClick={saveSelectedDetails}>Submit</Button>}
+                </Container>}
+                {mode && <Paragraph medium> Selected mode: <Label radio>{mode}</Label></Paragraph>}
+                {((categories.length !== 0 && mode) && menuVisible) && 
+                <Container basis ><Button login red space onClick={saveSelectedDetails}>Submit</Button></Container>}
             </Container>
         }
             {!menuVisible && <GameFetchQuestions clearGameDetails={clearGameDetails}/>}

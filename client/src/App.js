@@ -23,6 +23,7 @@ import Overlay from './styles/Overlay';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation/Navigation';
 import GameMenu from './game/components/GameMenu';
+import Container from './styles/Container';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
           <Navigation/>
           <Wrapper>
             <Overlay>
+              <Container main>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/moreInformation" component={MoreInformation} />
@@ -52,6 +54,7 @@ const App = () => {
                 <ProtectedRoute path="/users" component={Users} access="admin" />
                 <Route path="/" component={Home} />
               </Switch>
+              </Container>
             </Overlay>
           </Wrapper>
           <Footer />
