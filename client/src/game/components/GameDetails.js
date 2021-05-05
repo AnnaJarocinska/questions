@@ -31,7 +31,7 @@ const GameDetails = ({categories, mode, menuVisible,
                     <Paragraph medium> Selected categories: </Paragraph>
                     <Badges list={categories} onClick={menuVisible && deleteCategory} unclickable={unclickable}/>
                 </Container>}
-                {mode && <Paragraph medium> Selected mode: <Label radio>{mode}</Label></Paragraph>}
+                {mode && <Paragraph medium> Selected mode: <Label radio unclickable={unclickable}>{mode}</Label></Paragraph>}
                 {((categories.length !== 0 && mode) && menuVisible) && 
                 <Container basis ><Button login red space onClick={saveSelectedDetails}>Submit</Button></Container>}
             </Container>

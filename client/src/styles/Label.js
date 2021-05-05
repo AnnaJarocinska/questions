@@ -13,7 +13,13 @@ font-size: 15px;
 letter-spacing: 1px;
 &:hover{
     filter: brightness(120%);
-}`
-}`
+}
+
+${({ unclickable }) => unclickable && css`
+&:hover{
+  filter: brightness(100%);
+}`}
+`}
+`
 
 export default Label;

@@ -12,7 +12,6 @@ margin: 5px;
 }
 
 ${({ unclickable }) => unclickable && css`
-background-color:pink;
 &:hover{
   filter: brightness(100%);
 }
@@ -38,7 +37,6 @@ ${props => props.continent === 'South America' && css`
 `};
 &.active{
   background-color: ${props => props.theme.colors.grey.inactive};
-}
+}`
 
-`
 export default Badge;
