@@ -21,6 +21,7 @@ const GameDetails = ({categories, mode, menuVisible,
         setGameDetails(categoriesWithoutDuplicates, mode);
         setMenuVisability();     
     }
+    const unclickable = !menuVisible ? true : false
     return (  
         <>
         {(categories.length !== 0 || mode) &&
@@ -28,7 +29,7 @@ const GameDetails = ({categories, mode, menuVisible,
                 {(categories.length !== 0) &&
                 <Container>
                     <Paragraph medium> Selected categories: </Paragraph>
-                    <Badges list={categories} onClick={deleteCategory}/>
+                    <Badges list={categories} onClick={menuVisible && deleteCategory} unclickable={unclickable}/>
                 </Container>}
                 {mode && <Paragraph medium> Selected mode: <Label radio>{mode}</Label></Paragraph>}
                 {((categories.length !== 0 && mode) && menuVisible) && 

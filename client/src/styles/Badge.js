@@ -8,9 +8,17 @@ font-size: 15px;
 letter-spacing: 1px;
 margin: 5px;
 &:hover{
-    filter: brightness(120%);
+  filter: brightness(120%);
 }
- ${props => props.continent === 'Africa' && css`
+
+${({ unclickable }) => unclickable && css`
+background-color:pink;
+&:hover{
+  filter: brightness(100%);
+}
+`}
+
+${props => props.continent === 'Africa' && css`
  background-color: ${props => props.theme.colors.yellow.dark};
 `};
 ${props => props.continent === 'Asia' && css`

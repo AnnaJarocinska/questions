@@ -1,17 +1,18 @@
 import React from 'react';
 import Badge from '../styles/Badge';
 
-const Badges = ({list, onClick}) => {
+const Badges = ({list, onClick, unclickable}) => {
     return ( 
         <>
 {list.map((listItem, index) => 
 
             <Badge 
-                continent={listItem}
-                key={listItem}
+                continent= {listItem}
+                key= {listItem}
                 id= {index}
-                name={listItem}
-                onClick={onClick}
+                name= {listItem}
+                onClick= {onClick}
+                unclickable ={unclickable}
             >
                 {listItem} 
             </Badge>)}
