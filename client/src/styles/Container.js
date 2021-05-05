@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 
 const Container = styled.div`
 display: flex;
-justify-content: space-between;
 align-items: center;
 
 ${({ strap }) => strap && css`
