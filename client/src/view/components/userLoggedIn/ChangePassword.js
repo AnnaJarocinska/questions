@@ -55,7 +55,7 @@ const ChangePassword = () => {
       }) => (
             <Form
             onSubmit={handleSubmit}>
-        <Label>New password</Label>
+        <Label>New password:</Label>
         <Input
         type="password"
         name="password1"
@@ -63,7 +63,7 @@ const ChangePassword = () => {
         onBlur={handleBlur}
         value={values.password1}/>
         {errors.password1 && touched.password1 && errors.password1}
-        <Label>New password</Label>
+        <Label>New password:</Label>
         <Input
         type="password"
         name="password2"

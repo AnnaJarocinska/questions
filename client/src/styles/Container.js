@@ -9,6 +9,9 @@ ${({ strap }) => strap && css`
 flex-wrap: wrap;
 flex-direction: column;
 align-items: stretch;
+margin-top 10px;
+background-color: ${props => props.transparent? 'transparent' : 'rgba(255,255,255,0.2)'};
+width: 100vw;
 `}
 
 ${({ separate }) => separate && css`
