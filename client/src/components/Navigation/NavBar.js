@@ -59,7 +59,7 @@ const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLogg
                             <Span onClick={showDashboard}> <Span icon> <FontAwesomeIcon icon={faMap}/> </Span>
                             {(desktop || mobile) && "Dashboard"}</Span>
                         </Link>
-                        {show && <UserNav/>}
+                        {(show & mobile) && <UserNav/>}
                         </>}  
                     </Container>
                     <Container buttons mobile={mobile ? mobile.toString() : undefined}>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
-// import { Link } from 'react-router-dom';
 import CapitalLetterParagraph from '../../../styles/CapitalLetterParagraph';
-// import Paragraph from '../../../styles/Paragraph';
 import Container from '../../../styles/Container';
 import UserNav from './UserNav';
 
