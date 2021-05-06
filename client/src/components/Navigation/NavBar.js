@@ -11,13 +11,18 @@ import Container from '../../styles/Container';
 import Span from '../../styles/Span';
 import Navigation from '../../styles/Navigation';
 import Who from './Who';
+import UserNav from '../../view/components/userLoggedIn/UserNav';
 
 const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLoggedOut}) => {
 
-    const [expand, setExpand] = useState(false)
+    const [expand, setExpand] = useState(false);
+    const [show, setShow] = useState(false);
     const logOut = admin ? adminLoggedOut : userLoggedOut;
     const toggleMenu = () => {
         setExpand(!expand)
+    }
+    const showDashboard = () => {
+        setShow(!show)
     }
     const isExpanded = mobile? expand : true;
     return ( 
@@ -49,10 +54,13 @@ const NavBar = ({mobile, desktop, admin, user, unnamed, adminLoggedOut, userLogg
                             {(desktop || mobile) && "Dashboard"}</Span>
                         </Link>}
                         {user && 
+                        <>
                         <Link to="/user">
-                            <Span> <Span icon> <FontAwesomeIcon icon={faMap}/> </Span>
+                            <Span onClick={showDashboard}> <Span icon> <FontAwesomeIcon icon={faMap}/> </Span>
                             {(desktop || mobile) && "Dashboard"}</Span>
-                        </Link>}  
+                        </Link>
+                        {show && <UserNav/>}
+                        </>}  
                     </Container>
                     <Container buttons mobile={mobile ? mobile.toString() : undefined}>
                     <Who unnamed={unnamed} admin={admin} user={user}/>
