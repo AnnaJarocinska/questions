@@ -25,7 +25,7 @@ const GameDetails = ({categories, mode, menuVisible,
     return (  
         <>
         {(categories.length !== 0 || mode) &&
-            <Container strap transparent ={unclickable}>
+            <Container strap transparent = {unclickable}>
                 {(categories.length !== 0) &&
                 <Container>
                     <Paragraph medium> Selected categories: </Paragraph>
