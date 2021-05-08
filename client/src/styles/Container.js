@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 const Container = styled.div`
 display: flex;
 align-items: center;
+flex-wrap: ${props => props.wrap && 'wrap'};
+width: 100%;
 
 ${({ strap }) => strap && css`
 flex-wrap: wrap;
@@ -10,7 +12,6 @@ flex-direction: column;
 align-items: stretch;
 margin-top 10px;
 background-color: ${props => props.transparent? 'transparent' : 'rgba(255,255,255,0.2)'};
-flex-basis: 100%;
 `}
 
 ${({ separate }) => separate && css`
@@ -104,6 +105,7 @@ align-items:center;
 justify-content: space-around;
 min-height: 70vh;
 flex-wrap: wrap;
+width: 100%;
 `}
 
 ${({ form }) => form && css`

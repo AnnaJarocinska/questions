@@ -5,6 +5,7 @@ import Input from '../../../styles/Input';
 import Label from '../../../styles/Label';
 import Button from '../../../styles/Button';
 import Form from '../../../styles/Form';
+import ErrorMessage from '../../../styles/ErrorMessage';
 
 const ChangePassword = () => {
     return ( 
@@ -62,7 +63,7 @@ const ChangePassword = () => {
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.password1}/>
-        {errors.password1 && touched.password1 && errors.password1}
+        <ErrorMessage>{errors.password1 && touched.password1 && errors.password1}</ErrorMessage>
         <Label>New password:</Label>
         <Input
         type="password"
@@ -70,7 +71,7 @@ const ChangePassword = () => {
         onChange={handleChange}
         onBlur={handleBlur}
         value={values.password2}/>
-        {errors.password2 && touched.password2 && errors.password2}
+        <ErrorMessage>{errors.password2 && touched.password2 && errors.password2}</ErrorMessage>
         <Button login space type="submit" disabled={isSubmitting}>
             Submit
         </Button>
