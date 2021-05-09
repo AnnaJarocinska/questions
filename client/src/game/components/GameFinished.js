@@ -29,6 +29,7 @@ const GameFinished = ({points, category, correctAnswers, wrongAnswers, clearStat
     return (  
         <>
             <CapitalLetterParagraph> Game finished </CapitalLetterParagraph>
+            <CapitalLetterParagraph> Score: {points}/{correctAnswers + wrongAnswers} </CapitalLetterParagraph>
             <Button login red onClick={handleClick}> Play again </Button> 
         </>
     );
