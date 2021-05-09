@@ -14,6 +14,7 @@ body{
     font-size: 18px;
     max-width: 100%;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 ul{
     list-style: none;

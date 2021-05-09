@@ -27,9 +27,9 @@ const GameDetails = ({categories, mode, menuVisible,
         {(categories.length !== 0 || mode) &&
             <Container strap transparent = {unclickable}>
                 {(categories.length !== 0) &&
-                <Container wrap>
+                <Container wrap="true">
                     <Paragraph medium> Selected categories: </Paragraph>
-                    <Badges list={categories} onClick={menuVisible && deleteCategory} unclickable={unclickable}/>
+                    <Badges list={categories} onClick={menuVisible ? deleteCategory : undefined} unclickable={unclickable}/>
                 </Container>}
                 {mode && <Paragraph medium> Selected mode: <Label radio unclickable={unclickable}>{mode}</Label></Paragraph>}
                 {((categories.length !== 0 && mode) && menuVisible) && 

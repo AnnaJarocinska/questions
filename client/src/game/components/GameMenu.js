@@ -49,7 +49,7 @@ const GameMenu = () => {
         setMode('');
     }
     const menu = <>
-        <Paragraph> Select categories: </Paragraph>
+        {continents.length !== 0 && <Paragraph> Select categories: </Paragraph>}
         <Badges list={continents} onClick={selectCategory}/>
         <Paragraph> Select mode:
              <Input radio checked={mode === 'All' ? true : false}

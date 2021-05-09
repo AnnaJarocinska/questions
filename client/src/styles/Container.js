@@ -4,7 +4,6 @@ const Container = styled.div`
 display: flex;
 align-items: center;
 flex-wrap: ${props => props.wrap && 'wrap'};
-width: 100%;
 
 ${({ strap }) => strap && css`
 flex-wrap: wrap;
