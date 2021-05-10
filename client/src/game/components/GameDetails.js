@@ -33,7 +33,7 @@ const GameDetails = ({categories, mode, menuVisible,
                 </Container>}
                 {mode && <Paragraph medium> Selected mode: <Label radio unclickable={unclickable}>{mode}</Label></Paragraph>}
                 {((categories.length !== 0 && mode) && menuVisible) && 
-                <Container basis ><Button login red space onClick={saveSelectedDetails}>Submit</Button></Container>}
+            <Button login red space onClick={saveSelectedDetails}>Submit</Button>}
             </Container>
         }
             {!menuVisible && <GameFetchQuestions clearGameDetails={clearGameDetails}/>}

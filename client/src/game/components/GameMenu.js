@@ -48,10 +48,10 @@ const GameMenu = () => {
         setCategories([]);
         setMode('');
     }
-    const menu = <>
+    const menu = <Container menu>
         {continents.length !== 0 && <Paragraph> Select categories: </Paragraph>}
         <Badges list={continents} onClick={selectCategory}/>
-        <Paragraph> Select mode:
+        <Paragraph width> Select mode:
              <Input radio checked={mode === 'All' ? true : false}
             onChange={selectMode}
             type="radio" value="all" id="all" name="gameType" /> <Label radio htmlFor="all"> All</Label>
@@ -59,7 +59,7 @@ const GameMenu = () => {
              onChange={selectMode}
             type="radio" value="random10" id="random10" name="gameType"/> <Label radio htmlFor="random10">Random 10</Label>
         </Paragraph>
-    </>
+    </Container>
     return ( 
         <Container main>
            {menuVisible && menu}

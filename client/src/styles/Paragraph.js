@@ -9,6 +9,9 @@ font-size: 20px;
 @media (min-width: 1000px) {
     font-size: 20px;
     }
+    ${({ width }) => width && css`
+width: 100%;
+`}
 ${({ clickable }) => clickable && css`
 cursor: pointer;
 &:hover{

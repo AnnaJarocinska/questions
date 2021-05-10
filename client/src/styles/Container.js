@@ -5,6 +5,16 @@ display: flex;
 align-items: center;
 flex-wrap: ${props => props.wrap && 'wrap'};
 
+${({ wrap }) => wrap && css`
+flex-wrap: wrap;
+@media (min-width: 600px) {
+    flex-wrap: no-wrap;
+    }
+@media (min-width: 600px) {
+    flex-wrap: wrap;
+    }
+`}
+
 ${({ strap }) => strap && css`
 flex-wrap: wrap;
 flex-direction: column;
@@ -23,7 +33,6 @@ border: 10px dotted ${props => props.theme.colors.yellow.dark};
 flex-direction: column;
 justify-content: center;
 @media (min-width: 600px) {
-    width: ${props => props.half? '50%' : '100%'};
     padding: 20px;
     min-width: 400px;
     }
@@ -72,6 +81,17 @@ justify-content: center;
     }
 `}
 
+${({ menu }) => menu && css`
+flex-direction: column;
+flex-wrap: wrap;
+@media (min-width: 600px) {
+    flex-direction: row;
+}
+@media (min-width: 1000px) {
+    flex-direction: column;
+}
+`}
+
 ${({ list }) => list && css`
 border-bottom: 2px solid ${props => props.theme.colors.grey.dark};
 padding: 10px 20px;
@@ -105,6 +125,12 @@ justify-content: space-around;
 min-height: 70vh;
 flex-wrap: wrap;
 width: 100%;
+@media (min-width: 600px) {
+    flex-direction: row;
+}
+@media (min-width: 1000px) {
+    flex-direction: column;
+}
 `}
 
 ${({ form }) => form && css`
