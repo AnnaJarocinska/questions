@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 const Paragraph = styled.p`
 padding: 5px;
-font-size: 20px;
+font-size: 18px;
 @media (min-width: 600px) {
     font-size: 16px;
     }

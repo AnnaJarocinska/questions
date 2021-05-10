@@ -13,7 +13,6 @@ body{
     background-color: ${props => props.theme.colors.beige.light};
     font-size: 18px;
     max-width: 100%;
-  
 }
 ul{
     list-style: none;
