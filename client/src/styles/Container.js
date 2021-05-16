@@ -134,7 +134,6 @@ width: 100%;
 `}
 
 ${({ form }) => form && css`
-padding: 100px;
 width: 100%;
 align-items: center;
 justify-content: center;
