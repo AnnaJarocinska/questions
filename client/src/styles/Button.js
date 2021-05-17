@@ -36,13 +36,13 @@ padding: 2px 4px;
 
 ${({ red }) => red && css`
 background-color: ${props => props.theme.colors.red.normal};
-margin: 0 auto;
+margin: 10px auto;
 padding: 6px 30px;
 font-size: 20px;
 `}
 
 ${({ space }) => space && css`
--margin-top: 10px;
+margin-top: 10px;
 `}
 `
 
