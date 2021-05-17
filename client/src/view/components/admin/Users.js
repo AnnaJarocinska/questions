@@ -1,11 +1,9 @@
 import React from 'react';
-import User from '../../../components/User';
+import UsersListFetch from '../../../components/UsersListFetch';
 
 const Users = () => {
     return ( 
-        <>
-            <User/> 
-        </>
+            <UsersListFetch/> 
      );
 }
  

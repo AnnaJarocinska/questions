@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UsersList from './UsersList';
 
-const User = () => {
+const UsersListFetch = () => {
 
     const [data, setData] = useState({ users: [] });
 
@@ -22,10 +22,8 @@ const User = () => {
     }
 
     return (
-        <>
-            <UsersList users={data} deleteUser={deleteUser} />
-        </>
+        <UsersList users={data} deleteUser={deleteUser} />
     );
 }
 
-export default User;
+export default UsersListFetch;
