@@ -3,6 +3,7 @@ import axios from 'axios';
 import NewQuestionForm from './NewQuestionForm';
 import List from './List';
 import Button from '../styles/Button';
+import Subtitle from '../styles/Subtitle';
 
 const Question = () => {
 
@@ -30,6 +31,7 @@ const Question = () => {
 
   return (
         <>
+          <Subtitle>New question</Subtitle>
           <NewQuestionForm getQuestions={fetchData} />
           <Button login red space onClick={handleShowClick}> Show all questions </Button>
           {show && <List questions={data} deleteQuestion={deleteQuestion} />}

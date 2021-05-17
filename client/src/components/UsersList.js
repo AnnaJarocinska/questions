@@ -1,7 +1,7 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import Container from '../styles/Container';
+import Paragraph from '../styles/Paragraph';
 import Subtitle from '../styles/Subtitle';
+import ListItem from '../styles/ListItem';
 
 const UsersList = ({ users, deleteUser }) => {
 
@@ -15,21 +15,17 @@ const UsersList = ({ users, deleteUser }) => {
             (
               users.map(user => {
                 return (
-                  <Container users key={uuidv4()}>
-                    <li key={user._id} onClick={() => deleteUser(user._id)}>
-                      <p key={user.name}>Login: {user.name}</p>
-                      <p key={user.password}>Password: {user.password}</p>
-                      <p key={user.created}>Created: {user.created}</p>
-                    </li>
-                  </Container>
+                    <ListItem key={user._id} onClick={() => deleteUser(user._id)}>
+                      <Paragraph key={user.name}>Login: {user.name}</Paragraph>
+                      <Paragraph key={user.password}>Password: {user.password}</Paragraph>
+                      < Paragraph key={user.created}>Created: {user.created}</Paragraph>
+                    </ListItem>
                 )
               })
             )
             :
             (
-              <Container users>
-              <li>No users</li>
-              </Container>
+              <ListItem>No users</ListItem>
             )
         }
       </ul>

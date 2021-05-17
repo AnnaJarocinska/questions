@@ -4,12 +4,11 @@ const Form =  styled.form`
 display: flex;
 flex-direction: column;
 justify-content: center;
-margin: 15px auto;
 width: 75%;
 height: 80vh;
 @media (min-width: 600px) {
     width: 40%;   
-    height: 70vh;
+    height: 75vh;
 }
 `   
 

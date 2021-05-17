@@ -5,6 +5,7 @@ import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
+import ErrorMessage from '../styles/ErrorMessage';
 
 const NewQuestionForm = (props) => (
  
@@ -65,7 +66,7 @@ const NewQuestionForm = (props) => (
         isSubmitting,
       }) => (
           <Form onSubmit={handleSubmit}>
-            <Label htmlFor="question">New question: </Label>
+            <Label htmlFor="question">Question: </Label>
             <Input
               type="text"
               name="question"
@@ -74,7 +75,7 @@ const NewQuestionForm = (props) => (
               value={values.question}
               onBlur={handleBlur}> 
               </Input>
-            {errors.question && touched.question && errors.question}
+            <ErrorMessage>{errors.question && touched.question && errors.question}</ErrorMessage>
             <Label htmlFor="continent">Continent:</Label>
             <select
               id="continent"
@@ -91,7 +92,7 @@ const NewQuestionForm = (props) => (
               <option value="North America">North America</option>
               <option value="South America">South America</option>
             </select>
-            {errors.continent && touched.continent && errors.continent}
+            <ErrorMessage>{errors.continent && touched.continent && errors.continent}</ErrorMessage>
             <Label htmlFor="a">a</Label>
             <Input
               name="a"
@@ -102,7 +103,7 @@ const NewQuestionForm = (props) => (
               onBlur={handleBlur}
             >
             </Input>
-            {errors.a && touched.a && errors.a}
+            <ErrorMessage>{errors.a && touched.a && errors.a}</ErrorMessage>
             <Label htmlFor="b">b</Label>
             <Input
               name="b"
@@ -113,7 +114,7 @@ const NewQuestionForm = (props) => (
               onBlur={handleBlur}
             >
             </Input>
-            {errors.b && touched.b && errors.b}
+            <ErrorMessage>{errors.b && touched.b && errors.b}</ErrorMessage>
             <Label htmlFor="c">c</Label>
             <Input
               name="c"
@@ -124,7 +125,7 @@ const NewQuestionForm = (props) => (
               onBlur={handleBlur}
             >
             </Input>
-            {errors.c && touched.c && errors.c}
+            <ErrorMessage>{errors.c && touched.c && errors.c}</ErrorMessage>
             <Label htmlFor="d">d</Label>
             <Input
               name="d"
@@ -146,7 +147,7 @@ const NewQuestionForm = (props) => (
               onBlur={handleBlur}
             >
             </Input>
-            {errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}
+            <ErrorMessage>{errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}</ErrorMessage>
             <Button login form="true" type="submit" disabled={isSubmitting}>add question</Button>
           </Form>
         )}

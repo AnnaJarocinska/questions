@@ -36,7 +36,7 @@ padding: 2px 4px;
 
 ${({ red }) => red && css`
 background-color: ${props => props.theme.colors.red.normal};
-margin: 10px auto;
+margin: 15px auto;
 padding: 6px 30px;
 font-size: 20px;
 `}
