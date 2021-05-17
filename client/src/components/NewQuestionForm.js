@@ -154,5 +154,4 @@ const NewQuestionForm = (props) => (
  
 );
 
-
 export default NewQuestionForm;
