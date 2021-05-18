@@ -64,7 +64,7 @@ const NewUserForm = () => {
         handleSubmit,
         isSubmitting,
       }) => (
-          <Form onSubmit={handleSubmit}>
+          <Form login onSubmit={handleSubmit}>
             <Label htmlFor="newName"> User: </Label>
             <Input
               type="text"

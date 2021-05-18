@@ -9,7 +9,6 @@ justify-content: center;
 align-items: center;
 font-size: 12px;
 padding: 10px;
-position: fixed;
 bottom: 0;
 left: 0;
 width: 100%;

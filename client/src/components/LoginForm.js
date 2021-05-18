@@ -88,7 +88,7 @@ const LoginForm = ({ admin, user, adminLoggedIn, userLoggedIn }) => {
         handleSubmit,
         isSubmitting,
       }) => (
-          <Form onSubmit={handleSubmit} >
+          <Form login onSubmit={handleSubmit} >
             <Label htmlFor="name"> User: </Label>
             <Input
               type="text"
