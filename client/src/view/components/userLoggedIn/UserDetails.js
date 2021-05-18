@@ -6,7 +6,6 @@ import Paragraph from '../../../styles/Paragraph';
 
 const UserDetails = ({userName, created}) => {
     const formattedDate = created.substr(0,10).replaceAll("-", ".");
-    console.log(typeof formattedDate, 'tpeof formatted date')
     return (
         <Container separate user> 
             <Paragraph>

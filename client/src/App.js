@@ -57,7 +57,7 @@ const App = () => {
               </Container>
             </Overlay>
           </Wrapper>
-          <Footer />
+          <Footer/>
         </div>
       </Router>
     </ThemeProvider>

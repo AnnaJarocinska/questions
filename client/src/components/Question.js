@@ -4,6 +4,7 @@ import NewQuestionForm from './NewQuestionForm';
 import List from './List';
 import Button from '../styles/Button';
 import Subtitle from '../styles/Subtitle';
+import Container from '../styles/Container';
 
 const Question = () => {
 
@@ -30,12 +31,16 @@ const Question = () => {
   }
 
   return (
-        <>
+    <>
+        <Container form>
           <Subtitle>New question</Subtitle>
           <NewQuestionForm getQuestions={fetchData} />
+          </Container>
+          <Container form>
           <Button login red space onClick={handleShowClick}> Show all questions </Button>
           {show && <List questions={data} deleteQuestion={deleteQuestion} />}
-        </>
+          </Container>
+   </>    
   );
 }
 

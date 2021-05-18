@@ -125,9 +125,6 @@ justify-content: space-around;
 min-height: 70vh;
 flex-wrap: wrap;
 width: 100%;
-@media (min-width: 600px) {
-    flex-direction: row;
-}
 @media (min-width: 1000px) {
     flex-direction: column;
 }

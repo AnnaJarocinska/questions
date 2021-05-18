@@ -13,12 +13,8 @@ position: fixed;
 bottom: 0;
 left: 0;
 width: 100%;
-@media (min-width: 600px) {
-    position: static;
-}
 @media (min-width: 1000px) {
-    font-size: 16px;
-    position: fixed;  
+    font-size: 16px; 
 }
 `
 export default Footer
