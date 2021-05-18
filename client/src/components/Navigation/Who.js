@@ -8,7 +8,7 @@ const Who = ({admin, user, unnamed, userName}) => {
     const icon = (
     !unnamed ? 
     <Span admin={admin ? admin.toString() : undefined} user={user ? user.toString() : undefined}>
-        <FontAwesomeIcon icon={faUser}/> {userName}  </Span> : null
+        <FontAwesomeIcon icon={faUser}/> {admin ? "admin" : userName}  </Span> : null
         )
     return ( 
         <div>
