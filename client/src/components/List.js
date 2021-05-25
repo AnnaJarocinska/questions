@@ -15,16 +15,19 @@ const List = ({ questions, deleteQuestion }) => {
           (
             questions.map(question => {
               let goodAnswer = question.goodAnswer.toUpperCase();
-              let variants = ['A', 'B', 'C', 'D'];
+              let variants = ['answerA', 'answerB', 'answerC', 'answerD'];
               let answer=[];
              
               for (let i = 0; i<variants.length; i++){
-                return console.log(variants[i], 'bbb')
+               let mix= variants[i].toString();
+               let quest = question+"."+variants[i]
+               console.log(`question.${variants[i]}`, 'variantsi')
                 // answer.push(
                 //   <Paragraph>
-                //     {`${question.answer+variants[i]}`.includes(goodAnswer) ? 
-                //     `${question.answervariants[i]}.toUpperCase()}` :
-                //      `${question.answervariants[i]}` }
+                //     {quest.includes(goodAnswer)}
+                //     ? 
+                //     {question.variants[i].toUpperCase()} :
+                //      {`${question}.${variants[i]}` }
                 //      </Paragraph>)
               
               }
