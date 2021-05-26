@@ -19,16 +19,22 @@ const List = ({ questions, deleteQuestion }) => {
               let answer=[];
              
               for (let i = 0; i<variants.length; i++){
-               let mix= variants[i].toString();
-               let quest = question+"."+variants[i]
+               let quest = question+"."+variants[i].toString();
+               let questi=`question.${variants[i]}`
                console.log(`question.${variants[i]}`, 'variantsi')
-                // answer.push(
-                //   <Paragraph>
-                //     {quest.includes(goodAnswer)}
-                //     ? 
-                //     {question.variants[i].toUpperCase()} :
-                //      {`${question}.${variants[i]}` }
-                //      </Paragraph>)
+                answer.push(
+                  // <Paragraph>
+                    questi.includes(goodAnswer)
+                    ? 
+                    <Paragraph>
+                    {questi.toUpperCase()} 
+                    </Paragraph>
+                    :
+                    <Paragraph>
+                     {questi}
+                     </Paragraph>
+                     /* </Paragraph> */
+                     )
               
               }
               return (
