@@ -22,11 +22,11 @@ const List = ({ questions, deleteQuestion }) => {
                 answers.push(
                     variants[i].includes(goodAnswer)
                     ? 
-                    <Paragraph>
+                    <Paragraph key={uuidv4()}>
                     {answer.toUpperCase()} 
                     </Paragraph>
                     :
-                    <Paragraph>
+                    <Paragraph key={uuidv4()}>
                      {answer}
                      </Paragraph>
                      )

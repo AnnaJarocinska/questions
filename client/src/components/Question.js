@@ -32,11 +32,11 @@ const Question = () => {
 
   return (
     <>
-        <Container form>
+        <Container form="true">
           <Subtitle>New question</Subtitle>
           <NewQuestionForm getQuestions={fetchData} />
           </Container>
-          <Container form>
+          <Container form="true">
           <Button login red space onClick={handleShowClick}> Show all questions </Button>
           {show && <List questions={data} deleteQuestion={deleteQuestion} />}
           </Container>
