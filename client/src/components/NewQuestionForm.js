@@ -10,7 +10,7 @@ import ErrorMessage from '../styles/ErrorMessage';
 const NewQuestionForm = (props) => (
  
     <Formik
-      initialValues={{ question: '', continent: '-', a: '', b: '', c: '', d: '' }}
+      initialValues={{ question: '', continent: '-', a: '', b: '', c: '', d: '', goodAnswer: '' }}
       validate={values => {
         const errors = {};
         if (!values.question) {
@@ -43,7 +43,7 @@ const NewQuestionForm = (props) => (
           answerD: values.d,
           goodAnswer: values.goodAnswer
         }
-    
+    console.log(content, 'content subnmit')
           axios.post('/api/question', content)
             .then(res => {
               if (res.data) {
@@ -53,7 +53,6 @@ const NewQuestionForm = (props) => (
               }
             })
             .catch(err => console.log(err))
-        
       }}
     >
       {({
@@ -148,11 +147,10 @@ const NewQuestionForm = (props) => (
             >
             </Input>
             <ErrorMessage>{errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}</ErrorMessage>
-            <Button login form="true" type="submit" disabled={isSubmitting}>add question</Button>
+            <Button type="submit" login disabled={isSubmitting}>add question</Button>
           </Form>
         )}
     </Formik>
- 
 );
 
 export default NewQuestionForm;
