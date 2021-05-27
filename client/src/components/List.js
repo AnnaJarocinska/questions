@@ -16,39 +16,28 @@ const List = ({ questions, deleteQuestion }) => {
             questions.map(question => {
               let goodAnswer = question.goodAnswer.toUpperCase();
               let variants = ['answerA', 'answerB', 'answerC', 'answerD'];
-              let answer=[];
-             
-              for (let i = 0; i<variants.length; i++){
-               let quest = question+"."+variants[i].toString();
-               let questi=`question.${variants[i]}`
-               console.log(`question.${variants[i]}`, 'variantsi')
-                answer.push(
-                  // <Paragraph>
-                    questi.includes(goodAnswer)
+              let answers = [];
+              for (let i = 0; i<variants.length; ++i) {
+               let answer = question[variants[i].toString()];
+                answers.push(
+                    variants[i].includes(goodAnswer)
                     ? 
                     <Paragraph>
-                    {questi.toUpperCase()} 
+                    {answer.toUpperCase()} 
                     </Paragraph>
                     :
                     <Paragraph>
-                     {questi}
+                     {answer}
                      </Paragraph>
-                     /* </Paragraph> */
                      )
-              
               }
               return (
                 <Container list="true" key={uuidv4()}>
                   <li key={question._id} onClick={() => deleteQuestion(question._id)}>
-                  <Paragraph>{question.question}</Paragraph>
-                  <Badge continent={question.continent}>{question.continent}</Badge>
-                  {answer}
-                  {/* <Paragraph>{question.answerA.includes(question.goodAnswer.toUpperCase()) ? question.answerA.toUpperCase() : question.answerA }</Paragraph>
-                  <Paragraph>{question.answerB.includes(question.goodAnswer.toUpperCase()) ? question.answerB.toUpperCase() : question.answerB }</Paragraph>
-                  <Paragraph>{question.answerC.includes(question.goodAnswer.toUpperCase()) ? question.answerC.toUpperCase() : question.answerC }</Paragraph>
-                  <Paragraph>{question.answerD.includes(question.goodAnswer.toUpperCase()) ? question.answerD.toUpperCase() : question.answerD }</Paragraph> */}
-                  <Paragraph> {goodAnswer}</Paragraph>
-                </li>
+                    <Paragraph>{question.question}</Paragraph>
+                    <Badge continent={question.continent}> {question.continent} </Badge>
+                    {answers}
+                  </li>
                 </Container>
               )
             })
