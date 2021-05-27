@@ -4,6 +4,10 @@ const Form =  styled.form`
 display: flex;
 flex-direction: column;
 justify-content: center;
+@media (min-width: 650px) {
+    width: 40%;   
+    height: 75vh;
+}
 
 ${({ login }) => login && css`
 width: 75%;

@@ -3,9 +3,7 @@ import Question from '../../../components/Question';
 
 const AddingQuestion = () => {
     return (
-        <>
           <Question/>
-        </>
       );
 }
  

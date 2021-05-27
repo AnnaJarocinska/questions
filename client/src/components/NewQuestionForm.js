@@ -43,7 +43,6 @@ const NewQuestionForm = (props) => (
           answerD: values.d,
           goodAnswer: values.goodAnswer
         }
-    console.log(content, 'content subnmit')
           axios.post('/api/question', content)
             .then(res => {
               if (res.data) {
