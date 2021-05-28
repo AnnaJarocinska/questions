@@ -6,7 +6,7 @@ flex-direction: column;
 justify-content: center;
 @media (min-width: 650px) {
     width: 40%;   
-    height: 75vh;
+    min-height: 75vh;
 }
 
 ${({ login }) => login && css`

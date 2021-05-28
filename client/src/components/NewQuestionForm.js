@@ -5,6 +5,7 @@ import Button from '../styles/Button';
 import Form from '../styles/Form';
 import Label from '../styles/Label';
 import Input from '../styles/Input';
+import Select from '../styles/Select';
 import ErrorMessage from '../styles/ErrorMessage';
 
 const NewQuestionForm = (props) => (
@@ -75,7 +76,7 @@ const NewQuestionForm = (props) => (
               </Input>
             <ErrorMessage>{errors.question && touched.question && errors.question}</ErrorMessage>
             <Label htmlFor="continent">Continent:</Label>
-            <select
+            <Select
               id="continent"
               name="continent"
               value={values.continent}
@@ -89,7 +90,7 @@ const NewQuestionForm = (props) => (
               <option value="Europe">Europe</option>
               <option value="North America">North America</option>
               <option value="South America">South America</option>
-            </select>
+            </Select>
             <ErrorMessage>{errors.continent && touched.continent && errors.continent}</ErrorMessage>
             <Label htmlFor="a">a</Label>
             <Input
@@ -136,15 +137,18 @@ const NewQuestionForm = (props) => (
             </Input>
             {errors.d && touched.d && errors.d}
             <Label htmlFor="goodAnswer">good answer</Label>
-            <Input
-              name="goodAnswer"
+            <Select
               id="goodAnswer"
-              type="text"
-              onChange={handleChange}
+              name="goodAnswer"
               value={values.goodAnswer}
+              onChange={handleChange}
               onBlur={handleBlur}
             >
-            </Input>
+              <option value="a">a</option>
+              <option value="b">b</option>
+              <option value="c">c</option>
+              <option value="d">d</option>
+            </Select>
             <ErrorMessage>{errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}</ErrorMessage>
             <Button type="submit" login disabled={isSubmitting}>add question</Button>
           </Form>
