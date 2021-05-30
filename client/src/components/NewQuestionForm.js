@@ -32,6 +32,9 @@ const NewQuestionForm = (props) => (
         if (!values.d) {
           errors.d = 'This field is required';
         }
+        if (!values.goodAnswer) {
+          errors.goodAnswer = 'This field is required';
+        }
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) => {
