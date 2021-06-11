@@ -23,13 +23,6 @@ const UserDetails = ({userName, created}) => {
                             </Paragraph>
                         </Link>
                     </li>
-                    <li>
-                        <Link to="/user/details/changePassword">
-                            <Paragraph clickable>
-                                Add photo
-                            </Paragraph>
-                        </Link>
-                    </li>
                 </ul>
             </nav>
         </Container>
