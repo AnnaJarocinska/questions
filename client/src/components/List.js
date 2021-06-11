@@ -14,13 +14,13 @@ const List = ({ questions, deleteQuestion }) => {
           questions.length > 0 ?
           (
             questions.map(question => {
-              let goodAnswer = question.goodAnswer.toUpperCase();
+              let correctAnswer = question.correctAnswer.toUpperCase();
               let variants = ['answerA', 'answerB', 'answerC', 'answerD'];
               let answers = [];
               for (let i = 0; i<variants.length; ++i) {
                let answer = question[variants[i].toString()];
                 answers.push(
-                    variants[i].includes(goodAnswer)
+                    variants[i].includes(correctAnswer)
                     ? 
                     <Paragraph key={uuidv4()}>
                     {answer.toUpperCase()} 

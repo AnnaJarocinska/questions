@@ -11,7 +11,7 @@ import ErrorMessage from '../styles/ErrorMessage';
 const NewQuestionForm = (props) => (
  
     <Formik
-      initialValues={{ question: '', continent: '-', a: '', b: '', c: '', d: '', goodAnswer: '' }}
+      initialValues={{ question: '', continent: '-', a: '', b: '', c: '', d: '', correctAnswer: '' }}
       validate={values => {
         const errors = {};
         if (!values.question) {
@@ -32,8 +32,8 @@ const NewQuestionForm = (props) => (
         if (!values.d) {
           errors.d = 'This field is required';
         }
-        if (!values.goodAnswer) {
-          errors.goodAnswer = 'This field is required';
+        if (!values.correctAnswer) {
+          errors.correctAnswer = 'This field is required';
         }
         return errors;
       }}
@@ -45,7 +45,7 @@ const NewQuestionForm = (props) => (
           answerB: values.b,
           answerC: values.c,
           answerD: values.d,
-          goodAnswer: values.goodAnswer
+          correctAnswer: values.correctAnswer
         }
           axios.post('/api/question', content)
             .then(res => {
@@ -139,10 +139,10 @@ const NewQuestionForm = (props) => (
             >
             </Input>
             {errors.d && touched.d && errors.d}
-            <Label htmlFor="goodAnswer">good answer</Label>
+            <Label htmlFor="correctAnswer">correct answer</Label>
             <Select
-              id="goodAnswer"
-              name="goodAnswer"
+              id="correctAnswer"
+              name="correctAnswer"
               value={values.goodAnswer}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -152,7 +152,7 @@ const NewQuestionForm = (props) => (
               <option value="c">c</option>
               <option value="d">d</option>
             </Select>
-            <ErrorMessage>{errors.goodAnswer && touched.goodAnswer && errors.goodAnswer}</ErrorMessage>
+            <ErrorMessage>{errors.correctAnswer && touched.correctAnswer && errors.correctAnswer}</ErrorMessage>
             <Button type="submit" login disabled={isSubmitting}>add question</Button>
           </Form>
         )}

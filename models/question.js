@@ -31,9 +31,9 @@ const QuestionSchema = new Schema({
     type: String,
     required: [true, 'The answer field is required']
   },
-  goodAnswer: {
+  correctAnswer: {
     type: String,
-    required: [true, 'The good answer field is required']
+    required: [true, 'The correct answer field is required']
   },
   created : {type: Date, default: Date.now},
 })

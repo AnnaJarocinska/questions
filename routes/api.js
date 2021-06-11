@@ -36,7 +36,7 @@ router.post('/capitalsList', async (req, res, next) => {
 router.post('/checkAnswer', async (req, res, next) => {
     const requestedQuestion = await Question.find({_id: req.body.questionId})
     try{
-        if(requestedQuestion[0].goodAnswer === req.body.userAnswer){
+        if(requestedQuestion[0].correctAnswer === req.body.userAnswer){
             res.send('correctAnswer')
         } else {
             res.send('wrongAnswer')
