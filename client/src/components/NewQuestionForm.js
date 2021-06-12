@@ -138,7 +138,7 @@ const NewQuestionForm = (props) => (
               onBlur={handleBlur}
             >
             </Input>
-            {errors.d && touched.d && errors.d}
+            <ErrorMessage>{errors.d && touched.d && errors.d}</ErrorMessage>
             <Label htmlFor="correctAnswer">correct answer</Label>
             <Select
               id="correctAnswer"
