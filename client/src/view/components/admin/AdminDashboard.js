@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CapitalLetterParagraph from '../../../styles/CapitalLetterParagraph';
 import Paragraph from '../../../styles/Paragraph';
 import Container from '../../../styles/Container';
 
@@ -9,7 +8,6 @@ const AdminDashboard = () => {
         <>
             <Container main>
                 <Container separate admin>
-                    <CapitalLetterParagraph> Welcome to admin </CapitalLetterParagraph>
                     <nav>
                         <ul>
                             <li>
