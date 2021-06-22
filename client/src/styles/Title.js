@@ -6,7 +6,7 @@ font-family: 'Fredericka the Great', cursive;
 text-align: center;
 font-size: 40px;
 position: absolute;
-top: 25%;
+top: 30%;
 left: 50%;
 transform: translate(-50%, -50%);
 z-index: 2;
