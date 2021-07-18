@@ -6,7 +6,7 @@ router.post('/questions', async (req, res) => {
     const requestedQuestions = req.body.mode === 'Random10' ?
     await Question.aggregate([
         {$match: {continent: {$in: req.body.categories }}},
-        {$sample: {size: 3}}
+        {$sample: {size: 10}}
     ]):
     await Question.find({continent: {$in: req.body.categories }});
  try{
